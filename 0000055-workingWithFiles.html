@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>38&nbsp; Where to find APIs – Data Management With R</title>
+<title>3&nbsp; Working with files – Data Management With R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./0999000-toDo-v001.html" rel="next">
-<link href="./0000300-whereToFindDatasets-v001.html" rel="prev">
+<link href="./0000075-whatIsJsonData.html" rel="next">
+<link href="./0000022-InstallingRPackages-v003.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -120,7 +86,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000100-topics-v001.html">Appendices</a></li><li class="breadcrumb-item"><a href="./0000310-whereToFindApis-v001.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Where to find APIs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -174,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
+  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
   </div>
 </li>
@@ -494,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link active">
+  <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
   </div>
 </li>
@@ -516,23 +482,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-use-apis" id="toc-how-to-use-apis" class="nav-link active" data-scroll-target="#how-to-use-apis"><span class="header-section-number">39</span> How to use APIs</a>
+  <li><a href="#reference-files" id="toc-reference-files" class="nav-link active" data-scroll-target="#reference-files"><span class="header-section-number">3.1</span> Reference files</a></li>
+  <li><a href="#a-directory-means-the-same-thing-as-a-folder" id="toc-a-directory-means-the-same-thing-as-a-folder" class="nav-link" data-scroll-target="#a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">3.2</span> A “directory” means the same thing as a “folder”</a></li>
+  <li><a href="#what-is-a-full-path" id="toc-what-is-a-full-path" class="nav-link" data-scroll-target="#what-is-a-full-path"><span class="header-section-number">3.3</span> What is a full path?</a></li>
+  <li><a href="#difference-between-a-full-path-and-a-relative-path" id="toc-difference-between-a-full-path-and-a-relative-path" class="nav-link" data-scroll-target="#difference-between-a-full-path-and-a-relative-path"><span class="header-section-number">3.4</span> Difference between a “full path” and a “relative path”</a>
   <ul class="collapse">
-  <li><a href="#packages-in-r-for-specific-apis" id="toc-packages-in-r-for-specific-apis" class="nav-link" data-scroll-target="#packages-in-r-for-specific-apis"><span class="header-section-number">39.1</span> Packages in R for specific APIs</a>
+  <li><a href="#mac-and-linux-style-paths-vs-windows-style-paths" id="toc-mac-and-linux-style-paths-vs-windows-style-paths" class="nav-link" data-scroll-target="#mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">3.4.1</span> Mac and Linux style paths VS Windows style paths</a></li>
+  <li><a href="#windows-drive-letters" id="toc-windows-drive-letters" class="nav-link" data-scroll-target="#windows-drive-letters"><span class="header-section-number">3.4.2</span> Windows drive letters</a></li>
+  </ul></li>
+  <li><a href="#getwd-and-setwd" id="toc-getwd-and-setwd" class="nav-link" data-scroll-target="#getwd-and-setwd"><span class="header-section-number">3.5</span> getwd() and setwd()</a></li>
+  <li><a href="#list.files-and-dir" id="toc-list.files-and-dir" class="nav-link" data-scroll-target="#list.files-and-dir"><span class="header-section-number">3.6</span> list.files() and dir()</a></li>
+  <li><a href="#fs-package" id="toc-fs-package" class="nav-link" data-scroll-target="#fs-package"><span class="header-section-number">3.7</span> fs package</a>
   <ul class="collapse">
-  <li><a href="#r-for-finance" id="toc-r-for-finance" class="nav-link" data-scroll-target="#r-for-finance"><span class="header-section-number">39.1.1</span> R for finance</a></li>
+  <li><a href="#dir_tree" id="toc-dir_tree" class="nav-link" data-scroll-target="#dir_tree"><span class="header-section-number">3.7.1</span> dir_tree</a></li>
+  <li><a href="#other-functions-in-the-fs-package" id="toc-other-functions-in-the-fs-package" class="nav-link" data-scroll-target="#other-functions-in-the-fs-package"><span class="header-section-number">3.7.2</span> Other functions in the fs package</a></li>
   </ul></li>
-  <li><a href="#apis" id="toc-apis" class="nav-link" data-scroll-target="#apis"><span class="header-section-number">39.2</span> APIs</a></li>
+  <li><a href="#read_csv-and-write_csv" id="toc-read_csv-and-write_csv" class="nav-link" data-scroll-target="#read_csv-and-write_csv"><span class="header-section-number">3.8</span> read_csv and write_csv</a></li>
+  <li><a href="#readwrite-excel-files" id="toc-readwrite-excel-files" class="nav-link" data-scroll-target="#readwrite-excel-files"><span class="header-section-number">3.9</span> Read/Write Excel files</a></li>
+  <li><a href="#reading-fixed-width-field-files" id="toc-reading-fixed-width-field-files" class="nav-link" data-scroll-target="#reading-fixed-width-field-files"><span class="header-section-number">3.10</span> Reading fixed width field files</a></li>
+  <li><a href="#capture-output-of-r-commands" id="toc-capture-output-of-r-commands" class="nav-link" data-scroll-target="#capture-output-of-r-commands"><span class="header-section-number">3.11</span> Capture output of R commands</a>
+  <ul class="collapse">
+  <li><a href="#capture.outputsomecommand-filesomefile.txt" id="toc-capture.outputsomecommand-filesomefile.txt" class="nav-link" data-scroll-target="#capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">3.11.1</span> capture.output(someCommand, file=“someFile.txt”)</a></li>
   </ul></li>
+  <li><a href="#sinksomefile-sink" id="toc-sinksomefile-sink" class="nav-link" data-scroll-target="#sinksomefile-sink"><span class="header-section-number">3.12</span> sink(“someFile”), sink()</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000100-topics-v001.html">Appendices</a></li><li class="breadcrumb-item"><a href="./0000310-whereToFindApis-v001.html"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Where to find APIs</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with files</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Where to find APIs</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with files</span></h1>
 </div>
 
 
@@ -549,82 +530,172 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="how-to-use-apis" class="level1" data-number="39">
-<h1 data-number="39"><span class="header-section-number">39</span> How to use APIs</h1>
-<p>See this video <a href="https://www.youtube.com/watch?v=8tilyqp4bZY" class="uri">https://www.youtube.com/watch?v=8tilyqp4bZY</a></p>
-<p>You can use the curl command line tool to get info from the APIs too.</p>
-<p><strong><em>Note that the following was compiled circa January 2025.</em></strong></p>
-<p>There is a incredible amount of data that can be accessed online by using an API. Some APIs are free to use but many will require some form of payment. Unfortunately, every API has its own set of rules and regulations. You must read the documentation for each API to understand what type of data is available through the API, how to use the API and how much it may cost.</p>
-<p>In the past it was possible to go to “API Directory” website and “API Hubs” to find APIs. For example, see the following.</p>
+<section id="reference-files" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="reference-files"><span class="header-section-number">3.1</span> Reference files</h2>
+<p>Use this link to <a href="myFiles.zip">download a set of files in a ZIP file</a> for use with these lessons.</p>
+</section>
+<section id="a-directory-means-the-same-thing-as-a-folder" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">3.2</span> A “directory” means the same thing as a “folder”</h2>
+<p>The terms “directory” and “folder” mean exactly the same thing - they’re just two different words for places where we store files on a computer. The word “directory” came first, used in early computer systems in the 1960s. It comes from the word’s original meaning of an organized listing or index, like a phone directory. In the 1980s, when computers started using visual interfaces with icons, Apple introduced the word “folder” because it was more intuitive for regular users - it referenced something familiar that people used to organize paper documents. Today, both terms are used interchangeably, with “folder” being more common in everyday use and “directory” often preferred in technical contexts.</p>
+</section>
+<section id="what-is-a-full-path" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="what-is-a-full-path"><span class="header-section-number">3.3</span> What is a full path?</h2>
+<p>A full path is the complete “address” of a file on your computer. Just like two people named Sarah Johnson can live at different addresses (one in Chicago, one in New York), you can have two files with the same name in different directories (i.e.&nbsp;folders).</p>
+<p>For example, the following are the “full paths” for two different files with the same name, “budget.xlsx”. The full path helps you tell the two files apart by showing exactly where each file is located. Each name between the forward slashes is a folder.</p>
 <ul>
-<li><p><a href="https://www.postman.com/explore" class="uri">https://www.postman.com/explore</a></p></li>
-<li><p><a href="https://rapidapi.com/hub" class="uri">https://rapidapi.com/hub</a></p></li>
-<li><p><a href="https://www.openapihub.com/en-us/" class="uri">https://www.openapihub.com/en-us/</a></p></li>
-<li><p><a href="https://www.jsonapi.co/public-api" class="uri">https://www.jsonapi.co/public-api</a></p></li>
-<li><p><a href="https://github.com/public-apis/public-apis?tab=readme-ov-file" class="uri">https://github.com/public-apis/public-apis?tab=readme-ov-file</a></p></li>
-<li><p><a href="https://sourceforge.net/software/api-hubs/" class="uri">https://sourceforge.net/software/api-hubs/</a></p></li>
-<li><p><a href="https://nordicapis.com/13-api-directories-to-help-you-discover-apis/" class="uri">https://nordicapis.com/13-api-directories-to-help-you-discover-apis/</a></p></li>
+<li><p>Full path 1: /home/Joe/work/budget.xlsx</p>
+<p>This file is named “budget.xlsx”. It is in the “work” folder, which is in the folder named “Joe” which is in the “home” folder.</p></li>
+<li><p>Full path 2: /home/Sue/personal/budget.xlsx</p>
+<p>This file is also named “budget.xlsx”. It is in the “personal” folder, which is in the folder named “Sue” which is in the “home” folder, which is in the folder at the very top of the folder hierarchy on the computer.</p></li>
 </ul>
-<p>However, the API landscape has changed a lot in recent years. There are so many APIs, it has become almost impossible to maintain a list of available APIs. Many companies have an API that make their services available programatically via APIs. However, these services are hard to find if you don’t know what to look for. Many companies maintain a “developers” portion of their websites. You can also look for “API” in the fineprint of the website info.</p>
-<ul>
-<li><p><a href="https://platform.openai.com/" class="uri">https://platform.openai.com/</a></p></li>
-<li><p><a href="https://developers.facebook.com/" class="uri">https://developers.facebook.com/</a></p></li>
-<li><p><a href="https://developer.linkedin.com/" class="uri">https://developer.linkedin.com/</a></p></li>
-<li><p><a href="https://developers.google.com/" class="uri">https://developers.google.com/</a></p></li>
-<li><p><a href="https://developer.ups.com/" class="uri">https://developer.ups.com/</a></p></li>
-<li><p><a href="https://developer.spotify.com/" class="uri">https://developer.spotify.com/</a></p></li>
-<li><p><a href="https://developer.ebay.com/" class="uri">https://developer.ebay.com/</a></p></li>
-<li><p><a href="https://developer.twitter.com/en" class="uri">https://developer.twitter.com/en</a> , <a href="https://developer.twitter.com/en/docs/twitter-api" class="uri">https://developer.twitter.com/en/docs/twitter-api</a></p></li>
-<li><p><a href="https://www.sec.gov/edgar/sec-api-documentation" class="uri">https://www.sec.gov/edgar/sec-api-documentation</a></p></li>
-</ul>
-<section id="packages-in-r-for-specific-apis" class="level2" data-number="39.1">
-<h2 data-number="39.1" class="anchored" data-anchor-id="packages-in-r-for-specific-apis"><span class="header-section-number">39.1</span> Packages in R for specific APIs</h2>
-<p>Usually, accessing data from an API requires a technical understanding about how to use APIs in general. However, there are many R packages that make the process of accessing data from specific APIs much easier. These R packages “wrap” the technical details of how to access the API in R functions.</p>
-<p>To get an idea of what APIs have R packages, you can search the list packages on CRAN (<a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" class="uri">https://cran.r-project.org/web/packages/available_packages_by_name.html</a>) for the word API.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the number of packages that have the letters API in </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the package name or in the description.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(rvest)){<span class="fu">install.packages</span>(<span class="st">"rvest"</span>);<span class="fu">require</span>(rvest);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: rvest</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://cran.r-project.org/web/packages/available_packages_by_name.html"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">read_html</span>(url)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">=</span> <span class="fu">html_elements</span>(page, <span class="st">"table"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">html_table</span>(tables[[<span class="dv">1</span>]]))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pkgs) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"package"</span>, <span class="st">"description"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">=</span> <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"package"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">|</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"description"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>numberOfApiPackages <span class="ot">=</span> <span class="fu">sum</span>(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>As of the date this document was compiled there were 603 packages on CRAN that have the letters API in either the name of the package or the description.</p>
-<p>However, be aware that the API ecosystem can change rapidly and the R packages don’t always keep up. For example, twitter used to allow searching for tweets for free using their API. However, they started charging for those services. There are many youtube videos explaining how to search twitter for free using the twitter api via the “twittR” packager. These videos are no longer applicable.</p>
-<section id="r-for-finance" class="level3" data-number="39.1.1">
-<h3 data-number="39.1.1" class="anchored" data-anchor-id="r-for-finance"><span class="header-section-number">39.1.1</span> R for finance</h3>
-<p>Below are some R resources for working with financial data <span class="yrdate">Feb 2, 2024</span></p>
-<p><strong>R package for financial data - getting, charting, modeling</strong></p>
-<ul>
-<li><p>github: (this seems to be the most up to date info)<br>
-<a href="https://github.com/joshuaulrich/quantmod" class="uri">https://github.com/joshuaulrich/quantmod</a></p></li>
-<li><p>website: (this seems VERY out of date - but it’s much easier to get a quick idea of what is possible circa 2009. For more up to date info look at the github page or the official documentation accessible from the CRAN website) <a href="https://www.quantmod.com/" class="uri">https://www.quantmod.com/</a><br>
-<a href="https://www.quantmod.com/examples/intro/" class="uri">https://www.quantmod.com/examples/intro/</a></p></li>
-<li><p>“official” documentation from the “Comprehensive R Archive Network (CRAN)” website<br>
-<a href="https://cran.r-project.org/web/packages/quantmod/index.html" class="uri">https://cran.r-project.org/web/packages/quantmod/index.html</a></p></li>
-</ul>
-<p><strong>Related R package for doing technical analysis</strong></p>
-<ul>
-<li><a href="https://github.com/joshuaulrich/TTR" class="uri">https://github.com/joshuaulrich/TTR</a></li>
-</ul>
+<p><strong><em>A “full path” always starts with a “/”.</em></strong></p>
+</section>
+<section id="difference-between-a-full-path-and-a-relative-path" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="difference-between-a-full-path-and-a-relative-path"><span class="header-section-number">3.4</span> Difference between a “full path” and a “relative path”</h2>
+<p><strong><em>A “full path” always starts with a “/”.</em></strong></p>
+<p>Later, we will study another type of file path called a <strong><em>relative path</em></strong>. A realtive path is simiilar to a “full path” but a relative path does NOT start with a “/”. We’ll learn more about relative paths later and how they differ from full paths.</p>
+<section id="mac-and-linux-style-paths-vs-windows-style-paths" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">3.4.1</span> Mac and Linux style paths VS Windows style paths</h3>
+<p>Mac and Linux systems use forward slashes (/) as path separators - i.e.&nbsp; see the paths above, eg. /home/Joe/work/budget.xlsx</p>
+<p>Windows traditionally uses backslashes (\) as separators, like this:</p>
+<p>\\Users\\Joe\\work\\budget.xlsx</p>
+<p>Note that R understands the Linux/Mac style paths (with forward slashes) even on Windows. It is recommended therefore to always use Linux/Mac style paths in R code so that the code will work on both Linux/Mac and on Windows.</p>
+<p>However, since backslashes have a special meaning in R if you need to use Windows-style paths in R, you must use double backslashes (\), e.g.</p>
+<pre><code>dir_tree("\\Users\\Joe\\work")</code></pre>
+</section>
+<section id="windows-drive-letters" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="windows-drive-letters"><span class="header-section-number">3.4.2</span> Windows drive letters</h3>
+<p>Windows systems use letters (like C:, D:) at the start of paths to represent different drives or storage devices. The C: drive is typically your main hard drive where Windows is installed. Other letters might be additional hard drives, USB drives, or network drives.</p>
+<p>For example:</p>
+<pre><code>C:\Users\username\Documents\file.txt (your main hard drive)
+D:\Backups\file.txt (maybe an external drive)
+E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
+<p>Mac and Linux systems don’t use drive letters. Instead, all hard drives are “mounted” as folders within the single root directory (/). For example, a USB drive might appear at /media/username/USB_DRIVE/. When working in R on Windows, you still need to include the drive letter at the start of full paths, like: “C:/Users/username/Documents/file.txt” (using forward slashes) or <code>"C:\Users\username\Documents\file.txt"</code> (using double backslashes)</p>
 </section>
 </section>
-<section id="apis" class="level2" data-number="39.2">
-<h2 data-number="39.2" class="anchored" data-anchor-id="apis"><span class="header-section-number">39.2</span> APIs</h2>
-<p>You learn about many different APIs via this website <a href="https://rapidapi.com/collection/amazon-products" class="uri">https://rapidapi.com/collection/amazon-products</a></p>
+<section id="getwd-and-setwd" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="getwd-and-setwd"><span class="header-section-number">3.5</span> getwd() and setwd()</h2>
+<p>getwd() shows you your current working directory (the folder R is currently working in). Think of it as asking R “where am I right now?” When you try to read or write files without specifying a full path, R will look in this directory. For example, if you run getwd(), it might show something like: “/home/username/projects” (on Mac/Linux) or “C:/Users/username/Documents” (on Windows)</p>
+<p>setwd() changes your current working directory to a new location. Think of it as telling R “go to this folder.” You need to give it the path of the directory you want to switch to. For example:</p>
+<pre><code>setwd("/home/username/projects")  # Mac/Linux style
+setwd("C:/Users/username/Documents")  # Windows style with forward slashes</code></pre>
+<p>If you give it an invalid path, it will give you an error message.</p>
+</section>
+<section id="list.files-and-dir" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="list.files-and-dir"><span class="header-section-number">3.6</span> list.files() and dir()</h2>
+<p>There are two main functions to list files and directories in R: list.files() shows you all files (and folders) in a directory. If you don’t specify a path, it shows the contents of your current working directory. dir() does exactly the same thing as list.files() - they’re just two names for the same function. Some people prefer dir() because it’s shorter to type. Basic usage:</p>
+<pre><code>ist.files()  # list everything in current directory
+list.files("/home/username/data")  # list everything in a specific directory
+list.files(pattern = ".csv")  # list only files ending in .csv</code></pre>
+<p>You can also use these functions with additional options to get more information or filter the results.</p>
+</section>
+<section id="fs-package" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="fs-package"><span class="header-section-number">3.7</span> fs package</h2>
+<p>The fs package provides modern file system operations in R. It makes working with files and folders more consistent across operating systems (Windows, Mac, Linux) and safer than base R functions. Think of it as a toolkit for handling files - copying, moving, creating directories, checking paths, and viewing directory structures. All functions start with clear prefixes like file_ or dir_ which makes them easy to remember and use. Install it with: install.packages(“fs”)</p>
+<section id="dir_tree" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="dir_tree"><span class="header-section-number">3.7.1</span> dir_tree</h3>
+<p>dir_tree() from the fs package displays a directory structure in a visual tree format, similar to how you might see folders indented in a file explorer. It shows the hierarchy of files and folders using lines and indentation. For example, if you run:</p>
+<pre><code>fs::dir_tree("my_project")</code></pre>
+<p>It might show something like: Copymy_project ├── data │ ├── raw.csv │ └── clean.csv ├── scripts │ ├── analysis.R │ └── cleaning.R └── README.md</p>
+<p>This makes it easy to visualize how your files and folders are organized. The vertical and horizontal lines show how everything connects, and each level of folders is indented further to the right.</p>
+</section>
+<section id="other-functions-in-the-fs-package" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="other-functions-in-the-fs-package"><span class="header-section-number">3.7.2</span> Other functions in the fs package</h3>
+<p>The fs package provides modern, user-friendly functions for working with files. Here are some commonly used ones:</p>
+<p>fs::dir_ls() - Lists directory contents (similar to list.files() but with better defaults)</p>
+<p>fs::dir_create() - Creates directories, can create multiple levels at once</p>
+<p>fs::file_copy() - Copies files from one location to another</p>
+<p>fs::file_move() - Moves files from one location to another</p>
+<p>fs::file_delete() - Deletes files</p>
+<p>fs::file_exists() - Checks if files exist</p>
+<p>fs::path() - Builds file paths in a safe, platform-independent way. For example:</p>
+<p>fs::path(“data”, “raw”, “myfile.csv”) # builds “data/raw/myfile.csv”</p>
+<p>Note: You need to install and load the fs package to use these (install.packages(“fs”) and library(fs)). The fs package makes working with files more consistent across operating systems and helps avoid common errors.</p>
+</section>
+</section>
+<section id="read_csv-and-write_csv" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="read_csv-and-write_csv"><span class="header-section-number">3.8</span> read_csv and write_csv</h2>
+<p>read_csv() and write_csv() from the readr package are the standard functions for working with CSV files in modern R: read_csv() loads a CSV file into R as a data frame:</p>
+<pre><code>data &lt;- read_csv("myfile.csv")</code></pre>
+<p>write_csv() saves a data frame to a CSV file:</p>
+<pre><code>write_csv(data, "output.csv")</code></pre>
+<p>These functions are faster and have better defaults than the older read.csv() and write.csv() functions from base R. They automatically handle common issues like string encoding and they don’t add row numbers to your output files.</p>
+<p>You’ll need the readr package installed and loaded to use them: library(readr) (though readr is automatically loaded if you use the tidyverse).</p>
+</section>
+<section id="readwrite-excel-files" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="readwrite-excel-files"><span class="header-section-number">3.9</span> Read/Write Excel files</h2>
+<p>To work with Excel files in R, you’ll need either the readxl package (for reading) or the writexl package (for writing): Reading Excel files:</p>
+<pre><code>library(readxl)
+data &lt;- read_excel("myfile.xlsx")
+
+# For specific sheet: 
+data &lt;- read_excel("myfile.xlsx", sheet = "Sheet2")</code></pre>
+<p>Writing Excel files:</p>
+<pre><code>library(writexl)
+write_xlsx(data, "output.xlsx")</code></pre>
+<p>Note that readxl comes with the tidyverse, but writexl needs to be installed separately. These functions work with both newer .xlsx and older .xls files.</p>
+</section>
+<section id="reading-fixed-width-field-files" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="reading-fixed-width-field-files"><span class="header-section-number">3.10</span> Reading fixed width field files</h2>
+<p>Use read_fwf() from the readr package (part of tidyverse) to read fixed-width files where each column takes up a specific number of characters. You specify the width of each field:</p>
+<pre><code>library(readr)
+
+# Define the widths of each column
+data &lt;- read_fwf("myfile.txt", 
+                 fwf_widths(c(5, 10, 15),  # each number is the width of a column
+                           col_names = c("id", "name", "address")))
+
+# Or specify exact positions
+data &lt;- read_fwf("myfile.txt",
+                 fwf_positions(start = c(1, 6, 16),  # where each column starts
+                             end = c(5, 15, 30),     # where each column ends
+                             col_names = c("id", "name", "address")))</code></pre>
+<p>Here’s a simple example. Imagine you have a file named employees.txt that looks like this:</p>
+<pre><code>12345John Smith           123 Main St          
+98765Mary Johnson         456 Oak Ave          
+54321Bob Wilson          789 Pine Rd</code></pre>
+<p>Each line represents an employee record where:</p>
+<ul>
+<li>Employee ID takes exactly 5 characters</li>
+<li>Name takes exactly 20 characters (including spaces)</li>
+<li>Address takes exactly 20 characters</li>
+</ul>
+<p>Here’s how to read it:</p>
+<pre><code>rCopylibrary(readr)
+
+employees &lt;- read_fwf("employees.txt",
+                     fwf_widths(c(5, 20, 20),  # width of each column
+                               col_names = c("id", "name", "address")))</code></pre>
+<p>The fwf_widths(c(5, 20, 20)) tells R:</p>
+<p>Read first 5 characters as ‘id’ Read next 20 characters as ‘name’ Read next 20 characters as ‘address’</p>
+<p>The resulting data frame would look like this:</p>
+<pre><code># A tibble:
+#      id  name                address            
+#   &lt;chr&gt;  &lt;chr&gt;              &lt;chr&gt;              
+# 1 12345  John Smith         123 Main St        
+# 2 98765  Mary Johnson       456 Oak Ave        
+# 3 54321  Bob Wilson         789 Pine Rd</code></pre>
+</section>
+<section id="capture-output-of-r-commands" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="capture-output-of-r-commands"><span class="header-section-number">3.11</span> Capture output of R commands</h2>
+<section id="capture.outputsomecommand-filesomefile.txt" class="level3" data-number="3.11.1">
+<h3 data-number="3.11.1" class="anchored" data-anchor-id="capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">3.11.1</span> capture.output(someCommand, file=“someFile.txt”)</h3>
+<p>To save or “capture” the output from an R command, you can use the capture.output() function. It lets you store text output in a file or in a character vector:</p>
+<pre><code># Save to a file:
+capture.output(summary(mydata), file = "output.txt")
+
+# Save to a variable:
+my_output &lt;- capture.output(summary(mydata))</code></pre>
+</section>
+</section>
+<section id="sinksomefile-sink" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="sinksomefile-sink"><span class="header-section-number">3.12</span> sink(“someFile”), sink()</h2>
+<p>The sink() function is another option - it redirects all output to a file until you turn it off:</p>
+<pre><code>sink("output.txt")
+print(summary(mydata))
+sink()  # turns off the redirection</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1055,13 +1126,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./0000300-whereToFindDatasets-v001.html" class="pagination-link" aria-label="Where to find datasets">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span>
+      <a href="./0000022-InstallingRPackages-v003.html" class="pagination-link" aria-label="Intro to R packages">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Intro to R packages</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0999000-toDo-v001.html" class="pagination-link" aria-label="Additional topics">
-        <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Additional topics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0000075-whatIsJsonData.html" class="pagination-link" aria-label="Intro to JSON data">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

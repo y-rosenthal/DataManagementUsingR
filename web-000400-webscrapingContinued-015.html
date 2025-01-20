@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Management With R - 26&nbsp; Web Scraping with R</title>
+<title>31&nbsp; Web Scraping with R – Data Management With R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -103,7 +103,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+
 <meta http-equiv="Pragma" content="no-cache">
+
 <meta http-equiv="Expires" content="0">
 
 
@@ -115,13 +117,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000400-webscrapingContinued-015.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000400-webscrapingContinued-015.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -163,291 +165,343 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Bash</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working with files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
+  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">JSON data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
+  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Intro to tidyverse</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bash</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What is the "tidyverse"</span></span></a>
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">visualizations with ggplot2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Expressions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
+  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Intro to dplyr and to SQL</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to tidyverse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
+  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
+  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">visualizations with ggplot2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">"databases" and "database management systems"</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Get the data - "books database" and other tables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">SQL "window" functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
- <span class="menu-text">Web Scraping</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to dplyr and to SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
- <span class="menu-text">Questions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">"Cleaning" data</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Web Scraping</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Questions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -462,31 +516,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ethics-of-webscraping" id="toc-ethics-of-webscraping" class="nav-link active" data-scroll-target="#ethics-of-webscraping"><span class="header-section-number">26.1</span> Ethics of webscraping</a></li>
-  <li><a href="#how-to-webscrape-with-r" id="toc-how-to-webscrape-with-r" class="nav-link" data-scroll-target="#how-to-webscrape-with-r"><span class="header-section-number">26.2</span> How to webscrape with R</a></li>
-  <li><a href="#download-weather-data" id="toc-download-weather-data" class="nav-link" data-scroll-target="#download-weather-data"><span class="header-section-number">26.3</span> Download weather data</a></li>
-  <li><a href="#scraping-a-piece-of-data" id="toc-scraping-a-piece-of-data" class="nav-link" data-scroll-target="#scraping-a-piece-of-data"><span class="header-section-number">26.4</span> Scraping a piece of data</a></li>
-  <li><a href="#choosing-better-css-selectors" id="toc-choosing-better-css-selectors" class="nav-link" data-scroll-target="#choosing-better-css-selectors"><span class="header-section-number">26.5</span> Choosing better CSS Selectors</a></li>
-  <li><a href="#scraping-country-names" id="toc-scraping-country-names" class="nav-link" data-scroll-target="#scraping-country-names"><span class="header-section-number">26.6</span> Scraping country names</a></li>
-  <li><a href="#same-thing-without-pipes" id="toc-same-thing-without-pipes" class="nav-link" data-scroll-target="#same-thing-without-pipes"><span class="header-section-number">26.7</span> Same thing without pipes</a></li>
-  <li><a href="#working-with-the-data-you-scraped" id="toc-working-with-the-data-you-scraped" class="nav-link" data-scroll-target="#working-with-the-data-you-scraped"><span class="header-section-number">26.8</span> Working with the data you scraped</a></li>
-  <li><a href="#get-all-data-into-a-dataframe" id="toc-get-all-data-into-a-dataframe" class="nav-link" data-scroll-target="#get-all-data-into-a-dataframe"><span class="header-section-number">26.9</span> Get all data into a dataframe</a></li>
-  <li><a href="#html_text2-removes-leadingtrailing-whitespace" id="toc-html_text2-removes-leadingtrailing-whitespace" class="nav-link" data-scroll-target="#html_text2-removes-leadingtrailing-whitespace"><span class="header-section-number">26.10</span> html_text2() removes leading/trailing whitespace</a></li>
-  <li><a href="#create-a-function-to-do-the-scraping" id="toc-create-a-function-to-do-the-scraping" class="nav-link" data-scroll-target="#create-a-function-to-do-the-scraping"><span class="header-section-number">26.11</span> Create a function to do the scraping</a></li>
-  <li><a href="#scraping-multiple-webpages-in-a-loop" id="toc-scraping-multiple-webpages-in-a-loop" class="nav-link" data-scroll-target="#scraping-multiple-webpages-in-a-loop"><span class="header-section-number">26.12</span> Scraping multiple webpages in a loop</a>
+  <li><a href="#ethics-of-webscraping" id="toc-ethics-of-webscraping" class="nav-link active" data-scroll-target="#ethics-of-webscraping"><span class="header-section-number">31.1</span> Ethics of webscraping</a></li>
+  <li><a href="#how-to-webscrape-with-r" id="toc-how-to-webscrape-with-r" class="nav-link" data-scroll-target="#how-to-webscrape-with-r"><span class="header-section-number">31.2</span> How to webscrape with R</a></li>
+  <li><a href="#download-weather-data" id="toc-download-weather-data" class="nav-link" data-scroll-target="#download-weather-data"><span class="header-section-number">31.3</span> Download weather data</a></li>
+  <li><a href="#scraping-a-piece-of-data" id="toc-scraping-a-piece-of-data" class="nav-link" data-scroll-target="#scraping-a-piece-of-data"><span class="header-section-number">31.4</span> Scraping a piece of data</a></li>
+  <li><a href="#choosing-better-css-selectors" id="toc-choosing-better-css-selectors" class="nav-link" data-scroll-target="#choosing-better-css-selectors"><span class="header-section-number">31.5</span> Choosing better CSS Selectors</a></li>
+  <li><a href="#scraping-country-names" id="toc-scraping-country-names" class="nav-link" data-scroll-target="#scraping-country-names"><span class="header-section-number">31.6</span> Scraping country names</a></li>
+  <li><a href="#same-thing-without-pipes" id="toc-same-thing-without-pipes" class="nav-link" data-scroll-target="#same-thing-without-pipes"><span class="header-section-number">31.7</span> Same thing without pipes</a></li>
+  <li><a href="#working-with-the-data-you-scraped" id="toc-working-with-the-data-you-scraped" class="nav-link" data-scroll-target="#working-with-the-data-you-scraped"><span class="header-section-number">31.8</span> Working with the data you scraped</a></li>
+  <li><a href="#get-all-data-into-a-dataframe" id="toc-get-all-data-into-a-dataframe" class="nav-link" data-scroll-target="#get-all-data-into-a-dataframe"><span class="header-section-number">31.9</span> Get all data into a dataframe</a></li>
+  <li><a href="#html_text2-removes-leadingtrailing-whitespace" id="toc-html_text2-removes-leadingtrailing-whitespace" class="nav-link" data-scroll-target="#html_text2-removes-leadingtrailing-whitespace"><span class="header-section-number">31.10</span> html_text2() removes leading/trailing whitespace</a></li>
+  <li><a href="#create-a-function-to-do-the-scraping" id="toc-create-a-function-to-do-the-scraping" class="nav-link" data-scroll-target="#create-a-function-to-do-the-scraping"><span class="header-section-number">31.11</span> Create a function to do the scraping</a></li>
+  <li><a href="#scraping-multiple-webpages-in-a-loop" id="toc-scraping-multiple-webpages-in-a-loop" class="nav-link" data-scroll-target="#scraping-multiple-webpages-in-a-loop"><span class="header-section-number">31.12</span> Scraping multiple webpages in a loop</a>
   <ul class="collapse">
-  <li><a href="#figure-out-the-code" id="toc-figure-out-the-code" class="nav-link" data-scroll-target="#figure-out-the-code"><span class="header-section-number">26.12.1</span> Figure out the code</a></li>
+  <li><a href="#figure-out-the-code" id="toc-figure-out-the-code" class="nav-link" data-scroll-target="#figure-out-the-code"><span class="header-section-number">31.12.1</span> Figure out the code</a></li>
   </ul></li>
-  <li><a href="#put-it-into-a-function" id="toc-put-it-into-a-function" class="nav-link" data-scroll-target="#put-it-into-a-function"><span class="header-section-number">26.13</span> Put it into a function</a></li>
-  <li><a href="#some-urls-includes-info-about-the-page-number" id="toc-some-urls-includes-info-about-the-page-number" class="nav-link" data-scroll-target="#some-urls-includes-info-about-the-page-number"><span class="header-section-number">26.14</span> Some URLs includes info about the page number</a></li>
-  <li><a href="#function-to-get-multiple-pages" id="toc-function-to-get-multiple-pages" class="nav-link" data-scroll-target="#function-to-get-multiple-pages"><span class="header-section-number">26.15</span> Function to get multiple pages</a></li>
-  <li><a href="#scrape-the-number-of-pages-to-get" id="toc-scrape-the-number-of-pages-to-get" class="nav-link" data-scroll-target="#scrape-the-number-of-pages-to-get"><span class="header-section-number">26.16</span> Scrape the number of pages to get</a></li>
-  <li><a href="#robots.txt-file" id="toc-robots.txt-file" class="nav-link" data-scroll-target="#robots.txt-file"><span class="header-section-number">26.17</span> robots.txt file</a></li>
-  <li><a href="#techniques-for-finding-css-selectors" id="toc-techniques-for-finding-css-selectors" class="nav-link" data-scroll-target="#techniques-for-finding-css-selectors"><span class="header-section-number">26.18</span> Techniques for finding CSS selectors</a></li>
-  <li><a href="#scrape-the-total-number-of-pages." id="toc-scrape-the-total-number-of-pages." class="nav-link" data-scroll-target="#scrape-the-total-number-of-pages."><span class="header-section-number">26.19</span> “scrape” the total number of pages.</a></li>
-  <li><a href="#timing-r-code-with-sys.time" id="toc-timing-r-code-with-sys.time" class="nav-link" data-scroll-target="#timing-r-code-with-sys.time"><span class="header-section-number">26.20</span> Timing R code with Sys.time()</a>
+  <li><a href="#put-it-into-a-function" id="toc-put-it-into-a-function" class="nav-link" data-scroll-target="#put-it-into-a-function"><span class="header-section-number">31.13</span> Put it into a function</a></li>
+  <li><a href="#some-urls-includes-info-about-the-page-number" id="toc-some-urls-includes-info-about-the-page-number" class="nav-link" data-scroll-target="#some-urls-includes-info-about-the-page-number"><span class="header-section-number">31.14</span> Some URLs includes info about the page number</a></li>
+  <li><a href="#function-to-get-multiple-pages" id="toc-function-to-get-multiple-pages" class="nav-link" data-scroll-target="#function-to-get-multiple-pages"><span class="header-section-number">31.15</span> Function to get multiple pages</a></li>
+  <li><a href="#scrape-the-number-of-pages-to-get" id="toc-scrape-the-number-of-pages-to-get" class="nav-link" data-scroll-target="#scrape-the-number-of-pages-to-get"><span class="header-section-number">31.16</span> Scrape the number of pages to get</a></li>
+  <li><a href="#robots.txt-file" id="toc-robots.txt-file" class="nav-link" data-scroll-target="#robots.txt-file"><span class="header-section-number">31.17</span> robots.txt file</a></li>
+  <li><a href="#techniques-for-finding-css-selectors" id="toc-techniques-for-finding-css-selectors" class="nav-link" data-scroll-target="#techniques-for-finding-css-selectors"><span class="header-section-number">31.18</span> Techniques for finding CSS selectors</a></li>
+  <li><a href="#scrape-the-total-number-of-pages." id="toc-scrape-the-total-number-of-pages." class="nav-link" data-scroll-target="#scrape-the-total-number-of-pages."><span class="header-section-number">31.19</span> “scrape” the total number of pages.</a></li>
+  <li><a href="#timing-r-code-with-sys.time" id="toc-timing-r-code-with-sys.time" class="nav-link" data-scroll-target="#timing-r-code-with-sys.time"><span class="header-section-number">31.20</span> Timing R code with Sys.time()</a>
   <ul class="collapse">
-  <li><a href="#finding-a-css-selector-that-isnt-fragile" id="toc-finding-a-css-selector-that-isnt-fragile" class="nav-link" data-scroll-target="#finding-a-css-selector-that-isnt-fragile"><span class="header-section-number">26.20.1</span> Finding a css selector that isn’t “fragile”</a></li>
+  <li><a href="#finding-a-css-selector-that-isnt-fragile" id="toc-finding-a-css-selector-that-isnt-fragile" class="nav-link" data-scroll-target="#finding-a-css-selector-that-isnt-fragile"><span class="header-section-number">31.20.1</span> Finding a css selector that isn’t “fragile”</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -494,9 +548,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000400-webscrapingContinued-015.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000400-webscrapingContinued-015.html"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></h1>
+<h1 class="title"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></h1>
 </div>
 
 
@@ -514,13 +568,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Web scraping is the process of capturing data from a website using a program. The following introduces the topic of webscraping by using R.</p>
-<section id="ethics-of-webscraping" class="level2" data-number="26.1">
-<h2 data-number="26.1" class="anchored" data-anchor-id="ethics-of-webscraping"><span class="header-section-number">26.1</span> Ethics of webscraping</h2>
+<section id="ethics-of-webscraping" class="level2" data-number="31.1">
+<h2 data-number="31.1" class="anchored" data-anchor-id="ethics-of-webscraping"><span class="header-section-number">31.1</span> Ethics of webscraping</h2>
 <p>See the first section of this page for a discussion of the ethics and legal issues related to webscraping:</p>
 <p><a href="https://r4ds.hadley.nz/webscraping" class="uri">https://r4ds.hadley.nz/webscraping</a></p>
 </section>
-<section id="how-to-webscrape-with-r" class="level2" data-number="26.2">
-<h2 data-number="26.2" class="anchored" data-anchor-id="how-to-webscrape-with-r"><span class="header-section-number">26.2</span> How to webscrape with R</h2>
+<section id="how-to-webscrape-with-r" class="level2" data-number="31.2">
+<h2 data-number="31.2" class="anchored" data-anchor-id="how-to-webscrape-with-r"><span class="header-section-number">31.2</span> How to webscrape with R</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">##################################################################.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">##################################################################.</span></span>
@@ -585,14 +639,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package=</span><span class="st">"xml2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="download-weather-data" class="level2" data-number="26.3">
-<h2 data-number="26.3" class="anchored" data-anchor-id="download-weather-data"><span class="header-section-number">26.3</span> Download weather data</h2>
+<section id="download-weather-data" class="level2" data-number="31.3">
+<h2 data-number="31.3" class="anchored" data-anchor-id="download-weather-data"><span class="header-section-number">31.3</span> Download weather data</h2>
 <p>We’ll be working with the following webpage</p>
 <p><a href="https://forecast.weather.gov/MapClick.php?lat=37.7771&amp;lon=-122.4196#.Xl0j6BNKhTY" class="uri">https://forecast.weather.gov/MapClick.php?lat=37.7771&amp;lon=-122.4196#.Xl0j6BNKhTY</a></p>
 <p><img src="images/webPage-weather-002-rightClick.PNG" class="img-fluid"></p>
 </section>
-<section id="scraping-a-piece-of-data" class="level2" data-number="26.4">
-<h2 data-number="26.4" class="anchored" data-anchor-id="scraping-a-piece-of-data"><span class="header-section-number">26.4</span> Scraping a piece of data</h2>
+<section id="scraping-a-piece-of-data" class="level2" data-number="31.4">
+<h2 data-number="31.4" class="anchored" data-anchor-id="scraping-a-piece-of-data"><span class="header-section-number">31.4</span> Scraping a piece of data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">###########################################################################</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -635,7 +689,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>temperature</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 65 °F"</code></pre>
+<pre><code>[1] "High: 62 °F"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">read_html</span>(url)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -649,12 +703,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{xml_nodeset (1)}
-[1] &lt;p class="temp temp-high"&gt;High: 65 °F&lt;/p&gt;\n</code></pre>
+[1] &lt;p class="temp temp-high"&gt;High: 62 °F&lt;/p&gt;\n</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">html_text</span>(y)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 65 °F"</code></pre>
+<pre><code>[1] "High: 62 °F"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What is the structure of x?</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -666,8 +720,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="choosing-better-css-selectors" class="level2" data-number="26.5">
-<h2 data-number="26.5" class="anchored" data-anchor-id="choosing-better-css-selectors"><span class="header-section-number">26.5</span> Choosing better CSS Selectors</h2>
+<section id="choosing-better-css-selectors" class="level2" data-number="31.5">
+<h2 data-number="31.5" class="anchored" data-anchor-id="choosing-better-css-selectors"><span class="header-section-number">31.5</span> Choosing better CSS Selectors</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">####################################################################.</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># If we analyze the HTML code, a MUCH BETTER selector is .temp</span></span>
@@ -699,8 +753,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>forecasts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 65 °F" "Low: 52 °F"  "High: 67 °F" "Low: 54 °F"  "High: 68 °F"
-[6] "Low: 54 °F"  "High: 66 °F" "Low: 54 °F"  "High: 68 °F"</code></pre>
+<pre><code>[1] "High: 62 °F" "Low: 43 °F"  "High: 60 °F" "Low: 42 °F"  "High: 62 °F"
+[6] "Low: 45 °F"  "High: 64 °F" "Low: 46 °F"  "High: 61 °F"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">read_html</span>(url)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -714,21 +768,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{xml_nodeset (9)}
-[1] &lt;p class="temp temp-high"&gt;High: 65 °F&lt;/p&gt;\n
-[2] &lt;p class="temp temp-low"&gt;Low: 52 °F&lt;/p&gt;\n
-[3] &lt;p class="temp temp-high"&gt;High: 67 °F&lt;/p&gt;\n
-[4] &lt;p class="temp temp-low"&gt;Low: 54 °F&lt;/p&gt;\n
-[5] &lt;p class="temp temp-high"&gt;High: 68 °F&lt;/p&gt;\n
-[6] &lt;p class="temp temp-low"&gt;Low: 54 °F&lt;/p&gt;\n
-[7] &lt;p class="temp temp-high"&gt;High: 66 °F&lt;/p&gt;\n
-[8] &lt;p class="temp temp-low"&gt;Low: 54 °F&lt;/p&gt;\n
-[9] &lt;p class="temp temp-high"&gt;High: 68 °F&lt;/p&gt;\n</code></pre>
+[1] &lt;p class="temp temp-high"&gt;High: 62 °F&lt;/p&gt;\n
+[2] &lt;p class="temp temp-low"&gt;Low: 43 °F&lt;/p&gt;\n
+[3] &lt;p class="temp temp-high"&gt;High: 60 °F&lt;/p&gt;\n
+[4] &lt;p class="temp temp-low"&gt;Low: 42 °F&lt;/p&gt;\n
+[5] &lt;p class="temp temp-high"&gt;High: 62 °F&lt;/p&gt;\n
+[6] &lt;p class="temp temp-low"&gt;Low: 45 °F&lt;/p&gt;\n
+[7] &lt;p class="temp temp-high"&gt;High: 64 °F&lt;/p&gt;\n
+[8] &lt;p class="temp temp-low"&gt;Low: 46 °F&lt;/p&gt;\n
+[9] &lt;p class="temp temp-high"&gt;High: 61 °F&lt;/p&gt;\n</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">html_text</span>(y)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 65 °F" "Low: 52 °F"  "High: 67 °F" "Low: 54 °F"  "High: 68 °F"
-[6] "Low: 54 °F"  "High: 66 °F" "Low: 54 °F"  "High: 68 °F"</code></pre>
+<pre><code>[1] "High: 62 °F" "Low: 43 °F"  "High: 60 °F" "Low: 42 °F"  "High: 62 °F"
+[6] "Low: 45 °F"  "High: 64 °F" "Low: 46 °F"  "High: 61 °F"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What is the structure of x?</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -740,8 +794,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="scraping-country-names" class="level2" data-number="26.6">
-<h2 data-number="26.6" class="anchored" data-anchor-id="scraping-country-names"><span class="header-section-number">26.6</span> Scraping country names</h2>
+<section id="scraping-country-names" class="level2" data-number="31.6">
+<h2 data-number="31.6" class="anchored" data-anchor-id="scraping-country-names"><span class="header-section-number">31.6</span> Scraping country names</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">###########################################################################</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -1323,8 +1377,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="same-thing-without-pipes" class="level2" data-number="26.7">
-<h2 data-number="26.7" class="anchored" data-anchor-id="same-thing-without-pipes"><span class="header-section-number">26.7</span> Same thing without pipes</h2>
+<section id="same-thing-without-pipes" class="level2" data-number="31.7">
+<h2 data-number="31.7" class="anchored" data-anchor-id="same-thing-without-pipes"><span class="header-section-number">31.7</span> Same thing without pipes</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">###########################################################################</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -1778,171 +1832,174 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [105] print.dummy_coef_list*                              
 [106] print.ecdf*                                         
 [107] print.eigen                                         
-[108] print.factanal*                                     
-[109] print.factor                                        
-[110] print.family*                                       
-[111] print.fileSnapshot*                                 
-[112] print.findLineNumResult*                            
-[113] print.form_data*                                    
-[114] print.form_file*                                    
-[115] print.formula*                                      
-[116] print.fseq*                                         
-[117] print.ftable*                                       
-[118] print.function                                      
-[119] print.getAnywhere*                                  
-[120] print.glm*                                          
-[121] print.glue*                                         
-[122] print.handle*                                       
-[123] print.hashtab*                                      
-[124] print.hclust*                                       
-[125] print.help_files_with_topic*                        
-[126] print.hexmode                                       
-[127] print.HoltWinters*                                  
-[128] print.hsearch*                                      
-[129] print.hsearch_db*                                   
-[130] print.htest*                                        
-[131] print.html*                                         
-[132] print.html_dependency*                              
-[133] print.htmltools.selector*                           
-[134] print.htmltools.selector.list*                      
-[135] print.infl*                                         
-[136] print.integrate*                                    
-[137] print.isoreg*                                       
-[138] print.json*                                         
-[139] print.key_missing*                                  
-[140] print.kmeans*                                       
-[141] print.knitr_kable*                                  
-[142] print.Latex*                                        
-[143] print.LaTeX*                                        
-[144] print.libraryIQR                                    
-[145] print.lifecycle_warnings*                           
-[146] print.listof                                        
-[147] print.lm*                                           
-[148] print.loadings*                                     
-[149] print.loess*                                        
-[150] print.logLik*                                       
-[151] print.ls_str*                                       
-[152] print.medpolish*                                    
-[153] print.MethodsFunction*                              
-[154] print.mtable*                                       
-[155] print.NativeRoutineList                             
-[156] print.news_db*                                      
-[157] print.nls*                                          
-[158] print.noquote                                       
-[159] print.numeric_version                               
-[160] print.oauth_app*                                    
-[161] print.oauth_endpoint*                               
-[162] print.object_size*                                  
-[163] print.octmode                                       
-[164] print.opts_list*                                    
-[165] print.packageDescription*                           
-[166] print.packageInfo                                   
-[167] print.packageIQR*                                   
-[168] print.packageStatus*                                
-[169] print.pairwise.htest*                               
-[170] print.person*                                       
-[171] print.POSIXct                                       
-[172] print.POSIXlt                                       
-[173] print.power.htest*                                  
-[174] print.ppr*                                          
-[175] print.prcomp*                                       
-[176] print.princomp*                                     
-[177] print.proc_time                                     
-[178] print.quosure*                                      
-[179] print.quosures*                                     
-[180] print.R6*                                           
-[181] print.R6ClassGenerator*                             
-[182] print.raster*                                       
-[183] print.Rconcordance*                                 
-[184] print.Rd*                                           
-[185] print.recordedplot*                                 
-[186] print.request*                                      
-[187] print.response*                                     
-[188] print.restart                                       
-[189] print.RGBcolorConverter*                            
-[190] print.RGlyphFont*                                   
-[191] print.rlang:::list_of_conditions*                   
-[192] print.rlang_box_done*                               
-[193] print.rlang_box_splice*                             
-[194] print.rlang_data_pronoun*                           
-[195] print.rlang_dict*                                   
-[196] print.rlang_dyn_array*                              
-[197] print.rlang_envs*                                   
-[198] print.rlang_error*                                  
-[199] print.rlang_fake_data_pronoun*                      
-[200] print.rlang_lambda_function*                        
-[201] print.rlang_message*                                
-[202] print.rlang_trace*                                  
-[203] print.rlang_warning*                                
-[204] print.rlang_zap*                                    
-[205] print.rle                                           
-[206] print.rlib_bytes*                                   
-[207] print.rlib_error_3_0*                               
-[208] print.rlib_trace_3_0*                               
-[209] print.roman*                                        
-[210] print.rvest_field*                                  
-[211] print.rvest_form*                                   
-[212] print.rvest_session*                                
-[213] print.SavedPlots*                                   
-[214] print.scalar*                                       
-[215] print.sessionInfo*                                  
-[216] print.shiny.tag*                                    
-[217] print.shiny.tag.env*                                
-[218] print.shiny.tag.list*                               
-[219] print.shiny.tag.query*                              
-[220] print.simple.list                                   
-[221] print.smooth.spline*                                
-[222] print.socket*                                       
-[223] print.srcfile                                       
-[224] print.srcref                                        
-[225] print.stepfun*                                      
-[226] print.stl*                                          
-[227] print.stringr_view*                                 
-[228] print.StructTS*                                     
-[229] print.subdir_tests*                                 
-[230] print.summarize_CRAN_check_status*                  
-[231] print.summary.aov*                                  
-[232] print.summary.aovlist*                              
-[233] print.summary.ecdf*                                 
-[234] print.summary.glm*                                  
-[235] print.summary.lm*                                   
-[236] print.summary.loess*                                
-[237] print.summary.manova*                               
-[238] print.summary.nls*                                  
-[239] print.summary.packageStatus*                        
-[240] print.summary.ppr*                                  
-[241] print.summary.prcomp*                               
-[242] print.summary.princomp*                             
-[243] print.summary.table                                 
-[244] print.summary.warnings                              
-[245] print.summaryDefault                                
-[246] print.table                                         
-[247] print.tables_aov*                                   
-[248] print.terms*                                        
-[249] print.ts*                                           
-[250] print.tskernel*                                     
-[251] print.TukeyHSD*                                     
-[252] print.tukeyline*                                    
-[253] print.tukeysmooth*                                  
-[254] print.undoc*                                        
-[255] print.vctrs_bytes*                                  
-[256] print.vctrs_sclr*                                   
-[257] print.vctrs_unspecified*                            
-[258] print.vctrs_vctr*                                   
-[259] print.vignette*                                     
-[260] print.warnings                                      
-[261] print.xfun_raw_string*                              
-[262] print.xfun_record_results*                          
-[263] print.xfun_rename_seq*                              
-[264] print.xfun_strict_list*                             
-[265] print.xgettext*                                     
-[266] print.xml_document*                                 
-[267] print.xml_missing*                                  
-[268] print.xml_namespace*                                
-[269] print.xml_node*                                     
-[270] print.xml_nodeset*                                  
-[271] print.xngettext*                                    
-[272] print.xtabs*                                        
+[108] print.evaluate_evaluation*                          
+[109] print.factanal*                                     
+[110] print.factor                                        
+[111] print.family*                                       
+[112] print.fileSnapshot*                                 
+[113] print.findLineNumResult*                            
+[114] print.form_data*                                    
+[115] print.form_file*                                    
+[116] print.formula*                                      
+[117] print.fseq*                                         
+[118] print.ftable*                                       
+[119] print.function                                      
+[120] print.getAnywhere*                                  
+[121] print.glm*                                          
+[122] print.glue*                                         
+[123] print.handle*                                       
+[124] print.hashtab*                                      
+[125] print.hclust*                                       
+[126] print.help_files_with_topic*                        
+[127] print.hexmode                                       
+[128] print.HoltWinters*                                  
+[129] print.hsearch*                                      
+[130] print.hsearch_db*                                   
+[131] print.htest*                                        
+[132] print.html*                                         
+[133] print.html_dependency*                              
+[134] print.htmltools.selector*                           
+[135] print.htmltools.selector.list*                      
+[136] print.infl*                                         
+[137] print.integrate*                                    
+[138] print.isoreg*                                       
+[139] print.json*                                         
+[140] print.key_missing*                                  
+[141] print.kmeans*                                       
+[142] print.knitr_kable*                                  
+[143] print.Latex*                                        
+[144] print.LaTeX*                                        
+[145] print.libraryIQR                                    
+[146] print.lifecycle_warnings*                           
+[147] print.listof                                        
+[148] print.lm*                                           
+[149] print.loadings*                                     
+[150] print.loess*                                        
+[151] print.logLik*                                       
+[152] print.ls_str*                                       
+[153] print.medpolish*                                    
+[154] print.MethodsFunction*                              
+[155] print.mtable*                                       
+[156] print.NativeRoutineList                             
+[157] print.news_db*                                      
+[158] print.nls*                                          
+[159] print.noquote                                       
+[160] print.numeric_version                               
+[161] print.oauth_app*                                    
+[162] print.oauth_endpoint*                               
+[163] print.object_size*                                  
+[164] print.octmode                                       
+[165] print.opts_list*                                    
+[166] print.packageDescription*                           
+[167] print.packageInfo                                   
+[168] print.packageIQR*                                   
+[169] print.packageStatus*                                
+[170] print.paged_df*                                     
+[171] print.pairwise.htest*                               
+[172] print.person*                                       
+[173] print.POSIXct                                       
+[174] print.POSIXlt                                       
+[175] print.power.htest*                                  
+[176] print.ppr*                                          
+[177] print.prcomp*                                       
+[178] print.princomp*                                     
+[179] print.proc_time                                     
+[180] print.quosure*                                      
+[181] print.quosures*                                     
+[182] print.R6*                                           
+[183] print.R6ClassGenerator*                             
+[184] print.raster*                                       
+[185] print.Rconcordance*                                 
+[186] print.Rd*                                           
+[187] print.recordedplot*                                 
+[188] print.request*                                      
+[189] print.response*                                     
+[190] print.restart                                       
+[191] print.RGBcolorConverter*                            
+[192] print.RGlyphFont*                                   
+[193] print.rlang:::list_of_conditions*                   
+[194] print.rlang_box_done*                               
+[195] print.rlang_box_splice*                             
+[196] print.rlang_data_pronoun*                           
+[197] print.rlang_dict*                                   
+[198] print.rlang_dyn_array*                              
+[199] print.rlang_envs*                                   
+[200] print.rlang_error*                                  
+[201] print.rlang_fake_data_pronoun*                      
+[202] print.rlang_lambda_function*                        
+[203] print.rlang_message*                                
+[204] print.rlang_trace*                                  
+[205] print.rlang_warning*                                
+[206] print.rlang_zap*                                    
+[207] print.rle                                           
+[208] print.rlib_bytes*                                   
+[209] print.rlib_error_3_0*                               
+[210] print.rlib_trace_3_0*                               
+[211] print.roman*                                        
+[212] print.rvest_field*                                  
+[213] print.rvest_form*                                   
+[214] print.rvest_session*                                
+[215] print.SavedPlots*                                   
+[216] print.scalar*                                       
+[217] print.sessionInfo*                                  
+[218] print.shiny.tag*                                    
+[219] print.shiny.tag.env*                                
+[220] print.shiny.tag.list*                               
+[221] print.shiny.tag.query*                              
+[222] print.simple.list                                   
+[223] print.smooth.spline*                                
+[224] print.socket*                                       
+[225] print.srcfile                                       
+[226] print.srcref                                        
+[227] print.stepfun*                                      
+[228] print.stl*                                          
+[229] print.stringr_view*                                 
+[230] print.StructTS*                                     
+[231] print.subdir_tests*                                 
+[232] print.summarize_CRAN_check_status*                  
+[233] print.summary.aov*                                  
+[234] print.summary.aovlist*                              
+[235] print.summary.ecdf*                                 
+[236] print.summary.glm*                                  
+[237] print.summary.lm*                                   
+[238] print.summary.loess*                                
+[239] print.summary.manova*                               
+[240] print.summary.nls*                                  
+[241] print.summary.packageStatus*                        
+[242] print.summary.ppr*                                  
+[243] print.summary.prcomp*                               
+[244] print.summary.princomp*                             
+[245] print.summary.table                                 
+[246] print.summary.warnings                              
+[247] print.summaryDefault                                
+[248] print.table                                         
+[249] print.tables_aov*                                   
+[250] print.terms*                                        
+[251] print.ts*                                           
+[252] print.tskernel*                                     
+[253] print.TukeyHSD*                                     
+[254] print.tukeyline*                                    
+[255] print.tukeysmooth*                                  
+[256] print.undoc*                                        
+[257] print.vctrs_bytes*                                  
+[258] print.vctrs_sclr*                                   
+[259] print.vctrs_unspecified*                            
+[260] print.vctrs_vctr*                                   
+[261] print.vignette*                                     
+[262] print.warnings                                      
+[263] print.xfun_md_viewable*                             
+[264] print.xfun_raw_string*                              
+[265] print.xfun_record_results*                          
+[266] print.xfun_rename_seq*                              
+[267] print.xfun_strict_list*                             
+[268] print.xgettext*                                     
+[269] print.xml_document*                                 
+[270] print.xml_missing*                                  
+[271] print.xml_namespace*                                
+[272] print.xml_node*                                     
+[273] print.xml_nodeset*                                  
+[274] print.xngettext*                                    
+[275] print.xtabs*                                        
 see '?methods' for accessing help and source code</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(whole_html_page)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1962,8 +2019,8 @@ $class
 <span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="working-with-the-data-you-scraped" class="level2" data-number="26.8">
-<h2 data-number="26.8" class="anchored" data-anchor-id="working-with-the-data-you-scraped"><span class="header-section-number">26.8</span> Working with the data you scraped</h2>
+<section id="working-with-the-data-you-scraped" class="level2" data-number="31.8">
+<h2 data-number="31.8" class="anchored" data-anchor-id="working-with-the-data-you-scraped"><span class="header-section-number">31.8</span> Working with the data you scraped</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#.....................................................................</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -2496,8 +2553,8 @@ $class
 </div>
 </div>
 </section>
-<section id="get-all-data-into-a-dataframe" class="level2" data-number="26.9">
-<h2 data-number="26.9" class="anchored" data-anchor-id="get-all-data-into-a-dataframe"><span class="header-section-number">26.9</span> Get all data into a dataframe</h2>
+<section id="get-all-data-into-a-dataframe" class="level2" data-number="31.9">
+<h2 data-number="31.9" class="anchored" data-anchor-id="get-all-data-into-a-dataframe"><span class="header-section-number">31.9</span> Get all data into a dataframe</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="do">########################################################</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -3513,8 +3570,8 @@ $class
 </div>
 </div>
 </section>
-<section id="html_text2-removes-leadingtrailing-whitespace" class="level2" data-number="26.10">
-<h2 data-number="26.10" class="anchored" data-anchor-id="html_text2-removes-leadingtrailing-whitespace"><span class="header-section-number">26.10</span> html_text2() removes leading/trailing whitespace</h2>
+<section id="html_text2-removes-leadingtrailing-whitespace" class="level2" data-number="31.10">
+<h2 data-number="31.10" class="anchored" data-anchor-id="html_text2-removes-leadingtrailing-whitespace"><span class="header-section-number">31.10</span> html_text2() removes leading/trailing whitespace</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="do">#####################################################</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="co"># UPDATE:</span></span>
@@ -3794,8 +3851,8 @@ $class
 </div>
 </div>
 </section>
-<section id="create-a-function-to-do-the-scraping" class="level2" data-number="26.11">
-<h2 data-number="26.11" class="anchored" data-anchor-id="create-a-function-to-do-the-scraping"><span class="header-section-number">26.11</span> Create a function to do the scraping</h2>
+<section id="create-a-function-to-do-the-scraping" class="level2" data-number="31.11">
+<h2 data-number="31.11" class="anchored" data-anchor-id="create-a-function-to-do-the-scraping"><span class="header-section-number">31.11</span> Create a function to do the scraping</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="do">#####################################################</span></span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -3859,10 +3916,10 @@ $class
 </div>
 </div>
 </section>
-<section id="scraping-multiple-webpages-in-a-loop" class="level2" data-number="26.12">
-<h2 data-number="26.12" class="anchored" data-anchor-id="scraping-multiple-webpages-in-a-loop"><span class="header-section-number">26.12</span> Scraping multiple webpages in a loop</h2>
-<section id="figure-out-the-code" class="level3" data-number="26.12.1">
-<h3 data-number="26.12.1" class="anchored" data-anchor-id="figure-out-the-code"><span class="header-section-number">26.12.1</span> Figure out the code</h3>
+<section id="scraping-multiple-webpages-in-a-loop" class="level2" data-number="31.12">
+<h2 data-number="31.12" class="anchored" data-anchor-id="scraping-multiple-webpages-in-a-loop"><span class="header-section-number">31.12</span> Scraping multiple webpages in a loop</h2>
+<section id="figure-out-the-code" class="level3" data-number="31.12.1">
+<h3 data-number="31.12.1" class="anchored" data-anchor-id="figure-out-the-code"><span class="header-section-number">31.12.1</span> Figure out the code</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="do">######################################################</span></span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -4134,8 +4191,8 @@ $class
 </div>
 </section>
 </section>
-<section id="put-it-into-a-function" class="level2" data-number="26.13">
-<h2 data-number="26.13" class="anchored" data-anchor-id="put-it-into-a-function"><span class="header-section-number">26.13</span> Put it into a function</h2>
+<section id="put-it-into-a-function" class="level2" data-number="31.13">
+<h2 data-number="31.13" class="anchored" data-anchor-id="put-it-into-a-function"><span class="header-section-number">31.13</span> Put it into a function</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-----------------------------------------------</span></span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's see if we can get the first page of data</span></span>
@@ -4197,8 +4254,8 @@ another line    after a tab</code></pre>
 <span id="cb93-32"><a href="#cb93-32" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="some-urls-includes-info-about-the-page-number" class="level2" data-number="26.14">
-<h2 data-number="26.14" class="anchored" data-anchor-id="some-urls-includes-info-about-the-page-number"><span class="header-section-number">26.14</span> Some URLs includes info about the page number</h2>
+<section id="some-urls-includes-info-about-the-page-number" class="level2" data-number="31.14">
+<h2 data-number="31.14" class="anchored" data-anchor-id="some-urls-includes-info-about-the-page-number"><span class="header-section-number">31.14</span> Some URLs includes info about the page number</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>page1Url <span class="ot">=</span> <span class="st">"https://scrapethissite.com/pages/forms/?page_num=20"</span></span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getHockeyData</span>(page1Url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4302,8 +4359,8 @@ another line    after a tab</code></pre>
 </div>
 </div>
 </section>
-<section id="function-to-get-multiple-pages" class="level2" data-number="26.15">
-<h2 data-number="26.15" class="anchored" data-anchor-id="function-to-get-multiple-pages"><span class="header-section-number">26.15</span> Function to get multiple pages</h2>
+<section id="function-to-get-multiple-pages" class="level2" data-number="31.15">
+<h2 data-number="31.15" class="anchored" data-anchor-id="function-to-get-multiple-pages"><span class="header-section-number">31.15</span> Function to get multiple pages</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now write a function to get the data from multiple pages of the hockey data.</span></span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The pages argument is expected to be a vector with the numbers of </span></span>
@@ -4434,8 +4491,8 @@ another line    after a tab</code></pre>
 <span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>allPages <span class="ot">=</span> <span class="fu">getMultiplePages</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="scrape-the-number-of-pages-to-get" class="level2" data-number="26.16">
-<h2 data-number="26.16" class="anchored" data-anchor-id="scrape-the-number-of-pages-to-get"><span class="header-section-number">26.16</span> Scrape the number of pages to get</h2>
+<section id="scrape-the-number-of-pages-to-get" class="level2" data-number="31.16">
+<h2 data-number="31.16" class="anchored" data-anchor-id="scrape-the-number-of-pages-to-get"><span class="header-section-number">31.16</span> Scrape the number of pages to get</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure out automatically how many pages of data there are on the website</span></span>
 <span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -4455,8 +4512,8 @@ another line    after a tab</code></pre>
 </div>
 </div>
 </section>
-<section id="robots.txt-file" class="level2" data-number="26.17">
-<h2 data-number="26.17" class="anchored" data-anchor-id="robots.txt-file"><span class="header-section-number">26.17</span> robots.txt file</h2>
+<section id="robots.txt-file" class="level2" data-number="31.17">
+<h2 data-number="31.17" class="anchored" data-anchor-id="robots.txt-file"><span class="header-section-number">31.17</span> robots.txt file</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
 <span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="co"># DEFINITION: root directory (or root folder) ####</span></span>
@@ -4469,24 +4526,17 @@ another line    after a tab</code></pre>
 <span id="cb105-9"><a href="#cb105-9" aria-hidden="true" tabindex="-1"></a><span class="co"># EXAMPLE</span></span>
 <span id="cb105-10"><a href="#cb105-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/"</span>)   <span class="co"># show the files and folders in the root of the harddrive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "$Recycle.Bin"                "$SysReset"                  
- [3] "$WinREAgent"                 "Android_GoogleDriveWhatsApp"
- [5] "Brother"                     "Config.Msi"                 
- [7] "cygwin64"                    "Documents and Settings"     
- [9] "DumpStack.log"               "DumpStack.log.tmp"          
-[11] "hiberfil.sys"                "hp"                         
-[13] "hpswsetup"                   "Intel"                      
-[15] "OneDriveTemp"                "pagefile.sys"               
-[17] "PanoptoRecorder"             "PerfLogs"                   
-[19] "Program Files"               "Program Files (x86)"        
-[21] "ProgramData"                 "Python310"                  
-[23] "Recovery"                    "rtools40"                   
-[25] "SQL2019"                     "swapfile.sys"               
-[27] "SWSetup"                     "System Volume Information"  
-[29] "System.sav"                  "tmp"                        
-[31] "tmp000350"                   "tmp2"                       
-[33] "tmp3"                        "tmp4"                       
-[35] "Users"                       "Windows"                    </code></pre>
+<pre><code> [1] "$Recycle.Bin"              "$SysReset"                
+ [3] "BGInfo"                    "Brother"                  
+ [5] "Config.Msi"                "Documents and Settings"   
+ [7] "DumpStack.log.tmp"         "hiberfil.sys"             
+ [9] "Intel"                     "OneDriveTemp"             
+[11] "pagefile.sys"              "PerfLogs"                 
+[13] "Program Files"             "Program Files (x86)"      
+[15] "ProgramData"               "Recovery"                 
+[17] "swapfile.sys"              "System Volume Information"
+[19] "Users"                     "Windows"                  
+[21] "Windows.old"              </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># robots.txt ####</span></span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
@@ -4529,8 +4579,8 @@ another line    after a tab</code></pre>
 <span id="cb107-39"><a href="#cb107-39" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="techniques-for-finding-css-selectors" class="level2" data-number="26.18">
-<h2 data-number="26.18" class="anchored" data-anchor-id="techniques-for-finding-css-selectors"><span class="header-section-number">26.18</span> Techniques for finding CSS selectors</h2>
+<section id="techniques-for-finding-css-selectors" class="level2" data-number="31.18">
+<h2 data-number="31.18" class="anchored" data-anchor-id="techniques-for-finding-css-selectors"><span class="header-section-number">31.18</span> Techniques for finding CSS selectors</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################################.</span></span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Techniques for finding CSS selectors</span></span>
@@ -4564,8 +4614,8 @@ another line    after a tab</code></pre>
 <span id="cb108-30"><a href="#cb108-30" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################################.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="scrape-the-total-number-of-pages." class="level2" data-number="26.19">
-<h2 data-number="26.19" class="anchored" data-anchor-id="scrape-the-total-number-of-pages."><span class="header-section-number">26.19</span> “scrape” the total number of pages.</h2>
+<section id="scrape-the-total-number-of-pages." class="level2" data-number="31.19">
+<h2 data-number="31.19" class="anchored" data-anchor-id="scrape-the-total-number-of-pages."><span class="header-section-number">31.19</span> “scrape” the total number of pages.</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="do">############################################################################</span></span>
 <span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -4662,8 +4712,8 @@ another line    after a tab</code></pre>
 </div>
 </div>
 </section>
-<section id="timing-r-code-with-sys.time" class="level2" data-number="26.20">
-<h2 data-number="26.20" class="anchored" data-anchor-id="timing-r-code-with-sys.time"><span class="header-section-number">26.20</span> Timing R code with Sys.time()</h2>
+<section id="timing-r-code-with-sys.time" class="level2" data-number="31.20">
+<h2 data-number="31.20" class="anchored" data-anchor-id="timing-r-code-with-sys.time"><span class="header-section-number">31.20</span> Timing R code with Sys.time()</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now that we have the total nubmer of pages, we can get ALL of the data</span></span>
 <span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for all the pages as follows.</span></span>
@@ -4674,14 +4724,14 @@ another line    after a tab</code></pre>
 <span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()    <span class="co"># shows the time on your computer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-05-14 16:14:34 EDT"</code></pre>
+<pre><code>[1] "2025-01-20 14:36:43 EST"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>start <span class="ot">=</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="co"># put some r code here</span></span>
 <span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>end <span class="ot">=</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>end <span class="sc">-</span> start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 0.001318216 secs</code></pre>
+<pre><code>Time difference of 0.0005187988 secs</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="ot">=</span> <span class="fu">Sys.time</span>() <span class="co"># get the time before we start</span></span>
 <span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -4691,7 +4741,7 @@ another line    after a tab</code></pre>
 <span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>end_time <span class="sc">-</span> start_time   <span class="co"># show how long it took</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 32.08122 secs</code></pre>
+<pre><code>Time difference of 30.79565 secs</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's examine the results ...</span></span>
 <span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dataFromAllPages)  <span class="co"># how many rows?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4715,8 +4765,8 @@ another line    after a tab</code></pre>
 582       WinnipegJets   37</code></pre>
 </div>
 </div>
-<section id="finding-a-css-selector-that-isnt-fragile" class="level3" data-number="26.20.1">
-<h3 data-number="26.20.1" class="anchored" data-anchor-id="finding-a-css-selector-that-isnt-fragile"><span class="header-section-number">26.20.1</span> Finding a css selector that isn’t “fragile”</h3>
+<section id="finding-a-css-selector-that-isnt-fragile" class="level3" data-number="31.20.1">
+<h3 data-number="31.20.1" class="anchored" data-anchor-id="finding-a-css-selector-that-isnt-fragile"><span class="header-section-number">31.20.1</span> Finding a css selector that isn’t “fragile”</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="do">#######################################################################</span></span>
 <span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -4952,18 +5002,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -4995,7 +5034,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -5003,10 +5064,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -5048,7 +5114,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -5096,7 +5166,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -5319,13 +5394,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./web-000300-internetArchitecture-v001.html" class="pagination-link  aria-label=" &lt;span="" a="" webpage="" gets="" to="" your="" browser&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span>
+      <a href="./web-000300-internetArchitecture-v001.html" class="pagination-link" aria-label="How a webpage gets to your browser">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="pagination-link" aria-label="<span class='chapter-number'>27</span>&nbsp; <span class='chapter-title'>Scraping Dynamic (JavaScript) Websites</span>">
-        <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="pagination-link" aria-label="Scraping Dynamic (JavaScript) Websites">
+        <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.537">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Management With R - 15&nbsp; Get the data - “books database” and other tables</title>
+<title>20&nbsp; Get the data - “books database” and other tables – Data Management With R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -103,7 +103,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+
 <meta http-equiv="Pragma" content="no-cache">
+
 <meta http-equiv="Expires" content="0">
 
 
@@ -115,13 +117,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Get the data - "books database" and other tables</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -163,291 +165,343 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Bash</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working with files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
+  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">JSON data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
+  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Intro to tidyverse</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bash</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">What is the "tidyverse"</span></span></a>
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">visualizations with ggplot2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Expressions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
+  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Intro to dplyr and to SQL</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to tidyverse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
+  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
+  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">visualizations with ggplot2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">"databases" and "database management systems"</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Get the data - "books database" and other tables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">SQL "window" functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
- <span class="menu-text">Web Scraping</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to dplyr and to SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
- <span class="menu-text">Questions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">"Cleaning" data</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Web Scraping</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Questions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -462,20 +516,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#download-all-of-the-files" id="toc-download-all-of-the-files" class="nav-link active" data-scroll-target="#download-all-of-the-files"><span class="header-section-number">15.1</span> Download all of the files</a></li>
-  <li><a href="#prepare-to-import-the-data" id="toc-prepare-to-import-the-data" class="nav-link" data-scroll-target="#prepare-to-import-the-data"><span class="header-section-number">15.2</span> Prepare to import the data</a></li>
-  <li><a href="#import-the-data-grades" id="toc-import-the-data-grades" class="nav-link" data-scroll-target="#import-the-data-grades"><span class="header-section-number">15.3</span> import the data: grades</a></li>
-  <li><a href="#import-the-data-customers-orders-movies-north_american_cities-etc" id="toc-import-the-data-customers-orders-movies-north_american_cities-etc" class="nav-link" data-scroll-target="#import-the-data-customers-orders-movies-north_american_cities-etc"><span class="header-section-number">15.4</span> import the data: customers, orders, movies, north_american_cities, etc</a></li>
-  <li><a href="#import-the-data-books-database" id="toc-import-the-data-books-database" class="nav-link" data-scroll-target="#import-the-data-books-database"><span class="header-section-number">15.5</span> import the data: “books database”</a></li>
+  <li><a href="#download-all-of-the-files" id="toc-download-all-of-the-files" class="nav-link active" data-scroll-target="#download-all-of-the-files"><span class="header-section-number">20.1</span> Download all of the files</a></li>
+  <li><a href="#prepare-to-import-the-data" id="toc-prepare-to-import-the-data" class="nav-link" data-scroll-target="#prepare-to-import-the-data"><span class="header-section-number">20.2</span> Prepare to import the data</a></li>
+  <li><a href="#import-the-data-grades" id="toc-import-the-data-grades" class="nav-link" data-scroll-target="#import-the-data-grades"><span class="header-section-number">20.3</span> import the data: grades</a></li>
+  <li><a href="#import-the-data-customers-orders-movies-north_american_cities-etc" id="toc-import-the-data-customers-orders-movies-north_american_cities-etc" class="nav-link" data-scroll-target="#import-the-data-customers-orders-movies-north_american_cities-etc"><span class="header-section-number">20.4</span> import the data: customers, orders, movies, north_american_cities, etc</a></li>
+  <li><a href="#import-the-data-books-database" id="toc-import-the-data-books-database" class="nav-link" data-scroll-target="#import-the-data-books-database"><span class="header-section-number">20.5</span> import the data: “books database”</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Get the data - "books database" and other tables</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></h1>
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></h1>
 </div>
 
 
@@ -493,8 +547,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>As we learn about databases and SQL we will need to refer to various collections of data (i.e.&nbsp;“tables” of data in SQL terminology). See below for info on how to download and install the various collections of data into R.</p>
-<section id="download-all-of-the-files" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="download-all-of-the-files"><span class="header-section-number">15.1</span> Download all of the files</h2>
+<section id="download-all-of-the-files" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="download-all-of-the-files"><span class="header-section-number">20.1</span> Download all of the files</h2>
 <p>Download the files by clicking on the links below. To load the various collections of data into R see the instructions in the sections below.</p>
 <ul>
 <li><p>The following file contains the grades table:</p>
@@ -521,45 +575,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="prepare-to-import-the-data" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="prepare-to-import-the-data"><span class="header-section-number">15.2</span> Prepare to import the data</h2>
+<section id="prepare-to-import-the-data" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="prepare-to-import-the-data"><span class="header-section-number">20.2</span> Prepare to import the data</h2>
 <p>In order to read the data into R and to access the data using SQL, we will need to load the R packages “readr” and “sqldf”. We do so with the following commands:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(readr)){<span class="fu">install.packages</span>(<span class="st">"readr"</span>);<span class="fu">require</span>(readr);}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(sqldf)){<span class="fu">install.packages</span>(<span class="st">"sqldf"</span>);<span class="fu">require</span>(sqldf);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in contrib.url(repos, "source"): trying to use CRAN without setting a mirror</code></pre>
+</div>
 </div>
 </section>
-<section id="import-the-data-grades" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="import-the-data-grades"><span class="header-section-number">15.3</span> import the data: grades</h2>
+<section id="import-the-data-grades" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="import-the-data-grades"><span class="header-section-number">20.3</span> import the data: grades</h2>
 <p><a href="grades.csv">grades.csv</a> is a .csv file that contains information about students and their grades. You can read the contents of the file into R with the read.csv function as shown below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>grades <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"grades.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>grades <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"grades.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once you’ve done so, you can display the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from grades"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      id  student year honors test1 test2 test3 major
-1  s0100      joe   fr  FALSE    70    82    NA   IDS
-2  s0200      sue   fr  FALSE    80    80    79   IDS
-3  s0300     anne   fr   TRUE    90    95    92   IDS
-4  s0400    frank   so   TRUE   100    95    91   ACC
-5  s0500      bob   so  FALSE    30    NA    NA   IDS
-6  s0600 samantha   so   TRUE   100    70    97   IDS
-7  s0700    larry   ju  FALSE    32    80    NA   FIN
-8  s0800     bill   se  FALSE    84    90    92   ACC
-9  s0900 lucricia   fr   TRUE    80   100    88   IDS
-10 s1000 margaret   se  FALSE    59    47    NA   IDS
-11 s1100    dalia   se  FALSE    85    92    93   FIN
-12 s1200      zvi   ju   TRUE    90    98    92   ACC
-13 s1300     mike   ju   TRUE    90    86    79   IDS
-14 s1400    david   se   TRUE    90    87    87   IDS
-15 s1500     dana   so  FALSE   100    93    91   FIN</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from grades"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from grades"): could not find function "sqldf"</code></pre>
 </div>
 </div>
 </section>
-<section id="import-the-data-customers-orders-movies-north_american_cities-etc" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="import-the-data-customers-orders-movies-north_american_cities-etc"><span class="header-section-number">15.4</span> import the data: customers, orders, movies, north_american_cities, etc</h2>
+<section id="import-the-data-customers-orders-movies-north_american_cities-etc" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="import-the-data-customers-orders-movies-north_american_cities-etc"><span class="header-section-number">20.4</span> import the data: customers, orders, movies, north_american_cities, etc</h2>
 <p>The file <a href="sqlbolt_tables-v007.RData">sqlbolt_tables-v007.RData</a> contains the following different collections of information:</p>
 <ul>
 <li>customers</li>
@@ -570,455 +612,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Use the load function as shown below to load the data into R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"sqlbolt_tables-v007.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"sqlbolt_tables-v007.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Below are the contents of these tables:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from grades"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      id  student year honors test1 test2 test3 major
-1  s0100      joe   fr  FALSE    70    82    NA   IDS
-2  s0200      sue   fr  FALSE    80    80    79   IDS
-3  s0300     anne   fr   TRUE    90    95    92   IDS
-4  s0400    frank   so   TRUE   100    95    91   ACC
-5  s0500      bob   so  FALSE    30    NA    NA   IDS
-6  s0600 samantha   so   TRUE   100    70    97   IDS
-7  s0700    larry   ju  FALSE    32    80    NA   FIN
-8  s0800     bill   se  FALSE    84    90    92   ACC
-9  s0900 lucricia   fr   TRUE    80   100    88   IDS
-10 s1000 margaret   se  FALSE    59    47    NA   IDS
-11 s1100    dalia   se  FALSE    85    92    93   FIN
-12 s1200      zvi   ju   TRUE    90    98    92   ACC
-13 s1300     mike   ju   TRUE    90    86    79   IDS
-14 s1400    david   se   TRUE    90    87    87   IDS
-15 s1500     dana   so  FALSE   100    93    91   FIN</code></pre>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from grades"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from grades"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from movies"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   id               title       director year length_minutes
-1   1           Toy Story  John Lasseter 1995             81
-2   2        A Bug's Life  John Lasseter 1998             95
-3   3         Toy Story 2  John Lasseter 1999             93
-4   4      Monsters, Inc.    Pete Docter 2001             92
-5   5        Finding Nemo Andrew Stanton 2003            107
-6   6     The Incredibles      Brad Bird 2004            116
-7   7                Cars  John Lasseter 2006            117
-8   8         Ratatouille      Brad Bird 2007            115
-9   9              WALL-E Andrew Stanton 2008            104
-10 10                  Up    Pete Docter 2009            101
-11 11         Toy Story 3    Lee Unkrich 2010            103
-12 12              Cars 2  John Lasseter 2011            120
-13 13               Brave Brenda Chapman 2012            102
-14 14 Monsters University    Dan Scanlon 2013            110
-15 87              WALL-G Brenda Chapman 2042             92</code></pre>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from movies"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from movies"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from orders"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    OrderID CustomerID EmployeeID  OrderDate ShipperID
-1     10248         90          5   7/4/1996         3
-2     10249         81          6   7/5/1996         1
-3     10250         34          4   7/8/1996         2
-4     10251         84          3   7/8/1996         1
-5     10252         76          4   7/9/1996         2
-6     10253         34          3  7/10/1996         2
-7     10254         14          5  7/11/1996         2
-8     10255         68          9  7/12/1996         3
-9     10256         88          3  7/15/1996         2
-10    10257         35          4  7/16/1996         3
-11    10258         20          1  7/17/1996         1
-12    10259         13          4  7/18/1996         3
-13    10260         55          4  7/19/1996         1
-14    10261         61          4  7/19/1996         2
-15    10262         65          8  7/22/1996         3
-16    10263         20          9  7/23/1996         3
-17    10264         24          6  7/24/1996         3
-18    10265          7          2  7/25/1996         1
-19    10266         87          3  7/26/1996         3
-20    10267         25          4  7/29/1996         1
-21    10268         33          8  7/30/1996         3
-22    10269         89          5  7/31/1996         1
-23    10270         87          1   8/1/1996         1
-24    10271         75          6   8/1/1996         2
-25    10272         65          6   8/2/1996         2
-26    10273         63          3   8/5/1996         3
-27    10274         85          6   8/6/1996         1
-28    10275         49          1   8/7/1996         1
-29    10276         80          8   8/8/1996         3
-30    10277         52          2   8/9/1996         3
-31    10278          5          8  8/12/1996         2
-32    10279         44          8  8/13/1996         2
-33    10280          5          2  8/14/1996         1
-34    10281         69          4  8/14/1996         1
-35    10282         69          4  8/15/1996         1
-36    10283         46          3  8/16/1996         3
-37    10284         44          4  8/19/1996         1
-38    10285         63          1  8/20/1996         2
-39    10286         63          8  8/21/1996         3
-40    10287         67          8  8/22/1996         3
-41    10288         66          4  8/23/1996         1
-42    10289         11          7  8/26/1996         3
-43    10290         15          8  8/27/1996         1
-44    10291         61          6  8/27/1996         2
-45    10292         81          1  8/28/1996         2
-46    10293         80          1  8/29/1996         3
-47    10294         65          4  8/30/1996         2
-48    10295         85          2   9/2/1996         2
-49    10296         46          6   9/3/1996         1
-50    10297          7          5   9/4/1996         2
-51    10298         37          6   9/5/1996         2
-52    10299         67          4   9/6/1996         2
-53    10300         49          2   9/9/1996         2
-54    10301         86          8   9/9/1996         2
-55    10302         76          4  9/10/1996         2
-56    10303         30          7  9/11/1996         2
-57    10304         80          1  9/12/1996         2
-58    10305         55          8  9/13/1996         3
-59    10306         69          1  9/16/1996         3
-60    10307         48          2  9/17/1996         2
-61    10308          2          7  9/18/1996         3
-62    10309         37          3  9/19/1996         1
-63    10310         77          8  9/20/1996         2
-64    10311         18          1  9/20/1996         3
-65    10312         86          2  9/23/1996         2
-66    10313         63          2  9/24/1996         2
-67    10314         65          1  9/25/1996         2
-68    10315         38          4  9/26/1996         2
-69    10316         65          1  9/27/1996         3
-70    10317         48          6  9/30/1996         1
-71    10318         38          8  10/1/1996         2
-72    10319         80          7  10/2/1996         3
-73    10320         87          5  10/3/1996         3
-74    10321         38          3  10/3/1996         2
-75    10322         58          7  10/4/1996         3
-76    10323         39          4  10/7/1996         1
-77    10324         71          9  10/8/1996         1
-78    10325         39          1  10/9/1996         3
-79    10326          8          4 10/10/1996         2
-80    10327         24          2 10/11/1996         1
-81    10328         28          4 10/14/1996         3
-82    10329         75          4 10/15/1996         2
-83    10330         46          3 10/16/1996         1
-84    10331          9          9 10/16/1996         1
-85    10332         51          3 10/17/1996         2
-86    10333         87          5 10/18/1996         3
-87    10334         84          8 10/21/1996         2
-88    10335         37          7 10/22/1996         2
-89    10336         60          7 10/23/1996         2
-90    10337         25          4 10/24/1996         3
-91    10338         55          4 10/25/1996         3
-92    10339         51          2 10/28/1996         2
-93    10340          9          1 10/29/1996         3
-94    10341         73          7 10/29/1996         3
-95    10342         25          4 10/30/1996         2
-96    10343         44          4 10/31/1996         1
-97    10344         89          4  11/1/1996         2
-98    10345         63          2  11/4/1996         2
-99    10346         65          3  11/5/1996         3
-100   10347         21          4  11/6/1996         3
-101   10348         86          4  11/7/1996         2
-102   10349         75          7  11/8/1996         1
-103   10350         41          6 11/11/1996         2
-104   10351         20          1 11/11/1996         1
-105   10352         28          3 11/12/1996         3
-106   10353         59          7 11/13/1996         3
-107   10354         58          8 11/14/1996         3
-108   10355          4          6 11/15/1996         1
-109   10356         86          6 11/18/1996         2
-110   10357         46          1 11/19/1996         3
-111   10358         41          5 11/20/1996         1
-112   10359         72          5 11/21/1996         3
-113   10360          7          4 11/22/1996         3
-114   10361         63          1 11/22/1996         2
-115   10362          9          3 11/25/1996         1
-116   10363         17          4 11/26/1996         3
-117   10364         19          1 11/26/1996         1
-118   10365          3          3 11/27/1996         2
-119   10366         29          8 11/28/1996         2
-120   10367         83          7 11/28/1996         3
-121   10368         20          2 11/29/1996         2
-122   10369         75          8  12/2/1996         2
-123   10370         14          6  12/3/1996         2
-124   10371         41          1  12/3/1996         1
-125   10372         62          5  12/4/1996         2
-126   10373         37          4  12/5/1996         3
-127   10374         91          1  12/5/1996         3
-128   10375         36          3  12/6/1996         2
-129   10376         51          1  12/9/1996         2
-130   10377         72          1  12/9/1996         3
-131   10378         24          5 12/10/1996         3
-132   10379         61          2 12/11/1996         1
-133   10380         37          8 12/12/1996         3
-134   10381         46          3 12/12/1996         3
-135   10382         20          4 12/13/1996         1
-136   10383          4          8 12/16/1996         3
-137   10384          5          3 12/16/1996         3
-138   10385         75          1 12/17/1996         2
-139   10386         21          9 12/18/1996         3
-140   10387         70          1 12/18/1996         2
-141   10388         72          2 12/19/1996         1
-142   10389         10          4 12/20/1996         2
-143   10390         20          6 12/23/1996         1
-144   10391         17          3 12/23/1996         3
-145   10392         59          2 12/24/1996         3
-146   10393         71          1 12/25/1996         3
-147   10394         36          1 12/25/1996         3
-148   10395         35          6 12/26/1996         1
-149   10396         25          1 12/27/1996         3
-150   10397         60          5 12/27/1996         1
-151   10398         71          2 12/30/1996         3
-152   10399         83          8 12/31/1996         3
-153   10400         19          1   1/1/1997         3
-154   10401         65          1   1/1/1997         1
-155   10402         20          8   1/2/1997         2
-156   10403         20          4   1/3/1997         3
-157   10404         49          2   1/3/1997         1
-158   10405         47          1   1/6/1997         1
-159   10406         62          7   1/7/1997         1
-160   10407         56          2   1/7/1997         2
-161   10408         23          8   1/8/1997         1
-162   10409         54          3   1/9/1997         1
-163   10410         10          3  1/10/1997         3
-164   10411         10          9  1/10/1997         3
-165   10412         87          8  1/13/1997         2
-166   10413         41          3  1/14/1997         2
-167   10414         21          2  1/14/1997         3
-168   10415         36          3  1/15/1997         1
-169   10416         87          8  1/16/1997         3
-170   10417         73          4  1/16/1997         3
-171   10418         63          4  1/17/1997         1
-172   10419         68          4  1/20/1997         2
-173   10420         88          3  1/21/1997         1
-174   10421         61          8  1/21/1997         1
-175   10422         27          2  1/22/1997         1
-176   10423         31          6  1/23/1997         3
-177   10424         51          7  1/23/1997         2
-178   10425         41          6  1/24/1997         2
-179   10426         29          4  1/27/1997         1
-180   10427         59          4  1/27/1997         2
-181   10428         66          7  1/28/1997         1
-182   10429         37          3  1/29/1997         2
-183   10430         20          4  1/30/1997         1
-184   10431         10          4  1/30/1997         2
-185   10432         75          3  1/31/1997         2
-186   10433         60          3   2/3/1997         3
-187   10434         24          3   2/3/1997         2
-188   10435         16          8   2/4/1997         2
-189   10436          7          3   2/5/1997         2
-190   10437         87          8   2/5/1997         1
-191   10438         79          3   2/6/1997         2
-192   10439         51          6   2/7/1997         3
-193   10440         71          4  2/10/1997         2
-194   10441         55          3  2/10/1997         2
-195   10442         20          3  2/11/1997         2
-196   10443         66          8  2/12/1997         1</code></pre>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from orders"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from orders"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from customers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   CustomerID                         CustomerName              ContactName                                           Address             City PostalCode     Country
-1           1                  Alfreds Futterkiste             Maria Anders                                     Obere Str. 57           Berlin      12209     Germany
-2           2   Ana Trujillo Emparedados y helados             Ana Trujillo                  Avda. de la Constituci\xf3n 2222   M\xe9xico D.F.       5021      Mexico
-3           3           Antonio Moreno Taquer\xeda           Antonio Moreno                                    Mataderos 2312   M\xe9xico D.F.       5023      Mexico
-4           4                      Around the Horn             Thomas Hardy                                   120 Hanover Sq.           London    WA1 1DP          UK
-5           5                Berglunds snabbk\xf6p       Christina Berglund                                 Berguvsv\xe4gen 8         Lule\xe5   S-958 22      Sweden
-6           6              Blauer See Delikatessen               Hanna Moos                                    Forsterstr. 57         Mannheim      68306     Germany
-7           7              Blondel p\xe8re et fils Fr\xe9d\xe9rique Citeaux                               24, place Kl\xe9ber       Strasbourg      67000      France
-8           8         B\xf3lido Comidas preparadas         Mart\xedn Sommer                                    C/ Araquil, 67           Madrid      28023       Spain
-9           9                             Bon app'        Laurence Lebihans                              12, rue des Bouchers        Marseille      13008      France
-10         10               Bottom-Dollar Marketse        Elizabeth Lincoln                                23 Tsawassen Blvd.        Tsawassen    T2F 8M4      Canada
-11         11                        B's Beverages        Victoria Ashworth                                 Fauntleroy Circus           London    EC2 5NT          UK
-12         12           Cactus Comidas para llevar         Patricio Simpson                                       Cerrito 333     Buenos Aires       1010   Argentina
-13         13           Centro comercial Moctezuma          Francisco Chang                           Sierras de Granada 9993   M\xe9xico D.F.       5022      Mexico
-14         14                    Chop-suey Chinese                Yang Wang                                      Hauptstr. 29             Bern       3012 Switzerland
-15         15                  Com\xe9rcio Mineiro             Pedro Afonso                           Av. dos Lus\xedadas, 23     S\xe3o Paulo  05432-043      Brazil
-16         16                Consolidated Holdings          Elizabeth Brown                       Berkeley Gardens 12 Brewery           London    WX1 6LT          UK
-17         17            Drachenblut Delikatessend             Sven Ottlieb                                      Walserweg 21           Aachen      52066     Germany
-18         18                      Du monde entier           Janine Labrune                      67, rue des Cinquante Otages           Nantes      44000      France
-19         19                   Eastern Connection                Ann Devon                                    35 King George           London    WX3 6FW          UK
-20         20                         Ernst Handel            Roland Mendel                                      Kirchgasse 6             Graz       8010     Austria
-21         21                   Familia Arquibaldo                Aria Cruz                                   Rua Or\xf3s, 92     S\xe3o Paulo  05442-030      Brazil
-22         22 FISSA Fabrica Inter. Salchichas S.A.               Diego Roel                                C/ Moralzarzal, 86           Madrid      28034       Spain
-23         23                    Folies gourmandes         Martine Ranc\xe9                       184, chauss\xe9e de Tournai            Lille      59000      France
-24         24                    Folk och f\xe4 HB            Maria Larsson                                   \xc5kergatan 24        Br\xe4cke   S-844 67      Sweden
-25         25                       Frankenversand            Peter Franken                                 Berliner Platz 43       M\xfcnchen      80805     Germany
-26         26                  France restauration           Carine Schmitt                                    54, rue Royale           Nantes      44000      France
-27         27                       Franchi S.p.A.            Paolo Accorti                               Via Monte Bianco 34           Torino      10100       Italy
-28         28       Furia Bacalhau e Frutos do Mar           Lino Rodriguez                            Jardim das rosas n. 32           Lisboa       1675    Portugal
-29         29         Galer\xeda del gastr\xf3nomo         Eduardo Saavedra                         Rambla de Catalu\xf1a, 23        Barcelona       8022       Spain
-30         30               Godos Cocina T\xedpica     Jos\xe9 Pedro Freyre                                     C/ Romero, 33          Sevilla      41101       Spain
-31         31                  Gourmet Lanchonetes         Andr\xe9 Fonseca                                   Av. Brasil, 442         Campinas  04876-786      Brazil
-32         32              Great Lakes Food Market            Howard Snyder                                  2732 Baker Blvd.           Eugene      97403         USA
-33         33                 GROSELLA-Restaurante           Manuel Pereira                      5\xaa Ave. Los Palos Grandes          Caracas       1081   Venezuela
-34         34                        Hanari Carnes             Mario Pontes                                Rua do Pa\xe7o, 67   Rio de Janeiro  05454-876      Brazil
-35         35                  HILARI\xd3N-Abastos      Carlos Hern\xe1ndez        Carrera 22 con Ave. Carlos Soublette #8-35 San Crist\xf3bal       5022   Venezuela
-36         36           Hungry Coyote Import Store            Yoshi Latimer                    City Center Plaza 516 Main St.            Elgin      97827         USA
-37         37         Hungry Owl All-Night Grocers         Patricia McKenna                                  8 Johnstown Road             Cork                Ireland
-38         38                       Island Trading            Helen Bennett                         Garden House Crowther Way            Cowes   PO31 7PJ          UK
-39         39                   K\xf6niglich Essen            Philip Cramer                                     Maubelstr. 90      Brandenburg      14776     Germany
-40         40                 La corne d'abondance            Daniel Tonini                            67, avenue de l'Europe       Versailles      78000      France
-41         41                     La maison d'Asie           Annette Roulet                             1 rue Alsace-Lorraine         Toulouse      31000      France
-42         42        Laughing Bacchus Wine Cellars          Yoshi Tannamuri                                      1900 Oak St.        Vancouver    V3F 2K1      Canada
-43         43                 Lazy K Kountry Store               John Steel                              12 Orchestra Terrace      Walla Walla      99362         USA
-44         44                  Lehmanns Marktstand           Renate Messner                                      Magazinweg 7   Frankfurt a.M.      60528     Germany
-45         45                    Let's Stop N Shop             Jaime Yorres                               87 Polk St. Suite 5    San Francisco      94117         USA
-46         46                    LILA-Supermercado       Carlos Gonz\xe1lez Carrera 52 con Ave. Bol\xedvar #65-98 Llano Largo     Barquisimeto       3508   Venezuela
-47         47                     LINO-Delicateses         Felipe Izquierdo                           Ave. 5 de Mayo Porlamar  I. de Margarita       4980   Venezuela
-48         48             Lonesome Pine Restaurant              Fran Wilson                                89 Chiaroscuro Rd.         Portland      97219         USA
-49         49         Magazzini Alimentari Riuniti         Giovanni Rovelli                           Via Ludovico il Moro 22          Bergamo      24100       Italy
-50         50                         Maison Dewey          Catherine Dewey                               Rue Joseph-Bens 532        Bruxelles     B-1180     Belgium
-51         51                    M\xe8re Paillarde        Jean Fresni\xe8re                                43 rue St. Laurent      Montr\xe9al    H1J 1C3      Canada
-52         52               Morgenstern Gesundkost          Alexander Feuer                                       Heerstr. 22          Leipzig       4179     Germany
-53         53                          North/South           Simon Crowther                      South House 300 Queensbridge           London    SW7 1RZ          UK
-54         54         Oc\xe9ano Atl\xe1ntico Ltda.           Yvonne Moncada               Ing. Gustavo Moncada 8585 Piso 20-A     Buenos Aires       1010   Argentina
-55         55               Old World Delicatessen            Rene Phillips                                   2743 Bering St.        Anchorage      99508         USA
-56         56                Ottilies K\xe4seladen      Henriette Pfalzheim                                Mehrheimerstr. 369          K\xf6ln      50739     Germany
-57         57              Paris sp\xe9cialit\xe9s           Marie Bertrand                           265, boulevard Charonne            Paris      75012      France
-58         58         Pericles Comidas cl\xe1sicas   Guillermo Fern\xe1ndez                          Calle Dr. Jorge Cash 321   M\xe9xico D.F.       5033      Mexico
-59         59                     Piccolo und mehr              Georg Pipps                                       Geislweg 14         Salzburg       5020     Austria
-60         60              Princesa Isabel Vinhoss         Isabel de Castro                         Estrada da sa\xfade n. 58           Lisboa       1756    Portugal
-61         61                       Que Del\xedcia         Bernardo Batista                           Rua da Panificadora, 12   Rio de Janeiro  02389-673      Brazil
-62         62                        Queen Cozinha        L\xfacia Carvalho                      Alameda dos Can\xe0rios, 891     S\xe3o Paulo  05487-020      Brazil
-63         63                           QUICK-Stop              Horst Kloss                               Taucherstra\xdfe 10        Cunewalde       1307     Germany
-64         64                        Rancho grande      Sergio Guti\xe9rrez                            Av. del Libertador 900     Buenos Aires       1010   Argentina
-65         65           Rattlesnake Canyon Grocery             Paula Wilson                                   2817 Milton Dr.      Albuquerque      87110         USA
-66         66                   Reggiani Caseifici          Maurizio Moroni                            Strada Provinciale 124    Reggio Emilia      42100       Italy
-67         67                   Ricardo Adocicados           Janete Limeira                               Av. Copacabana, 267   Rio de Janeiro  02389-890      Brazil
-68         68                   Richter Supermarkt             Michael Holz                                 Grenzacherweg 237        Gen\xe8ve       1203 Switzerland
-69         69                     Romero y tomillo         Alejandra Camino                                    Gran V\xeda, 1           Madrid      28001       Spain
-70         70                     Sant\xe9 Gourmet         Jonas Bergulfsen                            Erling Skakkes gate 78          Stavern       4110      Norway
-71         71                   Save-a-lot Markets           Jose Pavarotti                                   187 Suffolk Ln.            Boise      83720         USA
-72         72                   Seven Seas Imports               Hari Kumar                                   90 Wadhurst Rd.           London   OX15 4NB          UK
-73         73                        Simons bistro           Jytte Petersen                                   Vinb\xe6ltet 34     K\xf8benhavn       1734     Denmark
-74         74           Sp\xe9cialit\xe9s du monde        Dominique Perrier                                 25, rue Lauriston            Paris      75016      France
-75         75                Split Rail Beer &amp; Ale       Art Braunschweiger                                      P.O. Box 555           Lander      82520         USA
-76         76               Supr\xeames d\xe9lices         Pascale Cartrain                              Boulevard Tirou, 255        Charleroi     B-6000     Belgium
-77         77                       The Big Cheese                Liz Nixon                          89 Jefferson Way Suite 2         Portland      97201         USA
-78         78                      The Cracker Box                 Liu Wong                               55 Grizzly Peak Rd.            Butte      59801         USA
-79         79                Toms Spezialit\xe4ten            Karin Josephs                                     Luisenstr. 48       M\xfcnster      44087     Germany
-80         80                  Tortuga Restaurante     Miguel Angel Paolino                                  Avda. Azteca 123   M\xe9xico D.F.       5033      Mexico
-81         81         Tradi\xe7\xe3o Hipermercados        Anabela Domingues                        Av. In\xeas de Castro, 414     S\xe3o Paulo  05634-030      Brazil
-82         82    Trail's Head Gourmet Provisioners           Helvetius Nagy                                 722 DaVinci Blvd.         Kirkland      98034         USA
-83         83                         Vaffeljernet              Palle Ibsen                                  Smagsl\xf8get 45         \xc5rhus       8200     Denmark
-84         84                 Victuailles en stock             Mary Saveley                                2, rue du Commerce             Lyon      69004      France
-85         85            Vins et alcools Chevalier             Paul Henriot                                59 rue de l'Abbaye            Reims      51100      France
-86         86                    Die Wandernde Kuh           Rita M\xfcller                                 Adenauerallee 900        Stuttgart      70563     Germany
-87         87                       Wartian Herkku         Pirkko Koskitalo                                       Torikatu 38             Oulu      90110     Finland
-88         88               Wellington Importadora            Paula Parente                                Rua do Mercado, 12          Resende  08737-363      Brazil
-89         89                 White Clover Markets           Karl Jablonski                       305 - 14th Ave. S. Suite 3B          Seattle      98128         USA
-90         90                          Wilman Kala          Matti Karttunen                                     Keskuskatu 45         Helsinki      21240     Finland
-91         91                               Wolski                  Zbyszek                                   ul. Filtrowa 68            Walla     01-012      Poland</code></pre>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from customers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from customers"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from north_american_cities"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                  city       country population latitude  longitude
-1          Guadalajara        Mexico    1500800 20.65970 -103.34961
-2              Toronto        Canada    2795060 43.65323  -79.38318
-3              Houston United States    2195914 29.76043  -95.36980
-4             New York United States    8405837 40.71278  -74.00594
-5         Philadelphia United States    1553165 39.95258  -75.16522
-6               Havana          Cuba    2106146 23.05407  -82.34519
-7          Mexico City        Mexico    8555500 19.43261  -99.13321
-8              Phoenix United States    1513367 33.44838 -112.07404
-9          Los Angeles United States    3884307 34.05223 -118.24368
-10 Ecatepec de Morelos        Mexico    1742000 19.60184  -99.05067
-11            Montreal        Canada    1717767 45.50169  -73.56726
-12             Chicago United States    2718782 41.87811  -87.62980</code></pre>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from north_american_cities"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from north_american_cities"): could not find function "sqldf"</code></pre>
 </div>
 </div>
 </section>
-<section id="import-the-data-books-database" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="import-the-data-books-database"><span class="header-section-number">15.5</span> import the data: “books database”</h2>
+<section id="import-the-data-books-database" class="level2" data-number="20.5">
+<h2 data-number="20.5" class="anchored" data-anchor-id="import-the-data-books-database"><span class="header-section-number">20.5</span> import the data: “books database”</h2>
 <p>The “books database” is a collection of several relational database tables. The links to download the files for this database are located at the top of this webpage.</p>
 <p>Pay special attention to the file <a href="data/booksDatabaseDescription-withQuestions-ANSWERS-v020.docx">booksDatabase description and Questions</a> which contains a description of the database as well as a discussion of different concepts related to databases in general. You should use this file as a tutorial about the books database. The end of this file contains many questions/answers to test your knowledge of SQL.</p>
 <p>Once you’ve downloaded the various files you can run the following commands to import the data into R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The books database contains information about various books, authors,</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># publishers, etc.</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data for the books database - see the </span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/titles.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>publishers <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/publishers.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>title_authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/title_authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>royalties <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/royalties.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The books database contains information about various books, authors,</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># publishers, etc.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data for the books database - see the </span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/titles.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>publishers <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/publishers.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>title_authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/title_authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>royalties <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"data/booksDatabase/royalties.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Below are the contents of these tables:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   title_id                          title_name       type pub_id pages price   sales         pubdate
-1       T01                               1977!    history    P01   107 21.99     566   8/1/2000 0:00
-2       T02           200 Years of German Humor    history    P03    14 19.95    9566   4/1/1998 0:00
-3       T03        Ask Yor System Administrator   computer    P02  1226 39.95   25667   9/1/2000 0:00
-4       T04           But I Did It Unconciously psychology    P01   510 12.99   13001  5/31/1999 0:00
-5       T05              Exchange of Platitudes psychology    P01   201  6.95  201440   1/1/2001 0:00
-6       T06                    How About Never?  biography    P01   473 19.95   11320  7/31/2000 0:00
-7       T07                   I Blame My Mother  biography    P03   333 23.95 1500200  10/1/1999 0:00
-8       T08        Just Wait Until After School   children    P01    86 10.00    4095   6/1/2001 0:00
-9       T09                     Kiss My Boo Boo   children    P01    22 13.95    5000  5/31/2002 0:00
-10      T10         Not Without My Fabrerge Egg  biography    P05    NA    NA      NA            &lt;NA&gt;
-11      T11    Perhaps It's a Glandular Problem psychology    P05   826  7.99   94123 11/30/2000 0:00
-12      T12           Spontaneous, Not Annoying  biography    P05   507 12.99  100001  8/31/2000 0:00
-13      T13 What Are The Civilian Applications?    history    P03   802 29.99   10467  5/31/1999 0:00</code></pre>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from titles"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from publishers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  pub_id             pub_name          city state country
-1    P01    Abatis Publishers      New York    NY     USA
-2    P02      Core Dump Books San Francisco    CA     USA
-3    P03 Schandenfreude Press       Hamburg  &lt;NA&gt; Germany
-4    P04    Tneterhooks Press      Berkeley    CA     USA
-5    P05       AAA Publishing      Berkeley    CA     USA</code></pre>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from publishers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from publishers"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from title_authors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   title_id au_id au_order royalty_shares
-1       T01   A01        1            1.0
-2       T02   A01        1            1.0
-3       T03   A05        1            1.0
-4       T04   A03        1            0.6
-5       T04   A04        2            0.4
-6       T05   A04        1            1.0
-7       T06   A02        1            1.0
-8       T07   A02        1            0.5
-9       T07   A04        2            0.5
-10      T08   A06        1            1.0
-11      T09   A06        1            1.0
-12      T10   A02        1            1.0
-13      T11   A03        2            0.3
-14      T11   A04        3            0.3
-15      T11   A06        1            0.4
-16      T12   A02        1            1.0
-17      T13   A01        1            1.0</code></pre>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from title_authors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from title_authors"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from authors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  au_id  au_fname    au_lname        phone              address          city state   zip
-1   A01     Sarah     Buchman 718-496-7223       75 West 205 St         Bronx    NY 10468
-2   A02     Wendy   Heydemark 303-986-7020     2922 Baseline Rd       Boulder    CO 80303
-3   A03    Hallie        Hull 415-549-4278 3800 Waldo Ave, #14F San Francisco    CA 94123
-4   A04      Klee        Hull 415-549-4278 3800 Waldo Ave, #14F San Francisco    CA 94123
-5   A05 Christian       Kells 212-771-4680       114 Horatio St      New York    NY 10014
-6   A06    Harvey     Kellsey 650-836-7128       390 Serra Mall     Palo Alto    CA 94305
-7   A07     Paddy O'Furniture 941-925-0752         1442 Main St      Sarasota    FL 34236</code></pre>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from authors"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from authors"): could not find function "sqldf"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from royalties"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   title_id advance royalty_rate
-1       T01   10000         0.05
-2       T02    1000         0.06
-3       T03   15000         0.07
-4       T04   20000         0.08
-5       T05  100000         0.09
-6       T06   20000         0.08
-7       T07 1000000         0.11
-8       T08       0         0.04
-9       T09       0         0.05
-10      T10      NA           NA
-11      T11  100000         0.07
-12      T12   50000         0.09
-13      T13   20000         0.06</code></pre>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from royalties"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqldf("select * from royalties"): could not find function "sqldf"</code></pre>
 </div>
 </div>
 
@@ -1061,18 +719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1104,7 +751,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1112,10 +781,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -1157,7 +831,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1205,7 +883,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1428,13 +1111,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./sql0006-introToDatabases-v023.html" class="pagination-link  aria-label=" &lt;span="" and="" &quot;database="" management="" systems&quot;&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span>
+      <a href="./sql0006-introToDatabases-v023.html" class="pagination-link" aria-label="&quot;databases&quot; and &quot;database management systems&quot;">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sql0010-introToSql-v023.html" class="pagination-link" aria-label="<span class='chapter-number'>16</span>&nbsp; <span class='chapter-title'>Relational Databases and SQL (using R)</span>">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sql0010-introToSql-v023.html" class="pagination-link" aria-label="Relational Databases and SQL (using R)">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
