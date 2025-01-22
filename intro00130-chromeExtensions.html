@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>33&nbsp; How a webpage gets to your browser – Data Management With R</title>
+<title>3&nbsp; Chrome Extensions – Data Management With R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./web-000400-webscrapingContinued-015.html" rel="next">
-<link href="./0600100-introToDb-v001.html" rel="prev">
+<link href="./0000022-InstallingRPackages-v003.html" rel="next">
+<link href="./intro00120-files.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -86,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro00100-operatingSystems.html">Some computer basics</a></li><li class="breadcrumb-item"><a href="./intro00130-chromeExtensions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
+  <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></span></a>
   </div>
 </li>
@@ -441,7 +441,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link active">
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
   </div>
 </li>
@@ -533,38 +533,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#files-for-this-presentation" id="toc-files-for-this-presentation" class="nav-link active" data-scroll-target="#files-for-this-presentation"><span class="header-section-number">33.1</span> Files for this presentation</a></li>
-  <li><a href="#browsers-communicate-with-web-servers" id="toc-browsers-communicate-with-web-servers" class="nav-link" data-scroll-target="#browsers-communicate-with-web-servers"><span class="header-section-number">33.2</span> browsers communicate with “web servers”</a></li>
-  <li><a href="#the-parts-of-a-url" id="toc-the-parts-of-a-url" class="nav-link" data-scroll-target="#the-parts-of-a-url"><span class="header-section-number">33.3</span> The parts of a URL</a></li>
-  <li><a href="#diagram" id="toc-diagram" class="nav-link" data-scroll-target="#diagram"><span class="header-section-number">33.4</span> Diagram</a></li>
-  <li><a href="#ip-addresses-and-dns-servers" id="toc-ip-addresses-and-dns-servers" class="nav-link" data-scroll-target="#ip-addresses-and-dns-servers"><span class="header-section-number">33.5</span> IP addresses and DNS servers</a></li>
-  <li><a href="#how-does-a-computer-know-the-ip-address-of-the-dns-server" id="toc-how-does-a-computer-know-the-ip-address-of-the-dns-server" class="nav-link" data-scroll-target="#how-does-a-computer-know-the-ip-address-of-the-dns-server"><span class="header-section-number">33.6</span> How does a computer know the IP address of the DNS server?</a></li>
-  <li><a href="#large-websites-are-run-by-many-different-computers" id="toc-large-websites-are-run-by-many-different-computers" class="nav-link" data-scroll-target="#large-websites-are-run-by-many-different-computers"><span class="header-section-number">33.7</span> Large websites are run by many different computers</a></li>
-  <li><a href="#the-server-sends-html-css-and-javascript-code-back-to-your-browser" id="toc-the-server-sends-html-css-and-javascript-code-back-to-your-browser" class="nav-link" data-scroll-target="#the-server-sends-html-css-and-javascript-code-back-to-your-browser"><span class="header-section-number">33.8</span> The server sends HTML, CSS and Javascript code back to your browser</a></li>
-  <li><a href="#how-to-see-the-code-for-a-webpage" id="toc-how-to-see-the-code-for-a-webpage" class="nav-link" data-scroll-target="#how-to-see-the-code-for-a-webpage"><span class="header-section-number">33.9</span> How to see the “code” for a webpage</a>
+  <li><a href="#try-it-yourself" id="toc-try-it-yourself" class="nav-link active" data-scroll-target="#try-it-yourself"><span class="header-section-number">3.1</span> Try it yourself</a></li>
+  <li><a href="#using-other-browsers" id="toc-using-other-browsers" class="nav-link" data-scroll-target="#using-other-browsers"><span class="header-section-number">3.2</span> Using other browsers</a></li>
+  <li><a href="#developing-your-own-chrome-extensions" id="toc-developing-your-own-chrome-extensions" class="nav-link" data-scroll-target="#developing-your-own-chrome-extensions"><span class="header-section-number">3.3</span> Developing your own Chrome Extensions</a>
   <ul class="collapse">
-  <li><a href="#view-page-source" id="toc-view-page-source" class="nav-link" data-scroll-target="#view-page-source"><span class="header-section-number">33.9.1</span> view page source</a></li>
-  <li><a href="#inspect" id="toc-inspect" class="nav-link" data-scroll-target="#inspect"><span class="header-section-number">33.9.2</span> inspect</a></li>
+  <li><a href="#unpacked-chrome-extensions" id="toc-unpacked-chrome-extensions" class="nav-link" data-scroll-target="#unpacked-chrome-extensions"><span class="header-section-number">3.3.1</span> “unpacked” Chrome extensions</a></li>
   </ul></li>
-  <li><a href="#html-example" id="toc-html-example" class="nav-link" data-scroll-target="#html-example"><span class="header-section-number">33.10</span> HTML example</a>
+  <li><a href="#using-the-yrwebsnip-chrome-extension" id="toc-using-the-yrwebsnip-chrome-extension" class="nav-link" data-scroll-target="#using-the-yrwebsnip-chrome-extension"><span class="header-section-number">3.4</span> Using the yrWebSnip chrome extension</a>
   <ul class="collapse">
-  <li><a href="#html-tags-you-should-know" id="toc-html-tags-you-should-know" class="nav-link" data-scroll-target="#html-tags-you-should-know"><span class="header-section-number">33.10.1</span> HTML Tags you should know</a></li>
-  <li><a href="#html-concepts-you-must-know" id="toc-html-concepts-you-must-know" class="nav-link" data-scroll-target="#html-concepts-you-must-know"><span class="header-section-number">33.10.2</span> HTML concepts you must know</a></li>
+  <li><a href="#download-the-code-for-the-extension" id="toc-download-the-code-for-the-extension" class="nav-link" data-scroll-target="#download-the-code-for-the-extension"><span class="header-section-number">3.4.1</span> Download the code for the extension</a></li>
   </ul></li>
-  <li><a href="#css-example" id="toc-css-example" class="nav-link" data-scroll-target="#css-example"><span class="header-section-number">33.11</span> CSS example</a>
-  <ul class="collapse">
-  <li><a href="#practice-with-css-selectors" id="toc-practice-with-css-selectors" class="nav-link" data-scroll-target="#practice-with-css-selectors"><span class="header-section-number">33.11.1</span> Practice with CSS selectors</a></li>
-  </ul></li>
-  <li><a href="#javascript-example" id="toc-javascript-example" class="nav-link" data-scroll-target="#javascript-example"><span class="header-section-number">33.12</span> Javascript example</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000300-internetArchitecture-v001.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro00100-operatingSystems.html">Some computer basics</a></li><li class="breadcrumb-item"><a href="./intro00130-chromeExtensions.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></h1>
 </div>
 
 
@@ -581,195 +568,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="files-for-this-presentation" class="level2" data-number="33.1">
-<h2 data-number="33.1" class="anchored" data-anchor-id="files-for-this-presentation"><span class="header-section-number">33.1</span> Files for this presentation</h2>
-<p>Click here to download a zip file that contains several files we will use in this presentation:</p>
-<p><a href="htmlExamples-v001.zip">htmlExamples-v001.zip</a></p>
-</section>
-<section id="browsers-communicate-with-web-servers" class="level2" data-number="33.2">
-<h2 data-number="33.2" class="anchored" data-anchor-id="browsers-communicate-with-web-servers"><span class="header-section-number">33.2</span> browsers communicate with “web servers”</h2>
-<p>Every website is managed by a computer. When you point your browser at a URL you are really initiating a conversation between your browser and and a program on the computer that is hosting the website. The program that manages the website is known as a web-server program. The computer that the website is hosted on is known as a web-server computer. Your browser is known as a “client program”.</p>
-</section>
-<section id="the-parts-of-a-url" class="level2" data-number="33.3">
-<h2 data-number="33.3" class="anchored" data-anchor-id="the-parts-of-a-url"><span class="header-section-number">33.3</span> The parts of a URL</h2>
-<p>A URL such as <code>https://www.mygreatsite.com/trips/europe/eifelTower.html</code> is comprised of several parts. The URL above is comprised of the following parts: (see this link for a more detailed discussion of the different part of a URL: <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" class="uri">https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL</a> )</p>
+<p>A <yrdef>chrome extension</yrdef> is a piece of software that extends the capabilities of the Chrome browser. ## How to install a Chrome Extension</p>
+<p>First make sure that you have the Chrome browser installed.</p>
+<p>Then, click here for info about how to install and use a chrome extension.</p>
+<p><a href="https://www.youtube.com/watch?v=g92v8bP8dKo" class="uri">https://www.youtube.com/watch?v=g92v8bP8dKo</a></p>
+<section id="try-it-yourself" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="try-it-yourself"><span class="header-section-number">3.1</span> Try it yourself</h2>
 <ul>
-<li><p>https</p>
-<p>This is known as the “scheme” (or the “protocol”). This is the “language” that is used by the browser to communicate with the web server program. For webpages, you will commonly see either “http” or “https”, however other schemes are possible, such as “ftp”, “mailto” as well as others. (Note that “https” and “http” are very different from “HTML”).</p></li>
-<li><p>://</p>
-<p>Used to separate between the scheme (or protocol) and the rest of the URL (In more complicated URLs you may see a number between : and // but that is beyond the scope of our discussion here.)</p></li>
-<li><p>www.mygreatwebsite.com</p>
-<p>This is called the “domain name”. It is the “name” of the computer that is hosting the website.</p></li>
-<li><p>/trips/europe/eifelTower.html</p>
-<p>When the browser requests a URL, the web-server program sends a file back to the browser. Classically, these files are stored on the hard drive of the server computer. This part of the URL represents the path to the file on the server computer. (NOTE: For modern websites the response from the web-server to the browser is often generated “dynamically” in “real time” instead of being stored on the server computer in files. However, these responses can and often are stored in files. In any case, this part of the URL can be thought of as a path that helps the server computer understand exactly which information needs to be sent back to the browser.)</p></li>
+<li><p>Try installing an using the “google dictionary” chrome extention</p></li>
+<li><p>Try installing an using the “google translate” chrome extention</p></li>
 </ul>
 </section>
-<section id="diagram" class="level2" data-number="33.4">
-<h2 data-number="33.4" class="anchored" data-anchor-id="diagram"><span class="header-section-number">33.4</span> Diagram</h2>
-<p>We’ll disucss the following diagram in class.</p>
-<p><img src="images/internet_architecture_001.jpg" class="img-fluid"></p>
-<p>The diagram shows how computers on the Internet communicate with each other. Every computer has a unique number - called an IP address. In order for one computer to engage in a conversation with another computer, the first computer must know the IP address of the 2nd computer. (In this way an IP address is similar to a telephone number.) The diagram shows how your computer that is running the browser finds out the IP address (similar to a telephone number) of the computer that manages the website.</p>
+<section id="using-other-browsers" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="using-other-browsers"><span class="header-section-number">3.2</span> Using other browsers</h2>
+<p>Chrome extensions may work in other browsers as well, but Chrome is the best option to make sure that the extension works as intended.</p>
+<p>The following was generated by chatgpt on Jan 22, 2025 - As with all info generated by AI today, this may not be totally accurate. Proceed at your own risk :)</p>
+<blockquote class="blockquote">
+<p><yrllm date="Jan 22, 2025" url="https://chatgpt.com/c/679126a0-d258-800b-8e33-316bb37b7e97"> Me: can i install a chrome extension in other browsers ?</yrllm></p>
+<p>ChatGPT said: Yes, many browsers support Chrome extensions, but compatibility depends on the browser:</p>
+<ol type="1">
+<li><p>Microsoft Edge: Directly supports Chrome extensions. Go to the Edge Add-ons Store, enable extensions from other stores, and install from the Chrome Web Store.</p></li>
+<li><p>Opera: Requires the “Install Chrome Extensions” add-on to enable Chrome extensions.</p></li>
+<li><p>Brave: Fully supports Chrome extensions without additional steps. Install them from the Chrome Web Store.</p></li>
+<li><p>Vivaldi: Supports Chrome extensions. Install them directly from the Chrome Web Store.</p></li>
+<li><p>Firefox: Does not natively support Chrome extensions. Extensions must be specifically built or converted for Firefox.</p></li>
+<li><p>For non-Chromium-based browsers, like Safari or Firefox, Chrome extensions won’t work directly without conversion or dedicated versions. </p></li>
+</ol>
+</blockquote>
 </section>
-<section id="ip-addresses-and-dns-servers" class="level2" data-number="33.5">
-<h2 data-number="33.5" class="anchored" data-anchor-id="ip-addresses-and-dns-servers"><span class="header-section-number">33.5</span> IP addresses and DNS servers</h2>
-<p>Each domain name, which represents a computer on the Internet, (e.g.&nbsp;www.mygreatwebsite.com) has a corresponding IP address. You can think of the domain name and IP address for a computer on the Internet as being analogous to a person’s name and the person’s phone number. In order for one computer on the Internet to contact another computer, the first computer must know the IP address of the computer it wants to contact.</p>
-<p>The first time your browser tries to access a new website, the browser generally does NOT know the IP address for the computer running the website. Your browser must “look up” the IP address. If you don’t know a person’s phone number but you know their name you can “look up” their phone number. In the mid 1900s it was common for someone to “call an operator” to get someone’s phone number. This is similar to what happens with a browser when contacting a website for the first time. The browser needs to find out the IP address for the website. To find the IP address, the browser contacts another computer, known as a Domain Name Server (AKA, DNS server). The browser asks the DNS server to provide the IP address for the website’s domain name (e.g.&nbsp;www.mygreatwebsite.com). This IP address (e.g.&nbsp;89.123.92.5) is then sent back to the browser. This communication between the browser and the DNS server is labeled in the diagram as steps (1) and (2). This all happens “behind the scenes” and you as a typical computer user is totally unaware that all of this is happening.</p>
-<p>The browser then uses the IP address to contact the web-server for the website. This is shown in the diagram as steps (3) and (4).</p>
-</section>
-<section id="how-does-a-computer-know-the-ip-address-of-the-dns-server" class="level2" data-number="33.6">
-<h2 data-number="33.6" class="anchored" data-anchor-id="how-does-a-computer-know-the-ip-address-of-the-dns-server"><span class="header-section-number">33.6</span> How does a computer know the IP address of the DNS server?</h2>
-<p>We said that in order to communicate, a computer must know the IP address of the computer that it is trying to contact. If so, how does your computer know the IP address of the DNS server computer? The answer is simple. Your computer is configured with that information. This all happens when your computer is setup with Internet service.</p>
-<p>Every Internet Service Provider has DNS servers that their users computers are configured to contact. Your computer has been configured to contact the DNS server for your Internet Service Provider. The following shows how to see your DNS server settings on Windows and Mac. Note that these instructions can become outdated with newer releases of Windows or Mac OS. If by the time you read this, these instructions are out of date, search online for something like “how do I see what DNS server I’m using on Mac” (or Windows 10, etc) <a href="https://www.lifewire.com/check-dns-settings-5215603" class="uri">https://www.lifewire.com/check-dns-settings-5215603</a></p>
-</section>
-<section id="large-websites-are-run-by-many-different-computers" class="level2" data-number="33.7">
-<h2 data-number="33.7" class="anchored" data-anchor-id="large-websites-are-run-by-many-different-computers"><span class="header-section-number">33.7</span> Large websites are run by many different computers</h2>
-<p>Large websites such as google.com and amazon.com have many different computers that respond to web requests.</p>
-<p>We said that a domain name such as www.mygreatwebsite.com corresponds to a specific computer that is running a website. That’s not exactly true. Actually a specific IP address corresponds to a specific computer. When asked for the IP address of a domain name, the DNS server might respond with different IP addresses to different requests for the same domain name. In this way google, amazon and other large websites can spread the work (i.e.&nbsp;the load) of supporting the web requests over many different server computers. The details of how all of this is done is way beyond the scope of our discussion.</p>
-<p>The main ideas you should walk away from this discussion with are:</p>
-<ul>
-<li>a domain name represents a computer (or multiple computers) on the Internet</li>
-<li>an IP address represents a specific computer on the Internet</li>
-<li>Given a domain name, a DNS server, responds with an IP address for that domain name.</li>
-</ul>
-</section>
-<section id="the-server-sends-html-css-and-javascript-code-back-to-your-browser" class="level2" data-number="33.8">
-<h2 data-number="33.8" class="anchored" data-anchor-id="the-server-sends-html-css-and-javascript-code-back-to-your-browser"><span class="header-section-number">33.8</span> The server sends HTML, CSS and Javascript code back to your browser</h2>
-<p>When the server receives the request for the webpage it sends back one or more files that contain the “code” for the webpage. It is this code that the browser uses to know how to display the contents of the webpage. The code for a webpage is comprised of the following three languages.</p>
-<ul>
-<li><p>HTML: this language is used to describe the text and overall structure (e.g.&nbsp;headings, paragraphs, lists, tables, etc) of a webpage.</p></li>
-<li><p>Cascading Style Sheets (CSS): this language is used to describe the styling (e.g.&nbsp;colors, fonts, etc) of the webpage</p></li>
-<li><p>JavaScript: this language is used to add “dynamic” features to the webpage, (e.g.&nbsp;menus that pop-up when users click on them).</p></li>
-</ul>
-<p>It is possible for all three languages to be combined into a single file or for the different languages to be located in different files that the server sends to the browser. The rest of this document describes these three different languages.</p>
-</section>
-<section id="how-to-see-the-code-for-a-webpage" class="level2" data-number="33.9">
-<h2 data-number="33.9" class="anchored" data-anchor-id="how-to-see-the-code-for-a-webpage"><span class="header-section-number">33.9</span> How to see the “code” for a webpage</h2>
-<section id="view-page-source" class="level3" data-number="33.9.1">
-<h3 data-number="33.9.1" class="anchored" data-anchor-id="view-page-source"><span class="header-section-number">33.9.1</span> view page source</h3>
-<p>If you right-click on any webpage you should see an option to “view page source” (or something similar, depending on which browser you are using). If you click on this option you will see the “source code” for the webpage.</p>
-</section>
-<section id="inspect" class="level3" data-number="33.9.2">
-<h3 data-number="33.9.2" class="anchored" data-anchor-id="inspect"><span class="header-section-number">33.9.2</span> inspect</h3>
-<p>Similarly, if you right click on the webpage and choose “inspect” you will also see the source code for the webpage along with many tools for analyzing the underlying technologies that the browser uses to present the webpage. The details of how to use all of these tools are beyond the scope of this material. However, we will use some of these tools when we learn about how to do “web scraping”.</p>
+<section id="developing-your-own-chrome-extensions" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="developing-your-own-chrome-extensions"><span class="header-section-number">3.3</span> Developing your own Chrome Extensions</h2>
+<p>Using modern AI, it is often possible to develop your own custom Chrome extensions. We will not go into that here, but the adventurous are free to experiment on your own.</p>
+<p>While under development a Chrome extension consists of several files in a folder. Once the coding of the Chrome extension has been completed, the entire folder with all of the necessary files can be compressed into a single zip file. It is this zip file that can be upladed to the Chrome Extension store.</p>
+<section id="unpacked-chrome-extensions" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="unpacked-chrome-extensions"><span class="header-section-number">3.3.1</span> “unpacked” Chrome extensions</h3>
+<p>While under development, a Chrome extension can still be installed in Chrome without needing to ZIP up the folder. Follow the instructions here to use a chrome extension that is still under development. You will need to</p>
+<ol type="1">
+<li><p>unzip the folder if it is zipped</p></li>
+<li><p>navigate to the url <a href="chrome://extensions" class="uri">chrome://extensions</a></p></li>
+<li><p>Click the “developer mode” switch</p></li>
+<li><p>Click “load unpacked”</p></li>
+</ol>
+<p>Chrome extensions are created using standard web development languages (i.e.&nbsp;HTML, CSS, Javascript).</p>
+<p>You can follow the instructions in this video:</p>
+<p><a href="https://www.youtube.com/watch?v=yNFwFQrc27Q" class="uri">https://www.youtube.com/watch?v=yNFwFQrc27Q</a></p>
 </section>
 </section>
-<section id="html-example" class="level2" data-number="33.10">
-<h2 data-number="33.10" class="anchored" data-anchor-id="html-example"><span class="header-section-number">33.10</span> HTML example</h2>
-<p>We will be working with the following files from the htmlExamples.zip file (see the link at the top of this page). Download the zip file and extract the following files and place them in the same folder.</p>
-<ul>
-<li>stuffToDo.html</li>
-<li>yellowUmbrella.png</li>
-</ul>
-<p>Double click on this file stuffToDo.html to open it in a browser.</p>
-<p>Also open stuffToDo.html in a text editor (e.g.&nbsp;RStudio - File | Open File)</p>
-<p>See this link for an overview of HTML. <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" class="uri">https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics</a></p>
-<section id="html-tags-you-should-know" class="level3" data-number="33.10.1">
-<h3 data-number="33.10.1" class="anchored" data-anchor-id="html-tags-you-should-know"><span class="header-section-number">33.10.1</span> HTML Tags you should know</h3>
-<ul>
-<li>h1,h2,h3,h4,h5,h6 (for different level headings)</li>
-<li>p - for a paragraph</li>
-<li>ul,ol,li - for unordered lists, order lists and list items</li>
-<li>hr (also width attribute) - for horizontal “rules” (i.e.&nbsp;lines)</li>
-<li>img (also src, width and alt attributes) - for images (i.e.&nbsp;pictures)</li>
-<li>a (also href attribute) - for links to other pages</li>
-<li>strong - to make text bold</li>
-<li>em - to make text italicized (em stands for emphasized)</li>
-<li>span, div - these don’t have a noticeable effect on the page. They are mainly used in conjunction with CSS (see the next section to learn more about CSS). The span and div tags are used to apply id and class attributes to portions of the text that aren’t otherwise surrounded by other tags. The div tag is used to surround entire portions of the page. The span tag is used to surround portions of text that are inside other tags.</li>
-</ul>
-</section>
-<section id="html-concepts-you-must-know" class="level3" data-number="33.10.2">
-<h3 data-number="33.10.2" class="anchored" data-anchor-id="html-concepts-you-must-know"><span class="header-section-number">33.10.2</span> HTML concepts you must know</h3>
-<ul>
-<li><p>HTML element - e.g.&nbsp;<code>&lt;h1&gt;My Stuff&lt;/h1&gt;</code> - this is broken down into the following:</p>
-<ul>
-<li>start tag - e.g.&nbsp;<code>&lt;h1&gt;</code></li>
-<li>end tag - e.g.&nbsp;<code>&lt;/h1&gt;</code></li>
-<li>contents - e.g.&nbsp;My Stuff</li>
-</ul></li>
-<li><p>HTML empty tags - e.g.&nbsp;<code>&lt;hr /&gt;</code> or <code>&lt;hr "width=50%" /&gt;</code> or <code>&lt;img src="smiley.jpg" /&gt;</code></p>
-<ul>
-<li>these types of tags do NOT have an end tag. They can end with a space followed by a forward slash to indicate that there is no end tag. Modern HTML allows for leaving off the space/ (e.g.&nbsp;<code>&lt;hr&gt;</code> instead of <code>&lt;hr /&gt;</code>, but even in modern HTML the space/ is often still included.</li>
-</ul></li>
-<li><p>HTML attributes</p>
-<ul>
-<li><p>Are placed inside of start tags or empty tags. An attribute contains a name and a value. The attributes affect how the HTML elements work.</p></li>
-<li><p>Example: in <code>&lt;a href="https://google.com"&gt;my favorite browser&lt;/a&gt;</code></p>
-<ul>
-<li><p>the start tag is <code>&lt;a href="https://google.com/"&gt;</code></p>
-<ul>
-<li><p><code>href="https://google.com/"</code> is an attribute.</p>
-<ul>
-<li><p><code>href</code> is the NAME of the attribute</p></li>
-<li><p><code>"https://google.com/"</code> is the VALUE of the attribute</p></li>
-</ul></li>
-</ul></li>
-<li><p>the end tag is <code>&lt;/a&gt;</code></p></li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="css-example" class="level2" data-number="33.11">
-<h2 data-number="33.11" class="anchored" data-anchor-id="css-example"><span class="header-section-number">33.11</span> CSS example</h2>
-<p>HTML is used to layout the basic structure of a webpage.<br>
-CSS is used to apply styles (e.g.&nbsp;colors, fonts, etc.) to a webpage.</p>
-<p>See this link for an overview of using CSS selectors: <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started" class="uri">https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started</a></p>
-The CSS for a webpage can be placed in the same file as the HTML code or in a different file. In the overview on the developer.mozilla.org website linked above the CSS is placed in separate file from the HTML code. This is done with the use of the <code>&lt;link&gt;</code> tag as shown in the snippet below. The <code>&lt;link&gt;</code> tag, which identifies the name of the file that contains the CSS code, is placed inside the HTML
-
-<p>element.</p>
-<pre><code>&lt;html&gt;
-  &lt;head&gt;
-    &lt;link rel="stylesheet" href="nameOfCssFile.css" /&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    Rest of your webpage goes here
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-Another option is to place the CSS code directly inside the HTML file. This is done by typing the CSS styling rules directly inside a <code>&lt;style&gt;</code> element that is placed inside the
-
-<p>element. For example:</p>
-<pre><code>&lt;html&gt;
-  &lt;head&gt;
-    &lt;style&gt;
-       /*  CSS Styling rules go here */
-    &lt;/style&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    Rest of your webpage goes here
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>We will be working with the following files from the htmlExamples.zip file (see the link at the top of this page). This example uses the 2nd approach listed above (i.e.&nbsp;putting the CSS directly in the HTML file with the <code>&lt;style&gt;</code> element). Download the zip file and extract the following files and place them in the same folder.</p>
-<ul>
-<li>stuffToDo-withCss-v002.html</li>
-<li>yellowUmbrella.png</li>
-</ul>
-<p>Double click on this file stuffToDo-withCss-v002.html to open it in a browser.</p>
-<p>Also open stuffToDo-withCss-v002.html in a text editor (e.g.&nbsp;RStudio - File | Open File)</p>
-<section id="practice-with-css-selectors" class="level3" data-number="33.11.1">
-<h3 data-number="33.11.1" class="anchored" data-anchor-id="practice-with-css-selectors"><span class="header-section-number">33.11.1</span> Practice with CSS selectors</h3>
-<ul>
-<li><p>Use the following website to learn about different CSS selectors and to practice using them:<br>
-<a href="https://flukeout.github.io/" class="uri">https://flukeout.github.io/</a></p>
-<p>Suggested answers are here:<br>
-<a href="https://gist.github.com/chrisman/fcb0a88459cd98239dbe6d2d200b02d1" class="uri">https://gist.github.com/chrisman/fcb0a88459cd98239dbe6d2d200b02d1</a></p></li>
-<li><p>Another website for testing your knowledge of CSS selectors:<br>
-<a href="https://css-speedrun.netlify.app/" class="uri">https://css-speedrun.netlify.app/</a></p>
-<p>Suggested answers are here:<br>
-<a href="https://github.com/Vincenius/css-speedrun" class="uri">https://github.com/Vincenius/css-speedrun</a></p></li>
-<li><p>The following website is very useful for learning more about CSS as well as many other topics in technology: <a href="https://www.w3schools.com/w3css/defaulT.asp" class="uri">https://www.w3schools.com/w3css/defaulT.asp</a></p></li>
-</ul>
-</section>
-</section>
-<section id="javascript-example" class="level2" data-number="33.12">
-<h2 data-number="33.12" class="anchored" data-anchor-id="javascript-example"><span class="header-section-number">33.12</span> Javascript example</h2>
-<p>We will be working with the following files from the htmlExamples.zip file (see the link at the top of this page). Download the zip file and extract the following file from the zip file before continuing.</p>
-<ul>
-<li>javascriptExample-v002.html</li>
-</ul>
-<p>Double click on javascriptExample-v002.html to open it in a browser.</p>
-<p>Also open javascriptExample-v002.html in a text editor (e.g.&nbsp;RStudio - File | Open File)</p>
+<section id="using-the-yrwebsnip-chrome-extension" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="using-the-yrwebsnip-chrome-extension"><span class="header-section-number">3.4</span> Using the yrWebSnip chrome extension</h2>
+<section id="download-the-code-for-the-extension" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="download-the-code-for-the-extension"><span class="header-section-number">3.4.1</span> Download the code for the extension</h3>
+<ol type="1">
+<li><p>Go here <a href="https://github.com/y-rosenthal/yrWebSnap" class="uri">https://github.com/y-rosenthal/yrWebSnap</a></p></li>
+<li><p>Click on the “&lt;&gt; Code” button and choose “Download ZIP”</p></li>
+<li><p>Unzip the file to a folder (search online if you don’t know how to do that)</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1200,13 +1056,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./0600100-introToDb-v001.html" class="pagination-link" aria-label="What is a Database?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">What is a Database?</span></span>
+      <a href="./intro00120-files.html" class="pagination-link" aria-label="Working with files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./web-000400-webscrapingContinued-015.html" class="pagination-link" aria-label="Web Scraping with R">
-        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0000022-InstallingRPackages-v003.html" class="pagination-link" aria-label="Intro to R packages">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
