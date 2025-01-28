@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>43&nbsp; Where to find APIs – Data Management With R</title>
+<title>6&nbsp; Coding with AI - an overview – Data Management With R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./0999000-toDo-v001.html" rel="next">
-<link href="./0000300-whereToFindDatasets-v001.html" rel="prev">
+<link href="./0000055-workingWithFiles.html" rel="next">
+<link href="./0000017-introToQuarto-v001.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000100-topics-v001.html">Appendices</a></li><li class="breadcrumb-item"><a href="./0000310-whereToFindApis-v001.html"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find APIs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./aiCoding00100-overview.html">Into to Coding With AI</a></li><li class="breadcrumb-item"><a href="./aiCoding00100-overview.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></span></a>
   </div>
 </li>
@@ -568,7 +568,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link active">
+  <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
   </div>
 </li>
@@ -590,23 +590,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-to-use-apis" id="toc-how-to-use-apis" class="nav-link active" data-scroll-target="#how-to-use-apis"><span class="header-section-number">44</span> How to use APIs</a>
-  <ul class="collapse">
-  <li><a href="#packages-in-r-for-specific-apis" id="toc-packages-in-r-for-specific-apis" class="nav-link" data-scroll-target="#packages-in-r-for-specific-apis"><span class="header-section-number">44.1</span> Packages in R for specific APIs</a>
-  <ul class="collapse">
-  <li><a href="#r-for-finance" id="toc-r-for-finance" class="nav-link" data-scroll-target="#r-for-finance"><span class="header-section-number">44.1.1</span> R for finance</a></li>
-  </ul></li>
-  <li><a href="#apis" id="toc-apis" class="nav-link" data-scroll-target="#apis"><span class="header-section-number">44.2</span> APIs</a></li>
-  </ul></li>
+  <li><a href="#some-ai-terminology" id="toc-some-ai-terminology" class="nav-link active" data-scroll-target="#some-ai-terminology"><span class="header-section-number">6.1</span> Some AI terminology</a></li>
+  <li><a href="#machine-learning-model" id="toc-machine-learning-model" class="nav-link" data-scroll-target="#machine-learning-model"><span class="header-section-number">6.2</span> machine learning model</a></li>
+  <li><a href="#predictive-machine-learning-model" id="toc-predictive-machine-learning-model" class="nav-link" data-scroll-target="#predictive-machine-learning-model"><span class="header-section-number">6.3</span> Predictive machine learning model</a></li>
+  <li><a href="#foundation-models" id="toc-foundation-models" class="nav-link" data-scroll-target="#foundation-models"><span class="header-section-number">6.4</span> foundation models</a></li>
+  <li><a href="#large-language-models-llm" id="toc-large-language-models-llm" class="nav-link" data-scroll-target="#large-language-models-llm"><span class="header-section-number">6.5</span> Large Language Models (LLM)</a></li>
+  <li><a href="#suggestions-for-prompting-the-ai-models" id="toc-suggestions-for-prompting-the-ai-models" class="nav-link" data-scroll-target="#suggestions-for-prompting-the-ai-models"><span class="header-section-number">6.6</span> Suggestions for prompting the AI models</a></li>
+  <li><a href="#different-types-of-errors" id="toc-different-types-of-errors" class="nav-link" data-scroll-target="#different-types-of-errors"><span class="header-section-number">6.7</span> Different types of errors</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000100-topics-v001.html">Appendices</a></li><li class="breadcrumb-item"><a href="./0000310-whereToFindApis-v001.html"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find APIs</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./aiCoding00100-overview.html">Into to Coding With AI</a></li><li class="breadcrumb-item"><a href="./aiCoding00100-overview.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find APIs</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></h1>
 </div>
 
 
@@ -623,88 +622,205 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="how-to-use-apis" class="level1" data-number="44">
-<h1 data-number="44"><span class="header-section-number">44</span> How to use APIs</h1>
-<p>See this video <a href="https://www.youtube.com/watch?v=8tilyqp4bZY" class="uri">https://www.youtube.com/watch?v=8tilyqp4bZY</a></p>
-<p>You can use the curl command line tool to get info from the APIs too.</p>
-<p><strong><em>Note that the following was compiled circa January 2025.</em></strong></p>
-<p>There is a incredible amount of data that can be accessed online by using an API. Some APIs are free to use but many will require some form of payment. Unfortunately, every API has its own set of rules and regulations. You must read the documentation for each API to understand what type of data is available through the API, how to use the API and how much it may cost.</p>
-<p>In the past it was possible to go to “API Directory” website and “API Hubs” to find APIs. For example, see the following.</p>
+<p>Modern Artificial Intelligence (AI) has been steadily growing in capability. It is now at the point that AI can significantly help with software development and coding tasks.</p>
+<p>Current versions of AI are often able to complete basic coding tasks correctly, however, they often make mistakes when the problem is complex and the code for the software starts becoming longer and more intricate.</p>
+<p>In addition, even when the AI produces “correct” code, the implementation created by the AI is often not the best solution. The AI generated code might not follow best practices for ensuring that the code is easily understood, efficient, and “scales well” to large amounts of data and/or users. Professional software developers will still need to be involved with software development for the foreseeable future.</p>
+<p>The use of AI will be integrated into several parts of this course. We first should introduce some terminology that is helpful to know.</p>
+<section id="some-ai-terminology" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="some-ai-terminology"><span class="header-section-number">6.1</span> Some AI terminology</h2>
+<p>The following terms and concepts are related to modern AI. Some terms are defined differently by different people. There is no “official consensus” on how some of these terms are defined. In fact the very term “Artificial Intelligence” is often defined differently by different people. The following are “working definitions” that will be assumed in this text.</p>
+<p>These terms and concepts can be described at defined at different levels of detail. The following aims for a target audience of an intelligent adult without a deep technical background.</p>
+<p><yrdef> ## <yrt>data</yrt> Raw facts, figures, or information that can be recorded and analyzed. Data comes in many forms, such as numbers, text, images, or videos. For example, a list of daily temperatures, customer comments or photos uploaded to social media are all types of data. In technology, data is the foundation for creating insights, decisions, and <yrt>machine learning models</yrt>. </yrdef></p>
+<p><yrdef> ## <yrt>data set</yrt> <yrd>A collection of data, usually presented in a structured format like a table, spreadsheet, or database, a CSV file, a JSON file, etc. It’s often used for analysis or training machine learning models. For example, a data set could include a list of student grades, a catalog of product prices, or medical records of patients. </yrd> </yrdef> ## <yrt>machine learning</yrt></p>
+<p><yrd audience="intelligent adult without deep tech background"> The act of teaching a computer system to recognize patterns in data.</yrd></p>
+<p>The computer This involves “training” a <yrt>machine learning model</yrt>.</p>
+<p>A “machine learning model” is basically a computer program that can The “machine learning model” contains computer code and data. The machine learning process trains the machine learning model to recognize patterns in the data.</p>
+<p>A type of computer programming where machines (computers) learn to make decisions or predictions based on data. Instead of being explicitly programmed for every task, the machine identifies patterns in the data and uses those patterns to improve over time. For example, a machine learning system can learn to recognize faces in photos or recommend movies based on your preferences. </p>
+</section>
+<section id="machine-learning-model" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="machine-learning-model"><span class="header-section-number">6.2</span> machine learning model</h2>
+</section>
+<section id="predictive-machine-learning-model" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="predictive-machine-learning-model"><span class="header-section-number">6.3</span> Predictive machine learning model</h2>
+<p>An machine learning model is a program that learns from data</p>
+<p>to perform specific tasks, like predicting an outcome, sorting things into categories, or creating text. It’s like teaching a computer how to solve a problem by giving it examples.</p>
+<p>You said: for AI model - explain a little bit how a simple model is trained with examples that have many attributes and a single target variable ChatGPT said: ChatGPT An AI model is trained by showing it examples that include many attributes (inputs) and a single target variable (output). Think of it like teaching the model how to match patterns.</p>
+<p>For example, if you’re training a model to predict house prices, the attributes could be the size of the house, the number of bedrooms, and the location. The target variable would be the house price. You give the model a lot of these examples, and it learns the relationships between the attributes and the price.</p>
+<p>During training, the model makes guesses (predictions), compares them to the actual prices, and adjusts itself to improve. Over time, it gets better at predicting the target variable for new examples it hasn’t seen before.</p>
+</section>
+<section id="foundation-models" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="foundation-models"><span class="header-section-number">6.4</span> foundation models</h2>
+<p>Foundation models are very large AI systems trained on huge amounts of data. They are like general-purpose tools that can be customized to do many tasks, such as writing, translating, or recognizing images.</p>
+</section>
+<section id="large-language-models-llm" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="large-language-models-llm"><span class="header-section-number">6.5</span> Large Language Models (LLM)</h2>
+<p>There are different types of AI software systems. <yrdef>Foundation models</yrdef> The development of AI systems AI systems need to be “trained” to AI systems are developed as “models”. A Large The following are all “large language model” AI systems, similar to chatgpt that you can use for this assignment. The AI space is new and developing rapidly. There are other choices and new options and offerings become available</p>
 <ul>
-<li><p><a href="https://www.postman.com/explore" class="uri">https://www.postman.com/explore</a></p></li>
-<li><p><a href="https://rapidapi.com/hub" class="uri">https://rapidapi.com/hub</a></p></li>
-<li><p><a href="https://www.openapihub.com/en-us/" class="uri">https://www.openapihub.com/en-us/</a></p></li>
-<li><p><a href="https://www.jsonapi.co/public-api" class="uri">https://www.jsonapi.co/public-api</a></p></li>
-<li><p><a href="https://github.com/public-apis/public-apis?tab=readme-ov-file" class="uri">https://github.com/public-apis/public-apis?tab=readme-ov-file</a></p></li>
-<li><p><a href="https://sourceforge.net/software/api-hubs/" class="uri">https://sourceforge.net/software/api-hubs/</a></p></li>
-<li><p><a href="https://nordicapis.com/13-api-directories-to-help-you-discover-apis/" class="uri">https://nordicapis.com/13-api-directories-to-help-you-discover-apis/</a></p></li>
+<li>https://claude.ai/ (this is probably the best at coding today)</li>
+<li>https://chatgpt.com/</li>
+<li>https://gemini.google.com/</li>
+<li>https://grok.com/</li>
 </ul>
-<p>However, the API landscape has changed a lot in recent years. There are so many APIs, it has become almost impossible to maintain a list of available APIs. Many companies have an API that make their services available programatically via APIs. However, these services are hard to find if you don’t know what to look for. Many companies maintain a “developers” portion of their websites. You can also look for “API” in the fineprint of the website info.</p>
-<ul>
-<li><p><a href="https://platform.openai.com/" class="uri">https://platform.openai.com/</a></p></li>
-<li><p><a href="https://developers.facebook.com/" class="uri">https://developers.facebook.com/</a></p></li>
-<li><p><a href="https://developer.linkedin.com/" class="uri">https://developer.linkedin.com/</a></p></li>
-<li><p><a href="https://developers.google.com/" class="uri">https://developers.google.com/</a></p></li>
-<li><p><a href="https://developer.ups.com/" class="uri">https://developer.ups.com/</a></p></li>
-<li><p><a href="https://developer.spotify.com/" class="uri">https://developer.spotify.com/</a></p></li>
-<li><p><a href="https://developer.ebay.com/" class="uri">https://developer.ebay.com/</a></p></li>
-<li><p><a href="https://developer.twitter.com/en" class="uri">https://developer.twitter.com/en</a> , <a href="https://developer.twitter.com/en/docs/twitter-api" class="uri">https://developer.twitter.com/en/docs/twitter-api</a></p></li>
-<li><p><a href="https://www.sec.gov/edgar/sec-api-documentation" class="uri">https://www.sec.gov/edgar/sec-api-documentation</a></p></li>
-</ul>
-<section id="packages-in-r-for-specific-apis" class="level2" data-number="44.1">
-<h2 data-number="44.1" class="anchored" data-anchor-id="packages-in-r-for-specific-apis"><span class="header-section-number">44.1</span> Packages in R for specific APIs</h2>
-<p>Usually, accessing data from an API requires a technical understanding about how to use APIs in general. However, there are many R packages that make the process of accessing data from specific APIs much easier. These R packages “wrap” the technical details of how to access the API in R functions.</p>
-<p>To get an idea of what APIs have R packages, you can search the list packages on CRAN (<a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" class="uri">https://cran.r-project.org/web/packages/available_packages_by_name.html</a>) for the word API.</p>
+<p>You are to use AI to code an R program. You are to keep making the program more complicated until the AI finally does NOT produce perfect results. Then you are to debug the code and post the final product.</p>
+<p>This assignment is intended to start getting you familiar with using AI for coding tasks.</p>
+<p>As an example, we used claude.ai to build a tic tac toe program in R. We used the following prompt:</p>
+<pre><code>Please write a tic tac toe game in R. 
+The board should be stored in a matrix. 
+The game should be played by two human players. 
+A sample game might look like this:
+
+The board looks like this:
+
+1 2 3 
+4 5 6
+7 8 9
+
+Player 1 (i.e. x) choose a number to move to: 5
+
+The board looks like this:
+1 2 3 
+4 x 6
+7 8 9
+
+Player 2 (i.e. o) choose a number to move to: 5
+Please choose a number on the board: apple
+Please choose a number on the board: 7
+
+The board looks like this:
+1 2 3 
+4 x 6
+o 8 9
+
+Keep this going until someone wins or there is a tie.
+After the game is over, ask the users if they would like 
+to play again.
+
+Please only use Base R code - no packages.</code></pre>
+<p>Claude.ai responded with (basically) the correct code for the requested tic tac toe program. If you copy/paste the following code into R and run it, you will be playing tic tac toe.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the number of packages that have the letters API in </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the package name or in the description.</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(rvest)){<span class="fu">install.packages</span>(<span class="st">"rvest"</span>);<span class="fu">require</span>(rvest);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: rvest</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a function to display the board</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>display_board <span class="ot">&lt;-</span> <span class="cf">function</span>(board) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">The board looks like this:</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(board[i,], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to check if a player has won</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>check_win <span class="ot">&lt;-</span> <span class="cf">function</span>(board, player) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check rows</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">all</span>(board[i,] <span class="sc">==</span> player)) <span class="fu">return</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check columns</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">all</span>(board[,i] <span class="sc">==</span> player)) <span class="fu">return</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Check diagonals</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">all</span>(<span class="fu">diag</span>(board) <span class="sc">==</span> player)) <span class="fu">return</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">all</span>(<span class="fu">diag</span>(board[<span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>,]) <span class="sc">==</span> player)) <span class="fu">return</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to check if the board is full (tie)</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>check_tie <span class="ot">&lt;-</span> <span class="cf">function</span>(board) {</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="sc">!</span><span class="fu">any</span>(board <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Main game function</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>play_tictactoe <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialize game</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  playing <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span>(playing) {</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create board</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    board <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    game_over <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    current_player <span class="ot">&lt;-</span> <span class="st">"x"</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Main game loop</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span>(<span class="sc">!</span>game_over) {</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Display board</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>      <span class="fu">display_board</span>(board)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Get player move</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      valid_move <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      <span class="cf">while</span>(<span class="sc">!</span>valid_move) {</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Player %s choose a number to move to: "</span>, </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ifelse</span>(current_player <span class="sc">==</span> <span class="st">"x"</span>, <span class="st">"1 (i.e. x)"</span>, <span class="st">"2 (i.e. o)"</span>)))</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        move <span class="ot">&lt;-</span> <span class="fu">readline</span>()</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if input is numeric</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"^[1-9]$"</span>, move)) {</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>          <span class="fu">cat</span>(<span class="st">"Please choose a number on the board.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>          <span class="cf">next</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>        move <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(move)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if move is valid (position is not taken)</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="sc">!</span><span class="fu">any</span>(board <span class="sc">==</span> move)) {</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>          <span class="fu">cat</span>(<span class="st">"That position is already taken. Please choose another.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>          <span class="cf">next</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        valid_move <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Update board</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>      board[board <span class="sc">==</span> move] <span class="ot">&lt;-</span> current_player</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Check for win</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">check_win</span>(board, current_player)) {</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>        <span class="fu">display_board</span>(board)</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Player %s wins!</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ifelse</span>(current_player <span class="sc">==</span> <span class="st">"x"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>)))</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>        game_over <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Check for tie</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span> <span class="cf">if</span>(<span class="fu">check_tie</span>(board)) {</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>        <span class="fu">display_board</span>(board)</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cat</span>(<span class="st">"It's a tie!</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>        game_over <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Switch players</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>      current_player <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(current_player <span class="sc">==</span> <span class="st">"x"</span>, <span class="st">"o"</span>, <span class="st">"x"</span>)</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ask to play again</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Would you like to play again? (y/n): "</span>)</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    play_again <span class="ot">&lt;-</span> <span class="fu">readline</span>()</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    playing <span class="ot">&lt;-</span> <span class="fu">tolower</span>(play_again) <span class="sc">==</span> <span class="st">"y"</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Thanks for playing!</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Start the game</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="fu">play_tictactoe</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://cran.r-project.org/web/packages/available_packages_by_name.html"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">read_html</span>(url)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">=</span> <span class="fu">html_elements</span>(page, <span class="st">"table"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">html_table</span>(tables[[<span class="dv">1</span>]]))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pkgs) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"package"</span>, <span class="st">"description"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">=</span> <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"package"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">|</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"description"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>numberOfApiPackages <span class="ot">=</span> <span class="fu">sum</span>(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>As of the date this document was compiled there were</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 602</code></pre>
-</div>
-</div>
-<p>packages on CRAN that have the letters API in either the name of the package or the description.</p>
-<p>However, be aware that the API ecosystem can change rapidly and the R packages don’t always keep up. For example, twitter used to allow searching for tweets for free using their API. However, they started charging for those services. There are many youtube videos explaining how to search twitter for free using the twitter api via the “twittR” packager. These videos are no longer applicable.</p>
-<section id="r-for-finance" class="level3" data-number="44.1.1">
-<h3 data-number="44.1.1" class="anchored" data-anchor-id="r-for-finance"><span class="header-section-number">44.1.1</span> R for finance</h3>
-<p>Below are some R resources for working with financial data <span class="yrdate">Feb 2, 2024</span></p>
-<p><strong>R package for financial data - getting, charting, modeling</strong></p>
+</section>
+<section id="suggestions-for-prompting-the-ai-models" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="suggestions-for-prompting-the-ai-models"><span class="header-section-number">6.6</span> Suggestions for prompting the AI models</h2>
 <ul>
-<li><p>github: (this seems to be the most up to date info)<br>
-<a href="https://github.com/joshuaulrich/quantmod" class="uri">https://github.com/joshuaulrich/quantmod</a></p></li>
-<li><p>website: (this seems VERY out of date - but it’s much easier to get a quick idea of what is possible circa 2009. For more up to date info look at the github page or the official documentation accessible from the CRAN website) <a href="https://www.quantmod.com/" class="uri">https://www.quantmod.com/</a><br>
-<a href="https://www.quantmod.com/examples/intro/" class="uri">https://www.quantmod.com/examples/intro/</a></p></li>
-<li><p>“official” documentation from the “Comprehensive R Archive Network (CRAN)” website<br>
-<a href="https://cran.r-project.org/web/packages/quantmod/index.html" class="uri">https://cran.r-project.org/web/packages/quantmod/index.html</a></p></li>
-</ul>
-<p><strong>Related R package for doing technical analysis</strong></p>
-<ul>
-<li><a href="https://github.com/joshuaulrich/TTR" class="uri">https://github.com/joshuaulrich/TTR</a></li>
+<li><p>Speak to the AI as you would speak with a person.</p></li>
+<li><p>Give the AI a little more information than you might think necessary. Including the background information and reasons for why you are doing something can help a person and in this case the AI, tailor their responses to take into account things that you may not have thought of.</p></li>
 </ul>
 </section>
-</section>
-<section id="apis" class="level2" data-number="44.2">
-<h2 data-number="44.2" class="anchored" data-anchor-id="apis"><span class="header-section-number">44.2</span> APIs</h2>
-<p>You learn about many different APIs via this website <a href="https://rapidapi.com/collection/amazon-products" class="uri">https://rapidapi.com/collection/amazon-products</a></p>
+<section id="different-types-of-errors" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="different-types-of-errors"><span class="header-section-number">6.7</span> Different types of errors</h2>
+<p>There can be two different types of errors in code:</p>
+<ol type="1">
+<li><p>A “syntax error”. For this type of error R (or another programming language) can often displays an error message because you didn’t use the language correctly. For example, misspelling the name of a function. Some of these types of errors can be trickly, for example you might not get an error message, if there is a missing closing parentheses somewhere in the generated R code.</p></li>
+<li><p>A “logic error”.</p></li>
+</ol>
+<p>Running the code requires the following R command:</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1135,13 +1251,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./0000300-whereToFindDatasets-v001.html" class="pagination-link" aria-label="Where to find datasets">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span>
+      <a href="./0000017-introToQuarto-v001.html" class="pagination-link" aria-label="Intro to Quarto">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intro to Quarto</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0999000-toDo-v001.html" class="pagination-link" aria-label="Additional topics">
-        <span class="nav-page-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Additional topics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0000055-workingWithFiles.html" class="pagination-link" aria-label="Working with files">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with files</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
