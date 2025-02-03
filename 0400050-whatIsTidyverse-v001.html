@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>18&nbsp; What is the “tidyverse” – Data Management With R</title>
+<title>7&nbsp; What is the “tidyverse” – Data Management With R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./0400100-usingPipes-v001.html" rel="next">
-<link href="./000260-PracticeWithRegulaExpressions-v003.html" rel="prev">
+<link href="./0400050-tibbles-v001.html" rel="next">
+<link href="./aiCoding00100-overview.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html">Intro to tidyverse</a></li><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html">Intro to tidyverse</a></li><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Working with files</span></a>
+ <span class="menu-text">Intro to tidyverse</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -242,8 +242,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">tibbles and tribbles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
@@ -251,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">JSON data</span></a>
+ <span class="menu-text">Working with files</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -259,32 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Nested Dataframes</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
+  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
   </div>
 </li>
       </ul>
@@ -292,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Bash</span></a>
+ <span class="menu-text">JSON data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -300,20 +294,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
+  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
+  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
+  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nested Dataframes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
   </div>
 </li>
       </ul>
@@ -321,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
+ <span class="menu-text">Bash</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -329,14 +335,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
@@ -344,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to tidyverse</span></a>
+ <span class="menu-text">Regular Expressions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -352,20 +364,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
+  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
   </div>
 </li>
       </ul>
@@ -382,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -399,13 +405,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
   </div>
 </li>
       </ul>
@@ -422,67 +428,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
@@ -499,25 +505,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
   </div>
 </li>
       </ul>
@@ -534,7 +540,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
   </div>
 </li>
       </ul>
@@ -551,31 +557,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -590,33 +596,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installation-and-loading" id="toc-installation-and-loading" class="nav-link active" data-scroll-target="#installation-and-loading"><span class="header-section-number">18.1</span> Installation and Loading</a></li>
-  <li><a href="#core-tidyverse-packages" id="toc-core-tidyverse-packages" class="nav-link" data-scroll-target="#core-tidyverse-packages"><span class="header-section-number">18.2</span> Core Tidyverse Packages</a>
+  <li><a href="#installation-and-loading" id="toc-installation-and-loading" class="nav-link active" data-scroll-target="#installation-and-loading"><span class="header-section-number">7.1</span> Installation and Loading</a></li>
+  <li><a href="#core-tidyverse-packages" id="toc-core-tidyverse-packages" class="nav-link" data-scroll-target="#core-tidyverse-packages"><span class="header-section-number">7.2</span> Core Tidyverse Packages</a>
   <ul class="collapse">
-  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">18.2.1</span> ggplot2</a></li>
-  <li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><span class="header-section-number">18.2.2</span> dplyr</a></li>
-  <li><a href="#tidyr" id="toc-tidyr" class="nav-link" data-scroll-target="#tidyr"><span class="header-section-number">18.2.3</span> tidyr</a></li>
-  <li><a href="#readr" id="toc-readr" class="nav-link" data-scroll-target="#readr"><span class="header-section-number">18.2.4</span> readr</a></li>
-  <li><a href="#purrr" id="toc-purrr" class="nav-link" data-scroll-target="#purrr"><span class="header-section-number">18.2.5</span> purrr</a></li>
-  <li><a href="#tibble" id="toc-tibble" class="nav-link" data-scroll-target="#tibble"><span class="header-section-number">18.2.6</span> tibble</a></li>
-  <li><a href="#stringr" id="toc-stringr" class="nav-link" data-scroll-target="#stringr"><span class="header-section-number">18.2.7</span> stringr</a></li>
-  <li><a href="#forcats" id="toc-forcats" class="nav-link" data-scroll-target="#forcats"><span class="header-section-number">18.2.8</span> forcats</a></li>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="header-section-number">7.2.1</span> ggplot2</a></li>
+  <li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><span class="header-section-number">7.2.2</span> dplyr</a></li>
+  <li><a href="#tidyr" id="toc-tidyr" class="nav-link" data-scroll-target="#tidyr"><span class="header-section-number">7.2.3</span> tidyr</a></li>
+  <li><a href="#readr" id="toc-readr" class="nav-link" data-scroll-target="#readr"><span class="header-section-number">7.2.4</span> readr</a></li>
+  <li><a href="#purrr" id="toc-purrr" class="nav-link" data-scroll-target="#purrr"><span class="header-section-number">7.2.5</span> purrr</a></li>
+  <li><a href="#tibble" id="toc-tibble" class="nav-link" data-scroll-target="#tibble"><span class="header-section-number">7.2.6</span> tibble</a></li>
+  <li><a href="#stringr" id="toc-stringr" class="nav-link" data-scroll-target="#stringr"><span class="header-section-number">7.2.7</span> stringr</a></li>
+  <li><a href="#forcats" id="toc-forcats" class="nav-link" data-scroll-target="#forcats"><span class="header-section-number">7.2.8</span> forcats</a></li>
   </ul></li>
-  <li><a href="#non-core-tidyverse-packages" id="toc-non-core-tidyverse-packages" class="nav-link" data-scroll-target="#non-core-tidyverse-packages"><span class="header-section-number">18.3</span> Non-Core Tidyverse Packages</a>
+  <li><a href="#non-core-tidyverse-packages" id="toc-non-core-tidyverse-packages" class="nav-link" data-scroll-target="#non-core-tidyverse-packages"><span class="header-section-number">7.3</span> Non-Core Tidyverse Packages</a>
   <ul class="collapse">
-  <li><a href="#readxl" id="toc-readxl" class="nav-link" data-scroll-target="#readxl"><span class="header-section-number">18.3.1</span> readxl</a></li>
-  <li><a href="#haven" id="toc-haven" class="nav-link" data-scroll-target="#haven"><span class="header-section-number">18.3.2</span> haven</a></li>
-  <li><a href="#lubridate" id="toc-lubridate" class="nav-link" data-scroll-target="#lubridate"><span class="header-section-number">18.3.3</span> lubridate</a></li>
-  <li><a href="#hms" id="toc-hms" class="nav-link" data-scroll-target="#hms"><span class="header-section-number">18.3.4</span> hms</a></li>
-  <li><a href="#jsonlite" id="toc-jsonlite" class="nav-link" data-scroll-target="#jsonlite"><span class="header-section-number">18.3.5</span> jsonlite</a></li>
-  <li><a href="#xml2" id="toc-xml2" class="nav-link" data-scroll-target="#xml2"><span class="header-section-number">18.3.6</span> xml2</a></li>
-  <li><a href="#rvest" id="toc-rvest" class="nav-link" data-scroll-target="#rvest"><span class="header-section-number">18.3.7</span> rvest</a></li>
+  <li><a href="#readxl" id="toc-readxl" class="nav-link" data-scroll-target="#readxl"><span class="header-section-number">7.3.1</span> readxl</a></li>
+  <li><a href="#haven" id="toc-haven" class="nav-link" data-scroll-target="#haven"><span class="header-section-number">7.3.2</span> haven</a></li>
+  <li><a href="#lubridate" id="toc-lubridate" class="nav-link" data-scroll-target="#lubridate"><span class="header-section-number">7.3.3</span> lubridate</a></li>
+  <li><a href="#hms" id="toc-hms" class="nav-link" data-scroll-target="#hms"><span class="header-section-number">7.3.4</span> hms</a></li>
+  <li><a href="#jsonlite" id="toc-jsonlite" class="nav-link" data-scroll-target="#jsonlite"><span class="header-section-number">7.3.5</span> jsonlite</a></li>
+  <li><a href="#xml2" id="toc-xml2" class="nav-link" data-scroll-target="#xml2"><span class="header-section-number">7.3.6</span> xml2</a></li>
+  <li><a href="#rvest" id="toc-rvest" class="nav-link" data-scroll-target="#rvest"><span class="header-section-number">7.3.7</span> rvest</a></li>
   </ul></li>
-  <li><a href="#finding-help-and-learning-more" id="toc-finding-help-and-learning-more" class="nav-link" data-scroll-target="#finding-help-and-learning-more"><span class="header-section-number">18.4</span> Finding Help and Learning More</a></li>
-  <li><a href="#understanding-core-vs-non-core-packages" id="toc-understanding-core-vs-non-core-packages" class="nav-link" data-scroll-target="#understanding-core-vs-non-core-packages"><span class="header-section-number">18.5</span> Understanding Core vs Non-Core Packages</a>
+  <li><a href="#finding-help-and-learning-more" id="toc-finding-help-and-learning-more" class="nav-link" data-scroll-target="#finding-help-and-learning-more"><span class="header-section-number">7.4</span> Finding Help and Learning More</a></li>
+  <li><a href="#understanding-core-vs-non-core-packages" id="toc-understanding-core-vs-non-core-packages" class="nav-link" data-scroll-target="#understanding-core-vs-non-core-packages"><span class="header-section-number">7.5</span> Understanding Core vs Non-Core Packages</a>
   <ul class="collapse">
-  <li><a href="#core-packages" id="toc-core-packages" class="nav-link" data-scroll-target="#core-packages"><span class="header-section-number">18.5.1</span> Core Packages:</a></li>
-  <li><a href="#non-core-packages" id="toc-non-core-packages" class="nav-link" data-scroll-target="#non-core-packages"><span class="header-section-number">18.5.2</span> Non-Core Packages:</a></li>
+  <li><a href="#core-packages" id="toc-core-packages" class="nav-link" data-scroll-target="#core-packages"><span class="header-section-number">7.5.1</span> Core Packages:</a></li>
+  <li><a href="#non-core-packages" id="toc-non-core-packages" class="nav-link" data-scroll-target="#non-core-packages"><span class="header-section-number">7.5.2</span> Non-Core Packages:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -624,9 +630,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html">Intro to tidyverse</a></li><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html">Intro to tidyverse</a></li><li class="breadcrumb-item"><a href="./0400050-whatIsTidyverse-v001.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></h1>
 </div>
 
 
@@ -649,19 +655,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://r4ds.hadley.nz/" target="_blank">https://r4ds.hadley.nz/</a></li>
 <li><a href="https://tidyverse.org/" target="_blank">https://tidyverse.org/</a></li>
 </ul>
-<section id="installation-and-loading" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="installation-and-loading"><span class="header-section-number">18.1</span> Installation and Loading</h2>
+<section id="installation-and-loading" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="installation-and-loading"><span class="header-section-number">7.1</span> Installation and Loading</h2>
 <p>To install all tidyverse packages:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To load the core tidyverse packages:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Alternatively, you can install and load each package separately.</p>
 </section>
-<section id="core-tidyverse-packages" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="core-tidyverse-packages"><span class="header-section-number">18.2</span> Core Tidyverse Packages</h2>
+<section id="core-tidyverse-packages" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="core-tidyverse-packages"><span class="header-section-number">7.2</span> Core Tidyverse Packages</h2>
 <p>The core tidyverse includes packages that you’ll likely use in almost every analysis. When you run <code>library(tidyverse)</code>, these packages are automatically loaded:</p>
-<section id="ggplot2" class="level3" data-number="18.2.1">
-<h3 data-number="18.2.1" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">18.2.1</span> ggplot2</h3>
+<section id="ggplot2" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">7.2.1</span> ggplot2</h3>
 <ul>
 <li>Purpose: Creates elegant data visualizations using the Grammar of Graphics</li>
 <li>Key features: Layered approach to building plots, extensive customization options</li>
@@ -669,8 +675,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Learn more: https://ggplot2.tidyverse.org</li>
 </ul>
 </section>
-<section id="dplyr" class="level3" data-number="18.2.2">
-<h3 data-number="18.2.2" class="anchored" data-anchor-id="dplyr"><span class="header-section-number">18.2.2</span> dplyr</h3>
+<section id="dplyr" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="dplyr"><span class="header-section-number">7.2.2</span> dplyr</h3>
 <ul>
 <li>Purpose: Data manipulation and transformation</li>
 <li>Key features: Functions for filtering, selecting, mutating, summarizing, and joining data</li>
@@ -678,8 +684,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Learn more: https://dplyr.tidyverse.org</li>
 </ul>
 </section>
-<section id="tidyr" class="level3" data-number="18.2.3">
-<h3 data-number="18.2.3" class="anchored" data-anchor-id="tidyr"><span class="header-section-number">18.2.3</span> tidyr</h3>
+<section id="tidyr" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="tidyr"><span class="header-section-number">7.2.3</span> tidyr</h3>
 <ul>
 <li>Purpose: Data tidying and reshaping</li>
 <li>Key features: Functions for pivoting data between wide and long formats, handling missing values</li>
@@ -687,8 +693,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Learn more: https://tidyr.tidyverse.org</li>
 </ul>
 </section>
-<section id="readr" class="level3" data-number="18.2.4">
-<h3 data-number="18.2.4" class="anchored" data-anchor-id="readr"><span class="header-section-number">18.2.4</span> readr</h3>
+<section id="readr" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="readr"><span class="header-section-number">7.2.4</span> readr</h3>
 <ul>
 <li>Purpose: Fast and friendly reading of rectangular data (like CSV files)</li>
 <li>Key features: Consistent parsing, progress bars, warnings about parsing problems</li>
@@ -696,8 +702,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Learn more: https://readr.tidyverse.org</li>
 </ul>
 </section>
-<section id="purrr" class="level3" data-number="18.2.5">
-<h3 data-number="18.2.5" class="anchored" data-anchor-id="purrr"><span class="header-section-number">18.2.5</span> purrr</h3>
+<section id="purrr" class="level3" data-number="7.2.5">
+<h3 data-number="7.2.5" class="anchored" data-anchor-id="purrr"><span class="header-section-number">7.2.5</span> purrr</h3>
 <ul>
 <li>Purpose: Functional programming tools</li>
 <li>Key features: Functions for working with vectors and lists, replacing many loop functions</li>
@@ -705,8 +711,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Learn more: https://purrr.tidyverse.org</li>
 </ul>
 </section>
-<section id="tibble" class="level3" data-number="18.2.6">
-<h3 data-number="18.2.6" class="anchored" data-anchor-id="tibble"><span class="header-section-number">18.2.6</span> tibble</h3>
+<section id="tibble" class="level3" data-number="7.2.6">
+<h3 data-number="7.2.6" class="anchored" data-anchor-id="tibble"><span class="header-section-number">7.2.6</span> tibble</h3>
 <ul>
 <li>Purpose: Modern reimagining of data frames</li>
 <li>Key features: Better printing, stricter subsetting, and enhanced creation of data frames</li>
@@ -714,8 +720,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Learn more: https://tibble.tidyverse.org</li>
 </ul>
 </section>
-<section id="stringr" class="level3" data-number="18.2.7">
-<h3 data-number="18.2.7" class="anchored" data-anchor-id="stringr"><span class="header-section-number">18.2.7</span> stringr</h3>
+<section id="stringr" class="level3" data-number="7.2.7">
+<h3 data-number="7.2.7" class="anchored" data-anchor-id="stringr"><span class="header-section-number">7.2.7</span> stringr</h3>
 <ul>
 <li>Purpose: String manipulation</li>
 <li>Key features: Consistent interface for working with strings</li>
@@ -723,8 +729,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Learn more: https://stringr.tidyverse.org</li>
 </ul>
 </section>
-<section id="forcats" class="level3" data-number="18.2.8">
-<h3 data-number="18.2.8" class="anchored" data-anchor-id="forcats"><span class="header-section-number">18.2.8</span> forcats</h3>
+<section id="forcats" class="level3" data-number="7.2.8">
+<h3 data-number="7.2.8" class="anchored" data-anchor-id="forcats"><span class="header-section-number">7.2.8</span> forcats</h3>
 <ul>
 <li>Purpose: Working with categorical variables (factors)</li>
 <li>Key features: Tools for reordering factor levels, recoding, and collapsing factors</li>
@@ -733,59 +739,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="non-core-tidyverse-packages" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="non-core-tidyverse-packages"><span class="header-section-number">18.3</span> Non-Core Tidyverse Packages</h2>
+<section id="non-core-tidyverse-packages" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="non-core-tidyverse-packages"><span class="header-section-number">7.3</span> Non-Core Tidyverse Packages</h2>
 <p>These packages are part of the tidyverse but aren’t loaded automatically with <code>library(tidyverse)</code>. You’ll need to load them individually when needed:</p>
-<section id="readxl" class="level3" data-number="18.3.1">
-<h3 data-number="18.3.1" class="anchored" data-anchor-id="readxl"><span class="header-section-number">18.3.1</span> readxl</h3>
+<section id="readxl" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="readxl"><span class="header-section-number">7.3.1</span> readxl</h3>
 <ul>
 <li>Purpose: Reading Excel files</li>
 <li>Load with: <code>library(readxl)</code></li>
 <li>Learn more: https://readxl.tidyverse.org</li>
 </ul>
 </section>
-<section id="haven" class="level3" data-number="18.3.2">
-<h3 data-number="18.3.2" class="anchored" data-anchor-id="haven"><span class="header-section-number">18.3.2</span> haven</h3>
+<section id="haven" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="haven"><span class="header-section-number">7.3.2</span> haven</h3>
 <ul>
 <li>Purpose: Reading SPSS, Stata, and SAS files</li>
 <li>Load with: <code>library(haven)</code></li>
 <li>Learn more: https://haven.tidyverse.org</li>
 </ul>
 </section>
-<section id="lubridate" class="level3" data-number="18.3.3">
-<h3 data-number="18.3.3" class="anchored" data-anchor-id="lubridate"><span class="header-section-number">18.3.3</span> lubridate</h3>
+<section id="lubridate" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="lubridate"><span class="header-section-number">7.3.3</span> lubridate</h3>
 <ul>
 <li>Purpose: Working with dates and times</li>
 <li>Load with: <code>library(lubridate)</code></li>
 <li>Learn more: https://lubridate.tidyverse.org</li>
 </ul>
 </section>
-<section id="hms" class="level3" data-number="18.3.4">
-<h3 data-number="18.3.4" class="anchored" data-anchor-id="hms"><span class="header-section-number">18.3.4</span> hms</h3>
+<section id="hms" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="hms"><span class="header-section-number">7.3.4</span> hms</h3>
 <ul>
 <li>Purpose: Working with time-of-day values</li>
 <li>Load with: <code>library(hms)</code></li>
 <li>Learn more: https://hms.tidyverse.org</li>
 </ul>
 </section>
-<section id="jsonlite" class="level3" data-number="18.3.5">
-<h3 data-number="18.3.5" class="anchored" data-anchor-id="jsonlite"><span class="header-section-number">18.3.5</span> jsonlite</h3>
+<section id="jsonlite" class="level3" data-number="7.3.5">
+<h3 data-number="7.3.5" class="anchored" data-anchor-id="jsonlite"><span class="header-section-number">7.3.5</span> jsonlite</h3>
 <ul>
 <li>Purpose: Working with JSON data</li>
 <li>Load with: <code>library(jsonlite)</code></li>
 <li>Learn more: https://jsonlite.tidyverse.org</li>
 </ul>
 </section>
-<section id="xml2" class="level3" data-number="18.3.6">
-<h3 data-number="18.3.6" class="anchored" data-anchor-id="xml2"><span class="header-section-number">18.3.6</span> xml2</h3>
+<section id="xml2" class="level3" data-number="7.3.6">
+<h3 data-number="7.3.6" class="anchored" data-anchor-id="xml2"><span class="header-section-number">7.3.6</span> xml2</h3>
 <ul>
 <li>Purpose: Working with XML data</li>
 <li>Load with: <code>library(xml2)</code></li>
 <li>Learn more: https://xml2.tidyverse.org</li>
 </ul>
 </section>
-<section id="rvest" class="level3" data-number="18.3.7">
-<h3 data-number="18.3.7" class="anchored" data-anchor-id="rvest"><span class="header-section-number">18.3.7</span> rvest</h3>
+<section id="rvest" class="level3" data-number="7.3.7">
+<h3 data-number="7.3.7" class="anchored" data-anchor-id="rvest"><span class="header-section-number">7.3.7</span> rvest</h3>
 <ul>
 <li>Purpose: Web scraping</li>
 <li>Load with: <code>library(rvest)</code></li>
@@ -793,8 +799,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="finding-help-and-learning-more" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="finding-help-and-learning-more"><span class="header-section-number">18.4</span> Finding Help and Learning More</h2>
+<section id="finding-help-and-learning-more" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="finding-help-and-learning-more"><span class="header-section-number">7.4</span> Finding Help and Learning More</h2>
 <ol type="1">
 <li><p>Each package has its own website (links provided above) with comprehensive documentation, vignettes, and examples.</p></li>
 <li><p>Within R, you can access help for any function using the <code>?</code> operator:</p></li>
@@ -812,11 +818,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The “R for Data Science” book (https://r4ds.hadley.nz/) is an excellent resource for learning the tidyverse ecosystem.</p></li>
 </ol>
 </section>
-<section id="understanding-core-vs-non-core-packages" class="level2" data-number="18.5">
-<h2 data-number="18.5" class="anchored" data-anchor-id="understanding-core-vs-non-core-packages"><span class="header-section-number">18.5</span> Understanding Core vs Non-Core Packages</h2>
+<section id="understanding-core-vs-non-core-packages" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="understanding-core-vs-non-core-packages"><span class="header-section-number">7.5</span> Understanding Core vs Non-Core Packages</h2>
 <p>The distinction between core and non-core tidyverse packages is primarily about frequency of use and interdependence:</p>
-<section id="core-packages" class="level3" data-number="18.5.1">
-<h3 data-number="18.5.1" class="anchored" data-anchor-id="core-packages"><span class="header-section-number">18.5.1</span> Core Packages:</h3>
+<section id="core-packages" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="core-packages"><span class="header-section-number">7.5.1</span> Core Packages:</h3>
 <ul>
 <li>Loaded automatically with <code>library(tidyverse)</code></li>
 <li>Used in most data analysis workflows</li>
@@ -825,8 +831,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Updated and maintained on a coordinated release schedule</li>
 </ul>
 </section>
-<section id="non-core-packages" class="level3" data-number="18.5.2">
-<h3 data-number="18.5.2" class="anchored" data-anchor-id="non-core-packages"><span class="header-section-number">18.5.2</span> Non-Core Packages:</h3>
+<section id="non-core-packages" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="non-core-packages"><span class="header-section-number">7.5.2</span> Non-Core Packages:</h3>
 <ul>
 <li>Must be loaded individually</li>
 <li>Serve more specialized purposes</li>
@@ -1269,13 +1275,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="pagination-link" aria-label="Practice with Regular Expressions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span>
+      <a href="./aiCoding00100-overview.html" class="pagination-link" aria-label="Coding with AI - an overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0400100-usingPipes-v001.html" class="pagination-link" aria-label="Using pipes, i.e. %>% and |>">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Using pipes, i.e.&nbsp;%&gt;% and |&gt;</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0400050-tibbles-v001.html" class="pagination-link" aria-label="tibbles and tribbles">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">tibbles and tribbles</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
