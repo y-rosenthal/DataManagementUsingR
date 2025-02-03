@@ -572,20 +572,22 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#using-the-file.choose-or-choose.files-r-functions" id="toc-using-the-file.choose-or-choose.files-r-functions" class="nav-link" data-scroll-target="#using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">7.7.2</span> Using the file.choose() or choose.files() R functions</a></li>
   <li><a href="#finding-a-full-path-to-a-special-folder" id="toc-finding-a-full-path-to-a-special-folder" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-special-folder"><span class="header-section-number">7.7.3</span> Finding a full path to a “Special folder”</a></li>
   </ul></li>
-  <li><a href="#fs-package" id="toc-fs-package" class="nav-link" data-scroll-target="#fs-package"><span class="header-section-number">7.8</span> fs package</a>
+  <li><a href="#function-to-read-and-write-files-in-base-r" id="toc-function-to-read-and-write-files-in-base-r" class="nav-link" data-scroll-target="#function-to-read-and-write-files-in-base-r"><span class="header-section-number">7.8</span> function to read and write files in “Base R”</a></li>
+  <li><a href="#fs-package" id="toc-fs-package" class="nav-link" data-scroll-target="#fs-package"><span class="header-section-number">7.9</span> fs package</a>
   <ul class="collapse">
-  <li><a href="#dir_ls-function" id="toc-dir_ls-function" class="nav-link" data-scroll-target="#dir_ls-function"><span class="header-section-number">7.8.1</span> dir_ls() function</a></li>
-  <li><a href="#dir_tree" id="toc-dir_tree" class="nav-link" data-scroll-target="#dir_tree"><span class="header-section-number">7.8.2</span> dir_tree</a></li>
-  <li><a href="#other-functions-in-the-fs-package" id="toc-other-functions-in-the-fs-package" class="nav-link" data-scroll-target="#other-functions-in-the-fs-package"><span class="header-section-number">7.8.3</span> Other functions in the fs package</a></li>
+  <li><a href="#dir_ls-function" id="toc-dir_ls-function" class="nav-link" data-scroll-target="#dir_ls-function"><span class="header-section-number">7.9.1</span> dir_ls() function</a></li>
+  <li><a href="#dir_tree" id="toc-dir_tree" class="nav-link" data-scroll-target="#dir_tree"><span class="header-section-number">7.9.2</span> dir_tree</a></li>
+  <li><a href="#other-functions-in-the-fs-package" id="toc-other-functions-in-the-fs-package" class="nav-link" data-scroll-target="#other-functions-in-the-fs-package"><span class="header-section-number">7.9.3</span> Other functions in the fs package</a></li>
   </ul></li>
-  <li><a href="#read_csv-and-write_csv" id="toc-read_csv-and-write_csv" class="nav-link" data-scroll-target="#read_csv-and-write_csv"><span class="header-section-number">7.9</span> read_csv and write_csv</a></li>
-  <li><a href="#readwrite-excel-files" id="toc-readwrite-excel-files" class="nav-link" data-scroll-target="#readwrite-excel-files"><span class="header-section-number">7.10</span> Read/Write Excel files</a></li>
-  <li><a href="#reading-fixed-width-field-files" id="toc-reading-fixed-width-field-files" class="nav-link" data-scroll-target="#reading-fixed-width-field-files"><span class="header-section-number">7.11</span> Reading fixed width field files</a></li>
-  <li><a href="#capture-output-of-r-commands" id="toc-capture-output-of-r-commands" class="nav-link" data-scroll-target="#capture-output-of-r-commands"><span class="header-section-number">7.12</span> Capture output of R commands</a>
+  <li><a href="#readlines-and-writelines-to-readwrite-lines-of-text-files" id="toc-readlines-and-writelines-to-readwrite-lines-of-text-files" class="nav-link" data-scroll-target="#readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">7.10</span> readLines() and writeLines() to read/write lines of text files</a></li>
+  <li><a href="#read_csv-and-write_csv" id="toc-read_csv-and-write_csv" class="nav-link" data-scroll-target="#read_csv-and-write_csv"><span class="header-section-number">7.11</span> read_csv and write_csv</a></li>
+  <li><a href="#readwrite-excel-files" id="toc-readwrite-excel-files" class="nav-link" data-scroll-target="#readwrite-excel-files"><span class="header-section-number">7.12</span> Read/Write Excel files</a></li>
+  <li><a href="#reading-fixed-width-field-files" id="toc-reading-fixed-width-field-files" class="nav-link" data-scroll-target="#reading-fixed-width-field-files"><span class="header-section-number">7.13</span> Reading fixed width field files</a></li>
+  <li><a href="#capture-output-of-r-commands" id="toc-capture-output-of-r-commands" class="nav-link" data-scroll-target="#capture-output-of-r-commands"><span class="header-section-number">7.14</span> Capture output of R commands</a>
   <ul class="collapse">
-  <li><a href="#capture.outputsomecommand-filesomefile.txt" id="toc-capture.outputsomecommand-filesomefile.txt" class="nav-link" data-scroll-target="#capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">7.12.1</span> capture.output(someCommand, file=“someFile.txt”)</a></li>
+  <li><a href="#capture.outputsomecommand-filesomefile.txt" id="toc-capture.outputsomecommand-filesomefile.txt" class="nav-link" data-scroll-target="#capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">7.14.1</span> capture.output(someCommand, file=“someFile.txt”)</a></li>
   </ul></li>
-  <li><a href="#sinksomefile-sink" id="toc-sinksomefile-sink" class="nav-link" data-scroll-target="#sinksomefile-sink"><span class="header-section-number">7.13</span> sink(“someFile”), sink()</a></li>
+  <li><a href="#sinksomefile-sink" id="toc-sinksomefile-sink" class="nav-link" data-scroll-target="#sinksomefile-sink"><span class="header-section-number">7.15</span> sink(“someFile”), sink()</a></li>
   </ul>
 </nav>
     </div>
@@ -634,7 +636,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="7.4" class="anchored" data-anchor-id="relative-paths-vs-full-paths"><span class="header-section-number">7.4</span> “relative paths” vs “full paths”</h2>
 <p>Another way to describe which folder a file is in is to use what’s known as a “relative path”. We will describe “relative paths” in detail later. For now, we will stick to use “full paths” as described above. However, one thing should be made absolutely clear now:</p>
 <p>Difference between a “full path” and a “relative path”</p>
-<p><strong><em>A “full path” always starts with a “/”.</em></strong> <strong><em>A “full path” always starts with a “/”.</em></strong></p>
+<p><strong><em>A “full path” always starts with a “/”.</em></strong></p>
 <p>IMPORTANT: MAKE SURE THAT YOU KNOW THIS …</p>
 <p>Later, we will study another type of file path called a <strong><em>relative path</em></strong>. A realtive path is simiilar to a “full path” but a relative path does NOT start with a “/”. We’ll learn more about relative paths later and how they differ from full paths.</p>
 <section id="mac-and-linux-style-paths-vs-windows-style-paths" class="level3" data-number="7.4.1">
@@ -694,14 +696,42 @@ list.files(pattern = ".csv")  # list only files ending in .csv</code></pre>
 <p>To find the full path for a file, navigate to it using the “Finder” app on Mac or the “File Explorer” app on Windows. Each of these tools have a way to show you the full path to the file.</p>
 </section>
 </section>
-<section id="fs-package" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="fs-package"><span class="header-section-number">7.8</span> fs package</h2>
-<p>The fs package provides modern file system operations in R. It makes working with files and folders more consistent across operating systems (Windows, Mac, Linux) and safer than base R functions. Think of it as a toolkit for handling files - copying, moving, creating directories, checking paths, and viewing directory structures. All functions start with clear prefixes like file_ or dir_ which makes them easy to remember and use. Install it with: install.packages(“fs”)</p>
-<section id="dir_ls-function" class="level3" data-number="7.8.1">
-<h3 data-number="7.8.1" class="anchored" data-anchor-id="dir_ls-function"><span class="header-section-number">7.8.1</span> dir_ls() function</h3>
+<section id="function-to-read-and-write-files-in-base-r" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="function-to-read-and-write-files-in-base-r"><span class="header-section-number">7.8</span> function to read and write files in “Base R”</h2>
+<p>R has numerous functions that allow reading files and writing to files (i.e.&nbsp;creating or modifying files). The following are built into R “out of the box” (i.e.&nbsp;the “base R”).</p>
+<p>For help with these functions see the R documentation (i.e.&nbsp;?functionName)</p>
+<ul>
+<li><p>readLines, writeLines</p>
+<p>These functions read and write lines of a file into/out-of a character vector.</p></li>
+<li><p>read.csv, write.csv</p>
+<p>read.csv: reads a .csv file into R as a data.frame</p>
+<p>write.csv: write a dataframe to a csv file</p></li>
+<li><p>read.fwf</p>
+<p>read a “fixed width file” into a data.frame. A “fixed width file” is different from a CSV file. A CSV file separates the data with commas. A “fixed width file” places each column of data in a “fixed width”. See the example below. Each column of info is typed into a specific number of spaces. If a data value is shorter than the width of the field for it’s column then the rest of the info in the column is filled in with spaces. Note that you need to use a monospace font in your editor to view this type of information in the way it was intended.</p>
+<p>Example: notice how each piece of data is padded with spaces if it doesn’t take up the entire space for the column.</p>
+<pre><code>student        year       test1  test2   
+joe            freshman   99     100
+samantha       senior     100    97
+bartholemeu    sophomore  77     65
+ike            senior     82     81</code></pre></li>
+</ul>
 </section>
-<section id="dir_tree" class="level3" data-number="7.8.2">
-<h3 data-number="7.8.2" class="anchored" data-anchor-id="dir_tree"><span class="header-section-number">7.8.2</span> dir_tree</h3>
+<section id="fs-package" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="fs-package"><span class="header-section-number">7.9</span> fs package</h2>
+<p>The fs package provides modern file system operations in R. It makes working with files and folders more consistent across operating systems (Windows, Mac, Linux) and safer than base R functions. Think of it as a toolkit for handling files - copying, moving, creating directories, checking paths, and viewing directory structures. All functions start with clear prefixes like file_ or dir_ which makes them easy to remember and use. Install it with: install.packages(“fs”)</p>
+<section id="dir_ls-function" class="level3" data-number="7.9.1">
+<h3 data-number="7.9.1" class="anchored" data-anchor-id="dir_ls-function"><span class="header-section-number">7.9.1</span> dir_ls() function</h3>
+<p>This works similarly to the dir() funciton in Base R. However, dir_ls() allows you to get much more information about each file, e.g.</p>
+<ul>
+<li>size of the file</li>
+<li>when the file was created</li>
+<li>when the file was last modified</li>
+<li>other info</li>
+</ul>
+<p>See the R documentation (i.e.&nbsp;?fs::dir_ls after you’ve already installed the fs package with install.packages(“fs”).</p>
+</section>
+<section id="dir_tree" class="level3" data-number="7.9.2">
+<h3 data-number="7.9.2" class="anchored" data-anchor-id="dir_tree"><span class="header-section-number">7.9.2</span> dir_tree</h3>
 <p>dir_tree() from the fs package displays a directory structure in a visual tree format, similar to how you might see folders indented in a file explorer. It shows the hierarchy of files and folders using lines and indentation. For example, if you run:</p>
 <pre><code>fs::dir_tree("my_project")</code></pre>
 <p>It might show something like:</p>
@@ -715,8 +745,8 @@ list.files(pattern = ".csv")  # list only files ending in .csv</code></pre>
 └── README.md</code></pre>
 <p>This makes it easy to visualize how your files and folders are organized. The vertical and horizontal lines show how everything connects, and each level of folders is indented further to the right.</p>
 </section>
-<section id="other-functions-in-the-fs-package" class="level3" data-number="7.8.3">
-<h3 data-number="7.8.3" class="anchored" data-anchor-id="other-functions-in-the-fs-package"><span class="header-section-number">7.8.3</span> Other functions in the fs package</h3>
+<section id="other-functions-in-the-fs-package" class="level3" data-number="7.9.3">
+<h3 data-number="7.9.3" class="anchored" data-anchor-id="other-functions-in-the-fs-package"><span class="header-section-number">7.9.3</span> Other functions in the fs package</h3>
 <p>The fs package provides modern, user-friendly functions for working with files. Here are some commonly used ones:</p>
 <p>fs::dir_ls() - Lists directory contents (similar to list.files() but with better defaults)</p>
 <p>fs::dir_create() - Creates directories, can create multiple levels at once</p>
@@ -724,13 +754,75 @@ list.files(pattern = ".csv")  # list only files ending in .csv</code></pre>
 <p>fs::file_move() - Moves files from one location to another</p>
 <p>fs::file_delete() - Deletes files</p>
 <p>fs::file_exists() - Checks if files exist</p>
-<p>fs::path() - Builds file paths in a safe, platform-independent way. For example:</p>
-<p>fs::path(“data”, “raw”, “myfile.csv”) # builds “data/raw/myfile.csv”</p>
-<p>Note: You need to install and load the fs package to use these (install.packages(“fs”) and library(fs)). The fs package makes working with files more consistent across operating systems and helps avoid common errors.</p>
+<!-- Dont include this, path() isn't so necessary and introduces too much at once
+
+fs::path() and fs::path_wd() - Builds file paths in a safe, platform-independent way (see below).
+
+
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+# Basically the same as getwd()
+fs::path_wd()
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+C:/Users/yrosenth/Dropbox/_yrQuarto-master/DataManagementUsingRSrc
+```
+
+
+:::
+
+```{.r .cell-code}
+# Build a full path that starts with the working directory and continues
+# with the names shown below.
+fs::path_wd("data", "raw", "myfile.csv")  
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+C:/Users/yrosenth/Dropbox/_yrQuarto-master/DataManagementUsingRSrc/data/raw/myfile.csv
+```
+
+
+:::
+
+```{.r .cell-code}
+# Build a relative path "data/raw/myfile.csv"
+fs::path("data", "raw", "myfile.csv")  
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+data/raw/myfile.csv
+```
+
+
+:::
+:::
+
+
+
+
+
+
+-->
 </section>
 </section>
-<section id="read_csv-and-write_csv" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="read_csv-and-write_csv"><span class="header-section-number">7.9</span> read_csv and write_csv</h2>
+<section id="readlines-and-writelines-to-readwrite-lines-of-text-files" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">7.10</span> readLines() and writeLines() to read/write lines of text files</h2>
+<p>These are built into <code>Base R</code>. see the R documentation</p>
+</section>
+<section id="read_csv-and-write_csv" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="read_csv-and-write_csv"><span class="header-section-number">7.11</span> read_csv and write_csv</h2>
 <p>read_csv() and write_csv() from the readr package are the standard functions for working with CSV files in modern R: read_csv() loads a CSV file into R as a data frame:</p>
 <pre><code>data &lt;- read_csv("myfile.csv")</code></pre>
 <p>write_csv() saves a data frame to a CSV file:</p>
@@ -738,8 +830,8 @@ list.files(pattern = ".csv")  # list only files ending in .csv</code></pre>
 <p>These functions are faster and have better defaults than the older read.csv() and write.csv() functions from base R. They automatically handle common issues like string encoding and they don’t add row numbers to your output files.</p>
 <p>You’ll need the readr package installed and loaded to use them: library(readr) (though readr is automatically loaded if you use the tidyverse).</p>
 </section>
-<section id="readwrite-excel-files" class="level2" data-number="7.10">
-<h2 data-number="7.10" class="anchored" data-anchor-id="readwrite-excel-files"><span class="header-section-number">7.10</span> Read/Write Excel files</h2>
+<section id="readwrite-excel-files" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="readwrite-excel-files"><span class="header-section-number">7.12</span> Read/Write Excel files</h2>
 <p>To work with Excel files in R, you’ll need either the readxl package (for reading) or the writexl package (for writing): Reading Excel files:</p>
 <pre><code>library(readxl)
 data &lt;- read_excel("myfile.xlsx")
@@ -751,8 +843,8 @@ data &lt;- read_excel("myfile.xlsx", sheet = "Sheet2")</code></pre>
 write_xlsx(data, "output.xlsx")</code></pre>
 <p>Note that readxl comes with the tidyverse, but writexl needs to be installed separately. These functions work with both newer .xlsx and older .xls files.</p>
 </section>
-<section id="reading-fixed-width-field-files" class="level2" data-number="7.11">
-<h2 data-number="7.11" class="anchored" data-anchor-id="reading-fixed-width-field-files"><span class="header-section-number">7.11</span> Reading fixed width field files</h2>
+<section id="reading-fixed-width-field-files" class="level2" data-number="7.13">
+<h2 data-number="7.13" class="anchored" data-anchor-id="reading-fixed-width-field-files"><span class="header-section-number">7.13</span> Reading fixed width field files</h2>
 <p>Use read_fwf() from the readr package (part of tidyverse) to read fixed-width files where each column takes up a specific number of characters. You specify the width of each field:</p>
 <pre><code>library(readr)
 
@@ -792,10 +884,10 @@ employees &lt;- read_fwf("employees.txt",
 # 2 98765  Mary Johnson       456 Oak Ave        
 # 3 54321  Bob Wilson         789 Pine Rd</code></pre>
 </section>
-<section id="capture-output-of-r-commands" class="level2" data-number="7.12">
-<h2 data-number="7.12" class="anchored" data-anchor-id="capture-output-of-r-commands"><span class="header-section-number">7.12</span> Capture output of R commands</h2>
-<section id="capture.outputsomecommand-filesomefile.txt" class="level3" data-number="7.12.1">
-<h3 data-number="7.12.1" class="anchored" data-anchor-id="capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">7.12.1</span> capture.output(someCommand, file=“someFile.txt”)</h3>
+<section id="capture-output-of-r-commands" class="level2" data-number="7.14">
+<h2 data-number="7.14" class="anchored" data-anchor-id="capture-output-of-r-commands"><span class="header-section-number">7.14</span> Capture output of R commands</h2>
+<section id="capture.outputsomecommand-filesomefile.txt" class="level3" data-number="7.14.1">
+<h3 data-number="7.14.1" class="anchored" data-anchor-id="capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">7.14.1</span> capture.output(someCommand, file=“someFile.txt”)</h3>
 <p>To save or “capture” the output from an R command, you can use the capture.output() function. It lets you store text output in a file or in a character vector:</p>
 <pre><code># Save to a file:
 capture.output(summary(mydata), file = "output.txt")
@@ -804,8 +896,8 @@ capture.output(summary(mydata), file = "output.txt")
 my_output &lt;- capture.output(summary(mydata))</code></pre>
 </section>
 </section>
-<section id="sinksomefile-sink" class="level2" data-number="7.13">
-<h2 data-number="7.13" class="anchored" data-anchor-id="sinksomefile-sink"><span class="header-section-number">7.13</span> sink(“someFile”), sink()</h2>
+<section id="sinksomefile-sink" class="level2" data-number="7.15">
+<h2 data-number="7.15" class="anchored" data-anchor-id="sinksomefile-sink"><span class="header-section-number">7.15</span> sink(“someFile”), sink()</h2>
 <p>The sink() function is another option - it redirects all output to a file until you turn it off:</p>
 <pre><code>sink("output.txt")
 print(summary(mydata))
