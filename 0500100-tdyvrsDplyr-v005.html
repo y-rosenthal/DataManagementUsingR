@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>23&nbsp; Intro to dplyr – Data Management With R</title>
+<title>24&nbsp; 25.  Intro to dplyr – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./0500400-sqlSelectIntro-v003.html" rel="next">
-<link href="./050050-tdyvrsGgplot2-v0001.html" rel="prev">
+<link href="./050050-tdyvrsGgplot2-v0001.html" rel="next">
+<link href="./0000025-introToBash-v007.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,7 +87,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -107,20 +106,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta http-equiv="Pragma" content="no-cache">
 
 <meta http-equiv="Expires" content="0">
+<script src="yrstuff.js"></script>
 
 
+<link rel="stylesheet" href="yrStyles-main-v001.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Data Management With R (latest version)</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://yrosenthal.com/datamgmt/theOldBook"> 
+<span class="menu-text">(click here for spring24 version of this website)</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html">Intro to dplyr and to SQL</a></li><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html">Intro to dplyr</a></li><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> Intro to dplyr</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,14 +153,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Management With R</a> 
-    </div>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -148,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Intro</span></a>
+ <span class="menu-text"><yrchapternumber></yrchapternumber> Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -163,19 +181,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00100-operatingSystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is an “operating system”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><yrchapternumber>1. </yrchapternumber> What is an "operating system"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00120-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><yrchapternumber>2. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><yrchapternumber>3. </yrchapternumber> Chrome Extensions</span></span></a>
   </div>
 </li>
       </ul>
@@ -183,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to R packages</span></a>
+ <span class="menu-text">Into to Coding With AI</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -191,8 +209,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></span></a>
+  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> AI in Everyday Use</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><yrchapternumber>5. </yrchapternumber> Coding with AI - an overview</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to Quarto</span></a>
+ <span class="menu-text">Intro to R packages</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -208,8 +232,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intro to Quarto</span></span></a>
+  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Into to Coding With AI</span></a>
+ <span class="menu-text">Intro to Quarto</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -225,8 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></span></a>
+  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to Quarto</span></span></a>
   </div>
 </li>
       </ul>
@@ -243,25 +267,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> What is the "tidyverse"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">tibbles and tribbles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> tibbles and tribbles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
@@ -278,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
       </ul>
@@ -286,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">JSON data</span></a>
+ <span class="menu-text">JSON data and APIs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -295,31 +319,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nested Dataframes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> Nested Dataframes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
       </ul>
@@ -327,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Bash</span></a>
+ <span class="menu-text">Regular Expressions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -335,20 +365,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
+  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> regular expressions (regex)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Practice with Regular Expressions</span></span></a>
   </div>
 </li>
       </ul>
@@ -356,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
+ <span class="menu-text">Bash</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -364,14 +388,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> How to run the Bash Shell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
@@ -379,7 +409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">visualizations with ggplot2</span></a>
+ <span class="menu-text">Intro to dplyr</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -387,8 +417,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
+  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> Intro to dplyr</span></span></a>
   </div>
 </li>
       </ul>
@@ -396,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to dplyr and to SQL</span></a>
+ <span class="menu-text">visualizations with ggplot2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -404,14 +434,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -419,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
+ <span class="menu-text">Intro to SQL</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -427,68 +451,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL Select</span></span></a>
   </div>
 </li>
       </ul>
@@ -496,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Web Scraping</span></a>
+ <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -504,26 +468,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
@@ -531,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
- <span class="menu-text">Questions</span></a>
+ <span class="menu-text">Web Scraping</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -539,8 +545,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> CSS Selector Questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -548,7 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Questions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -556,32 +580,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> "Cleaning" data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -596,50 +637,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#get-the-data" id="toc-get-the-data" class="nav-link active" data-scroll-target="#get-the-data"><span class="header-section-number">23.1</span> Get the data</a>
+  <li><a href="#get-the-data" id="toc-get-the-data" class="nav-link active" data-scroll-target="#get-the-data"><span class="header-section-number">24.1</span> Get the data</a>
   <ul class="collapse">
-  <li><a href="#load-the-r-packages-well-neeed" id="toc-load-the-r-packages-well-neeed" class="nav-link" data-scroll-target="#load-the-r-packages-well-neeed"><span class="header-section-number">23.1.1</span> Load the R packages we’ll neeed</a></li>
-  <li><a href="#download-the-file" id="toc-download-the-file" class="nav-link" data-scroll-target="#download-the-file"><span class="header-section-number">23.1.2</span> Download the file</a></li>
-  <li><a href="#import-the-data-by-clicking-on-some-buttons" id="toc-import-the-data-by-clicking-on-some-buttons" class="nav-link" data-scroll-target="#import-the-data-by-clicking-on-some-buttons"><span class="header-section-number">23.1.3</span> Import the data by clicking on some buttons …</a></li>
-  <li><a href="#import-the-data-by-typing-some-r-code" id="toc-import-the-data-by-typing-some-r-code" class="nav-link" data-scroll-target="#import-the-data-by-typing-some-r-code"><span class="header-section-number">23.1.4</span> Import the data by typing some R code …</a></li>
+  <li><a href="#load-the-r-packages-well-neeed" id="toc-load-the-r-packages-well-neeed" class="nav-link" data-scroll-target="#load-the-r-packages-well-neeed"><span class="header-section-number">24.1.1</span> Load the R packages we’ll neeed</a></li>
+  <li><a href="#download-the-file" id="toc-download-the-file" class="nav-link" data-scroll-target="#download-the-file"><span class="header-section-number">24.1.2</span> Download the file</a></li>
+  <li><a href="#import-the-data-by-clicking-on-some-buttons" id="toc-import-the-data-by-clicking-on-some-buttons" class="nav-link" data-scroll-target="#import-the-data-by-clicking-on-some-buttons"><span class="header-section-number">24.1.3</span> Import the data by clicking on some buttons …</a></li>
+  <li><a href="#import-the-data-by-typing-some-r-code" id="toc-import-the-data-by-typing-some-r-code" class="nav-link" data-scroll-target="#import-the-data-by-typing-some-r-code"><span class="header-section-number">24.1.4</span> Import the data by typing some R code …</a></li>
   </ul></li>
-  <li><a href="#display-the-data" id="toc-display-the-data" class="nav-link" data-scroll-target="#display-the-data"><span class="header-section-number">23.2</span> Display the data</a></li>
-  <li><a href="#display-more-rowscolumns-of-the-tibble" id="toc-display-more-rowscolumns-of-the-tibble" class="nav-link" data-scroll-target="#display-more-rowscolumns-of-the-tibble"><span class="header-section-number">23.3</span> Display more rows/columns of the tibble</a>
+  <li><a href="#display-the-data" id="toc-display-the-data" class="nav-link" data-scroll-target="#display-the-data"><span class="header-section-number">24.2</span> Display the data</a></li>
+  <li><a href="#display-more-rowscolumns-of-the-tibble" id="toc-display-more-rowscolumns-of-the-tibble" class="nav-link" data-scroll-target="#display-more-rowscolumns-of-the-tibble"><span class="header-section-number">24.3</span> Display more rows/columns of the tibble</a>
   <ul class="collapse">
-  <li><a href="#print-some_tibble-nnumber_of_rows" id="toc-print-some_tibble-nnumber_of_rows" class="nav-link" data-scroll-target="#print-some_tibble-nnumber_of_rows"><span class="header-section-number">23.3.1</span> print( SOME_TIBBLE, n=NUMBER_OF_ROWS)</a></li>
-  <li><a href="#print-some_tibble-widthwidth_of_data" id="toc-print-some_tibble-widthwidth_of_data" class="nav-link" data-scroll-target="#print-some_tibble-widthwidth_of_data"><span class="header-section-number">23.3.2</span> print( SOME_TIBBLE, width=WIDTH_OF_DATA)</a></li>
-  <li><a href="#print-doesnt-change-the-tibble" id="toc-print-doesnt-change-the-tibble" class="nav-link" data-scroll-target="#print-doesnt-change-the-tibble"><span class="header-section-number">23.3.3</span> print doesn’t change the tibble</a></li>
-  <li><a href="#slice_head-slice_tail-slice_sample-etc" id="toc-slice_head-slice_tail-slice_sample-etc" class="nav-link" data-scroll-target="#slice_head-slice_tail-slice_sample-etc"><span class="header-section-number">23.3.4</span> slice_head, slice_tail, slice_sample, etc</a></li>
-  <li><a href="#other-ways-of-viewing-the-data" id="toc-other-ways-of-viewing-the-data" class="nav-link" data-scroll-target="#other-ways-of-viewing-the-data"><span class="header-section-number">23.3.5</span> Other ways of viewing the data</a></li>
+  <li><a href="#print-some_tibble-nnumber_of_rows" id="toc-print-some_tibble-nnumber_of_rows" class="nav-link" data-scroll-target="#print-some_tibble-nnumber_of_rows"><span class="header-section-number">24.3.1</span> print( SOME_TIBBLE, n=NUMBER_OF_ROWS)</a></li>
+  <li><a href="#print-some_tibble-widthwidth_of_data" id="toc-print-some_tibble-widthwidth_of_data" class="nav-link" data-scroll-target="#print-some_tibble-widthwidth_of_data"><span class="header-section-number">24.3.2</span> print( SOME_TIBBLE, width=WIDTH_OF_DATA)</a></li>
+  <li><a href="#print-doesnt-change-the-tibble" id="toc-print-doesnt-change-the-tibble" class="nav-link" data-scroll-target="#print-doesnt-change-the-tibble"><span class="header-section-number">24.3.3</span> print doesn’t change the tibble</a></li>
+  <li><a href="#slice_head-slice_tail-slice_sample-etc" id="toc-slice_head-slice_tail-slice_sample-etc" class="nav-link" data-scroll-target="#slice_head-slice_tail-slice_sample-etc"><span class="header-section-number">24.3.4</span> slice_head, slice_tail, slice_sample, etc</a></li>
+  <li><a href="#other-ways-of-viewing-the-data" id="toc-other-ways-of-viewing-the-data" class="nav-link" data-scroll-target="#other-ways-of-viewing-the-data"><span class="header-section-number">24.3.5</span> Other ways of viewing the data</a></li>
   </ul></li>
-  <li><a href="#convert-between-tibbles-and-dataframes" id="toc-convert-between-tibbles-and-dataframes" class="nav-link" data-scroll-target="#convert-between-tibbles-and-dataframes"><span class="header-section-number">23.4</span> Convert between tibbles and dataframes</a></li>
-  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">23.5</span> select</a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">23.6</span> filter</a></li>
-  <li><a href="#using-the-dplyr-functions-in-a-pipeline" id="toc-using-the-dplyr-functions-in-a-pipeline" class="nav-link" data-scroll-target="#using-the-dplyr-functions-in-a-pipeline"><span class="header-section-number">23.7</span> Using the dplyr functions in a “pipeline”</a></li>
-  <li><a href="#important-dplyr-functions-for-manipulating-tibbles" id="toc-important-dplyr-functions-for-manipulating-tibbles" class="nav-link" data-scroll-target="#important-dplyr-functions-for-manipulating-tibbles"><span class="header-section-number">23.8</span> Important dplyr functions for manipulating tibbles</a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="header-section-number">23.9</span> arrange</a>
+  <li><a href="#convert-between-tibbles-and-dataframes" id="toc-convert-between-tibbles-and-dataframes" class="nav-link" data-scroll-target="#convert-between-tibbles-and-dataframes"><span class="header-section-number">24.4</span> Convert between tibbles and dataframes</a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">24.5</span> select</a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">24.6</span> filter</a></li>
+  <li><a href="#using-the-dplyr-functions-in-a-pipeline" id="toc-using-the-dplyr-functions-in-a-pipeline" class="nav-link" data-scroll-target="#using-the-dplyr-functions-in-a-pipeline"><span class="header-section-number">24.7</span> Using the dplyr functions in a “pipeline”</a></li>
+  <li><a href="#important-dplyr-functions-for-manipulating-tibbles" id="toc-important-dplyr-functions-for-manipulating-tibbles" class="nav-link" data-scroll-target="#important-dplyr-functions-for-manipulating-tibbles"><span class="header-section-number">24.8</span> Important dplyr functions for manipulating tibbles</a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="header-section-number">24.9</span> arrange</a>
   <ul class="collapse">
-  <li><a href="#arrange-by-more-than-one-column" id="toc-arrange-by-more-than-one-column" class="nav-link" data-scroll-target="#arrange-by-more-than-one-column"><span class="header-section-number">23.9.1</span> arrange by more than one column</a></li>
-  <li><a href="#descsome_column---arrange-in-descending-order" id="toc-descsome_column---arrange-in-descending-order" class="nav-link" data-scroll-target="#descsome_column---arrange-in-descending-order"><span class="header-section-number">23.9.2</span> desc(SOME_COLUMN) - arrange in descending order</a></li>
+  <li><a href="#arrange-by-more-than-one-column" id="toc-arrange-by-more-than-one-column" class="nav-link" data-scroll-target="#arrange-by-more-than-one-column"><span class="header-section-number">24.9.1</span> arrange by more than one column</a></li>
+  <li><a href="#descsome_column---arrange-in-descending-order" id="toc-descsome_column---arrange-in-descending-order" class="nav-link" data-scroll-target="#descsome_column---arrange-in-descending-order"><span class="header-section-number">24.9.2</span> desc(SOME_COLUMN) - arrange in descending order</a></li>
   </ul></li>
-  <li><a href="#mutate---add-new-columns" id="toc-mutate---add-new-columns" class="nav-link" data-scroll-target="#mutate---add-new-columns"><span class="header-section-number">23.10</span> mutate - add new columns</a>
+  <li><a href="#mutate---add-new-columns" id="toc-mutate---add-new-columns" class="nav-link" data-scroll-target="#mutate---add-new-columns"><span class="header-section-number">24.10</span> mutate - add new columns</a>
   <ul class="collapse">
-  <li><a href="#before-and-.after" id="toc-before-and-.after" class="nav-link" data-scroll-target="#before-and-.after"><span class="header-section-number">23.10.1</span> .before and .after</a></li>
-  <li><a href="#a-new-column-that-depends-on-other-new-columns" id="toc-a-new-column-that-depends-on-other-new-columns" class="nav-link" data-scroll-target="#a-new-column-that-depends-on-other-new-columns"><span class="header-section-number">23.10.2</span> a new column that depends on other new columns</a></li>
+  <li><a href="#before-and-.after" id="toc-before-and-.after" class="nav-link" data-scroll-target="#before-and-.after"><span class="header-section-number">24.10.1</span> .before and .after</a></li>
+  <li><a href="#a-new-column-that-depends-on-other-new-columns" id="toc-a-new-column-that-depends-on-other-new-columns" class="nav-link" data-scroll-target="#a-new-column-that-depends-on-other-new-columns"><span class="header-section-number">24.10.2</span> a new column that depends on other new columns</a></li>
   </ul></li>
-  <li><a href="#distinct" id="toc-distinct" class="nav-link" data-scroll-target="#distinct"><span class="header-section-number">23.11</span> distinct()</a></li>
-  <li><a href="#summarize-and-group_by" id="toc-summarize-and-group_by" class="nav-link" data-scroll-target="#summarize-and-group_by"><span class="header-section-number">23.12</span> summarize and group_by</a>
+  <li><a href="#distinct" id="toc-distinct" class="nav-link" data-scroll-target="#distinct"><span class="header-section-number">24.11</span> distinct()</a></li>
+  <li><a href="#summarize-and-group_by" id="toc-summarize-and-group_by" class="nav-link" data-scroll-target="#summarize-and-group_by"><span class="header-section-number">24.12</span> summarize and group_by</a>
   <ul class="collapse">
-  <li><a href="#aggregate-functions" id="toc-aggregate-functions" class="nav-link" data-scroll-target="#aggregate-functions"><span class="header-section-number">23.12.1</span> aggregate functions</a></li>
-  <li><a href="#summarize-without-group_by" id="toc-summarize-without-group_by" class="nav-link" data-scroll-target="#summarize-without-group_by"><span class="header-section-number">23.12.2</span> summarize (without group_by)</a></li>
-  <li><a href="#the-n-function" id="toc-the-n-function" class="nav-link" data-scroll-target="#the-n-function"><span class="header-section-number">23.12.3</span> The n() function</a></li>
+  <li><a href="#aggregate-functions" id="toc-aggregate-functions" class="nav-link" data-scroll-target="#aggregate-functions"><span class="header-section-number">24.12.1</span> aggregate functions</a></li>
+  <li><a href="#summarize-without-group_by" id="toc-summarize-without-group_by" class="nav-link" data-scroll-target="#summarize-without-group_by"><span class="header-section-number">24.12.2</span> summarize (without group_by)</a></li>
+  <li><a href="#the-n-function" id="toc-the-n-function" class="nav-link" data-scroll-target="#the-n-function"><span class="header-section-number">24.12.3</span> The n() function</a></li>
   </ul></li>
-  <li><a href="#group_by-and-summarize-or-summarise" id="toc-group_by-and-summarize-or-summarise" class="nav-link" data-scroll-target="#group_by-and-summarize-or-summarise"><span class="header-section-number">23.13</span> group_by and summarize (or summarise)</a>
+  <li><a href="#group_by-and-summarize-or-summarise" id="toc-group_by-and-summarize-or-summarise" class="nav-link" data-scroll-target="#group_by-and-summarize-or-summarise"><span class="header-section-number">24.13</span> group_by and summarize (or summarise)</a>
   <ul class="collapse">
-  <li><a href="#group_by-without-summarize-has-no-noticeable-effect" id="toc-group_by-without-summarize-has-no-noticeable-effect" class="nav-link" data-scroll-target="#group_by-without-summarize-has-no-noticeable-effect"><span class="header-section-number">23.13.1</span> group_by without summarize has no noticeable effect</a></li>
-  <li><a href="#group_by-more-than-one-column" id="toc-group_by-more-than-one-column" class="nav-link" data-scroll-target="#group_by-more-than-one-column"><span class="header-section-number">23.13.2</span> group_by more than one column</a></li>
-  <li><a href="#order-of-columns-in-group_by-is-irrelevant" id="toc-order-of-columns-in-group_by-is-irrelevant" class="nav-link" data-scroll-target="#order-of-columns-in-group_by-is-irrelevant"><span class="header-section-number">23.13.3</span> order of columns in group_by is irrelevant</a></li>
-  <li><a href="#some-other-aggregate-functions" id="toc-some-other-aggregate-functions" class="nav-link" data-scroll-target="#some-other-aggregate-functions"><span class="header-section-number">23.13.4</span> some other aggregate functions</a></li>
+  <li><a href="#group_by-without-summarize-has-no-noticeable-effect" id="toc-group_by-without-summarize-has-no-noticeable-effect" class="nav-link" data-scroll-target="#group_by-without-summarize-has-no-noticeable-effect"><span class="header-section-number">24.13.1</span> group_by without summarize has no noticeable effect</a></li>
+  <li><a href="#group_by-more-than-one-column" id="toc-group_by-more-than-one-column" class="nav-link" data-scroll-target="#group_by-more-than-one-column"><span class="header-section-number">24.13.2</span> group_by more than one column</a></li>
+  <li><a href="#order-of-columns-in-group_by-is-irrelevant" id="toc-order-of-columns-in-group_by-is-irrelevant" class="nav-link" data-scroll-target="#order-of-columns-in-group_by-is-irrelevant"><span class="header-section-number">24.13.3</span> order of columns in group_by is irrelevant</a></li>
+  <li><a href="#some-other-aggregate-functions" id="toc-some-other-aggregate-functions" class="nav-link" data-scroll-target="#some-other-aggregate-functions"><span class="header-section-number">24.13.4</span> some other aggregate functions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -647,9 +688,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html">Intro to dplyr and to SQL</a></li><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html">Intro to dplyr</a></li><li class="breadcrumb-item"><a href="./0500100-tdyvrsDplyr-v005.html"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> Intro to dplyr</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></h1>
+<h1 class="title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> Intro to dplyr</span></h1>
 </div>
 
 
@@ -674,23 +715,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>The official tidyverse website,<a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a>, is a great place to start when you’re looking for information about any of the tidyverse packages. The dplyr webpage is <a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></p></li>
 <li><p>You can also look at the official CRAN page for dplyr, <a href="https://cloud.r-project.org/web/packages/dplyr/index.html" class="uri">https://cloud.r-project.org/web/packages/dplyr/index.html</a> See the vignettes on this page for good tutorial material.</p></li>
 </ul>
-<section id="get-the-data" class="level2" data-number="23.1">
-<h2 data-number="23.1" class="anchored" data-anchor-id="get-the-data"><span class="header-section-number">23.1</span> Get the data</h2>
+<section id="get-the-data" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="get-the-data"><span class="header-section-number">24.1</span> Get the data</h2>
 <p>The data we are using in this section contains information about salespeople who are employees of a company. Each row of the data contains info about one salesperson. The salespeople get paid some “base pay” as well as a commission that is a percent of the total dollar amount of sales they make.</p>
-<section id="load-the-r-packages-well-neeed" class="level3" data-number="23.1.1">
-<h3 data-number="23.1.1" class="anchored" data-anchor-id="load-the-r-packages-well-neeed"><span class="header-section-number">23.1.1</span> Load the R packages we’ll neeed</h3>
+<section id="load-the-r-packages-well-neeed" class="level3" data-number="24.1.1">
+<h3 data-number="24.1.1" class="anchored" data-anchor-id="load-the-r-packages-well-neeed"><span class="header-section-number">24.1.1</span> Load the R packages we’ll neeed</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(tibble)){<span class="fu">install.packages</span>(<span class="st">"tibble"</span>);<span class="fu">require</span>(tibble);}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(dplyr)){<span class="fu">install.packages</span>(<span class="st">"dplyr"</span>);<span class="fu">require</span>(dplyr);}</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(readr)){<span class="fu">install.packages</span>(<span class="st">"readr"</span>);<span class="fu">require</span>(readr);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="download-the-file" class="level3" data-number="23.1.2">
-<h3 data-number="23.1.2" class="anchored" data-anchor-id="download-the-file"><span class="header-section-number">23.1.2</span> Download the file</h3>
+<section id="download-the-file" class="level3" data-number="24.1.2">
+<h3 data-number="24.1.2" class="anchored" data-anchor-id="download-the-file"><span class="header-section-number">24.1.2</span> Download the file</h3>
 <p>The data is contained in a csv file. If you’d like to follow along with this tutorial on your own computer you can download the .csv file we are using by clicking <a href="data/salespeople-v002.csv">here</a>.</p>
 </section>
-<section id="import-the-data-by-clicking-on-some-buttons" class="level3" data-number="23.1.3">
-<h3 data-number="23.1.3" class="anchored" data-anchor-id="import-the-data-by-clicking-on-some-buttons"><span class="header-section-number">23.1.3</span> Import the data by clicking on some buttons …</h3>
+<section id="import-the-data-by-clicking-on-some-buttons" class="level3" data-number="24.1.3">
+<h3 data-number="24.1.3" class="anchored" data-anchor-id="import-the-data-by-clicking-on-some-buttons"><span class="header-section-number">24.1.3</span> Import the data by clicking on some buttons …</h3>
 <ul>
 <li><p>The code in the next section below uses read_csv function to read the data into R. If you are not comfortable with R, I recommend that you instead, follow the instructions starting in the next bullet to import the data into R.</p></li>
 <li><p>If you are not familiar with R, you may have some trouble running the read_csv() code shown below. Instead, I recommend that you follow the following instructions to import the file into R.</p>
@@ -700,8 +741,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Make sure to change the “Name” portion (see circled section in picture) to read “sales”, then press the “import” button. This will open up a new tab in RStudio that shows the contents of the file. You can safely navigate away from this tab or close the tab and the data will remain imported and can be seen by typing “sales” (without the “quotes”).</p></li>
 </ul>
 </section>
-<section id="import-the-data-by-typing-some-r-code" class="level3" data-number="23.1.4">
-<h3 data-number="23.1.4" class="anchored" data-anchor-id="import-the-data-by-typing-some-r-code"><span class="header-section-number">23.1.4</span> Import the data by typing some R code …</h3>
+<section id="import-the-data-by-typing-some-r-code" class="level3" data-number="24.1.4">
+<h3 data-number="24.1.4" class="anchored" data-anchor-id="import-the-data-by-typing-some-r-code"><span class="header-section-number">24.1.4</span> Import the data by typing some R code …</h3>
 <p>The following code reads the data into R. Alternatively, you can follow the instructions above to click on some buttons to import the data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data into a tibble</span></span>
@@ -719,8 +760,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="display-the-data" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="display-the-data"><span class="header-section-number">23.2</span> Display the data</h2>
+<section id="display-the-data" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="display-the-data"><span class="header-section-number">24.2</span> Display the data</h2>
 <p>Since the data is in a tibble, by default, only the first 10 rows are displayed. In addition, only the columns that fit on the screen will be displayed. If the rows are too wide for the screen, then some columns may not be displayed and/or the contents of some columns may be shortened.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows and columns of the sales data</span></span>
@@ -743,10 +784,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="display-more-rowscolumns-of-the-tibble" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="display-more-rowscolumns-of-the-tibble"><span class="header-section-number">23.3</span> Display more rows/columns of the tibble</h2>
-<section id="print-some_tibble-nnumber_of_rows" class="level3" data-number="23.3.1">
-<h3 data-number="23.3.1" class="anchored" data-anchor-id="print-some_tibble-nnumber_of_rows"><span class="header-section-number">23.3.1</span> print( SOME_TIBBLE, n=NUMBER_OF_ROWS)</h3>
+<section id="display-more-rowscolumns-of-the-tibble" class="level2" data-number="24.3">
+<h2 data-number="24.3" class="anchored" data-anchor-id="display-more-rowscolumns-of-the-tibble"><span class="header-section-number">24.3</span> Display more rows/columns of the tibble</h2>
+<section id="print-some_tibble-nnumber_of_rows" class="level3" data-number="24.3.1">
+<h3 data-number="24.3.1" class="anchored" data-anchor-id="print-some_tibble-nnumber_of_rows"><span class="header-section-number">24.3.1</span> print( SOME_TIBBLE, n=NUMBER_OF_ROWS)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the print function to modify the output. Use the following arguments:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    n - number of rows to display (Inf, i.e. infinity, for all rows)</span></span>
@@ -763,13 +804,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="print-some_tibble-widthwidth_of_data" class="level3" data-number="23.3.2">
-<h3 data-number="23.3.2" class="anchored" data-anchor-id="print-some_tibble-widthwidth_of_data"><span class="header-section-number">23.3.2</span> print( SOME_TIBBLE, width=WIDTH_OF_DATA)</h3>
+<section id="print-some_tibble-widthwidth_of_data" class="level3" data-number="24.3.2">
+<h3 data-number="24.3.2" class="anchored" data-anchor-id="print-some_tibble-widthwidth_of_data"><span class="header-section-number">24.3.2</span> print( SOME_TIBBLE, width=WIDTH_OF_DATA)</h3>
 <pre><code># Display all rows and all columns
 print(sales, n=Inf, width=Inf)</code></pre>
 </section>
-<section id="print-doesnt-change-the-tibble" class="level3" data-number="23.3.3">
-<h3 data-number="23.3.3" class="anchored" data-anchor-id="print-doesnt-change-the-tibble"><span class="header-section-number">23.3.3</span> print doesn’t change the tibble</h3>
+<section id="print-doesnt-change-the-tibble" class="level3" data-number="24.3.3">
+<h3 data-number="24.3.3" class="anchored" data-anchor-id="print-doesnt-change-the-tibble"><span class="header-section-number">24.3.3</span> print doesn’t change the tibble</h3>
 <p>The print function doesn’t change the tibble. print just controls what is displayed to the screen. Therefore if you save the results to a variable, the variable will still contain the entire tibble.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display first 3 rows</span></span>
@@ -814,8 +855,8 @@ print(sales, n=Inf, width=Inf)</code></pre>
 </div>
 </div>
 </section>
-<section id="slice_head-slice_tail-slice_sample-etc" class="level3" data-number="23.3.4">
-<h3 data-number="23.3.4" class="anchored" data-anchor-id="slice_head-slice_tail-slice_sample-etc"><span class="header-section-number">23.3.4</span> slice_head, slice_tail, slice_sample, etc</h3>
+<section id="slice_head-slice_tail-slice_sample-etc" class="level3" data-number="24.3.4">
+<h3 data-number="24.3.4" class="anchored" data-anchor-id="slice_head-slice_tail-slice_sample-etc"><span class="header-section-number">24.3.4</span> slice_head, slice_tail, slice_sample, etc</h3>
 <p>Among some of the many functions included in dplyr are the various “slice_…” functions. These include</p>
 <ul>
 <li>slice - choose rows by row numbers</li>
@@ -884,8 +925,8 @@ print(sales, n=Inf, width=Inf)</code></pre>
 </div>
 </div>
 </section>
-<section id="other-ways-of-viewing-the-data" class="level3" data-number="23.3.5">
-<h3 data-number="23.3.5" class="anchored" data-anchor-id="other-ways-of-viewing-the-data"><span class="header-section-number">23.3.5</span> Other ways of viewing the data</h3>
+<section id="other-ways-of-viewing-the-data" class="level3" data-number="24.3.5">
+<h3 data-number="24.3.5" class="anchored" data-anchor-id="other-ways-of-viewing-the-data"><span class="header-section-number">24.3.5</span> Other ways of viewing the data</h3>
 <pre><code># To see the entire tibble in a separate tab in RStudio
 # you can use the following command
 #
@@ -898,8 +939,8 @@ glimpse(sales)
 colnames(sales)</code></pre>
 </section>
 </section>
-<section id="convert-between-tibbles-and-dataframes" class="level2" data-number="23.4">
-<h2 data-number="23.4" class="anchored" data-anchor-id="convert-between-tibbles-and-dataframes"><span class="header-section-number">23.4</span> Convert between tibbles and dataframes</h2>
+<section id="convert-between-tibbles-and-dataframes" class="level2" data-number="24.4">
+<h2 data-number="24.4" class="anchored" data-anchor-id="convert-between-tibbles-and-dataframes"><span class="header-section-number">24.4</span> Convert between tibbles and dataframes</h2>
 <p>The majority of the dplyr functions work with tibbles or dataframes. However, the tidyverse in general and dplyr specifically is designed to work better with tibbles.</p>
 <p>If you need to, you can always convert a tibble to a dataframe or a dataframe to a tibble.</p>
 <div class="cell">
@@ -972,8 +1013,8 @@ colnames(sales)</code></pre>
 </div>
 </div>
 </section>
-<section id="select" class="level2" data-number="23.5">
-<h2 data-number="23.5" class="anchored" data-anchor-id="select"><span class="header-section-number">23.5</span> select</h2>
+<section id="select" class="level2" data-number="24.5">
+<h2 data-number="24.5" class="anchored" data-anchor-id="select"><span class="header-section-number">24.5</span> select</h2>
 <p>Use the select function to get just the specified columns.</p>
 <p>The first argument to the select function is named .data (notice the period before .data). It is used to specify which tibble or dataframe you are working with. The other arguments are used to specify which columns you’d like to see from the dataframe/tibble. Note that there are NO quotes around the column names (this differs from the base-r way of specifying column names in a dataframe).</p>
 <div class="cell">
@@ -1018,8 +1059,8 @@ colnames(sales)</code></pre>
 </div>
 </div>
 </section>
-<section id="filter" class="level2" data-number="23.6">
-<h2 data-number="23.6" class="anchored" data-anchor-id="filter"><span class="header-section-number">23.6</span> filter</h2>
+<section id="filter" class="level2" data-number="24.6">
+<h2 data-number="24.6" class="anchored" data-anchor-id="filter"><span class="header-section-number">24.6</span> filter</h2>
 <p>The filter function is used to retrieve the rows from a tibble that match a condition.</p>
 <ul>
 <li><p>The first argument of the filter function is also .data. Just as with the select function this argument for the filter function is expected to be a tibble or a dataframe.</p></li>
@@ -1040,8 +1081,8 @@ colnames(sales)</code></pre>
 </div>
 </div>
 </section>
-<section id="using-the-dplyr-functions-in-a-pipeline" class="level2" data-number="23.7">
-<h2 data-number="23.7" class="anchored" data-anchor-id="using-the-dplyr-functions-in-a-pipeline"><span class="header-section-number">23.7</span> Using the dplyr functions in a “pipeline”</h2>
+<section id="using-the-dplyr-functions-in-a-pipeline" class="level2" data-number="24.7">
+<h2 data-number="24.7" class="anchored" data-anchor-id="using-the-dplyr-functions-in-a-pipeline"><span class="header-section-number">24.7</span> Using the dplyr functions in a “pipeline”</h2>
 <p>The tidyverse functions are designed so that you can be apply them one after the other. The clearest way to do that is to “pipe” the output of one function into the input of another.</p>
 <p>The following pipeline first applies select to generate a new tibble that only contains the specified columns. Then the filter function then chooses only those rows that meet the specified condition.</p>
 <div class="cell">
@@ -1105,8 +1146,8 @@ colnames(sales)</code></pre>
 </div>
 </div>
 </section>
-<section id="important-dplyr-functions-for-manipulating-tibbles" class="level2" data-number="23.8">
-<h2 data-number="23.8" class="anchored" data-anchor-id="important-dplyr-functions-for-manipulating-tibbles"><span class="header-section-number">23.8</span> Important dplyr functions for manipulating tibbles</h2>
+<section id="important-dplyr-functions-for-manipulating-tibbles" class="level2" data-number="24.8">
+<h2 data-number="24.8" class="anchored" data-anchor-id="important-dplyr-functions-for-manipulating-tibbles"><span class="header-section-number">24.8</span> Important dplyr functions for manipulating tibbles</h2>
 <p>The dplyr package contains many different functions. The following are the basic dplyr functions that can be used to work with the data in a single tibble or dataframe.</p>
 <p>You can combine calls to these functions to retrieve data from a tibble in many different ways. The documentation sometimes refers to these functions as “dplyr verbs” since each of them “do something” to the data. More details about these functions are covered in the sections below.</p>
 <p>These dplyr functions all take a tibble as their first argument and return a modified tibble. Therefore each of these functions can be called as part of<br>
@@ -1121,8 +1162,8 @@ a pipeline (see previous section). This allows us to start with some raw data in
 </ul>
 <p>There are many other functions included with dplyr. For a full list of what’s included with dplyr run <code>help(package="dplyr")</code>. You can also download a “cheat sheet” that lists all the funcitons at <a href="https://www.rstudio.org/links/data_transformation_cheat_sheet" class="uri">https://www.rstudio.org/links/data_transformation_cheat_sheet</a> (this cheat sheet and others are available from the “Help &gt; Cheat Sheets” menu in RStudio)</p>
 </section>
-<section id="arrange" class="level2" data-number="23.9">
-<h2 data-number="23.9" class="anchored" data-anchor-id="arrange"><span class="header-section-number">23.9</span> arrange</h2>
+<section id="arrange" class="level2" data-number="24.9">
+<h2 data-number="24.9" class="anchored" data-anchor-id="arrange"><span class="header-section-number">24.9</span> arrange</h2>
 <p>The arrange function reorders the rows based on specified sorting rules.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange all of the rows based on salesInThousands. </span></span>
@@ -1162,8 +1203,8 @@ a pipeline (see previous section). This allows us to start with some raw data in
 5 Monica Oja                   98</code></pre>
 </div>
 </div>
-<section id="arrange-by-more-than-one-column" class="level3" data-number="23.9.1">
-<h3 data-number="23.9.1" class="anchored" data-anchor-id="arrange-by-more-than-one-column"><span class="header-section-number">23.9.1</span> arrange by more than one column</h3>
+<section id="arrange-by-more-than-one-column" class="level3" data-number="24.9.1">
+<h3 data-number="24.9.1" class="anchored" data-anchor-id="arrange-by-more-than-one-column"><span class="header-section-number">24.9.1</span> arrange by more than one column</h3>
 <p>If you pass more than one column name to the arrange function</p>
 <ul>
 <li><p>the rows are arranged by the first specified column</p></li>
@@ -1321,8 +1362,8 @@ a pipeline (see previous section). This allows us to start with some raw data in
 </div>
 </div>
 </section>
-<section id="descsome_column---arrange-in-descending-order" class="level3" data-number="23.9.2">
-<h3 data-number="23.9.2" class="anchored" data-anchor-id="descsome_column---arrange-in-descending-order"><span class="header-section-number">23.9.2</span> desc(SOME_COLUMN) - arrange in descending order</h3>
+<section id="descsome_column---arrange-in-descending-order" class="level3" data-number="24.9.2">
+<h3 data-number="24.9.2" class="anchored" data-anchor-id="descsome_column---arrange-in-descending-order"><span class="header-section-number">24.9.2</span> desc(SOME_COLUMN) - arrange in descending order</h3>
 <p>Use the desc function to specify “descending” order. See the examples.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the following, the rows with the highest values</span></span>
@@ -1452,8 +1493,8 @@ Caused by error:
 </div>
 </section>
 </section>
-<section id="mutate---add-new-columns" class="level2" data-number="23.10">
-<h2 data-number="23.10" class="anchored" data-anchor-id="mutate---add-new-columns"><span class="header-section-number">23.10</span> mutate - add new columns</h2>
+<section id="mutate---add-new-columns" class="level2" data-number="24.10">
+<h2 data-number="24.10" class="anchored" data-anchor-id="mutate---add-new-columns"><span class="header-section-number">24.10</span> mutate - add new columns</h2>
 <p>Use the mutate function to add new columns. These new columns can be based on existing data. See the examples below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All salespeople get a commission equal to 10% of their sales.</span></span>
@@ -1492,8 +1533,8 @@ Caused by error:
 # ℹ 14 more rows</code></pre>
 </div>
 </div>
-<section id="before-and-.after" class="level3" data-number="23.10.1">
-<h3 data-number="23.10.1" class="anchored" data-anchor-id="before-and-.after"><span class="header-section-number">23.10.1</span> .before and .after</h3>
+<section id="before-and-.after" class="level3" data-number="24.10.1">
+<h3 data-number="24.10.1" class="anchored" data-anchor-id="before-and-.after"><span class="header-section-number">24.10.1</span> .before and .after</h3>
 <p>Use the .before and .after argument to mutate to specify where the new columns should appear in the tibble. See the examples below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Place the newly created column at the beginning of the tibble,</span></span>
@@ -1564,8 +1605,8 @@ Caused by error:
 </div>
 </div>
 </section>
-<section id="a-new-column-that-depends-on-other-new-columns" class="level3" data-number="23.10.2">
-<h3 data-number="23.10.2" class="anchored" data-anchor-id="a-new-column-that-depends-on-other-new-columns"><span class="header-section-number">23.10.2</span> a new column that depends on other new columns</h3>
+<section id="a-new-column-that-depends-on-other-new-columns" class="level3" data-number="24.10.2">
+<h3 data-number="24.10.2" class="anchored" data-anchor-id="a-new-column-that-depends-on-other-new-columns"><span class="header-section-number">24.10.2</span> a new column that depends on other new columns</h3>
 <p>The following code creates two new columns.</p>
 <p>The commission column is created as in the last example.</p>
 <p>The takeHome column is the total take home pay for the salesperson, i.e.&nbsp; their baseInThousands plus the commission.</p>
@@ -1647,8 +1688,8 @@ Caused by error:
 </div>
 </section>
 </section>
-<section id="distinct" class="level2" data-number="23.11">
-<h2 data-number="23.11" class="anchored" data-anchor-id="distinct"><span class="header-section-number">23.11</span> distinct()</h2>
+<section id="distinct" class="level2" data-number="24.11">
+<h2 data-number="24.11" class="anchored" data-anchor-id="distinct"><span class="header-section-number">24.11</span> distinct()</h2>
 <p>The distinct function eliminates any duplicate rows from a tibble. See the examples.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the just the region for each row in the tibble</span></span>
@@ -1821,15 +1862,15 @@ Caused by error:
 </div>
 </div>
 </section>
-<section id="summarize-and-group_by" class="level2" data-number="23.12">
-<h2 data-number="23.12" class="anchored" data-anchor-id="summarize-and-group_by"><span class="header-section-number">23.12</span> summarize and group_by</h2>
+<section id="summarize-and-group_by" class="level2" data-number="24.12">
+<h2 data-number="24.12" class="anchored" data-anchor-id="summarize-and-group_by"><span class="header-section-number">24.12</span> summarize and group_by</h2>
 <p>The summarize() and group_by() functions work together. We’ll explain exactly how below …</p>
-<section id="aggregate-functions" class="level3" data-number="23.12.1">
-<h3 data-number="23.12.1" class="anchored" data-anchor-id="aggregate-functions"><span class="header-section-number">23.12.1</span> aggregate functions</h3>
+<section id="aggregate-functions" class="level3" data-number="24.12.1">
+<h3 data-number="24.12.1" class="anchored" data-anchor-id="aggregate-functions"><span class="header-section-number">24.12.1</span> aggregate functions</h3>
 <p>The summarize function is used to condense the contents of several rows of data into a single row of data. It does this by using functions such as min(), max(), mean(), etc. These functions can take several values and return a single value. Such functions are known as <strong>aggregate functions</strong>.</p>
 </section>
-<section id="summarize-without-group_by" class="level3" data-number="23.12.2">
-<h3 data-number="23.12.2" class="anchored" data-anchor-id="summarize-without-group_by"><span class="header-section-number">23.12.2</span> summarize (without group_by)</h3>
+<section id="summarize-without-group_by" class="level3" data-number="24.12.2">
+<h3 data-number="24.12.2" class="anchored" data-anchor-id="summarize-without-group_by"><span class="header-section-number">24.12.2</span> summarize (without group_by)</h3>
 <p>The summarize function is often preceded by a call to the group_by() function (which we will cover in the next section). group_by() is used to contol which rows of data will be affected by a subsequent call to the summarize() function. This will be explained in more detail below. For now, we will just focus on how summarize() works when it is NOT preceded by a call to group_by().</p>
 <p>When summarize() is NOT preceded by a call to group_by() then the job of the summarize() function is to return a single row of summary by applying aggregate functions (such as min, max, mean, etc) to columns of the tibble.</p>
 <p>See the examples below.</p>
@@ -1877,8 +1918,8 @@ Caused by error:
 </div>
 </div>
 </section>
-<section id="the-n-function" class="level3" data-number="23.12.3">
-<h3 data-number="23.12.3" class="anchored" data-anchor-id="the-n-function"><span class="header-section-number">23.12.3</span> The n() function</h3>
+<section id="the-n-function" class="level3" data-number="24.12.3">
+<h3 data-number="24.12.3" class="anchored" data-anchor-id="the-n-function"><span class="header-section-number">24.12.3</span> The n() function</h3>
 <p>The n() function returns the number of rows.</p>
 <p>The n_distinct() function returns the number of rows that have distinct (i.e.&nbsp;different) values.</p>
 <div class="cell">
@@ -1930,8 +1971,8 @@ Caused by error:
 </div>
 </section>
 </section>
-<section id="group_by-and-summarize-or-summarise" class="level2" data-number="23.13">
-<h2 data-number="23.13" class="anchored" data-anchor-id="group_by-and-summarize-or-summarise"><span class="header-section-number">23.13</span> group_by and summarize (or summarise)</h2>
+<section id="group_by-and-summarize-or-summarise" class="level2" data-number="24.13">
+<h2 data-number="24.13" class="anchored" data-anchor-id="group_by-and-summarize-or-summarise"><span class="header-section-number">24.13</span> group_by and summarize (or summarise)</h2>
 <p>The examples above for summarize all return a single row of data. This is because they are summarizing all of the rows for the tibble that summarize received. Note that this is true even if the rows have been filtered first. For example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following returns just one row.</span></span>
@@ -2006,8 +2047,8 @@ Caused by error:
 3 Sr. Salesperson            8                    33.5                     227.</code></pre>
 </div>
 </div>
-<section id="group_by-without-summarize-has-no-noticeable-effect" class="level3" data-number="23.13.1">
-<h3 data-number="23.13.1" class="anchored" data-anchor-id="group_by-without-summarize-has-no-noticeable-effect"><span class="header-section-number">23.13.1</span> group_by without summarize has no noticeable effect</h3>
+<section id="group_by-without-summarize-has-no-noticeable-effect" class="level3" data-number="24.13.1">
+<h3 data-number="24.13.1" class="anchored" data-anchor-id="group_by-without-summarize-has-no-noticeable-effect"><span class="header-section-number">24.13.1</span> group_by without summarize has no noticeable effect</h3>
 <p>Note that on its own, the group_by function doesn’t appear to do anything. It only has a tangible effect when a summarize function is called after the group_by function</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group_by without a subsequent call to summarize doesn't appear to do anything special</span></span>
@@ -2032,8 +2073,8 @@ Caused by error:
 </div>
 </div>
 </section>
-<section id="group_by-more-than-one-column" class="level3" data-number="23.13.2">
-<h3 data-number="23.13.2" class="anchored" data-anchor-id="group_by-more-than-one-column"><span class="header-section-number">23.13.2</span> group_by more than one column</h3>
+<section id="group_by-more-than-one-column" class="level3" data-number="24.13.2">
+<h3 data-number="24.13.2" class="anchored" data-anchor-id="group_by-more-than-one-column"><span class="header-section-number">24.13.2</span> group_by more than one column</h3>
 <p>A call to group_by that has more than one column creates a separate group for the rows that have the same values for all of the specified columns. To understand this look at the following output:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>asia_europe_sales <span class="ot">=</span> </span>
@@ -2104,8 +2145,8 @@ Note
 </div>
 </div>
 </section>
-<section id="order-of-columns-in-group_by-is-irrelevant" class="level3" data-number="23.13.3">
-<h3 data-number="23.13.3" class="anchored" data-anchor-id="order-of-columns-in-group_by-is-irrelevant"><span class="header-section-number">23.13.3</span> order of columns in group_by is irrelevant</h3>
+<section id="order-of-columns-in-group_by-is-irrelevant" class="level3" data-number="24.13.3">
+<h3 data-number="24.13.3" class="anchored" data-anchor-id="order-of-columns-in-group_by-is-irrelevant"><span class="header-section-number">24.13.3</span> order of columns in group_by is irrelevant</h3>
 <p>Note that it makes no difference which order you specify the column names in the call to group by. The following command reverses the order of the columns in the call to group_by but returns the exact same result as the previous command.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create groups based on region and sales</span></span>
@@ -2131,8 +2172,8 @@ Note
 </div>
 </div>
 </section>
-<section id="some-other-aggregate-functions" class="level3" data-number="23.13.4">
-<h3 data-number="23.13.4" class="anchored" data-anchor-id="some-other-aggregate-functions"><span class="header-section-number">23.13.4</span> some other aggregate functions</h3>
+<section id="some-other-aggregate-functions" class="level3" data-number="24.13.4">
+<h3 data-number="24.13.4" class="anchored" data-anchor-id="some-other-aggregate-functions"><span class="header-section-number">24.13.4</span> some other aggregate functions</h3>
 <p>As mentioned above, an “aggregate function” is a function that can take several values as input but returns a single value. It is these types of functions that are used by summarize()</p>
 <p>The following are some other commonly used aggregate functions that can be used in summarize. There are many, many others.</p>
 <ul>
@@ -2585,17 +2626,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./050050-tdyvrsGgplot2-v0001.html" class="pagination-link" aria-label="Intro to ggplot2">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span>
+      <a href="./0000025-introToBash-v007.html" class="pagination-link" aria-label="<yrChapterNumber>21. </yrChapterNumber> Working with the Bash Shell.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> Working with the Bash Shell.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0500400-sqlSelectIntro-v003.html" class="pagination-link" aria-label="SQL Select">
-        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">SQL Select</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./050050-tdyvrsGgplot2-v0001.html" class="pagination-link" aria-label="<yrChapterNumber>24. </yrChapterNumber> Intro to ggplot2">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Intro to ggplot2</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>
+const titles = document.querySelectorAll('.title');
+
+titles.forEach(title => {
+  if (title.textContent.trim().startsWith('Appendix')) {
+    const chapterNumber = title.querySelector('yrChapterNumber');
+    if (chapterNumber) {
+      chapterNumber.classList.add('yrAppendixChapterNumber');
+    }
+  }
+});
+</script>
 
 
 

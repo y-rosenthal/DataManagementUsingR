@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Working with files – Data Management With R</title>
+<title>12&nbsp; 12.  Working with files – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -53,7 +87,6 @@ ul.task-list li input[type="checkbox"] {
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -73,20 +106,44 @@ ul.task-list li input[type="checkbox"] {
 <meta http-equiv="Pragma" content="no-cache">
 
 <meta http-equiv="Expires" content="0">
+<script src="yrstuff.js"></script>
 
 
+<link rel="stylesheet" href="yrStyles-main-v001.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Data Management With R (latest version)</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://yrosenthal.com/datamgmt/theOldBook"> 
+<span class="menu-text">(click here for spring24 version of this website)</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,14 +153,9 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Management With R</a> 
-    </div>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -114,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Intro</span></a>
+ <span class="menu-text"><yrchapternumber></yrchapternumber> Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -129,19 +181,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00100-operatingSystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is an “operating system”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><yrchapternumber>1. </yrchapternumber> What is an "operating system"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00120-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><yrchapternumber>2. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><yrchapternumber>3. </yrchapternumber> Chrome Extensions</span></span></a>
   </div>
 </li>
       </ul>
@@ -149,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to R packages</span></a>
+ <span class="menu-text">Into to Coding With AI</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -157,8 +209,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></span></a>
+  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> AI in Everyday Use</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><yrchapternumber>5. </yrchapternumber> Coding with AI - an overview</span></span></a>
   </div>
 </li>
       </ul>
@@ -166,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to Quarto</span></a>
+ <span class="menu-text">Intro to R packages</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -174,8 +232,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intro to Quarto</span></span></a>
+  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -183,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Into to Coding With AI</span></a>
+ <span class="menu-text">Intro to Quarto</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -191,8 +249,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></span></a>
+  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to Quarto</span></span></a>
   </div>
 </li>
       </ul>
@@ -209,25 +267,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> What is the "tidyverse"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">tibbles and tribbles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> tibbles and tribbles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
@@ -244,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
       </ul>
@@ -252,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">JSON data</span></a>
+ <span class="menu-text">JSON data and APIs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -261,31 +319,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nested Dataframes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> Nested Dataframes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
       </ul>
@@ -293,7 +357,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Bash</span></a>
+ <span class="menu-text">Regular Expressions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -301,20 +365,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
+  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> regular expressions (regex)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Practice with Regular Expressions</span></span></a>
   </div>
 </li>
       </ul>
@@ -322,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
+ <span class="menu-text">Bash</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -330,14 +388,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> How to run the Bash Shell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
@@ -345,7 +409,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">visualizations with ggplot2</span></a>
+ <span class="menu-text">Intro to dplyr</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -353,8 +417,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
+  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> Intro to dplyr</span></span></a>
   </div>
 </li>
       </ul>
@@ -362,7 +426,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to dplyr and to SQL</span></a>
+ <span class="menu-text">visualizations with ggplot2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -370,14 +434,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -385,7 +443,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
+ <span class="menu-text">Intro to SQL</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -393,68 +451,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL Select</span></span></a>
   </div>
 </li>
       </ul>
@@ -462,7 +460,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Web Scraping</span></a>
+ <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -470,26 +468,68 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
@@ -497,7 +537,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
- <span class="menu-text">Questions</span></a>
+ <span class="menu-text">Web Scraping</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -505,8 +545,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> CSS Selector Questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -514,7 +572,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Questions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -522,32 +580,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> "Cleaning" data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -562,52 +637,62 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#download-files-to-work-with." id="toc-download-files-to-work-with." class="nav-link active" data-scroll-target="#download-files-to-work-with."><span class="header-section-number">11.1</span> Download files to work with.</a></li>
-  <li><a href="#a-directory-means-the-same-thing-as-a-folder" id="toc-a-directory-means-the-same-thing-as-a-folder" class="nav-link" data-scroll-target="#a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">11.2</span> A “directory” means the same thing as a “folder”</a></li>
-  <li><a href="#what-is-a-full-path" id="toc-what-is-a-full-path" class="nav-link" data-scroll-target="#what-is-a-full-path"><span class="header-section-number">11.3</span> What is a full path?</a></li>
-  <li><a href="#relative-paths-vs-full-paths" id="toc-relative-paths-vs-full-paths" class="nav-link" data-scroll-target="#relative-paths-vs-full-paths"><span class="header-section-number">11.4</span> “relative paths” vs “full paths”</a>
+  <li><a href="#download-files-to-work-with." id="toc-download-files-to-work-with." class="nav-link active" data-scroll-target="#download-files-to-work-with."><span class="header-section-number">12.1</span> Download files to work with.</a></li>
+  <li><a href="#a-directory-means-the-same-thing-as-a-folder" id="toc-a-directory-means-the-same-thing-as-a-folder" class="nav-link" data-scroll-target="#a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">12.2</span> A “directory” means the same thing as a “folder”</a></li>
+  <li><a href="#obvious-stuff-folders-and-files" id="toc-obvious-stuff-folders-and-files" class="nav-link" data-scroll-target="#obvious-stuff-folders-and-files"><span class="header-section-number">12.3</span> Obvious stuff … folders and files</a></li>
+  <li><a href="#the-root-folder-i.e." id="toc-the-root-folder-i.e." class="nav-link" data-scroll-target="#the-root-folder-i.e."><span class="header-section-number">12.4</span> The “root” folder, i.e.&nbsp;/</a>
   <ul class="collapse">
-  <li><a href="#mac-and-linux-style-paths-vs-windows-style-paths" id="toc-mac-and-linux-style-paths-vs-windows-style-paths" class="nav-link" data-scroll-target="#mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">11.4.1</span> Mac and Linux style paths VS Windows style paths</a></li>
-  <li><a href="#windows-drive-letters" id="toc-windows-drive-letters" class="nav-link" data-scroll-target="#windows-drive-letters"><span class="header-section-number">11.4.2</span> Windows drive letters</a></li>
+  <li><a href="#yr-full-path" id="toc-yr-full-path" class="nav-link" data-scroll-target="#yr-full-path"><span class="header-section-number">12.4.1</span> full path</a></li>
+  <li><a href="#two-different-files-with-the-same-names" id="toc-two-different-files-with-the-same-names" class="nav-link" data-scroll-target="#two-different-files-with-the-same-names"><span class="header-section-number">12.4.2</span> two different files with the same names</a></li>
   </ul></li>
-  <li><a href="#getwd-and-setwd" id="toc-getwd-and-setwd" class="nav-link" data-scroll-target="#getwd-and-setwd"><span class="header-section-number">11.5</span> getwd() and setwd()</a></li>
-  <li><a href="#list.files-and-dir" id="toc-list.files-and-dir" class="nav-link" data-scroll-target="#list.files-and-dir"><span class="header-section-number">11.6</span> list.files() and dir()</a></li>
-  <li><a href="#finding-a-full-path-to-a-specific-file" id="toc-finding-a-full-path-to-a-specific-file" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-specific-file"><span class="header-section-number">11.7</span> Finding a full path to a specific file</a>
+  <li><a href="#relative-paths-vs-full-paths" id="toc-relative-paths-vs-full-paths" class="nav-link" data-scroll-target="#relative-paths-vs-full-paths"><span class="header-section-number">12.5</span> “relative paths” vs “full paths”</a>
   <ul class="collapse">
-  <li><a href="#using-file-explorer-win-or-finder-mac" id="toc-using-file-explorer-win-or-finder-mac" class="nav-link" data-scroll-target="#using-file-explorer-win-or-finder-mac"><span class="header-section-number">11.7.1</span> Using “File Explorer” (win) or “Finder” (mac)</a></li>
-  <li><a href="#using-the-file.choose-or-choose.files-r-functions" id="toc-using-the-file.choose-or-choose.files-r-functions" class="nav-link" data-scroll-target="#using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">11.7.2</span> Using the file.choose() or choose.files() R functions</a></li>
-  <li><a href="#finding-a-full-path-to-a-special-folder" id="toc-finding-a-full-path-to-a-special-folder" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-special-folder"><span class="header-section-number">11.7.3</span> Finding a full path to a “Special folder”</a></li>
+  <li><a href="#mac-and-linux-style-paths-vs-windows-style-paths" id="toc-mac-and-linux-style-paths-vs-windows-style-paths" class="nav-link" data-scroll-target="#mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">12.5.1</span> Mac and Linux style paths VS Windows style paths</a></li>
+  <li><a href="#windows-drive-letters" id="toc-windows-drive-letters" class="nav-link" data-scroll-target="#windows-drive-letters"><span class="header-section-number">12.5.2</span> Windows drive letters</a></li>
   </ul></li>
-  <li><a href="#functions-to-read-and-write-files-in-base-r" id="toc-functions-to-read-and-write-files-in-base-r" class="nav-link" data-scroll-target="#functions-to-read-and-write-files-in-base-r"><span class="header-section-number">11.8</span> functions to read and write files in “Base R”</a>
+  <li><a href="#dir-some_folder-same-as-list.files-some_folder" id="toc-dir-some_folder-same-as-list.files-some_folder" class="nav-link" data-scroll-target="#dir-some_folder-same-as-list.files-some_folder"><span class="header-section-number">12.6</span> dir( SOME_FOLDER ) # same as list.files( SOME_FOLDER )</a></li>
+  <li><a href="#the-working-directory-getwd-setwd-dir" id="toc-the-working-directory-getwd-setwd-dir" class="nav-link" data-scroll-target="#the-working-directory-getwd-setwd-dir"><span class="header-section-number">12.7</span> The “working directory”, getwd(), setwd(), dir()</a>
   <ul class="collapse">
-  <li><a href="#readlines-writelines" id="toc-readlines-writelines" class="nav-link" data-scroll-target="#readlines-writelines"><span class="header-section-number">11.8.1</span> readLines, writeLines</a></li>
-  <li><a href="#read.csv-write.csv" id="toc-read.csv-write.csv" class="nav-link" data-scroll-target="#read.csv-write.csv"><span class="header-section-number">11.8.2</span> read.csv, write.csv</a></li>
-  <li><a href="#read.fwf" id="toc-read.fwf" class="nav-link" data-scroll-target="#read.fwf"><span class="header-section-number">11.8.3</span> read.fwf</a></li>
+  <li><a href="#specifying-a-pattern-to-dir" id="toc-specifying-a-pattern-to-dir" class="nav-link" data-scroll-target="#specifying-a-pattern-to-dir"><span class="header-section-number">12.7.1</span> Specifying a pattern to dir</a></li>
+  <li><a href="#summary---different-ways-of-using-dir-function" id="toc-summary---different-ways-of-using-dir-function" class="nav-link" data-scroll-target="#summary---different-ways-of-using-dir-function"><span class="header-section-number">12.7.2</span> Summary - different ways of using dir function:</a></li>
+  <li><a href="#other-r-functions-also-use-the-working-directory" id="toc-other-r-functions-also-use-the-working-directory" class="nav-link" data-scroll-target="#other-r-functions-also-use-the-working-directory"><span class="header-section-number">12.7.3</span> Other R functions also use the “working directory”</a></li>
   </ul></li>
-  <li><a href="#fs-package-a-non-core-part-of-the-tidyverse" id="toc-fs-package-a-non-core-part-of-the-tidyverse" class="nav-link" data-scroll-target="#fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">11.9</span> fs package (a non-core part of “the tidyverse”)</a>
+  <li><a href="#finding-a-full-path-to-a-specific-file" id="toc-finding-a-full-path-to-a-specific-file" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-specific-file"><span class="header-section-number">12.8</span> Finding a full path to a specific file</a>
   <ul class="collapse">
-  <li><a href="#dir_ls-function" id="toc-dir_ls-function" class="nav-link" data-scroll-target="#dir_ls-function"><span class="header-section-number">11.9.1</span> dir_ls() function</a></li>
-  <li><a href="#dir_tree" id="toc-dir_tree" class="nav-link" data-scroll-target="#dir_tree"><span class="header-section-number">11.9.2</span> dir_tree</a></li>
-  <li><a href="#other-functions-in-the-fs-package" id="toc-other-functions-in-the-fs-package" class="nav-link" data-scroll-target="#other-functions-in-the-fs-package"><span class="header-section-number">11.9.3</span> Other functions in the fs package</a></li>
+  <li><a href="#using-file-explorer-win-or-finder-mac" id="toc-using-file-explorer-win-or-finder-mac" class="nav-link" data-scroll-target="#using-file-explorer-win-or-finder-mac"><span class="header-section-number">12.8.1</span> Using “File Explorer” (win) or “Finder” (mac)</a></li>
+  <li><a href="#using-the-file.choose-or-choose.files-r-functions" id="toc-using-the-file.choose-or-choose.files-r-functions" class="nav-link" data-scroll-target="#using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">12.8.2</span> Using the file.choose() or choose.files() R functions</a></li>
+  <li><a href="#finding-a-full-path-to-a-special-folder" id="toc-finding-a-full-path-to-a-special-folder" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-special-folder"><span class="header-section-number">12.8.3</span> Finding a full path to a “Special folder”</a></li>
   </ul></li>
-  <li><a href="#readlines-and-writelines-to-readwrite-lines-of-text-files" id="toc-readlines-and-writelines-to-readwrite-lines-of-text-files" class="nav-link" data-scroll-target="#readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">11.10</span> readLines() and writeLines() to read/write lines of text files</a></li>
-  <li><a href="#read_csv-and-write_csv" id="toc-read_csv-and-write_csv" class="nav-link" data-scroll-target="#read_csv-and-write_csv"><span class="header-section-number">11.11</span> read_csv and write_csv</a></li>
-  <li><a href="#readwrite-excel-files" id="toc-readwrite-excel-files" class="nav-link" data-scroll-target="#readwrite-excel-files"><span class="header-section-number">11.12</span> Read/Write Excel files</a></li>
-  <li><a href="#reading-fixed-width-field-files" id="toc-reading-fixed-width-field-files" class="nav-link" data-scroll-target="#reading-fixed-width-field-files"><span class="header-section-number">11.13</span> Reading fixed width field files</a></li>
-  <li><a href="#capture-output-of-r-commands" id="toc-capture-output-of-r-commands" class="nav-link" data-scroll-target="#capture-output-of-r-commands"><span class="header-section-number">11.14</span> Capture output of R commands</a>
+  <li><a href="#functions-to-read-and-write-files-in-base-r" id="toc-functions-to-read-and-write-files-in-base-r" class="nav-link" data-scroll-target="#functions-to-read-and-write-files-in-base-r"><span class="header-section-number">12.9</span> functions to read and write files in “Base R”</a>
   <ul class="collapse">
-  <li><a href="#capture.outputsomecommand-filesomefile.txt" id="toc-capture.outputsomecommand-filesomefile.txt" class="nav-link" data-scroll-target="#capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">11.14.1</span> capture.output(someCommand, file=“someFile.txt”)</a></li>
+  <li><a href="#readlines-writelines" id="toc-readlines-writelines" class="nav-link" data-scroll-target="#readlines-writelines"><span class="header-section-number">12.9.1</span> readLines, writeLines</a></li>
+  <li><a href="#read.csv-write.csv" id="toc-read.csv-write.csv" class="nav-link" data-scroll-target="#read.csv-write.csv"><span class="header-section-number">12.9.2</span> read.csv, write.csv</a></li>
+  <li><a href="#read.fwf" id="toc-read.fwf" class="nav-link" data-scroll-target="#read.fwf"><span class="header-section-number">12.9.3</span> read.fwf</a></li>
   </ul></li>
-  <li><a href="#sinksomefile-sink" id="toc-sinksomefile-sink" class="nav-link" data-scroll-target="#sinksomefile-sink"><span class="header-section-number">11.15</span> sink(“someFile”), sink()</a></li>
+  <li><a href="#fs-package-a-non-core-part-of-the-tidyverse" id="toc-fs-package-a-non-core-part-of-the-tidyverse" class="nav-link" data-scroll-target="#fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">12.10</span> fs package (a non-core part of “the tidyverse”)</a>
+  <ul class="collapse">
+  <li><a href="#dir_ls-function" id="toc-dir_ls-function" class="nav-link" data-scroll-target="#dir_ls-function"><span class="header-section-number">12.10.1</span> dir_ls() function</a></li>
+  <li><a href="#dir_tree" id="toc-dir_tree" class="nav-link" data-scroll-target="#dir_tree"><span class="header-section-number">12.10.2</span> dir_tree</a></li>
+  <li><a href="#other-functions-in-the-fs-package" id="toc-other-functions-in-the-fs-package" class="nav-link" data-scroll-target="#other-functions-in-the-fs-package"><span class="header-section-number">12.10.3</span> Other functions in the fs package</a></li>
+  </ul></li>
+  <li><a href="#readlines-and-writelines-to-readwrite-lines-of-text-files" id="toc-readlines-and-writelines-to-readwrite-lines-of-text-files" class="nav-link" data-scroll-target="#readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">12.11</span> readLines() and writeLines() to read/write lines of text files</a></li>
+  <li><a href="#read_csv-and-write_csv" id="toc-read_csv-and-write_csv" class="nav-link" data-scroll-target="#read_csv-and-write_csv"><span class="header-section-number">12.12</span> read_csv and write_csv</a></li>
+  <li><a href="#readwrite-excel-files" id="toc-readwrite-excel-files" class="nav-link" data-scroll-target="#readwrite-excel-files"><span class="header-section-number">12.13</span> Read/Write Excel files</a></li>
+  <li><a href="#reading-fixed-width-field-files" id="toc-reading-fixed-width-field-files" class="nav-link" data-scroll-target="#reading-fixed-width-field-files"><span class="header-section-number">12.14</span> Reading fixed width field files</a></li>
+  <li><a href="#capture-output-of-r-commands" id="toc-capture-output-of-r-commands" class="nav-link" data-scroll-target="#capture-output-of-r-commands"><span class="header-section-number">12.15</span> Capture output of R commands</a>
+  <ul class="collapse">
+  <li><a href="#capture.outputsomecommand-filesomefile.txt" id="toc-capture.outputsomecommand-filesomefile.txt" class="nav-link" data-scroll-target="#capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">12.15.1</span> capture.output(someCommand, file=“someFile.txt”)</a></li>
+  </ul></li>
+  <li><a href="#sinksomefile-sink" id="toc-sinksomefile-sink" class="nav-link" data-scroll-target="#sinksomefile-sink"><span class="header-section-number">12.16</span> sink(“someFile”), sink()</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></h1>
 </div>
 
 
@@ -624,34 +709,83 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="download-files-to-work-with." class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="download-files-to-work-with."><span class="header-section-number">11.1</span> Download files to work with.</h2>
+<section id="download-files-to-work-with." class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="download-files-to-work-with."><span class="header-section-number">12.1</span> Download files to work with.</h2>
 <p>Use this link to <a href="myFiles.zip">download a set of files in a ZIP file</a> for use with these lessons.</p>
 </section>
-<section id="a-directory-means-the-same-thing-as-a-folder" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">11.2</span> A “directory” means the same thing as a “folder”</h2>
+<section id="a-directory-means-the-same-thing-as-a-folder" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">12.2</span> A “directory” means the same thing as a “folder”</h2>
 <p>The terms “directory” and “folder” mean exactly the same thing - they’re just two different words for places where we store files on a computer. The word “directory” came first, used in early computer systems in the 1960s. It comes from the word’s original meaning of an organized listing or index, like a phone directory. In the 1980s, when computers started using visual interfaces with icons, Apple introduced the word “folder” because it was more intuitive for regular users - it referenced something familiar that people used to organize paper documents. Today, both terms are used interchangeably, with “folder” being more common in everyday use and “directory” often preferred in technical contexts.</p>
 </section>
-<section id="what-is-a-full-path" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="what-is-a-full-path"><span class="header-section-number">11.3</span> What is a full path?</h2>
-<p>A full path is the complete “address” of a file on your computer. Just like two people named Sarah Johnson can live at different addresses (one in Chicago, one in New York), you can have two files with the same name in different directories (i.e.&nbsp;folders).</p>
-<p>For example, the following are the “full paths” for two different files with the same name, “budget.xlsx”. The full path helps you tell the two files apart by showing exactly where each file is located. Each name between the forward slashes is a folder.</p>
+<section id="obvious-stuff-folders-and-files" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="obvious-stuff-folders-and-files"><span class="header-section-number">12.3</span> Obvious stuff … folders and files</h2>
+<p>As I’m sure you know</p>
 <ul>
-<li><p>Full path 1: /home/Joe/work/budget.xlsx</p>
-<p>This file is named “budget.xlsx”. It is in the “work” folder, which is in the folder named “Joe” which is in the “home” folder.</p></li>
-<li><p>Full path 2: /home/Sue/personal/budget.xlsx</p>
-<p>This file is also named “budget.xlsx”. It is in the “personal” folder, which is in the folder named “Sue” which is in the “home” folder, which is in the folder at the very top of the folder hierarchy on the computer.</p></li>
+<li><p>files on a computer are stored in folders.</p></li>
+<li><p>Those folders can be in other (higher level) folders, etc.</p></li>
 </ul>
 </section>
-<section id="relative-paths-vs-full-paths" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="relative-paths-vs-full-paths"><span class="header-section-number">11.4</span> “relative paths” vs “full paths”</h2>
+<section id="the-root-folder-i.e." class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="the-root-folder-i.e."><span class="header-section-number">12.4</span> The “root” folder, i.e.&nbsp;/</h2>
+<p>Most folders are contained in other “higher level” folders. The “top” level folder on a computer is known as the “root” folder and is referred to as just “/”. The root folder (i.e.&nbsp;/) is not contained in any other folder.</p>
+<section id="yr-full-path" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="yr-full-path"><span class="header-section-number">12.4.1</span> full path</h3>
+<p>A full path of a file (or folder) specifies the EXACT location of the file (or folder) on a computer, i.e.&nbsp;<em>exactly</em> which folder contains the file (or folder).</p>
+<p>(see below for an exmaple)</p>
+<p>A full path always starts with a slash, i.e.&nbsp;/</p>
+<p>It consists of a list of folder names, starting from the “root” folder, i.e.&nbsp;/ and continuing with folder names separated by slashes. The final entry in the path is the folder or filename being identified.</p>
+<p>Example:</p>
+<p>For example,</p>
+<ul>
+<li><p>The “full path” <code>/Users/yrosenth/myFiles/personal/work/endOfMonthReport.txt</code> identifies the following file</p>
+<ul>
+<li><p>the file is named “endOfMonthReport.txt” (the last part of the path)</p></li>
+<li><p>the file is in a folder named “work” (the 2nd to last part of the path).</p></li>
+</ul></li>
+<li><p>continuing on backwards through the path …</p>
+<ul>
+<li><p>the work folder is a folder named “personal”</p></li>
+<li><p>which is in a folder named “myFiles”</p></li>
+<li><p>which is in a folder named “yrosenth”</p></li>
+<li><p>which is in a folder named “Users”.</p></li>
+<li><p>The folder “Users” is in the “root” folder (i.e.&nbsp;the “highest” level folder - see above) on the computer.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="two-different-files-with-the-same-names" class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="two-different-files-with-the-same-names"><span class="header-section-number">12.4.2</span> two different files with the same names</h3>
+<p>Just like two people named Sarah Johnson can live at different addresses (one in Chicago, one in New York), you can have two files with the same name in different directories (i.e.&nbsp;folders).</p>
+<p>For example, the following are the “full paths” for two different files with the same name, “budget.xlsx”. The full path helps you tell the two files apart by showing exactly where each file is located.</p>
+<ul>
+<li><p>Full path 1: /Users/Joe/work/budget.xlsx</p>
+<ul>
+<li>This file is named “budget.xlsx”.</li>
+<li>It is in the “work” folder,</li>
+<li>which is in the folder named “Joe”<br>
+</li>
+<li>which is in the folder name “Users”</li>
+<li>which is in the “root” (i.e.&nbsp;/) folder (<a href="#yr-full-path">see above</a>)</li>
+</ul></li>
+<li><p>Full path 2: /Users/Sue/personal/budget.xlsx</p>
+<ul>
+<li>This file is also named “budget.xlsx”.</li>
+<li>It is in the “personal” folder</li>
+<li>which is in the folder named “Sue”</li>
+<li>which is in the “Users” folder</li>
+<li>which is in the “root” (i.e.&nbsp;/) folder (<a href="#yr-full-path">see above</a>)</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="relative-paths-vs-full-paths" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="relative-paths-vs-full-paths"><span class="header-section-number">12.5</span> “relative paths” vs “full paths”</h2>
 <p>Another way to describe which folder a file is in is to use what’s known as a “relative path”. We will describe “relative paths” in detail later. For now, we will stick to use “full paths” as described above. However, one thing should be made absolutely clear now:</p>
 <p>Difference between a “full path” and a “relative path”</p>
 <p><strong><em>A “full path” always starts with a “/”.</em></strong></p>
 <p>IMPORTANT: MAKE SURE THAT YOU KNOW THIS …</p>
 <p>Later, we will study another type of file path called a <strong><em>relative path</em></strong>. A realtive path is simiilar to a “full path” but a relative path does NOT start with a “/”. We’ll learn more about relative paths later and how they differ from full paths.</p>
-<section id="mac-and-linux-style-paths-vs-windows-style-paths" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">11.4.1</span> Mac and Linux style paths VS Windows style paths</h3>
+<section id="mac-and-linux-style-paths-vs-windows-style-paths" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">12.5.1</span> Mac and Linux style paths VS Windows style paths</h3>
 <p>Mac and Linux systems use forward slashes (/) as path separators - i.e.&nbsp; see the paths above, eg. /home/Joe/work/budget.xlsx</p>
 <p>Windows traditionally uses backslashes (\) as separators, like this:</p>
 <p>\\Users\\Joe\\work\\budget.xlsx</p>
@@ -659,69 +793,378 @@ ul.task-list li input[type="checkbox"] {
 <p>However, since backslashes have a special meaning in R if you need to use Windows-style paths in R, you must use double backslashes (\), e.g.</p>
 <pre><code>dir_tree("\\Users\\Joe\\work")</code></pre>
 </section>
-<section id="windows-drive-letters" class="level3" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="windows-drive-letters"><span class="header-section-number">11.4.2</span> Windows drive letters</h3>
+<section id="windows-drive-letters" class="level3" data-number="12.5.2">
+<h3 data-number="12.5.2" class="anchored" data-anchor-id="windows-drive-letters"><span class="header-section-number">12.5.2</span> Windows drive letters</h3>
 <p>Windows systems use letters (like C:, D:) at the start of paths to represent different drives or storage devices. The C: drive is typically your main hard drive where Windows is installed. Other letters might be additional hard drives, USB drives, or network drives.</p>
 <p>For example:</p>
 <pre><code>C:\Users\username\Documents\file.txt (your main hard drive)
 D:\Backups\file.txt (maybe an external drive)
 E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
-<p>Mac and Linux systems don’t use drive letters. Instead, all hard drives are “mounted” as folders within the single root directory (/). For example, a USB drive might appear at /media/username/USB_DRIVE/. When working in R on Windows, you still need to include the drive letter at the start of full paths, like: “C:/Users/username/Documents/file.txt” (using forward slashes) or <code>"C:\Users\username\Documents\file.txt"</code> (using double backslashes)</p>
+<p>Mac and Linux systems don’t use drive letters. Instead, all hard drives are “mounted” as folders within the single root directory (/). For example, a USB drive might appear at /media/username/USB_DRIVE/. When working in R on Windows, you may need to include the drive letter at the start of full paths, like: “C:/Users/username/Documents/file.txt” (using forward slashes) or <code>"C:\Users\username\Documents\file.txt"</code> (using double backslashes)</p>
 </section>
 </section>
-<section id="getwd-and-setwd" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="getwd-and-setwd"><span class="header-section-number">11.5</span> getwd() and setwd()</h2>
-<p>getwd() shows you your current working directory (the folder R is currently working in). Think of it as asking R “where am I right now?” When you try to read or write files without specifying a full path, R will look in this directory. For example, if you run getwd(), it might show something like: “/home/username/projects” (on Mac/Linux) or “C:/Users/username/Documents” (on Windows)</p>
-<p>setwd() changes your current working directory to a new location. Think of it as telling R “go to this folder.” You need to give it the path of the directory you want to switch to. For example:</p>
-<pre><code>setwd("/home/username/projects")  # Mac/Linux style
-setwd("C:/Users/username/Documents")  # Windows style with forward slashes</code></pre>
-<p>If you give it an invalid path, it will give you an error message.</p>
+<section id="dir-some_folder-same-as-list.files-some_folder" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="dir-some_folder-same-as-list.files-some_folder"><span class="header-section-number">12.6</span> dir( SOME_FOLDER ) # same as list.files( SOME_FOLDER )</h2>
+<p>The dir() function displays the names of all files and folders in a particular directory (remember - “directory” and “folder” mean the same thing).</p>
+<p>dir() does exactly the same thing as list.files() - they’re just two names for the same function. Some people prefer dir() because it’s shorter to type. See ?dir</p>
+<p>For example the following shows the contents of a folder located at the specified full path.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/personal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "school"           "shakepereBio.txt" "work"            </code></pre>
+</div>
+</div>
+<p>The following shows the contents of the <code>school</code> and <code>work</code> folders that are located inside the <code>personal</code> folder shown above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/personal/school"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "datamgmt" "english"  "finance" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/personal/work"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "bigProject"       "endOfMonthReport"</code></pre>
+</div>
+</div>
 </section>
-<section id="list.files-and-dir" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="list.files-and-dir"><span class="header-section-number">11.6</span> list.files() and dir()</h2>
-<p>There are two main functions to list files and directories in R: list.files() shows you all files (and folders) in a directory. If you don’t specify a path, it shows the contents of your current working directory. dir() does exactly the same thing as list.files() - they’re just two names for the same function. Some people prefer dir() because it’s shorter to type. Basic usage:</p>
-<pre><code>list.files()  # list everything in current directory
-list.files("/home/username/data")  # list everything in a specific directory
-list.files(pattern = ".csv")  # list only files ending in .csv</code></pre>
-<p>You can also use these functions with additional options to get more information or filter the results.</p>
+<section id="the-working-directory-getwd-setwd-dir" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="the-working-directory-getwd-setwd-dir"><span class="header-section-number">12.7</span> The “working directory”, getwd(), setwd(), dir()</h2>
+<p>R maintains a “working directory” - i.e.&nbsp;a default directory - that is used when you don’t otherwise specify a path. For example, if you call dir() without a path, the listing shows the files in the “working directory” (see the example below).</p>
+<p>The getwd() function returns the full path of the “working directory”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/yrosenth/Dropbox/_yrQuarto-master/DataManagementUsingRSrc"</code></pre>
+</div>
+</div>
+<p>The setwd( SOME_PATH ) - allows you to set the “working directory” to a path of your choice.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the working directory</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show that it worked</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "C:/Users/yrosenth/Downloads/myFiles"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using dir() without a specified directory returns the contents</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the working directory. </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "bashShellScripts" "mixOfFiles"       "personal"        </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Since the working directory is currently </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    /Users/yrosenth/Downloads/myFiles</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the above call to </span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    dir() </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># without a path is the same as the following call to</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    dir("/Users/yrosenth/Downloads/myFiles")</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "bashShellScripts" "mixOfFiles"       "personal"        </code></pre>
+</div>
+</div>
+<section id="specifying-a-pattern-to-dir" class="level3" data-number="12.7.1">
+<h3 data-number="12.7.1" class="anchored" data-anchor-id="specifying-a-pattern-to-dir"><span class="header-section-number">12.7.1</span> Specifying a pattern to dir</h3>
+<p>Later we will learn more about “regular expressions”.</p>
 </section>
-<section id="finding-a-full-path-to-a-specific-file" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="finding-a-full-path-to-a-specific-file"><span class="header-section-number">11.7</span> Finding a full path to a specific file</h2>
+<section id="summary---different-ways-of-using-dir-function" class="level3" data-number="12.7.2">
+<h3 data-number="12.7.2" class="anchored" data-anchor-id="summary---different-ways-of-using-dir-function"><span class="header-section-number">12.7.2</span> Summary - different ways of using dir function:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list everything in the "working directory"</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "_book"                                                                
+  [2] "_book-save2"                                                          
+  [3] "_book.save"                                                           
+  [4] "_book.zip"                                                            
+  [5] "_quarto-save.yml"                                                     
+  [6] "_quarto.yml"                                                          
+  [7] "00000-InstallingRPackages-v002_files.save"                            
+  [8] "00000-tmpMermaid.qmd"                                                 
+  [9] "0000011-WhatIsACli-v010.qmd"                                          
+ [10] "0000011-WhatIsACli-v010_files-save"                                   
+ [11] "0000013-HowToRunTheBashShellCli-v011.qmd"                             
+ [12] "0000013-introToBash-image01.png"                                      
+ [13] "0000013-introToBash-image02.png"                                      
+ [14] "0000013-introToBash-image03.png"                                      
+ [15] "0000013-introToBash-image04.png"                                      
+ [16] "0000013-introToBash-image05.png"                                      
+ [17] "0000013-IntroToTheBashCLI-v009.qmd"                                   
+ [18] "0000017-introToQuarto-v001.html"                                      
+ [19] "0000017-introToQuarto-v001.qmd"                                       
+ [20] "0000022-InstallingRPackages-v003.html"                                
+ [21] "0000022-InstallingRPackages-v003.qmd"                                 
+ [22] "0000022-InstallingRPackages-v003_files-save"                          
+ [23] "0000025-introToBash-v007.ipynb"                                       
+ [24] "0000025-introToBash-v007.qmd"                                         
+ [25] "0000025-introToBash-v007_files-save"                                  
+ [26] "0000031-IntroToJson-v001.qmd"                                         
+ [27] "0000031-IntroToJson-v001_files"                                       
+ [28] "0000033-IntroToCli-v001.qmd"                                          
+ [29] "0000051-filenames-v001.qmd"                                           
+ [30] "0000055-workingWithFiles.qmd"                                         
+ [31] "0000055-workingWithFiles.rmarkdown"                                   
+ [32] "0000075-whatIsJsonData.qmd"                                           
+ [33] "0000075-whatIsJsonData.quarto_ipynb"                                  
+ [34] "0000080-editingAndValidatingJsonFiles.qmd"                            
+ [35] "0000085-jsonDataTypes.qmd"                                            
+ [36] "0000088-nestedDataframes.qmd"                                         
+ [37] "0000088-nestedDataframes_files"                                       
+ [38] "0000090-usingJsonInR.qmd"                                             
+ [39] "0000100-topics-v001.qmd"                                              
+ [40] "000013-IntroToTheBashShellCLI-v008.docx"                              
+ [41] "000013-IntroToTheBashShellCLI-v008.qmd"                               
+ [42] "000013-IntroToTheBashShellCLI-v009.qmd"                               
+ [43] "000013-IntroToTheBashShellCLI-v009_files-save"                        
+ [44] "0000200-bibliography-v001.qmd"                                        
+ [45] "000025-introToCliCommands-v003.zip"                                   
+ [46] "000025-introToCliCommands-v004"                                       
+ [47] "000025-introToCliCommands-v004.zip"                                   
+ [48] "000025-introToCliCommands-v005.qmd"                                   
+ [49] "000025-introToCliCommands-v006.ipynb"                                 
+ [50] "000025-introToCliCommands-v006.qmd"                                   
+ [51] "0000300-whereToFindDatasets-v001.qmd"                                 
+ [52] "0000300-whereTogetDatasets-v001.qmd"                                  
+ [53] "0000310-whereToFindApis-v001.qmd"                                     
+ [54] "000130-WebscrapingJavascriptSitesWithRselenium-v002.docx"             
+ [55] "000200-IntroToJSONDataFormat-v008.docx"                               
+ [56] "000260-PracticeWithRegulaExpressions-v003.qmd"                        
+ [57] "000260-PracticeWithRegulaExpressions-v003_files-save"                 
+ [58] "000420-practiceWithWebScraping-v001.docx"                             
+ [59] "0100100-stringr-tutorials-v001.ipynb"                                 
+ [60] "0100100-stringr-tutorials-v001.qmd"                                   
+ [61] "0100100-stringr-tutorials-v002.ipynb"                                 
+ [62] "0200200-introToRegularExpressions-v034.qmd"                           
+ [63] "0200200-introToRegularExpressions-v036.qmd"                           
+ [64] "0200200-rstudioFolding-v033.qmd"                                      
+ [65] "0300100-excelAndR-v001.qmd"                                           
+ [66] "0400050-tibbles-v001.html"                                            
+ [67] "0400050-tibbles-v001.qmd"                                             
+ [68] "0400050-whatIsTidyverse-v001.html"                                    
+ [69] "0400050-whatIsTidyverse-v001.qmd"                                     
+ [70] "0400100-usingPipes-v001.html"                                         
+ [71] "0400100-usingPipes-v001.qmd"                                          
+ [72] "0400200-stringr-tutorials-v003.html"                                  
+ [73] "0400200-stringr-tutorials-v003.qmd"                                   
+ [74] "0500100-tdyvrsDplyr-v0001.qmd"                                        
+ [75] "0500100-tdyvrsDplyr-v002.qmd"                                         
+ [76] "0500100-tdyvrsDplyr-v003.html"                                        
+ [77] "0500100-tdyvrsDplyr-v003.qmd"                                         
+ [78] "0500100-tdyvrsDplyr-v003_files-save"                                  
+ [79] "0500100-tdyvrsDplyr-v004.html"                                        
+ [80] "0500100-tdyvrsDplyr-v004.qmd"                                         
+ [81] "0500100-tdyvrsDplyr-v004_files-save"                                  
+ [82] "0500100-tdyvrsDplyr-v005.qmd"                                         
+ [83] "0500400-sqlSelectIntro-v003.qmd"                                      
+ [84] "050050-tdyvrsGgplot2-v0001.qmd"                                       
+ [85] "050050-tdyvrsGgplot2-v0001_files-save"                                
+ [86] "0600100-introToDb-v001.qmd"                                           
+ [87] "0990000-part-Questions-v001.qmd"                                      
+ [88] "0990000-partQuestions-v001_files.save"                                
+ [89] "0990100-cleaningData-v001.qmd"                                        
+ [90] "0990100-cleaningData-v001_files.save"                                 
+ [91] "0999000-appendices-v001.qmd"                                          
+ [92] "0999000-toDo-v001.qmd"                                                
+ [93] "83spr23"                                                              
+ [94] "83spr23-datamgmt-000600-WebScraping"                                  
+ [95] "ai-000100-overview.html"                                              
+ [96] "ai-000100-overview.qmd"                                               
+ [97] "aiCoding00100-overview.html"                                          
+ [98] "aiCoding00100-overview.qmd"                                           
+ [99] "assignment-api-0000100-weatherDataApi-v001.qmd"                       
+[100] "assignment-api-0000100-weatherDataApi-v001.quarto_ipynb"              
+[101] "assignment-api-0000100-weatherDataApi-v001_files"                     
+[102] "booksDatabase-AnswersWithDplyr-v001.R"                                
+[103] "booksDatabaseDescription-withQuestions-ANSWERS-v021.docx"             
+[104] "booksDatabaseDescription-withQuestions-ANSWERS-v022.docx"             
+[105] "booksDatabaseDescription-withQuestions-ANSWERS-v023.docx"             
+[106] "cellsize.xlsx"                                                        
+[107] "copy_quartoYml_to_bookFolder-v001.R"                                  
+[108] "cover.png"                                                            
+[109] "cssSelectorExamples-v001.html"                                        
+[110] "data"                                                                 
+[111] "data.csv"                                                             
+[112] "data.lnk"                                                             
+[113] "data2.csv"                                                            
+[114] "data3.csv"                                                            
+[115] "DataManagementUsingR.Rproj"                                           
+[116] "datamgmt"                                                             
+[117] "files"                                                                
+[118] "forecastDfRows-v002.png"                                              
+[119] "forecastDfRows.png"                                                   
+[120] "grades.csv"                                                           
+[121] "htmlExamples"                                                         
+[122] "htmlExamples-v001.zip"                                                
+[123] "httpdocs-web.config"                                                  
+[124] "hw1-v002.R"                                                           
+[125] "hw1-v003-separateTitles.R"                                            
+[126] "images"                                                               
+[127] "index.html"                                                           
+[128] "index.qmd"                                                            
+[129] "index_files.save"                                                     
+[130] "intro.qmd"                                                            
+[131] "intro00100-operatingSystems.html"                                     
+[132] "intro00100-operatingSystems.qmd"                                      
+[133] "intro00120-files.html"                                                
+[134] "intro00120-files.qmd"                                                 
+[135] "intro00130-chromeExtensions.html"                                     
+[136] "intro00130-chromeExtensions.qmd"                                      
+[137] "javascriptExample-v002.html"                                          
+[138] "myf"                                                                  
+[139] "myFiles"                                                              
+[140] "myFiles.zip"                                                          
+[141] "NYTimes-APIs-v001.R"                                                  
+[142] "oldfiles"                                                             
+[143] "otherSqlWebsites-dataMgmt-spring2024-v001.docx"                       
+[144] "otherSqlWebsites-ids1020-spring2024-v001.docx"                        
+[145] "penguin-plot.png"                                                     
+[146] "references.bib"                                                       
+[147] "references.qmd"                                                       
+[148] "salespeople-v002.csv"                                                 
+[149] "site_libs"                                                            
+[150] "site_libs.save"                                                       
+[151] "sql0006-introToDatabases-v023.qmd"                                    
+[152] "sql0010-introToSql-v023.qmd"                                          
+[153] "sql0014-theBooksDatabase-v001.qmd"                                    
+[154] "sql0017-RDataFiles-v001.qmd"                                          
+[155] "sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.qmd"      
+[156] "sql0035-workingWithMultipleTables-v012.qmd"                           
+[157] "sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"               
+[158] "sql0050-commonTableExpressions-v001.qmd"                              
+[159] "sql0200-otherSqlCommands-v001.R"                                      
+[160] "sql0200-otherSqlCommands-v002.qmd"                                    
+[161] "sql0900-sqlWindowFunctions-v001.R"                                    
+[162] "sql0900-sqlWindowFunctions-v002.qmd"                                  
+[163] "sql0950-workingWithDatabasesInR-v009.R"                               
+[164] "sql0950-workingWithDatabasesInR-v010.qmd"                             
+[165] "sqlbolt_tables-v007-xxxx.RData"                                       
+[166] "sqlbolt_tables-v007.RData"                                            
+[167] "stuffToDo-withCss-v002.html"                                          
+[168] "stuffToDo.html"                                                       
+[169] "summary.qmd"                                                          
+[170] "The jsonlite Package A Practical and Consistent Mapping-1403.2805.pdf"
+[171] "tmp"                                                                  
+[172] "tmp2"                                                                 
+[173] "tmp3"                                                                 
+[174] "Use the following websites to practice CSS selectors.docx"            
+[175] "web-000130-WebscrapingJavascriptSites-v003.qmd"                       
+[176] "web-000300-internetArchitecture-v001.ipynb"                           
+[177] "web-000300-internetArchitecture-v001.qmd"                             
+[178] "web-000400-webscrapingContinued-011.qmd"                              
+[179] "web-000400-webscrapingContinued-015.qmd"                              
+[180] "web-000400-webscrapingContinued-015_files-save"                       
+[181] "web-000420-practiceWithWebScraping-v001-ANSWERS-v002.qmd"             
+[182] "web-000420-practiceWithWebScraping-v001.qmd"                          
+[183] "web-current-changed.config"                                           
+[184] "web-current.config"                                                   
+[185] "web-RSelenium-ScrapingJavascriptEnabledSites-v003.qmd"                
+[186] "web.config"                                                           
+[187] "web.config-save-old"                                                  
+[188] "web.config-suggestionFromChatGPT.config"                              
+[189] "yellowUmbrella.png"                                                   
+[190] "yrBuildQuarto-v001.sh"                                                
+[191] "yrChapterNumber-v001.sh"                                              
+[192] "yrNocacheHeaders-v001.html"                                           
+[193] "yrReadme-DatamanagementUsingRSrc.md"                                  
+[194] "yrRenumberChapters-v001.sh"                                           
+[195] "yrstuff-v001.js"                                                      
+[196] "yrStyles-main-v001.css"                                               </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list everything in the specified directory</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/work"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list only files and folders containing .xlsx in the name</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/work"</span>, <span class="at">pattern =</span> <span class="st">".xlsx"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+</div>
+</section>
+<section id="other-r-functions-also-use-the-working-directory" class="level3" data-number="12.7.3">
+<h3 data-number="12.7.3" class="anchored" data-anchor-id="other-r-functions-also-use-the-working-directory"><span class="header-section-number">12.7.3</span> Other R functions also use the “working directory”</h3>
+<p>There are many R functions that work with files or folders. dir() is just one exmple. Some other examples are read.csv(), write.csv(), readLines(), writeLines(), read.fwf(), etc as well as most of the functions in the “fs” package.</p>
+<p>Most (if not all) of these functions allow you to leave out the path information when you call the function. If you don’t specify the path then R uses the “working directory” as the path.</p>
+<!-- YR DUPLICATE ???
+
+The getwd() function displays the full path of the "working directory".
+The working directory is the directory (i.e. folder) that R uses as a default
+location if a full path is not otherwise specified. 
+
+For example, most (if not all) R functions that deal with files and folders
+can be run with or without a path. When you don't specify a path the 
+"working directory" is assumed to be the path.
+
+### getwd()
+
+getwd() shows you your current working directory (the folder R is currently
+working in). Think of it as asking R "where am I right now?" When you try to
+read or write files without specifying a full path, R will look in this directory.
+
+For example, if you run getwd(), it might show something like:
+"/home/username/projects" (on Mac/Linux)
+or
+"C:/Users/username/Documents" (on Windows)
+
+### setwd()
+
+setwd() changes the working directory to a new location. Think of it as telling R "go to this folder." You need to give it the path of the directory you want to switch to.
+For example:
+
+```
+setwd("/home/username/projects")  # Mac/Linux style
+setwd("C:/Users/username/Documents")  # Windows style with forward slashes
+```
+
+If you give it an invalid path, it will give you an error message.
+
+-->
+</section>
+</section>
+<section id="finding-a-full-path-to-a-specific-file" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="finding-a-full-path-to-a-specific-file"><span class="header-section-number">12.8</span> Finding a full path to a specific file</h2>
 <p>You can do this with the built in Windows or Mac tools or by using R functions.</p>
-<section id="using-file-explorer-win-or-finder-mac" class="level3" data-number="11.7.1">
-<h3 data-number="11.7.1" class="anchored" data-anchor-id="using-file-explorer-win-or-finder-mac"><span class="header-section-number">11.7.1</span> Using “File Explorer” (win) or “Finder” (mac)</h3>
+<section id="using-file-explorer-win-or-finder-mac" class="level3" data-number="12.8.1">
+<h3 data-number="12.8.1" class="anchored" data-anchor-id="using-file-explorer-win-or-finder-mac"><span class="header-section-number">12.8.1</span> Using “File Explorer” (win) or “Finder” (mac)</h3>
 <p>To find the full path for a file, navigate to it using the “Finder” app on Mac or the “File Explorer” app on Windows. Each of these tools have a way to show you the full path to the file. These features keep changing with different releases of each operating system. Therefore you should search online for how to find the full path of a file using your specific operating system version. The following are some videos that <em>might</em> work for your operating system. If they don’t please search online for specific instructions for your operating system.</p>
 <ul>
 <li><p>Windows 10 - <a href="https://www.youtube.com/watch?v=QZUpzuQ0X5I" class="uri">https://www.youtube.com/watch?v=QZUpzuQ0X5I</a></p></li>
 <li><p>Mac - <a href="https://www.youtube.com/watch?v=Z70-MqAd8oU" class="uri">https://www.youtube.com/watch?v=Z70-MqAd8oU</a></p></li>
 </ul>
 </section>
-<section id="using-the-file.choose-or-choose.files-r-functions" class="level3" data-number="11.7.2">
-<h3 data-number="11.7.2" class="anchored" data-anchor-id="using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">11.7.2</span> Using the file.choose() or choose.files() R functions</h3>
+<section id="using-the-file.choose-or-choose.files-r-functions" class="level3" data-number="12.8.2">
+<h3 data-number="12.8.2" class="anchored" data-anchor-id="using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">12.8.2</span> Using the file.choose() or choose.files() R functions</h3>
 <p>See the R documentation for <code>?file.choose</code> and <code>?choose.files</code>.</p>
 <p>These commands open up a window that allows you to choose a file (or files). When you finally select the file (or files) the full path is returned to R.</p>
 <p><strong>IMPORTANT</strong>* - The window that opens in response to calling file.choose() or choose.files() can sometimes open up “in back of” RStudio or other programs. This seems to be a bug. If you don’t see the window for choosing the files try minimizing the RStudio window (and possibly other windows) and see if there is a file chooser window in back of RStudio (or other programs).</p>
 </section>
-<section id="finding-a-full-path-to-a-special-folder" class="level3" data-number="11.7.3">
-<h3 data-number="11.7.3" class="anchored" data-anchor-id="finding-a-full-path-to-a-special-folder"><span class="header-section-number">11.7.3</span> Finding a full path to a “Special folder”</h3>
+<section id="finding-a-full-path-to-a-special-folder" class="level3" data-number="12.8.3">
+<h3 data-number="12.8.3" class="anchored" data-anchor-id="finding-a-full-path-to-a-special-folder"><span class="header-section-number">12.8.3</span> Finding a full path to a “Special folder”</h3>
 <p>To find the full path for a file, navigate to it using the “Finder” app on Mac or the “File Explorer” app on Windows. Each of these tools have a way to show you the full path to the file.</p>
 </section>
 </section>
-<section id="functions-to-read-and-write-files-in-base-r" class="level2" data-number="11.8">
-<h2 data-number="11.8" class="anchored" data-anchor-id="functions-to-read-and-write-files-in-base-r"><span class="header-section-number">11.8</span> functions to read and write files in “Base R”</h2>
+<section id="functions-to-read-and-write-files-in-base-r" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="functions-to-read-and-write-files-in-base-r"><span class="header-section-number">12.9</span> functions to read and write files in “Base R”</h2>
 <p>R has numerous functions that allow reading files and writing to files (i.e.&nbsp;creating or modifying files). The following are built into R “out of the box” (i.e.&nbsp;the “base R”).</p>
 <p>For help with these functions see the R documentation (i.e.&nbsp;?functionName)</p>
-<section id="readlines-writelines" class="level3" data-number="11.8.1">
-<h3 data-number="11.8.1" class="anchored" data-anchor-id="readlines-writelines"><span class="header-section-number">11.8.1</span> readLines, writeLines</h3>
+<section id="readlines-writelines" class="level3" data-number="12.9.1">
+<h3 data-number="12.9.1" class="anchored" data-anchor-id="readlines-writelines"><span class="header-section-number">12.9.1</span> readLines, writeLines</h3>
 <p>These functions read and write lines of a file into/out-of a character vector.</p>
 </section>
-<section id="read.csv-write.csv" class="level3" data-number="11.8.2">
-<h3 data-number="11.8.2" class="anchored" data-anchor-id="read.csv-write.csv"><span class="header-section-number">11.8.2</span> read.csv, write.csv</h3>
+<section id="read.csv-write.csv" class="level3" data-number="12.9.2">
+<h3 data-number="12.9.2" class="anchored" data-anchor-id="read.csv-write.csv"><span class="header-section-number">12.9.2</span> read.csv, write.csv</h3>
 <p>read.csv: reads a .csv file into R as a data.frame</p>
 <p>write.csv: write a dataframe to a csv file</p>
 </section>
-<section id="read.fwf" class="level3" data-number="11.8.3">
-<h3 data-number="11.8.3" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">11.8.3</span> read.fwf</h3>
+<section id="read.fwf" class="level3" data-number="12.9.3">
+<h3 data-number="12.9.3" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">12.9.3</span> read.fwf</h3>
 <p>read a “fixed width file” into a data.frame. A “fixed width file” is different from a CSV file. A CSV file separates the data with commas. A “fixed width file” places each column of data in a “fixed width”. See the example below. Each column of info is typed into a specific number of spaces. If a data value is shorter than the width of the field for it’s column then the rest of the info in the column is filled in with spaces. Note that you need to use a monospace font in your editor to view this type of information in the way it was intended.</p>
 <p>Example: notice how each piece of data is padded with spaces if it doesn’t take up the entire space for the column.</p>
 <pre><code>student        year       test1  test2   
@@ -731,12 +1174,12 @@ bartholemeu    sophomore  77     65
 ike            senior     82     81</code></pre>
 </section>
 </section>
-<section id="fs-package-a-non-core-part-of-the-tidyverse" class="level2" data-number="11.9">
-<h2 data-number="11.9" class="anchored" data-anchor-id="fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">11.9</span> fs package (a non-core part of “the tidyverse”)</h2>
+<section id="fs-package-a-non-core-part-of-the-tidyverse" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">12.10</span> fs package (a non-core part of “the tidyverse”)</h2>
 <p>The fs package provides modern file system operations in R. It makes working with files and folders more consistent across operating systems (Windows, Mac, Linux) and safer than base R functions. Think of it as a toolkit for handling files - copying, moving, creating directories, checking paths, and viewing directory structures. All functions start with clear prefixes like file_ or dir_ which makes them easy to remember and use.</p>
 <p>Install the “fs” package with: install.packages(“fs”)</p>
-<section id="dir_ls-function" class="level3" data-number="11.9.1">
-<h3 data-number="11.9.1" class="anchored" data-anchor-id="dir_ls-function"><span class="header-section-number">11.9.1</span> dir_ls() function</h3>
+<section id="dir_ls-function" class="level3" data-number="12.10.1">
+<h3 data-number="12.10.1" class="anchored" data-anchor-id="dir_ls-function"><span class="header-section-number">12.10.1</span> dir_ls() function</h3>
 <p>This works similarly to the dir() funciton in Base R. However, dir_ls() allows you to get much more information about each file, e.g.</p>
 <ul>
 <li>size of the file</li>
@@ -746,8 +1189,8 @@ ike            senior     82     81</code></pre>
 </ul>
 <p>See the R documentation (i.e.&nbsp;?fs::dir_ls after you’ve already installed the fs package with install.packages(“fs”).</p>
 </section>
-<section id="dir_tree" class="level3" data-number="11.9.2">
-<h3 data-number="11.9.2" class="anchored" data-anchor-id="dir_tree"><span class="header-section-number">11.9.2</span> dir_tree</h3>
+<section id="dir_tree" class="level3" data-number="12.10.2">
+<h3 data-number="12.10.2" class="anchored" data-anchor-id="dir_tree"><span class="header-section-number">12.10.2</span> dir_tree</h3>
 <p>dir_tree() from the fs package displays a directory structure in a visual tree format, similar to how you might see folders indented in a file explorer. It shows the hierarchy of files and folders using lines and indentation. For example, if you run:</p>
 <pre><code>fs::dir_tree("my_project")</code></pre>
 <p>It might show something like:</p>
@@ -761,10 +1204,10 @@ ike            senior     82     81</code></pre>
 └── README.md</code></pre>
 <p>This makes it easy to visualize how your files and folders are organized. The vertical and horizontal lines show how everything connects, and each level of folders is indented further to the right.</p>
 </section>
-<section id="other-functions-in-the-fs-package" class="level3" data-number="11.9.3">
-<h3 data-number="11.9.3" class="anchored" data-anchor-id="other-functions-in-the-fs-package"><span class="header-section-number">11.9.3</span> Other functions in the fs package</h3>
+<section id="other-functions-in-the-fs-package" class="level3" data-number="12.10.3">
+<h3 data-number="12.10.3" class="anchored" data-anchor-id="other-functions-in-the-fs-package"><span class="header-section-number">12.10.3</span> Other functions in the fs package</h3>
 <p>The fs package provides modern, user-friendly functions for working with files. Here are some commonly used ones:</p>
-<p>fs::dir_ls() - Lists directory contents (similar to list.files() but with better defaults)</p>
+<p>fs::dir_ls() - Lists directory contents (similar to dir() and list.files())</p>
 <p>fs::dir_create() - Creates directories, can create multiple levels at once</p>
 <p>fs::file_copy() - Copies files from one location to another</p>
 <p>fs::file_move() - Moves files from one location to another</p>
@@ -833,12 +1276,12 @@ data/raw/myfile.csv
 -->
 </section>
 </section>
-<section id="readlines-and-writelines-to-readwrite-lines-of-text-files" class="level2" data-number="11.10">
-<h2 data-number="11.10" class="anchored" data-anchor-id="readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">11.10</span> readLines() and writeLines() to read/write lines of text files</h2>
+<section id="readlines-and-writelines-to-readwrite-lines-of-text-files" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">12.11</span> readLines() and writeLines() to read/write lines of text files</h2>
 <p>These are built into <code>Base R</code>. see the R documentation</p>
 </section>
-<section id="read_csv-and-write_csv" class="level2" data-number="11.11">
-<h2 data-number="11.11" class="anchored" data-anchor-id="read_csv-and-write_csv"><span class="header-section-number">11.11</span> read_csv and write_csv</h2>
+<section id="read_csv-and-write_csv" class="level2" data-number="12.12">
+<h2 data-number="12.12" class="anchored" data-anchor-id="read_csv-and-write_csv"><span class="header-section-number">12.12</span> read_csv and write_csv</h2>
 <p>read_csv() and write_csv() from the readr package are the standard functions for working with CSV files in modern R: read_csv() loads a CSV file into R as a data frame:</p>
 <pre><code>data &lt;- read_csv("myfile.csv")</code></pre>
 <p>write_csv() saves a data frame to a CSV file:</p>
@@ -846,8 +1289,8 @@ data/raw/myfile.csv
 <p>These functions are faster and have better defaults than the older read.csv() and write.csv() functions from base R. They automatically handle common issues like string encoding and they don’t add row numbers to your output files.</p>
 <p>You’ll need the readr package installed and loaded to use them: library(readr) (though readr is automatically loaded if you use the tidyverse).</p>
 </section>
-<section id="readwrite-excel-files" class="level2" data-number="11.12">
-<h2 data-number="11.12" class="anchored" data-anchor-id="readwrite-excel-files"><span class="header-section-number">11.12</span> Read/Write Excel files</h2>
+<section id="readwrite-excel-files" class="level2" data-number="12.13">
+<h2 data-number="12.13" class="anchored" data-anchor-id="readwrite-excel-files"><span class="header-section-number">12.13</span> Read/Write Excel files</h2>
 <p>To work with Excel files in R, you’ll need either the readxl package (for reading) or the writexl package (for writing): Reading Excel files:</p>
 <pre><code>library(readxl)
 data &lt;- read_excel("myfile.xlsx")
@@ -859,8 +1302,8 @@ data &lt;- read_excel("myfile.xlsx", sheet = "Sheet2")</code></pre>
 write_xlsx(data, "output.xlsx")</code></pre>
 <p>Note that readxl comes with the tidyverse, but writexl needs to be installed separately. These functions work with both newer .xlsx and older .xls files.</p>
 </section>
-<section id="reading-fixed-width-field-files" class="level2" data-number="11.13">
-<h2 data-number="11.13" class="anchored" data-anchor-id="reading-fixed-width-field-files"><span class="header-section-number">11.13</span> Reading fixed width field files</h2>
+<section id="reading-fixed-width-field-files" class="level2" data-number="12.14">
+<h2 data-number="12.14" class="anchored" data-anchor-id="reading-fixed-width-field-files"><span class="header-section-number">12.14</span> Reading fixed width field files</h2>
 <p>Use read_fwf() from the readr package (part of tidyverse) to read fixed-width files where each column takes up a specific number of characters. You specify the width of each field:</p>
 <pre><code>library(readr)
 
@@ -900,10 +1343,10 @@ employees &lt;- read_fwf("employees.txt",
 # 2 98765  Mary Johnson       456 Oak Ave        
 # 3 54321  Bob Wilson         789 Pine Rd</code></pre>
 </section>
-<section id="capture-output-of-r-commands" class="level2" data-number="11.14">
-<h2 data-number="11.14" class="anchored" data-anchor-id="capture-output-of-r-commands"><span class="header-section-number">11.14</span> Capture output of R commands</h2>
-<section id="capture.outputsomecommand-filesomefile.txt" class="level3" data-number="11.14.1">
-<h3 data-number="11.14.1" class="anchored" data-anchor-id="capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">11.14.1</span> capture.output(someCommand, file=“someFile.txt”)</h3>
+<section id="capture-output-of-r-commands" class="level2" data-number="12.15">
+<h2 data-number="12.15" class="anchored" data-anchor-id="capture-output-of-r-commands"><span class="header-section-number">12.15</span> Capture output of R commands</h2>
+<section id="capture.outputsomecommand-filesomefile.txt" class="level3" data-number="12.15.1">
+<h3 data-number="12.15.1" class="anchored" data-anchor-id="capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">12.15.1</span> capture.output(someCommand, file=“someFile.txt”)</h3>
 <p>To save or “capture” the output from an R command, you can use the capture.output() function. It lets you store text output in a file or in a character vector:</p>
 <pre><code># Save to a file:
 capture.output(summary(mydata), file = "output.txt")
@@ -912,8 +1355,8 @@ capture.output(summary(mydata), file = "output.txt")
 my_output &lt;- capture.output(summary(mydata))</code></pre>
 </section>
 </section>
-<section id="sinksomefile-sink" class="level2" data-number="11.15">
-<h2 data-number="11.15" class="anchored" data-anchor-id="sinksomefile-sink"><span class="header-section-number">11.15</span> sink(“someFile”), sink()</h2>
+<section id="sinksomefile-sink" class="level2" data-number="12.16">
+<h2 data-number="12.16" class="anchored" data-anchor-id="sinksomefile-sink"><span class="header-section-number">12.16</span> sink(“someFile”), sink()</h2>
 <p>The sink() function is another option - it redirects all output to a file until you turn it off:</p>
 <pre><code>sink("output.txt")
 print(summary(mydata))
@@ -1350,17 +1793,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./0400200-stringr-tutorials-v003.html" class="pagination-link" aria-label="stringr tutorial">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span>
+      <a href="./0400200-stringr-tutorials-v003.html" class="pagination-link" aria-label="<yrChapterNumber>11. </yrChapterNumber> stringr tutorial">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> stringr tutorial</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0000075-whatIsJsonData.html" class="pagination-link" aria-label="Intro to JSON data">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0000075-whatIsJsonData.html" class="pagination-link" aria-label="<yrChapterNumber>13. </yrChapterNumber> Intro to JSON data">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Intro to JSON data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>
+const titles = document.querySelectorAll('.title');
+
+titles.forEach(title => {
+  if (title.textContent.trim().startsWith('Appendix')) {
+    const chapterNumber = title.querySelector('yrChapterNumber');
+    if (chapterNumber) {
+      chapterNumber.classList.add('yrAppendixChapterNumber');
+    }
+  }
+});
+</script>
 
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>20&nbsp; regular expressions (regex) – Data Management With R</title>
+<title>19&nbsp; 22.  regular expressions (regex) – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./000260-PracticeWithRegulaExpressions-v003.html" rel="next">
-<link href="./0000025-introToBash-v007.html" rel="prev">
+<link href="./assignment-api-0000100-weatherDataApi-v001.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,7 +87,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -107,20 +106,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta http-equiv="Pragma" content="no-cache">
 
 <meta http-equiv="Expires" content="0">
+<script src="yrstuff.js"></script>
 
 
+<link rel="stylesheet" href="yrStyles-main-v001.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Data Management With R (latest version)</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://yrosenthal.com/datamgmt/theOldBook"> 
+<span class="menu-text">(click here for spring24 version of this website)</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html">Regular Expressions</a></li><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html">Regular Expressions</a></li><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> regular expressions (regex)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,14 +153,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Management With R</a> 
-    </div>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -148,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Intro</span></a>
+ <span class="menu-text"><yrchapternumber></yrchapternumber> Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -163,19 +181,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00100-operatingSystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is an “operating system”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><yrchapternumber>1. </yrchapternumber> What is an "operating system"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00120-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><yrchapternumber>2. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><yrchapternumber>3. </yrchapternumber> Chrome Extensions</span></span></a>
   </div>
 </li>
       </ul>
@@ -183,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to R packages</span></a>
+ <span class="menu-text">Into to Coding With AI</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -191,8 +209,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></span></a>
+  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> AI in Everyday Use</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><yrchapternumber>5. </yrchapternumber> Coding with AI - an overview</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to Quarto</span></a>
+ <span class="menu-text">Intro to R packages</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -208,8 +232,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intro to Quarto</span></span></a>
+  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Into to Coding With AI</span></a>
+ <span class="menu-text">Intro to Quarto</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -225,8 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></span></a>
+  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to Quarto</span></span></a>
   </div>
 </li>
       </ul>
@@ -243,25 +267,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> What is the "tidyverse"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">tibbles and tribbles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> tibbles and tribbles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
@@ -278,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
       </ul>
@@ -286,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">JSON data</span></a>
+ <span class="menu-text">JSON data and APIs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -295,31 +319,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nested Dataframes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> Nested Dataframes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
       </ul>
@@ -327,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Bash</span></a>
+ <span class="menu-text">Regular Expressions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -335,20 +365,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
+  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> regular expressions (regex)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Practice with Regular Expressions</span></span></a>
   </div>
 </li>
       </ul>
@@ -356,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
+ <span class="menu-text">Bash</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -364,14 +388,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> How to run the Bash Shell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
@@ -379,7 +409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">visualizations with ggplot2</span></a>
+ <span class="menu-text">Intro to dplyr</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -387,8 +417,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
+  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> Intro to dplyr</span></span></a>
   </div>
 </li>
       </ul>
@@ -396,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to dplyr and to SQL</span></a>
+ <span class="menu-text">visualizations with ggplot2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -404,14 +434,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -419,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
+ <span class="menu-text">Intro to SQL</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -427,68 +451,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL Select</span></span></a>
   </div>
 </li>
       </ul>
@@ -496,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Web Scraping</span></a>
+ <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -504,26 +468,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
@@ -531,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
- <span class="menu-text">Questions</span></a>
+ <span class="menu-text">Web Scraping</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -539,8 +545,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> CSS Selector Questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -548,7 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Questions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -556,32 +580,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> "Cleaning" data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -596,83 +637,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-for-examples" id="toc-data-for-examples" class="nav-link active" data-scroll-target="#data-for-examples"><span class="header-section-number">20.1</span> Data for examples</a>
+  <li><a href="#data-for-examples" id="toc-data-for-examples" class="nav-link active" data-scroll-target="#data-for-examples"><span class="header-section-number">19.1</span> Data for examples</a>
   <ul class="collapse">
-  <li><a href="#stringr-package" id="toc-stringr-package" class="nav-link" data-scroll-target="#stringr-package"><span class="header-section-number">20.1.1</span> stringr package</a></li>
+  <li><a href="#stringr-package" id="toc-stringr-package" class="nav-link" data-scroll-target="#stringr-package"><span class="header-section-number">19.1.1</span> stringr package</a></li>
   </ul></li>
-  <li><a href="#grep-function" id="toc-grep-function" class="nav-link" data-scroll-target="#grep-function"><span class="header-section-number">20.2</span> grep function</a></li>
-  <li><a href="#grep-and-grepl" id="toc-grep-and-grepl" class="nav-link" data-scroll-target="#grep-and-grepl"><span class="header-section-number">20.3</span> grep and grepl</a></li>
-  <li><a href="#regex-patterns-do-not-understand-numbers" id="toc-regex-patterns-do-not-understand-numbers" class="nav-link" data-scroll-target="#regex-patterns-do-not-understand-numbers"><span class="header-section-number">20.4</span> regex patterns do NOT understand “numbers”</a></li>
-  <li><a href="#case-sensitivity" id="toc-case-sensitivity" class="nav-link" data-scroll-target="#case-sensitivity"><span class="header-section-number">20.5</span> case sensitivity</a></li>
-  <li><a href="#str_view-from-the-stringr-package" id="toc-str_view-from-the-stringr-package" class="nav-link" data-scroll-target="#str_view-from-the-stringr-package"><span class="header-section-number">20.6</span> str_view from the stringr package</a></li>
-  <li><a href="#sub-and-gsub-functions" id="toc-sub-and-gsub-functions" class="nav-link" data-scroll-target="#sub-and-gsub-functions"><span class="header-section-number">20.7</span> sub and gsub functions</a></li>
-  <li><a href="#strsplit-function" id="toc-strsplit-function" class="nav-link" data-scroll-target="#strsplit-function"><span class="header-section-number">20.8</span> strsplit function</a>
+  <li><a href="#grep-function" id="toc-grep-function" class="nav-link" data-scroll-target="#grep-function"><span class="header-section-number">19.2</span> grep function</a></li>
+  <li><a href="#grep-and-grepl" id="toc-grep-and-grepl" class="nav-link" data-scroll-target="#grep-and-grepl"><span class="header-section-number">19.3</span> grep and grepl</a></li>
+  <li><a href="#regex-patterns-do-not-understand-numbers" id="toc-regex-patterns-do-not-understand-numbers" class="nav-link" data-scroll-target="#regex-patterns-do-not-understand-numbers"><span class="header-section-number">19.4</span> regex patterns do NOT understand “numbers”</a></li>
+  <li><a href="#case-sensitivity" id="toc-case-sensitivity" class="nav-link" data-scroll-target="#case-sensitivity"><span class="header-section-number">19.5</span> case sensitivity</a></li>
+  <li><a href="#str_view-from-the-stringr-package" id="toc-str_view-from-the-stringr-package" class="nav-link" data-scroll-target="#str_view-from-the-stringr-package"><span class="header-section-number">19.6</span> str_view from the stringr package</a></li>
+  <li><a href="#sub-and-gsub-functions" id="toc-sub-and-gsub-functions" class="nav-link" data-scroll-target="#sub-and-gsub-functions"><span class="header-section-number">19.7</span> sub and gsub functions</a></li>
+  <li><a href="#strsplit-function" id="toc-strsplit-function" class="nav-link" data-scroll-target="#strsplit-function"><span class="header-section-number">19.8</span> strsplit function</a>
   <ul class="collapse">
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">20.8.1</span> — practice —</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">19.8.1</span> — practice —</a></li>
   </ul></li>
-  <li><a href="#anchors-and" id="toc-anchors-and" class="nav-link" data-scroll-target="#anchors-and"><span class="header-section-number">20.9</span> “anchors” ^ and $</a></li>
-  <li><a href="#periods" id="toc-periods" class="nav-link" data-scroll-target="#periods"><span class="header-section-number">20.10</span> periods</a></li>
-  <li><a href="#character-classes-eg.-abc" id="toc-character-classes-eg.-abc" class="nav-link" data-scroll-target="#character-classes-eg.-abc"><span class="header-section-number">20.11</span> “character classes” eg. [abc]</a>
+  <li><a href="#anchors-and" id="toc-anchors-and" class="nav-link" data-scroll-target="#anchors-and"><span class="header-section-number">19.9</span> “anchors” ^ and $</a></li>
+  <li><a href="#periods" id="toc-periods" class="nav-link" data-scroll-target="#periods"><span class="header-section-number">19.10</span> periods</a></li>
+  <li><a href="#character-classes-eg.-abc" id="toc-character-classes-eg.-abc" class="nav-link" data-scroll-target="#character-classes-eg.-abc"><span class="header-section-number">19.11</span> “character classes” eg. [abc]</a>
   <ul class="collapse">
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">20.11.1</span> Examples</a></li>
-  <li><a href="#dashes-e.g.-a-d" id="toc-dashes-e.g.-a-d" class="nav-link" data-scroll-target="#dashes-e.g.-a-d"><span class="header-section-number">20.11.2</span> dashes, e.g.&nbsp;[a-d]</a></li>
-  <li><a href="#examples-1" id="toc-examples-1" class="nav-link" data-scroll-target="#examples-1"><span class="header-section-number">20.11.3</span> Examples</a></li>
-  <li><a href="#combine-multiple-ranges-one-brackets" id="toc-combine-multiple-ranges-one-brackets" class="nav-link" data-scroll-target="#combine-multiple-ranges-one-brackets"><span class="header-section-number">20.11.4</span> combine multiple ranges one [brackets]</a></li>
-  <li><a href="#abc" id="toc-abc" class="nav-link" data-scroll-target="#abc"><span class="header-section-number">20.11.5</span> [^abc]</a></li>
-  <li><a href="#metachars-lose-special-meaning-in-brackets-eg.-." id="toc-metachars-lose-special-meaning-in-brackets-eg.-." class="nav-link" data-scroll-target="#metachars-lose-special-meaning-in-brackets-eg.-."><span class="header-section-number">20.11.6</span> metachars lose special meaning in brackets eg. [.$*]</a></li>
-  <li><a href="#special-cases--" id="toc-special-cases--" class="nav-link" data-scroll-target="#special-cases--"><span class="header-section-number">20.11.7</span> Special cases: ^ - ]</a></li>
-  <li><a href="#matching-inside-square-brackets" id="toc-matching-inside-square-brackets" class="nav-link" data-scroll-target="#matching-inside-square-brackets"><span class="header-section-number">20.11.8</span> matching ^ inside [square brackets]</a></li>
-  <li><a href="#matching-a---inside-square-brackets" id="toc-matching-a---inside-square-brackets" class="nav-link" data-scroll-target="#matching-a---inside-square-brackets"><span class="header-section-number">20.11.9</span> Matching a - inside [square brackets]</a></li>
-  <li><a href="#matching-a-inside-square-brackets" id="toc-matching-a-inside-square-brackets" class="nav-link" data-scroll-target="#matching-a-inside-square-brackets"><span class="header-section-number">20.11.10</span> Matching a ] inside [square brackets]</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">19.11.1</span> Examples</a></li>
+  <li><a href="#dashes-e.g.-a-d" id="toc-dashes-e.g.-a-d" class="nav-link" data-scroll-target="#dashes-e.g.-a-d"><span class="header-section-number">19.11.2</span> dashes, e.g.&nbsp;[a-d]</a></li>
+  <li><a href="#examples-1" id="toc-examples-1" class="nav-link" data-scroll-target="#examples-1"><span class="header-section-number">19.11.3</span> Examples</a></li>
+  <li><a href="#combine-multiple-ranges-one-brackets" id="toc-combine-multiple-ranges-one-brackets" class="nav-link" data-scroll-target="#combine-multiple-ranges-one-brackets"><span class="header-section-number">19.11.4</span> combine multiple ranges one [brackets]</a></li>
+  <li><a href="#abc" id="toc-abc" class="nav-link" data-scroll-target="#abc"><span class="header-section-number">19.11.5</span> [^abc]</a></li>
+  <li><a href="#metachars-lose-special-meaning-in-brackets-eg.-." id="toc-metachars-lose-special-meaning-in-brackets-eg.-." class="nav-link" data-scroll-target="#metachars-lose-special-meaning-in-brackets-eg.-."><span class="header-section-number">19.11.6</span> metachars lose special meaning in brackets eg. [.$*]</a></li>
+  <li><a href="#special-cases--" id="toc-special-cases--" class="nav-link" data-scroll-target="#special-cases--"><span class="header-section-number">19.11.7</span> Special cases: ^ - ]</a></li>
+  <li><a href="#matching-inside-square-brackets" id="toc-matching-inside-square-brackets" class="nav-link" data-scroll-target="#matching-inside-square-brackets"><span class="header-section-number">19.11.8</span> matching ^ inside [square brackets]</a></li>
+  <li><a href="#matching-a---inside-square-brackets" id="toc-matching-a---inside-square-brackets" class="nav-link" data-scroll-target="#matching-a---inside-square-brackets"><span class="header-section-number">19.11.9</span> Matching a - inside [square brackets]</a></li>
+  <li><a href="#matching-a-inside-square-brackets" id="toc-matching-a-inside-square-brackets" class="nav-link" data-scroll-target="#matching-a-inside-square-brackets"><span class="header-section-number">19.11.10</span> Matching a ] inside [square brackets]</a></li>
   </ul></li>
-  <li><a href="#searching-with-regular-expressions-in-a-text-editor" id="toc-searching-with-regular-expressions-in-a-text-editor" class="nav-link" data-scroll-target="#searching-with-regular-expressions-in-a-text-editor"><span class="header-section-number">20.12</span> Searching with regular expressions in a “text editor”</a></li>
-  <li><a href="#matching-meta-characters" id="toc-matching-meta-characters" class="nav-link" data-scroll-target="#matching-meta-characters"><span class="header-section-number">20.13</span> Matching meta-characters</a>
+  <li><a href="#searching-with-regular-expressions-in-a-text-editor" id="toc-searching-with-regular-expressions-in-a-text-editor" class="nav-link" data-scroll-target="#searching-with-regular-expressions-in-a-text-editor"><span class="header-section-number">19.12</span> Searching with regular expressions in a “text editor”</a></li>
+  <li><a href="#matching-meta-characters" id="toc-matching-meta-characters" class="nav-link" data-scroll-target="#matching-meta-characters"><span class="header-section-number">19.13</span> Matching meta-characters</a>
   <ul class="collapse">
-  <li><a href="#reminder-of-how-backslashes-are-used-in-r" id="toc-reminder-of-how-backslashes-are-used-in-r" class="nav-link" data-scroll-target="#reminder-of-how-backslashes-are-used-in-r"><span class="header-section-number">20.13.1</span> Reminder of how backslashes () are used in R</a></li>
-  <li><a href="#to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern" id="toc-to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern" class="nav-link" data-scroll-target="#to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern"><span class="header-section-number">20.13.2</span> To search for an actual backslash you must use 4 backslashes in the pattern</a></li>
+  <li><a href="#reminder-of-how-backslashes-are-used-in-r" id="toc-reminder-of-how-backslashes-are-used-in-r" class="nav-link" data-scroll-target="#reminder-of-how-backslashes-are-used-in-r"><span class="header-section-number">19.13.1</span> Reminder of how backslashes () are used in R</a></li>
+  <li><a href="#to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern" id="toc-to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern" class="nav-link" data-scroll-target="#to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern"><span class="header-section-number">19.13.2</span> To search for an actual backslash you must use 4 backslashes in the pattern</a></li>
   </ul></li>
-  <li><a href="#matching-quotes" id="toc-matching-quotes" class="nav-link" data-scroll-target="#matching-quotes"><span class="header-section-number">20.14</span> Matching QUOTES</a></li>
-  <li><a href="#different-flavors-or-dialects-of-regular-expressions." id="toc-different-flavors-or-dialects-of-regular-expressions." class="nav-link" data-scroll-target="#different-flavors-or-dialects-of-regular-expressions."><span class="header-section-number">20.15</span> Different “flavors” or “dialects” of regular expressions.</a>
+  <li><a href="#matching-quotes" id="toc-matching-quotes" class="nav-link" data-scroll-target="#matching-quotes"><span class="header-section-number">19.14</span> Matching QUOTES</a></li>
+  <li><a href="#different-flavors-or-dialects-of-regular-expressions." id="toc-different-flavors-or-dialects-of-regular-expressions." class="nav-link" data-scroll-target="#different-flavors-or-dialects-of-regular-expressions."><span class="header-section-number">19.15</span> Different “flavors” or “dialects” of regular expressions.</a>
   <ul class="collapse">
-  <li><a href="#digit-vs-d---different-shorthand-notations-for-character-classes" id="toc-digit-vs-d---different-shorthand-notations-for-character-classes" class="nav-link" data-scroll-target="#digit-vs-d---different-shorthand-notations-for-character-classes"><span class="header-section-number">20.15.1</span> [[:digit:]] vs \d - different shorthand notations for character classes</a></li>
-  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1"><span class="header-section-number">20.15.2</span> — practice —</a></li>
+  <li><a href="#digit-vs-d---different-shorthand-notations-for-character-classes" id="toc-digit-vs-d---different-shorthand-notations-for-character-classes" class="nav-link" data-scroll-target="#digit-vs-d---different-shorthand-notations-for-character-classes"><span class="header-section-number">19.15.1</span> [[:digit:]] vs \d - different shorthand notations for character classes</a></li>
+  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1"><span class="header-section-number">19.15.2</span> — practice —</a></li>
   </ul></li>
-  <li><a href="#word-boundries" id="toc-word-boundries" class="nav-link" data-scroll-target="#word-boundries"><span class="header-section-number">20.16</span> WORD BOUNDRIES: ::</a></li>
-  <li><a href="#pattern1pattern2-matches-pattern1-or-pattern2" id="toc-pattern1pattern2-matches-pattern1-or-pattern2" class="nav-link" data-scroll-target="#pattern1pattern2-matches-pattern1-or-pattern2"><span class="header-section-number">20.17</span> “pattern1|pattern2” matches pattern1 OR pattern2</a></li>
-  <li><a href="#breaking-up-long-patterns-with-paste0" id="toc-breaking-up-long-patterns-with-paste0" class="nav-link" data-scroll-target="#breaking-up-long-patterns-with-paste0"><span class="header-section-number">20.18</span> breaking up long patterns with paste0</a>
+  <li><a href="#word-boundries" id="toc-word-boundries" class="nav-link" data-scroll-target="#word-boundries"><span class="header-section-number">19.16</span> WORD BOUNDRIES: ::</a></li>
+  <li><a href="#pattern1pattern2-matches-pattern1-or-pattern2" id="toc-pattern1pattern2-matches-pattern1-or-pattern2" class="nav-link" data-scroll-target="#pattern1pattern2-matches-pattern1-or-pattern2"><span class="header-section-number">19.17</span> “pattern1|pattern2” matches pattern1 OR pattern2</a></li>
+  <li><a href="#breaking-up-long-patterns-with-paste0" id="toc-breaking-up-long-patterns-with-paste0" class="nav-link" data-scroll-target="#breaking-up-long-patterns-with-paste0"><span class="header-section-number">19.18</span> breaking up long patterns with paste0</a>
   <ul class="collapse">
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">20.18.1</span> example</a></li>
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">20.18.2</span> example</a></li>
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">20.18.3</span> example</a></li>
-  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3"><span class="header-section-number">20.18.4</span> example</a></li>
-  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4"><span class="header-section-number">20.18.5</span> example</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">19.18.1</span> example</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1"><span class="header-section-number">19.18.2</span> example</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2"><span class="header-section-number">19.18.3</span> example</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3"><span class="header-section-number">19.18.4</span> example</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4"><span class="header-section-number">19.18.5</span> example</a></li>
   </ul></li>
-  <li><a href="#quantifiers-nm-n-n" id="toc-quantifiers-nm-n-n" class="nav-link" data-scroll-target="#quantifiers-nm-n-n"><span class="header-section-number">20.19</span> Quantifiers: {n,m} {n} {n,} + * ?</a>
+  <li><a href="#quantifiers-nm-n-n" id="toc-quantifiers-nm-n-n" class="nav-link" data-scroll-target="#quantifiers-nm-n-n"><span class="header-section-number">19.19</span> Quantifiers: {n,m} {n} {n,} + * ?</a>
   <ul class="collapse">
-  <li><a href="#quantifiers-with-curly-braces-eg.-3-25-3" id="toc-quantifiers-with-curly-braces-eg.-3-25-3" class="nav-link" data-scroll-target="#quantifiers-with-curly-braces-eg.-3-25-3"><span class="header-section-number">20.19.1</span> Quantifiers with {curly braces} eg. {3} {2,5} {3,}</a></li>
+  <li><a href="#quantifiers-with-curly-braces-eg.-3-25-3" id="toc-quantifiers-with-curly-braces-eg.-3-25-3" class="nav-link" data-scroll-target="#quantifiers-with-curly-braces-eg.-3-25-3"><span class="header-section-number">19.19.1</span> Quantifiers with {curly braces} eg. {3} {2,5} {3,}</a></li>
   </ul></li>
-  <li><a href="#quantifiers-with-and" id="toc-quantifiers-with-and" class="nav-link" data-scroll-target="#quantifiers-with-and"><span class="header-section-number">20.20</span> Quantifiers with * + and ?</a></li>
-  <li><a href="#gsub-works-with-patterns" id="toc-gsub-works-with-patterns" class="nav-link" data-scroll-target="#gsub-works-with-patterns"><span class="header-section-number">20.21</span> gsub works with patterns</a></li>
-  <li><a href="#backreferences-1-2-etc" id="toc-backreferences-1-2-etc" class="nav-link" data-scroll-target="#backreferences-1-2-etc"><span class="header-section-number">20.22</span> backreferences \1 \2 etc</a></li>
-  <li><a href="#greedy-vs-non-greedy-quantifiers" id="toc-greedy-vs-non-greedy-quantifiers" class="nav-link" data-scroll-target="#greedy-vs-non-greedy-quantifiers"><span class="header-section-number">20.23</span> “greedy” vs “non-greedy” quantifiers</a>
+  <li><a href="#quantifiers-with-and" id="toc-quantifiers-with-and" class="nav-link" data-scroll-target="#quantifiers-with-and"><span class="header-section-number">19.20</span> Quantifiers with * + and ?</a></li>
+  <li><a href="#gsub-works-with-patterns" id="toc-gsub-works-with-patterns" class="nav-link" data-scroll-target="#gsub-works-with-patterns"><span class="header-section-number">19.21</span> gsub works with patterns</a></li>
+  <li><a href="#backreferences-1-2-etc" id="toc-backreferences-1-2-etc" class="nav-link" data-scroll-target="#backreferences-1-2-etc"><span class="header-section-number">19.22</span> backreferences \1 \2 etc</a></li>
+  <li><a href="#greedy-vs-non-greedy-quantifiers" id="toc-greedy-vs-non-greedy-quantifiers" class="nav-link" data-scroll-target="#greedy-vs-non-greedy-quantifiers"><span class="header-section-number">19.23</span> “greedy” vs “non-greedy” quantifiers</a>
   <ul class="collapse">
-  <li><a href="#examples-2" id="toc-examples-2" class="nav-link" data-scroll-target="#examples-2"><span class="header-section-number">20.23.1</span> examples</a></li>
+  <li><a href="#examples-2" id="toc-examples-2" class="nav-link" data-scroll-target="#examples-2"><span class="header-section-number">19.23.1</span> examples</a></li>
   </ul></li>
-  <li><a href="#the-complete-list-of-quantifiers" id="toc-the-complete-list-of-quantifiers" class="nav-link" data-scroll-target="#the-complete-list-of-quantifiers"><span class="header-section-number">20.24</span> The complete list of quantifiers</a>
+  <li><a href="#the-complete-list-of-quantifiers" id="toc-the-complete-list-of-quantifiers" class="nav-link" data-scroll-target="#the-complete-list-of-quantifiers"><span class="header-section-number">19.24</span> The complete list of quantifiers</a>
   <ul class="collapse">
-  <li><a href="#examples-3" id="toc-examples-3" class="nav-link" data-scroll-target="#examples-3"><span class="header-section-number">20.24.1</span> examples</a></li>
+  <li><a href="#examples-3" id="toc-examples-3" class="nav-link" data-scroll-target="#examples-3"><span class="header-section-number">19.24.1</span> examples</a></li>
   </ul></li>
-  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges"><span class="header-section-number">20.25</span> Challenges</a></li>
-  <li><a href="#more-practice-with-regex---see-the-following-websites" id="toc-more-practice-with-regex---see-the-following-websites" class="nav-link" data-scroll-target="#more-practice-with-regex---see-the-following-websites"><span class="header-section-number">20.26</span> More practice with regex - see the following websites</a></li>
+  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges"><span class="header-section-number">19.25</span> Challenges</a></li>
+  <li><a href="#more-practice-with-regex---see-the-following-websites" id="toc-more-practice-with-regex---see-the-following-websites" class="nav-link" data-scroll-target="#more-practice-with-regex---see-the-following-websites"><span class="header-section-number">19.26</span> More practice with regex - see the following websites</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html">Regular Expressions</a></li><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html">Regular Expressions</a></li><li class="breadcrumb-item"><a href="./0200200-introToRegularExpressions-v036.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> regular expressions (regex)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></h1>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> regular expressions (regex)</span></h1>
 </div>
 
 
@@ -709,8 +750,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Also, see this tutorial for more info:</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   https://ryanstutorials.net/regular-expressions-tutorial/  ####</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="data-for-examples" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="data-for-examples"><span class="header-section-number">20.1</span> Data for examples</h2>
+<section id="data-for-examples" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="data-for-examples"><span class="header-section-number">19.1</span> Data for examples</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># SAMPLE DATA ####</span></span>
@@ -787,8 +828,8 @@ Three Main Street Apt 12343
 City Hall Lockport, NY</code></pre>
 </div>
 </div>
-<section id="stringr-package" class="level3" data-number="20.1.1">
-<h3 data-number="20.1.1" class="anchored" data-anchor-id="stringr-package"><span class="header-section-number">20.1.1</span> stringr package</h3>
+<section id="stringr-package" class="level3" data-number="19.1.1">
+<h3 data-number="19.1.1" class="anchored" data-anchor-id="stringr-package"><span class="header-section-number">19.1.1</span> stringr package</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> - most of the examples in this file were created using the data above.</span></span>
@@ -1052,8 +1093,8 @@ Attaching package: 'stringr'</code></pre>
 </div>
 </section>
 </section>
-<section id="grep-function" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="grep-function"><span class="header-section-number">20.2</span> grep function</h2>
+<section id="grep-function" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="grep-function"><span class="header-section-number">19.2</span> grep function</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show all words that</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># "start with a p, end with a y (with anything in the middle)"</span></span>
@@ -1112,8 +1153,8 @@ Attaching package: 'stringr'</code></pre>
 </div>
 </div>
 </section>
-<section id="grep-and-grepl" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="grep-and-grepl"><span class="header-section-number">20.3</span> grep and grepl</h2>
+<section id="grep-and-grepl" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="grep-and-grepl"><span class="header-section-number">19.3</span> grep and grepl</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># When value=FALSE grep returns the positions in the vector of </span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># values that matched</span></span>
@@ -1222,8 +1263,8 @@ Attaching package: 'stringr'</code></pre>
 </div>
 </div>
 </section>
-<section id="regex-patterns-do-not-understand-numbers" class="level2" data-number="20.4">
-<h2 data-number="20.4" class="anchored" data-anchor-id="regex-patterns-do-not-understand-numbers"><span class="header-section-number">20.4</span> regex patterns do NOT understand “numbers”</h2>
+<section id="regex-patterns-do-not-understand-numbers" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="regex-patterns-do-not-understand-numbers"><span class="header-section-number">19.4</span> regex patterns do NOT understand “numbers”</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># regex patterns do NOT understand "numbers" ####</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1250,8 +1291,8 @@ Attaching package: 'stringr'</code></pre>
 </div>
 </div>
 </section>
-<section id="case-sensitivity" class="level2" data-number="20.5">
-<h2 data-number="20.5" class="anchored" data-anchor-id="case-sensitivity"><span class="header-section-number">20.5</span> case sensitivity</h2>
+<section id="case-sensitivity" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="case-sensitivity"><span class="header-section-number">19.5</span> case sensitivity</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Regular expressions (in R) are case sensitive by default ####</span></span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1317,8 +1358,8 @@ Attaching package: 'stringr'</code></pre>
 </div>
 </div>
 </section>
-<section id="str_view-from-the-stringr-package" class="level2" data-number="20.6">
-<h2 data-number="20.6" class="anchored" data-anchor-id="str_view-from-the-stringr-package"><span class="header-section-number">20.6</span> str_view from the stringr package</h2>
+<section id="str_view-from-the-stringr-package" class="level2" data-number="19.6">
+<h2 data-number="19.6" class="anchored" data-anchor-id="str_view-from-the-stringr-package"><span class="header-section-number">19.6</span> str_view from the stringr package</h2>
 <p>The str_view function from the stringr package can be very helpful when you’re trying to understand a regular expression. str_view shows exactly what parts of a string match the pattern. See the example below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str_view is part of the stringr package</span></span>
@@ -1340,8 +1381,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="sub-and-gsub-functions" class="level2" data-number="20.7">
-<h2 data-number="20.7" class="anchored" data-anchor-id="sub-and-gsub-functions"><span class="header-section-number">20.7</span> sub and gsub functions</h2>
+<section id="sub-and-gsub-functions" class="level2" data-number="19.7">
+<h2 data-number="19.7" class="anchored" data-anchor-id="sub-and-gsub-functions"><span class="header-section-number">19.7</span> sub and gsub functions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@ sub and gsub functions ####</span></span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
@@ -1410,8 +1451,8 @@ bon jour</code></pre>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We will revisit sub and gsub later with more complex examples ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="strsplit-function" class="level2" data-number="20.8">
-<h2 data-number="20.8" class="anchored" data-anchor-id="strsplit-function"><span class="header-section-number">20.8</span> strsplit function</h2>
+<section id="strsplit-function" class="level2" data-number="19.8">
+<h2 data-number="19.8" class="anchored" data-anchor-id="strsplit-function"><span class="header-section-number">19.8</span> strsplit function</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="do">##################################################################.</span></span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="co"># strsplit </span></span>
@@ -1467,8 +1508,8 @@ bon jour</code></pre>
 <pre><code>[1] "hi."</code></pre>
 </div>
 </div>
-<section id="practice" class="level3" data-number="20.8.1">
-<h3 data-number="20.8.1" class="anchored" data-anchor-id="practice"><span class="header-section-number">20.8.1</span> — practice —</h3>
+<section id="practice" class="level3" data-number="19.8.1">
+<h3 data-number="19.8.1" class="anchored" data-anchor-id="practice"><span class="header-section-number">19.8.1</span> — practice —</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION - split each entry in the sentences variable into individual </span></span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sententces. </span></span>
@@ -1520,8 +1561,8 @@ bon jour</code></pre>
 </div>
 </section>
 </section>
-<section id="anchors-and" class="level2" data-number="20.9">
-<h2 data-number="20.9" class="anchored" data-anchor-id="anchors-and"><span class="header-section-number">20.9</span> “anchors” ^ and $</h2>
+<section id="anchors-and" class="level2" data-number="19.9">
+<h2 data-number="19.9" class="anchored" data-anchor-id="anchors-and"><span class="header-section-number">19.9</span> “anchors” ^ and $</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ^ and $    ####</span></span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1567,8 +1608,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="periods" class="level2" data-number="20.10">
-<h2 data-number="20.10" class="anchored" data-anchor-id="periods"><span class="header-section-number">20.10</span> periods</h2>
+<section id="periods" class="level2" data-number="19.10">
+<h2 data-number="19.10" class="anchored" data-anchor-id="periods"><span class="header-section-number">19.10</span> periods</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># . (i.e. a period) ####</span></span>
 <span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1603,8 +1644,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="character-classes-eg.-abc" class="level2" data-number="20.11">
-<h2 data-number="20.11" class="anchored" data-anchor-id="character-classes-eg.-abc"><span class="header-section-number">20.11</span> “character classes” eg. [abc]</h2>
+<section id="character-classes-eg.-abc" class="level2" data-number="19.11">
+<h2 data-number="19.11" class="anchored" data-anchor-id="character-classes-eg.-abc"><span class="header-section-number">19.11</span> “character classes” eg. [abc]</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [abc] matches a SINGLE "a", "b" or "c".    ####</span></span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1617,8 +1658,8 @@ bon jour</code></pre>
 <span id="cb127-9"><a href="#cb127-9" aria-hidden="true" tabindex="-1"></a><span class="co"># "character classes" or "character sets"</span></span>
 <span id="cb127-10"><a href="#cb127-10" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="examples" class="level3" data-number="20.11.1">
-<h3 data-number="20.11.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">20.11.1</span> Examples</h3>
+<section id="examples" class="level3" data-number="19.11.1">
+<h3 data-number="19.11.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">19.11.1</span> Examples</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"[qbxz]"</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>)  <span class="co"># find fruit that contain q,b,x or z</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1682,8 +1723,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="dashes-e.g.-a-d" class="level3" data-number="20.11.2">
-<h3 data-number="20.11.2" class="anchored" data-anchor-id="dashes-e.g.-a-d"><span class="header-section-number">20.11.2</span> dashes, e.g.&nbsp;[a-d]</h3>
+<section id="dashes-e.g.-a-d" class="level3" data-number="19.11.2">
+<h3 data-number="19.11.2" class="anchored" data-anchor-id="dashes-e.g.-a-d"><span class="header-section-number">19.11.2</span> dashes, e.g.&nbsp;[a-d]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify ranges with dash, e.g. [a-d] or [0-3] or [a-d0-3], etc ####</span></span>
 <span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1691,8 +1732,8 @@ bon jour</code></pre>
 <span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="examples-1" class="level3" data-number="20.11.3">
-<h3 data-number="20.11.3" class="anchored" data-anchor-id="examples-1"><span class="header-section-number">20.11.3</span> Examples</h3>
+<section id="examples-1" class="level3" data-number="19.11.3">
+<h3 data-number="19.11.3" class="anchored" data-anchor-id="examples-1"><span class="header-section-number">19.11.3</span> Examples</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"[j-m]"</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>)  <span class="co"># fruits that contain any of j,k,l,m</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1759,8 +1800,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="combine-multiple-ranges-one-brackets" class="level3" data-number="20.11.4">
-<h3 data-number="20.11.4" class="anchored" data-anchor-id="combine-multiple-ranges-one-brackets"><span class="header-section-number">20.11.4</span> combine multiple ranges one [brackets]</h3>
+<section id="combine-multiple-ranges-one-brackets" class="level3" data-number="19.11.4">
+<h3 data-number="19.11.4" class="anchored" data-anchor-id="combine-multiple-ranges-one-brackets"><span class="header-section-number">19.11.4</span> combine multiple ranges one [brackets]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb165-2"><a href="#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="co"># You can combine multiple ranges and values in a single [brackets]</span></span>
@@ -1783,8 +1824,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="abc" class="level3" data-number="20.11.5">
-<h3 data-number="20.11.5" class="anchored" data-anchor-id="abc"><span class="header-section-number">20.11.5</span> [^abc]</h3>
+<section id="abc" class="level3" data-number="19.11.5">
+<h3 data-number="19.11.5" class="anchored" data-anchor-id="abc"><span class="header-section-number">19.11.5</span> [^abc]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [^abc] matches a single character that is NOT a,b or c ####</span></span>
 <span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1832,8 +1873,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="metachars-lose-special-meaning-in-brackets-eg.-." class="level3" data-number="20.11.6">
-<h3 data-number="20.11.6" class="anchored" data-anchor-id="metachars-lose-special-meaning-in-brackets-eg.-."><span class="header-section-number">20.11.6</span> metachars lose special meaning in brackets eg. [.$*]</h3>
+<section id="metachars-lose-special-meaning-in-brackets-eg.-." class="level3" data-number="19.11.6">
+<h3 data-number="19.11.6" class="anchored" data-anchor-id="metachars-lose-special-meaning-in-brackets-eg.-."><span class="header-section-number">19.11.6</span> metachars lose special meaning in brackets eg. [.$*]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meta characters in [brackets] other than ^ - and ] lose their special meaning ####</span></span>
 <span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -1879,8 +1920,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="special-cases--" class="level3" data-number="20.11.7">
-<h3 data-number="20.11.7" class="anchored" data-anchor-id="special-cases--"><span class="header-section-number">20.11.7</span> Special cases: ^ - ]</h3>
+<section id="special-cases--" class="level3" data-number="19.11.7">
+<h3 data-number="19.11.7" class="anchored" data-anchor-id="special-cases--"><span class="header-section-number">19.11.7</span> Special cases: ^ - ]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb187"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb187-2"><a href="#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Special cases:    ^    -    ]</span></span>
@@ -1920,8 +1961,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="matching-inside-square-brackets" class="level3" data-number="20.11.8">
-<h3 data-number="20.11.8" class="anchored" data-anchor-id="matching-inside-square-brackets"><span class="header-section-number">20.11.8</span> matching ^ inside [square brackets]</h3>
+<section id="matching-inside-square-brackets" class="level3" data-number="19.11.8">
+<h3 data-number="19.11.8" class="anchored" data-anchor-id="matching-inside-square-brackets"><span class="header-section-number">19.11.8</span> matching ^ inside [square brackets]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . </span></span>
 <span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The "^" inside of [brackets] has a different meaning if it is in the </span></span>
@@ -1965,8 +2006,8 @@ bon jour</code></pre>
 <div class="sourceCode cell-code" id="cb203"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grep("[a-z.]", c())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="matching-a---inside-square-brackets" class="level3" data-number="20.11.9">
-<h3 data-number="20.11.9" class="anchored" data-anchor-id="matching-a---inside-square-brackets"><span class="header-section-number">20.11.9</span> Matching a - inside [square brackets]</h3>
+<section id="matching-a---inside-square-brackets" class="level3" data-number="19.11.9">
+<h3 data-number="19.11.9" class="anchored" data-anchor-id="matching-a---inside-square-brackets"><span class="header-section-number">19.11.9</span> Matching a - inside [square brackets]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Matching a dash (i.e. - ) inside a character class</span></span>
@@ -2000,8 +2041,8 @@ bon jour</code></pre>
 </div>
 </div>
 </section>
-<section id="matching-a-inside-square-brackets" class="level3" data-number="20.11.10">
-<h3 data-number="20.11.10" class="anchored" data-anchor-id="matching-a-inside-square-brackets"><span class="header-section-number">20.11.10</span> Matching a ] inside [square brackets]</h3>
+<section id="matching-a-inside-square-brackets" class="level3" data-number="19.11.10">
+<h3 data-number="19.11.10" class="anchored" data-anchor-id="matching-a-inside-square-brackets"><span class="header-section-number">19.11.10</span> Matching a ] inside [square brackets]</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb214"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb214-1"><a href="#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb214-2"><a href="#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To match a closing-square-bracket "]" inside a character class you must</span></span>
@@ -2050,8 +2091,8 @@ bon jour</code></pre>
 </div>
 </section>
 </section>
-<section id="searching-with-regular-expressions-in-a-text-editor" class="level2" data-number="20.12">
-<h2 data-number="20.12" class="anchored" data-anchor-id="searching-with-regular-expressions-in-a-text-editor"><span class="header-section-number">20.12</span> Searching with regular expressions in a “text editor”</h2>
+<section id="searching-with-regular-expressions-in-a-text-editor" class="level2" data-number="19.12">
+<h2 data-number="19.12" class="anchored" data-anchor-id="searching-with-regular-expressions-in-a-text-editor"><span class="header-section-number">19.12</span> Searching with regular expressions in a “text editor”</h2>
 <p>A “text editor” is a program that is used to edit “text files”. A text file can only contain “plain text” - i.e.&nbsp;no pictures, no music, only one font,</p>
 <p>RStudio’s text editor</p>
 <p>The text editor that is in RStudio can be used to create many different types of files. For example, it can be used to create both “R Script files” (i.e.&nbsp;.R files) and “Quarto Documents” (i.e.&nbsp;.qmd files). In addition, it can be used to create “plain text files”. To do so, choose the following menu choices from RStudio’s menu: “File | New File | Text File”</p>
@@ -2078,8 +2119,8 @@ bon jour</code></pre>
 <span id="cb222-20"><a href="#cb222-20" aria-hidden="true" tabindex="-1"></a><span class="co"># by preceding it with a backslash e.g.  \.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="matching-meta-characters" class="level2" data-number="20.13">
-<h2 data-number="20.13" class="anchored" data-anchor-id="matching-meta-characters"><span class="header-section-number">20.13</span> Matching meta-characters</h2>
+<section id="matching-meta-characters" class="level2" data-number="19.13">
+<h2 data-number="19.13" class="anchored" data-anchor-id="matching-meta-characters"><span class="header-section-number">19.13</span> Matching meta-characters</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb223"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb223-1"><a href="#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matching meta-characters ####</span></span>
 <span id="cb223-2"><a href="#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2116,8 +2157,8 @@ bon jour</code></pre>
 <span id="cb223-33"><a href="#cb223-33" aria-hidden="true" tabindex="-1"></a><span class="co"># See the examples below.</span></span>
 <span id="cb223-34"><a href="#cb223-34" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="reminder-of-how-backslashes-are-used-in-r" class="level3" data-number="20.13.1">
-<h3 data-number="20.13.1" class="anchored" data-anchor-id="reminder-of-how-backslashes-are-used-in-r"><span class="header-section-number">20.13.1</span> Reminder of how backslashes () are used in R</h3>
+<section id="reminder-of-how-backslashes-are-used-in-r" class="level3" data-number="19.13.1">
+<h3 data-number="19.13.1" class="anchored" data-anchor-id="reminder-of-how-backslashes-are-used-in-r"><span class="header-section-number">19.13.1</span> Reminder of how backslashes () are used in R</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb224"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reminder of how backslashes (\) are used in R ####</span></span>
 <span id="cb224-2"><a href="#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2224,8 +2265,8 @@ doing?
 </div>
 </div>
 </section>
-<section id="to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern" class="level3" data-number="20.13.2">
-<h3 data-number="20.13.2" class="anchored" data-anchor-id="to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern"><span class="header-section-number">20.13.2</span> To search for an actual backslash you must use 4 backslashes in the pattern</h3>
+<section id="to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern" class="level3" data-number="19.13.2">
+<h3 data-number="19.13.2" class="anchored" data-anchor-id="to-search-for-an-actual-backslash-you-must-use-4-backslashes-in-the-pattern"><span class="header-section-number">19.13.2</span> To search for an actual backslash you must use 4 backslashes in the pattern</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb244"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To search for an actual backslash you must use 4 backslashes in the pattern ####</span></span>
 <span id="cb244-2"><a href="#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2264,8 +2305,8 @@ doing?
 </div>
 </section>
 </section>
-<section id="matching-quotes" class="level2" data-number="20.14">
-<h2 data-number="20.14" class="anchored" data-anchor-id="matching-quotes"><span class="header-section-number">20.14</span> Matching QUOTES</h2>
+<section id="matching-quotes" class="level2" data-number="19.14">
+<h2 data-number="19.14" class="anchored" data-anchor-id="matching-quotes"><span class="header-section-number">19.14</span> Matching QUOTES</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb252"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb252-1"><a href="#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb252-2"><a href="#cb252-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Matching QUOTES</span></span>
@@ -2302,8 +2343,8 @@ Franklin said "a penny saved ..."</code></pre>
 </div>
 </div>
 </section>
-<section id="different-flavors-or-dialects-of-regular-expressions." class="level2" data-number="20.15">
-<h2 data-number="20.15" class="anchored" data-anchor-id="different-flavors-or-dialects-of-regular-expressions."><span class="header-section-number">20.15</span> Different “flavors” or “dialects” of regular expressions.</h2>
+<section id="different-flavors-or-dialects-of-regular-expressions." class="level2" data-number="19.15">
+<h2 data-number="19.15" class="anchored" data-anchor-id="different-flavors-or-dialects-of-regular-expressions."><span class="header-section-number">19.15</span> Different “flavors” or “dialects” of regular expressions.</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb260"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb260-1"><a href="#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Different "flavors" or "dialects" of regular expressions. ####</span></span>
 <span id="cb260-2"><a href="#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2343,8 +2384,8 @@ Franklin said "a penny saved ..."</code></pre>
 <span id="cb260-36"><a href="#cb260-36" aria-hidden="true" tabindex="-1"></a><span class="co"># work the same across the different environments. </span></span>
 <span id="cb260-37"><a href="#cb260-37" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="digit-vs-d---different-shorthand-notations-for-character-classes" class="level3" data-number="20.15.1">
-<h3 data-number="20.15.1" class="anchored" data-anchor-id="digit-vs-d---different-shorthand-notations-for-character-classes"><span class="header-section-number">20.15.1</span> [[:digit:]] vs \d - different shorthand notations for character classes</h3>
+<section id="digit-vs-d---different-shorthand-notations-for-character-classes" class="level3" data-number="19.15.1">
+<h3 data-number="19.15.1" class="anchored" data-anchor-id="digit-vs-d---different-shorthand-notations-for-character-classes"><span class="header-section-number">19.15.1</span> [[:digit:]] vs \d - different shorthand notations for character classes</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb261"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb261-1"><a href="#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb261-2"><a href="#cb261-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Two different shorthand notations for character classes</span></span>
@@ -2389,8 +2430,8 @@ Franklin said "a penny saved ..."</code></pre>
 </div>
 </section>
 </section>
-<section id="practice-1" class="level3" data-number="20.15.2">
-<h3 data-number="20.15.2" class="anchored" data-anchor-id="practice-1"><span class="header-section-number">20.15.2</span> — practice —</h3>
+<section id="practice-1" class="level3" data-number="19.15.2">
+<h3 data-number="19.15.2" class="anchored" data-anchor-id="practice-1"><span class="header-section-number">19.15.2</span> — practice —</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb263"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb263-1"><a href="#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
 <span id="cb263-2"><a href="#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2650,8 +2691,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </section>
 </section>
 </section>
-<section id="word-boundries" class="level2 cell" data-number="20.16">
-<h2 class="cell anchored" data-number="20.16" data-anchor-id="word-boundries"><span class="header-section-number">20.16</span> WORD BOUNDRIES: ::</h2>
+<section id="word-boundries" class="level2 cell" data-number="19.16">
+<h2 class="cell anchored" data-number="19.16" data-anchor-id="word-boundries"><span class="header-section-number">19.16</span> WORD BOUNDRIES: ::</h2>
 <div class="sourceCode cell-code" id="cb300"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb300-1"><a href="#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WORD BOUNDRIES:  \b ####</span></span>
 <span id="cb300-2"><a href="#cb300-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb300-3"><a href="#cb300-3" aria-hidden="true" tabindex="-1"></a><span class="co"># \b matches a "word boundary"   (remember in R use \\b)</span></span>
@@ -2705,8 +2746,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 <p>:::</p>
 </section>
-<section id="pattern1pattern2-matches-pattern1-or-pattern2" class="level2" data-number="20.17">
-<h2 data-number="20.17" class="anchored" data-anchor-id="pattern1pattern2-matches-pattern1-or-pattern2"><span class="header-section-number">20.17</span> “pattern1|pattern2” matches pattern1 OR pattern2</h2>
+<section id="pattern1pattern2-matches-pattern1-or-pattern2" class="level2" data-number="19.17">
+<h2 data-number="19.17" class="anchored" data-anchor-id="pattern1pattern2-matches-pattern1-or-pattern2"><span class="header-section-number">19.17</span> “pattern1|pattern2” matches pattern1 OR pattern2</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb312"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb312-1"><a href="#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "pattern1|pattern2"  matches pattern1 OR pattern2 ####</span></span>
 <span id="cb312-2"><a href="#cb312-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2757,8 +2798,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </div>
 </section>
-<section id="breaking-up-long-patterns-with-paste0" class="level2" data-number="20.18">
-<h2 data-number="20.18" class="anchored" data-anchor-id="breaking-up-long-patterns-with-paste0"><span class="header-section-number">20.18</span> breaking up long patterns with paste0</h2>
+<section id="breaking-up-long-patterns-with-paste0" class="level2" data-number="19.18">
+<h2 data-number="19.18" class="anchored" data-anchor-id="breaking-up-long-patterns-with-paste0"><span class="header-section-number">19.18</span> breaking up long patterns with paste0</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb324"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb324-1"><a href="#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="co"># breaking up long patterns with paste0 ####</span></span>
 <span id="cb324-2"><a href="#cb324-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2770,8 +2811,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 <span id="cb324-8"><a href="#cb324-8" aria-hidden="true" tabindex="-1"></a><span class="co"># See examples below.</span></span>
 <span id="cb324-9"><a href="#cb324-9" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="example" class="level3" data-number="20.18.1">
-<h3 data-number="20.18.1" class="anchored" data-anchor-id="example"><span class="header-section-number">20.18.1</span> example</h3>
+<section id="example" class="level3" data-number="19.18.1">
+<h3 data-number="19.18.1" class="anchored" data-anchor-id="example"><span class="header-section-number">19.18.1</span> example</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb325"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb325-1"><a href="#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
 <span id="cb325-2"><a href="#cb325-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2816,8 +2857,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </div>
 </section>
-<section id="example-1" class="level3" data-number="20.18.2">
-<h3 data-number="20.18.2" class="anchored" data-anchor-id="example-1"><span class="header-section-number">20.18.2</span> example</h3>
+<section id="example-1" class="level3" data-number="19.18.2">
+<h3 data-number="19.18.2" class="anchored" data-anchor-id="example-1"><span class="header-section-number">19.18.2</span> example</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb329"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb329-1"><a href="#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A more complex example ####</span></span>
 <span id="cb329-2"><a href="#cb329-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2900,8 +2941,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </div>
 </section>
-<section id="example-2" class="level3" data-number="20.18.3">
-<h3 data-number="20.18.3" class="anchored" data-anchor-id="example-2"><span class="header-section-number">20.18.3</span> example</h3>
+<section id="example-2" class="level3" data-number="19.18.3">
+<h3 data-number="19.18.3" class="anchored" data-anchor-id="example-2"><span class="header-section-number">19.18.3</span> example</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb333"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb333-1"><a href="#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
 <span id="cb333-2"><a href="#cb333-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2950,8 +2991,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </div>
 </section>
-<section id="example-3" class="level3" data-number="20.18.4">
-<h3 data-number="20.18.4" class="anchored" data-anchor-id="example-3"><span class="header-section-number">20.18.4</span> example</h3>
+<section id="example-3" class="level3" data-number="19.18.4">
+<h3 data-number="19.18.4" class="anchored" data-anchor-id="example-3"><span class="header-section-number">19.18.4</span> example</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb339"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb339-1"><a href="#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
 <span id="cb339-2"><a href="#cb339-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -2999,8 +3040,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </div>
 </section>
-<section id="example-4" class="level3" data-number="20.18.5">
-<h3 data-number="20.18.5" class="anchored" data-anchor-id="example-4"><span class="header-section-number">20.18.5</span> example</h3>
+<section id="example-4" class="level3" data-number="19.18.5">
+<h3 data-number="19.18.5" class="anchored" data-anchor-id="example-4"><span class="header-section-number">19.18.5</span> example</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb345"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb345-1"><a href="#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
 <span id="cb345-2"><a href="#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3023,8 +3064,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </section>
 </section>
-<section id="quantifiers-nm-n-n" class="level2" data-number="20.19">
-<h2 data-number="20.19" class="anchored" data-anchor-id="quantifiers-nm-n-n"><span class="header-section-number">20.19</span> Quantifiers: {n,m} {n} {n,} + * ?</h2>
+<section id="quantifiers-nm-n-n" class="level2" data-number="19.19">
+<h2 data-number="19.19" class="anchored" data-anchor-id="quantifiers-nm-n-n"><span class="header-section-number">19.19</span> Quantifiers: {n,m} {n} {n,} + * ?</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb349"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb349-1"><a href="#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@ Quantifiers: {n,m}  {n}  {n,}  +  *  ?  ####</span></span>
 <span id="cb349-2"><a href="#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
@@ -3045,8 +3086,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 <span id="cb349-17"><a href="#cb349-17" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
 <span id="cb349-18"><a href="#cb349-18" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="quantifiers-with-curly-braces-eg.-3-25-3" class="level3" data-number="20.19.1">
-<h3 data-number="20.19.1" class="anchored" data-anchor-id="quantifiers-with-curly-braces-eg.-3-25-3"><span class="header-section-number">20.19.1</span> Quantifiers with {curly braces} eg. {3} {2,5} {3,}</h3>
+<section id="quantifiers-with-curly-braces-eg.-3-25-3" class="level3" data-number="19.19.1">
+<h3 data-number="19.19.1" class="anchored" data-anchor-id="quantifiers-with-curly-braces-eg.-3-25-3"><span class="header-section-number">19.19.1</span> Quantifiers with {curly braces} eg. {3} {2,5} {3,}</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb350"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb350-1"><a href="#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantifiers with {curly braces}   eg. {3}   {2,5}   {3,}   ####</span></span>
 <span id="cb350-2"><a href="#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3289,8 +3330,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </section>
 </section>
-<section id="quantifiers-with-and" class="level2" data-number="20.20">
-<h2 data-number="20.20" class="anchored" data-anchor-id="quantifiers-with-and"><span class="header-section-number">20.20</span> Quantifiers with * + and ?</h2>
+<section id="quantifiers-with-and" class="level2" data-number="19.20">
+<h2 data-number="19.20" class="anchored" data-anchor-id="quantifiers-with-and"><span class="header-section-number">19.20</span> Quantifiers with * + and ?</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb401"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb401-1"><a href="#cb401-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantifiers with    *   +  and  ?  ####</span></span>
 <span id="cb401-2"><a href="#cb401-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3390,8 +3431,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 <span id="cb409-45"><a href="#cb409-45" aria-hidden="true" tabindex="-1"></a><span class="co">#   \$[^$]+\$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="gsub-works-with-patterns" class="level2" data-number="20.21">
-<h2 data-number="20.21" class="anchored" data-anchor-id="gsub-works-with-patterns"><span class="header-section-number">20.21</span> gsub works with patterns</h2>
+<section id="gsub-works-with-patterns" class="level2" data-number="19.21">
+<h2 data-number="19.21" class="anchored" data-anchor-id="gsub-works-with-patterns"><span class="header-section-number">19.21</span> gsub works with patterns</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb410"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb410-1"><a href="#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gsub ####</span></span>
 <span id="cb410-2"><a href="#cb410-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3439,8 +3480,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </div>
 </section>
-<section id="backreferences-1-2-etc" class="level2" data-number="20.22">
-<h2 data-number="20.22" class="anchored" data-anchor-id="backreferences-1-2-etc"><span class="header-section-number">20.22</span> backreferences \1 \2 etc</h2>
+<section id="backreferences-1-2-etc" class="level2" data-number="19.22">
+<h2 data-number="19.22" class="anchored" data-anchor-id="backreferences-1-2-etc"><span class="header-section-number">19.22</span> backreferences \1 \2 etc</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb420"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb420-1"><a href="#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BACKREFERENCES  ####</span></span>
 <span id="cb420-2"><a href="#cb420-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3560,8 +3601,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </div>
 </section>
-<section id="greedy-vs-non-greedy-quantifiers" class="level2" data-number="20.23">
-<h2 data-number="20.23" class="anchored" data-anchor-id="greedy-vs-non-greedy-quantifiers"><span class="header-section-number">20.23</span> “greedy” vs “non-greedy” quantifiers</h2>
+<section id="greedy-vs-non-greedy-quantifiers" class="level2" data-number="19.23">
+<h2 data-number="19.23" class="anchored" data-anchor-id="greedy-vs-non-greedy-quantifiers"><span class="header-section-number">19.23</span> “greedy” vs “non-greedy” quantifiers</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb444"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb444-1"><a href="#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="co"># "greedy" vs "non-greedy" quantifiers ####</span></span>
 <span id="cb444-2"><a href="#cb444-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3689,8 +3730,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 <pre><code>[1] "xabcde"</code></pre>
 </div>
 </div>
-<section id="examples-2" class="level3" data-number="20.23.1">
-<h3 data-number="20.23.1" class="anchored" data-anchor-id="examples-2"><span class="header-section-number">20.23.1</span> examples</h3>
+<section id="examples-2" class="level3" data-number="19.23.1">
+<h3 data-number="19.23.1" class="anchored" data-anchor-id="examples-2"><span class="header-section-number">19.23.1</span> examples</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb478"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb478-1"><a href="#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Question</span></span>
 <span id="cb478-2"><a href="#cb478-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract JUST the first quotation from each of the following.</span></span>
@@ -3768,8 +3809,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </section>
 </section>
 </section>
-<section id="the-complete-list-of-quantifiers" class="level2" data-number="20.24">
-<h2 data-number="20.24" class="anchored" data-anchor-id="the-complete-list-of-quantifiers"><span class="header-section-number">20.24</span> The complete list of quantifiers</h2>
+<section id="the-complete-list-of-quantifiers" class="level2" data-number="19.24">
+<h2 data-number="19.24" class="anchored" data-anchor-id="the-complete-list-of-quantifiers"><span class="header-section-number">19.24</span> The complete list of quantifiers</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb491"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb491-1"><a href="#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The complete list of quantifiers </span></span>
 <span id="cb491-2"><a href="#cb491-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3797,8 +3838,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 <span id="cb491-24"><a href="#cb491-24" aria-hidden="true" tabindex="-1"></a><span class="co">#            Notice - you could just write {3} instead of {3,}? (think about it)</span></span>
 <span id="cb491-25"><a href="#cb491-25" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="examples-3" class="level3" data-number="20.24.1">
-<h3 data-number="20.24.1" class="anchored" data-anchor-id="examples-3"><span class="header-section-number">20.24.1</span> examples</h3>
+<section id="examples-3" class="level3" data-number="19.24.1">
+<h3 data-number="19.24.1" class="anchored" data-anchor-id="examples-3"><span class="header-section-number">19.24.1</span> examples</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb492"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb492-1"><a href="#cb492-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EXAMPLE</span></span>
 <span id="cb492-2"><a href="#cb492-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
@@ -3865,8 +3906,8 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 </div>
 </section>
 </section>
-<section id="challenges" class="level2" data-number="20.25">
-<h2 data-number="20.25" class="anchored" data-anchor-id="challenges"><span class="header-section-number">20.25</span> Challenges</h2>
+<section id="challenges" class="level2" data-number="19.25">
+<h2 data-number="19.25" class="anchored" data-anchor-id="challenges"><span class="header-section-number">19.25</span> Challenges</h2>
 <pre><code># Challenges ####
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -4175,8 +4216,8 @@ words[[3]][2]
 #         fixed = FALSE, useBytes = FALSE)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</code></pre>
 </section>
-<section id="more-practice-with-regex---see-the-following-websites" class="level2" data-number="20.26">
-<h2 data-number="20.26" class="anchored" data-anchor-id="more-practice-with-regex---see-the-following-websites"><span class="header-section-number">20.26</span> More practice with regex - see the following websites</h2>
+<section id="more-practice-with-regex---see-the-following-websites" class="level2" data-number="19.26">
+<h2 data-number="19.26" class="anchored" data-anchor-id="more-practice-with-regex---see-the-following-websites"><span class="header-section-number">19.26</span> More practice with regex - see the following websites</h2>
 <pre><code># More practice with regex  ####
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # See the following sites:
@@ -4650,17 +4691,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./0000025-introToBash-v007.html" class="pagination-link" aria-label="Working with the Bash Shell.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span>
+      <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="pagination-link" aria-label="<yrChapterNumber>18. </yrChapterNumber> assignment - weather API">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="pagination-link" aria-label="Practice with Regular Expressions">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="pagination-link" aria-label="<yrChapterNumber>23. </yrChapterNumber> Practice with Regular Expressions">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Practice with Regular Expressions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>
+const titles = document.querySelectorAll('.title');
+
+titles.forEach(title => {
+  if (title.textContent.trim().startsWith('Appendix')) {
+    const chapterNumber = title.querySelector('yrChapterNumber');
+    if (chapterNumber) {
+      chapterNumber.classList.add('yrAppendixChapterNumber');
+    }
+  }
+});
+</script>
 
 
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Intro to R packages – Data Management With R</title>
+<title>6&nbsp; 6.  Intro to R packages – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./0000017-introToQuarto-v001.html" rel="next">
-<link href="./intro00130-chromeExtensions.html" rel="prev">
+<link href="./aiCoding00100-overview.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,7 +87,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -107,20 +106,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta http-equiv="Pragma" content="no-cache">
 
 <meta http-equiv="Expires" content="0">
+<script src="yrstuff.js"></script>
 
 
+<link rel="stylesheet" href="yrStyles-main-v001.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Data Management With R (latest version)</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://yrosenthal.com/datamgmt/theOldBook"> 
+<span class="menu-text">(click here for spring24 version of this website)</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html">Intro to R packages</a></li><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html">Intro to R packages</a></li><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -130,14 +153,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Data Management With R</a> 
-    </div>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -148,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Intro</span></a>
+ <span class="menu-text"><yrchapternumber></yrchapternumber> Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -163,19 +181,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00100-operatingSystems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is an “operating system”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><yrchapternumber>1. </yrchapternumber> What is an "operating system"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00120-files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><yrchapternumber>2. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><yrchapternumber>3. </yrchapternumber> Chrome Extensions</span></span></a>
   </div>
 </li>
       </ul>
@@ -183,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to R packages</span></a>
+ <span class="menu-text">Into to Coding With AI</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -191,8 +209,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></span></a>
+  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> AI in Everyday Use</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><yrchapternumber>5. </yrchapternumber> Coding with AI - an overview</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to Quarto</span></a>
+ <span class="menu-text">Intro to R packages</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -208,8 +232,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intro to Quarto</span></span></a>
+  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Into to Coding With AI</span></a>
+ <span class="menu-text">Intro to Quarto</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -225,8 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Coding with AI - an overview</span></span></a>
+  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to Quarto</span></span></a>
   </div>
 </li>
       </ul>
@@ -243,25 +267,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">What is the “tidyverse”</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> What is the "tidyverse"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">tibbles and tribbles</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> tibbles and tribbles</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">stringr tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
@@ -278,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Working with files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
       </ul>
@@ -286,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">JSON data</span></a>
+ <span class="menu-text">JSON data and APIs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -295,31 +319,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Intro to JSON data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Creating, editing and validating JSON files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">DATA TYPES IN JSON</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Nested Dataframes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Using JSON in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000088-nestedDataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> Nested Dataframes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
       </ul>
@@ -327,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">Bash</span></a>
+ <span class="menu-text">Regular Expressions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -335,20 +365,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Intro to Command Line Interfaces (CLIs)</span></span></a>
+  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> regular expressions (regex)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">How to run the Bash Shell</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Working with the Bash Shell.</span></span></a>
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Practice with Regular Expressions</span></span></a>
   </div>
 </li>
       </ul>
@@ -356,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
+ <span class="menu-text">Bash</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -364,14 +388,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">regular expressions (regex)</span></span></a>
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Practice with Regular Expressions</span></span></a>
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> How to run the Bash Shell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
@@ -379,7 +409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">visualizations with ggplot2</span></a>
+ <span class="menu-text">Intro to dplyr</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -387,8 +417,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Intro to ggplot2</span></span></a>
+  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> Intro to dplyr</span></span></a>
   </div>
 </li>
       </ul>
@@ -396,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to dplyr and to SQL</span></a>
+ <span class="menu-text">visualizations with ggplot2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -404,14 +434,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Intro to dplyr</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">SQL Select</span></span></a>
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -419,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
+ <span class="menu-text">Intro to SQL</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -427,68 +451,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">“databases” and “database management systems”</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Get the data - “books database” and other tables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Relational Databases and SQL (using R)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Inner Joins.</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">SQL “window” functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">What is a Database?</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL Select</span></span></a>
   </div>
 </li>
       </ul>
@@ -496,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Web Scraping</span></a>
+ <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -504,26 +468,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">How a webpage gets to your browser</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Web Scraping with R</span></span></a>
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Scraping Dynamic (JavaScript) Websites</span></span></a>
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">CSS Selector questions and answers</span></span></a>
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
@@ -531,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
- <span class="menu-text">Questions</span></a>
+ <span class="menu-text">Web Scraping</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -539,8 +545,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">“Cleaning” data</span></span></a>
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> CSS Selector Questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -548,7 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Questions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -556,32 +580,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> "Cleaning" data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -596,37 +637,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-cran" id="toc-what-is-cran" class="nav-link active" data-scroll-target="#what-is-cran"><span class="header-section-number">4.1</span> What is CRAN?</a></li>
-  <li><a href="#what-is-a-cran-mirror" id="toc-what-is-a-cran-mirror" class="nav-link" data-scroll-target="#what-is-a-cran-mirror"><span class="header-section-number">4.2</span> What is a CRAN mirror?</a></li>
-  <li><a href="#install.packages-some_package" id="toc-install.packages-some_package" class="nav-link" data-scroll-target="#install.packages-some_package"><span class="header-section-number">4.3</span> install.packages( “SOME_PACKAGE” )</a></li>
-  <li><a href="#help-for-the-package." id="toc-help-for-the-package." class="nav-link" data-scroll-target="#help-for-the-package."><span class="header-section-number">4.4</span> Help for the package.</a></li>
-  <li><a href="#using-a-package-without-loading-it." id="toc-using-a-package-without-loading-it." class="nav-link" data-scroll-target="#using-a-package-without-loading-it."><span class="header-section-number">4.5</span> Using a package without “loading” it.</a></li>
-  <li><a href="#loading-packages---library-or-require" id="toc-loading-packages---library-or-require" class="nav-link" data-scroll-target="#loading-packages---library-or-require"><span class="header-section-number">4.6</span> loading packages - library() or require()</a>
+  <li><a href="#what-is-cran" id="toc-what-is-cran" class="nav-link active" data-scroll-target="#what-is-cran"><span class="header-section-number">6.1</span> What is CRAN?</a></li>
+  <li><a href="#what-is-a-cran-mirror" id="toc-what-is-a-cran-mirror" class="nav-link" data-scroll-target="#what-is-a-cran-mirror"><span class="header-section-number">6.2</span> What is a CRAN mirror?</a></li>
+  <li><a href="#install.packages-some_package" id="toc-install.packages-some_package" class="nav-link" data-scroll-target="#install.packages-some_package"><span class="header-section-number">6.3</span> install.packages( “SOME_PACKAGE” )</a></li>
+  <li><a href="#help-for-the-package." id="toc-help-for-the-package." class="nav-link" data-scroll-target="#help-for-the-package."><span class="header-section-number">6.4</span> Help for the package.</a></li>
+  <li><a href="#using-a-package-without-loading-it." id="toc-using-a-package-without-loading-it." class="nav-link" data-scroll-target="#using-a-package-without-loading-it."><span class="header-section-number">6.5</span> Using a package without “loading” it.</a></li>
+  <li><a href="#loading-packages---library-or-require" id="toc-loading-packages---library-or-require" class="nav-link" data-scroll-target="#loading-packages---library-or-require"><span class="header-section-number">6.6</span> loading packages - library() or require()</a>
   <ul class="collapse">
-  <li><a href="#librarysome_package" id="toc-librarysome_package" class="nav-link" data-scroll-target="#librarysome_package"><span class="header-section-number">4.6.1</span> library(SOME_PACKAGE)</a></li>
-  <li><a href="#install.packages-vs-library" id="toc-install.packages-vs-library" class="nav-link" data-scroll-target="#install.packages-vs-library"><span class="header-section-number">4.6.2</span> install.packages vs library</a></li>
-  <li><a href="#requiresome_package" id="toc-requiresome_package" class="nav-link" data-scroll-target="#requiresome_package"><span class="header-section-number">4.6.3</span> require(SOME_PACKAGE)</a></li>
-  <li><a href="#calling-library-or-require-more-than-once-is-fine." id="toc-calling-library-or-require-more-than-once-is-fine." class="nav-link" data-scroll-target="#calling-library-or-require-more-than-once-is-fine."><span class="header-section-number">4.6.4</span> Calling library or require more than once is fine.</a></li>
-  <li><a href="#the-difference-between-library-and-require" id="toc-the-difference-between-library-and-require" class="nav-link" data-scroll-target="#the-difference-between-library-and-require"><span class="header-section-number">4.6.5</span> The difference between library and require</a></li>
-  <li><a href="#see-invisible-return-values-by-using-parentheses" id="toc-see-invisible-return-values-by-using-parentheses" class="nav-link" data-scroll-target="#see-invisible-return-values-by-using-parentheses"><span class="header-section-number">4.6.6</span> See invisible return values by using (parentheses)</a></li>
-  <li><a href="#installing-and-loading-the-package-in-one-line-of-code" id="toc-installing-and-loading-the-package-in-one-line-of-code" class="nav-link" data-scroll-target="#installing-and-loading-the-package-in-one-line-of-code"><span class="header-section-number">4.6.7</span> installing and loading the package in one line of code</a></li>
+  <li><a href="#librarysome_package" id="toc-librarysome_package" class="nav-link" data-scroll-target="#librarysome_package"><span class="header-section-number">6.6.1</span> library(SOME_PACKAGE)</a></li>
+  <li><a href="#install.packages-vs-library" id="toc-install.packages-vs-library" class="nav-link" data-scroll-target="#install.packages-vs-library"><span class="header-section-number">6.6.2</span> install.packages vs library</a></li>
+  <li><a href="#requiresome_package" id="toc-requiresome_package" class="nav-link" data-scroll-target="#requiresome_package"><span class="header-section-number">6.6.3</span> require(SOME_PACKAGE)</a></li>
+  <li><a href="#calling-library-or-require-more-than-once-is-fine." id="toc-calling-library-or-require-more-than-once-is-fine." class="nav-link" data-scroll-target="#calling-library-or-require-more-than-once-is-fine."><span class="header-section-number">6.6.4</span> Calling library or require more than once is fine.</a></li>
+  <li><a href="#the-difference-between-library-and-require" id="toc-the-difference-between-library-and-require" class="nav-link" data-scroll-target="#the-difference-between-library-and-require"><span class="header-section-number">6.6.5</span> The difference between library and require</a></li>
+  <li><a href="#see-invisible-return-values-by-using-parentheses" id="toc-see-invisible-return-values-by-using-parentheses" class="nav-link" data-scroll-target="#see-invisible-return-values-by-using-parentheses"><span class="header-section-number">6.6.6</span> See invisible return values by using (parentheses)</a></li>
+  <li><a href="#installing-and-loading-the-package-in-one-line-of-code" id="toc-installing-and-loading-the-package-in-one-line-of-code" class="nav-link" data-scroll-target="#installing-and-loading-the-package-in-one-line-of-code"><span class="header-section-number">6.6.7</span> installing and loading the package in one line of code</a></li>
   </ul></li>
-  <li><a href="#unloading-and-removing-packages" id="toc-unloading-and-removing-packages" class="nav-link" data-scroll-target="#unloading-and-removing-packages"><span class="header-section-number">4.7</span> unloading and removing packages</a>
+  <li><a href="#unloading-and-removing-packages" id="toc-unloading-and-removing-packages" class="nav-link" data-scroll-target="#unloading-and-removing-packages"><span class="header-section-number">6.7</span> unloading and removing packages</a>
   <ul class="collapse">
-  <li><a href="#detachpackagepackage_name-unloadtrue" id="toc-detachpackagepackage_name-unloadtrue" class="nav-link" data-scroll-target="#detachpackagepackage_name-unloadtrue"><span class="header-section-number">4.7.1</span> detach(“package:PACKAGE_NAME”, unload=TRUE)</a></li>
-  <li><a href="#remove.packagessome_package" id="toc-remove.packagessome_package" class="nav-link" data-scroll-target="#remove.packagessome_package"><span class="header-section-number">4.7.2</span> remove.packages(SOME_PACKAGE)</a></li>
+  <li><a href="#detachpackagepackage_name-unloadtrue" id="toc-detachpackagepackage_name-unloadtrue" class="nav-link" data-scroll-target="#detachpackagepackage_name-unloadtrue"><span class="header-section-number">6.7.1</span> detach(“package:PACKAGE_NAME”, unload=TRUE)</a></li>
+  <li><a href="#remove.packagessome_package" id="toc-remove.packagessome_package" class="nav-link" data-scroll-target="#remove.packagessome_package"><span class="header-section-number">6.7.2</span> remove.packages(SOME_PACKAGE)</a></li>
   </ul></li>
-  <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">4.8</span> vignettes</a></li>
-  <li><a href="#packages-from-other-sources" id="toc-packages-from-other-sources" class="nav-link" data-scroll-target="#packages-from-other-sources"><span class="header-section-number">4.9</span> Packages from other sources</a></li>
+  <li><a href="#vignettes" id="toc-vignettes" class="nav-link" data-scroll-target="#vignettes"><span class="header-section-number">6.8</span> vignettes</a></li>
+  <li><a href="#packages-from-other-sources" id="toc-packages-from-other-sources" class="nav-link" data-scroll-target="#packages-from-other-sources"><span class="header-section-number">6.9</span> Packages from other sources</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html">Intro to R packages</a></li><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html">Intro to R packages</a></li><li class="breadcrumb-item"><a href="./0000022-InstallingRPackages-v003.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Intro to R packages</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></h1>
 </div>
 
 
@@ -658,18 +699,18 @@ What is a string?
 <p>The word “string” is just another way of saying “character value”. The word “string” is popular in many programming languages and environments. R typically refers to these values as “character values”. However R is not always consistent and occasionally you will see references in the R documentation or function names and arguments that refer to “strings”.</p>
 </div>
 </div>
-<section id="what-is-cran" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="what-is-cran"><span class="header-section-number">4.1</span> What is CRAN?</h2>
+<section id="what-is-cran" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="what-is-cran"><span class="header-section-number">6.1</span> What is CRAN?</h2>
 <p>CRAN stands for the “Comprehensive R Archive Network”.</p>
 <p>R is free software that is supported by many different organizations. The official website for “R” is <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>. From this website you can download the “base R” software. This is also the official source of many things related to R. (<em>NOTE that information about RStudio is NOT found on this website.</em> <em>RStudio is a program created by a for-profit company, Posit.</em> <em>The RStudio software is built on top of “base R”. The official website</em> <em>for RStudio is <a href="https://posit.co/" class="uri">https://posit.co/</a></em>)</p>
 <p>The list of “officially recognized” R packages can be found here: <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html" class="uri">https://cran.r-project.org/web/packages/available_packages_by_name.html</a> From this page, you can get a lot more information about each of the different packages. To learn more about packages in general, click on the “packages” link located on this page <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>.</p>
 </section>
-<section id="what-is-a-cran-mirror" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="what-is-a-cran-mirror"><span class="header-section-number">4.2</span> What is a CRAN mirror?</h2>
+<section id="what-is-a-cran-mirror" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="what-is-a-cran-mirror"><span class="header-section-number">6.2</span> What is a CRAN mirror?</h2>
 <p>It can cost a lot of money to maintain a popular website. Since R is a free program, the costs for hosting the offical website are divided among many of the organizations that have an interest in seeing R succeed. (Many of these organizations are educational institutions located around the world). Each of these organizations hosts a complete repository of the “base R” software as well as all of the R packages. All of the repositories together are known as CRAN, i.e.&nbsp;the “Comprehensive R Archive Network”. Because the repositories hosted by each organization have identical contents, the repositories are also known as “CRAN mirrors”. Whenever you install an R package <em>(see install.packages below)</em>, the files for the package are downloaded from one of the CRAN mirror websites.</p>
 </section>
-<section id="install.packages-some_package" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="install.packages-some_package"><span class="header-section-number">4.3</span> install.packages( “SOME_PACKAGE” )</h2>
+<section id="install.packages-some_package" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="install.packages-some_package"><span class="header-section-number">6.3</span> install.packages( “SOME_PACKAGE” )</h2>
 <p>To use a package you must first “install” the package with the install.packages function. install.packages downloads the package files from one of the CRAN mirror websites and installs them on your computer.</p>
 <p>You only need to use install.packages on your computer once. After you’ve installed a package it will continue to be installed until you until you “remove” it from your computer with the function remove.packages().</p>
 <p>See an example of installing the stringr package below. Pay special attention the the #comments in the code.</p>
@@ -714,12 +755,12 @@ What is a string?
 <pre><code>package 'stringr' successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\yrosenth\AppData\Local\Temp\RtmpsJt5AD\downloaded_packages</code></pre>
+    C:\Users\yrosenth\AppData\Local\Temp\Rtmpy85Z08\downloaded_packages</code></pre>
 </div>
 </div>
 </section>
-<section id="help-for-the-package." class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="help-for-the-package."><span class="header-section-number">4.4</span> Help for the package.</h2>
+<section id="help-for-the-package." class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="help-for-the-package."><span class="header-section-number">6.4</span> Help for the package.</h2>
 <p>Once you’ve installed the package you can access the help pages for the package with the following command:</p>
 <blockquote class="blockquote">
 <p>help(package=“SOME_PACKAGE”)</p>
@@ -736,8 +777,8 @@ The downloaded binary packages are in
 <li>str_split</li>
 </ul>
 </section>
-<section id="using-a-package-without-loading-it." class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="using-a-package-without-loading-it."><span class="header-section-number">4.5</span> Using a package without “loading” it.</h2>
+<section id="using-a-package-without-loading-it." class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="using-a-package-without-loading-it."><span class="header-section-number">6.5</span> Using a package without “loading” it.</h2>
 <p>Below you will learn how to “load” a package using the library and require functions. This functions make it easier to use a package. However, even before you “load” a package, you can still use it by specifying<br>
 PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 <p>See the example below:</p>
@@ -773,10 +814,10 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 </div>
 </div>
 </section>
-<section id="loading-packages---library-or-require" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="loading-packages---library-or-require"><span class="header-section-number">4.6</span> loading packages - library() or require()</h2>
-<section id="librarysome_package" class="level3" data-number="4.6.1">
-<h3 data-number="4.6.1" class="anchored" data-anchor-id="librarysome_package"><span class="header-section-number">4.6.1</span> library(SOME_PACKAGE)</h3>
+<section id="loading-packages---library-or-require" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="loading-packages---library-or-require"><span class="header-section-number">6.6</span> loading packages - library() or require()</h2>
+<section id="librarysome_package" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="librarysome_package"><span class="header-section-number">6.6.1</span> library(SOME_PACKAGE)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the example above, to run the functions we used the syntax</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># PACKAGENAME::FUNCTIONNAME(), e.g. stringr::str_trunc( ARGUMENTS GO HERE )</span></span>
@@ -821,13 +862,13 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 </div>
 </div>
 </section>
-<section id="install.packages-vs-library" class="level3" data-number="4.6.2">
-<h3 data-number="4.6.2" class="anchored" data-anchor-id="install.packages-vs-library"><span class="header-section-number">4.6.2</span> install.packages vs library</h3>
+<section id="install.packages-vs-library" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="install.packages-vs-library"><span class="header-section-number">6.6.2</span> install.packages vs library</h3>
 <p>As we said above, you only need to call install.packages(SOME_PACKAGE) once. Even if you reboot your computer, the package will still be installed.</p>
 <p>However, you need to call library(SOME_PACKAGE) every time you restart R if you want to be able to use the functions in the package without specifying the package name every time you call a function.</p>
 </section>
-<section id="requiresome_package" class="level3" data-number="4.6.3">
-<h3 data-number="4.6.3" class="anchored" data-anchor-id="requiresome_package"><span class="header-section-number">4.6.3</span> require(SOME_PACKAGE)</h3>
+<section id="requiresome_package" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="requiresome_package"><span class="header-section-number">6.6.3</span> require(SOME_PACKAGE)</h3>
 <p>There is another function, <em>require(SOME_PACKAGE)</em>, that basically accomplishes the same thing as the <em>library(SOME_PACKAGE)</em> function (<em>the differences between library and require are explained below</em>). You may use either <em>library</em> or <em>require</em>. You never need to use both. For example, the commands below are an alternative to the commands shown above.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Just like with library, after calling require(stringr) you no longer</span></span>
@@ -842,12 +883,12 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># without specifying stringr::</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="calling-library-or-require-more-than-once-is-fine." class="level3" data-number="4.6.4">
-<h3 data-number="4.6.4" class="anchored" data-anchor-id="calling-library-or-require-more-than-once-is-fine."><span class="header-section-number">4.6.4</span> Calling library or require more than once is fine.</h3>
+<section id="calling-library-or-require-more-than-once-is-fine." class="level3" data-number="6.6.4">
+<h3 data-number="6.6.4" class="anchored" data-anchor-id="calling-library-or-require-more-than-once-is-fine."><span class="header-section-number">6.6.4</span> Calling library or require more than once is fine.</h3>
 <p>In case you were wondering, if you call library(SOME_PACKAGE) or require(SOME_PACKAGE) once and then call one of these functions again, nothing happens the 2nd time. No errors or warnings are generated.</p>
 </section>
-<section id="the-difference-between-library-and-require" class="level3" data-number="4.6.5">
-<h3 data-number="4.6.5" class="anchored" data-anchor-id="the-difference-between-library-and-require"><span class="header-section-number">4.6.5</span> The difference between library and require</h3>
+<section id="the-difference-between-library-and-require" class="level3" data-number="6.6.5">
+<h3 data-number="6.6.5" class="anchored" data-anchor-id="the-difference-between-library-and-require"><span class="header-section-number">6.6.5</span> The difference between library and require</h3>
 <p>The difference between <strong>library(SOME_PACKAGE)</strong> vs <strong>require(SOME_PACKAGE)</strong> is regarding the return value of library vs require.</p>
 <p>By default library and require do not display their return values - they have “invisible” return values. However, while the return values are not displayed, they do exist. To see an “invisible” return value you can either capture the return value in a variable. For example:</p>
 <div class="cell">
@@ -885,8 +926,8 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 </div>
 </div>
 </section>
-<section id="see-invisible-return-values-by-using-parentheses" class="level3" data-number="4.6.6">
-<h3 data-number="4.6.6" class="anchored" data-anchor-id="see-invisible-return-values-by-using-parentheses"><span class="header-section-number">4.6.6</span> See invisible return values by using (parentheses)</h3>
+<section id="see-invisible-return-values-by-using-parentheses" class="level3" data-number="6.6.6">
+<h3 data-number="6.6.6" class="anchored" data-anchor-id="see-invisible-return-values-by-using-parentheses"><span class="header-section-number">6.6.6</span> See invisible return values by using (parentheses)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note you can also see the "invisible" return values by simply</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># surrounding the function calls with (parentheses). For example</span></span>
@@ -905,8 +946,8 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 </div>
 </div>
 </section>
-<section id="installing-and-loading-the-package-in-one-line-of-code" class="level3" data-number="4.6.7">
-<h3 data-number="4.6.7" class="anchored" data-anchor-id="installing-and-loading-the-package-in-one-line-of-code"><span class="header-section-number">4.6.7</span> installing and loading the package in one line of code</h3>
+<section id="installing-and-loading-the-package-in-one-line-of-code" class="level3" data-number="6.6.7">
+<h3 data-number="6.6.7" class="anchored" data-anchor-id="installing-and-loading-the-package-in-one-line-of-code"><span class="header-section-number">6.6.7</span> installing and loading the package in one line of code</h3>
 <p>Some packages can take a while to install. Therefore you usually don’t want to install a package more than once. You can use the return value from require to write code that only installs the package if the call to require fails. For example</p>
 <p>Note that you can run several R commands in a single line by putting a semicolon between those commands. Similarly you can write a function on a single line. Therefore the following example shows how you can use a single line of code to install the package only if necessary and to then load the package. This type of code is very convenient to put at the top of .R files.</p>
 <div class="cell">
@@ -928,13 +969,13 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 </div>
 </section>
 </section>
-<section id="unloading-and-removing-packages" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="unloading-and-removing-packages"><span class="header-section-number">4.7</span> unloading and removing packages</h2>
+<section id="unloading-and-removing-packages" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="unloading-and-removing-packages"><span class="header-section-number">6.7</span> unloading and removing packages</h2>
 <p>It’s not usually necessary, but it is possible to unload packaes or remove packages entirely from your computer.</p>
 <p>You may want to unload a package (without uninstalling it) if the name of a function in the package is interfering with another package that has a function with the same name.</p>
 <p>You may want to uninstall a package to make room on your hard drive.</p>
-<section id="detachpackagepackage_name-unloadtrue" class="level3" data-number="4.7.1">
-<h3 data-number="4.7.1" class="anchored" data-anchor-id="detachpackagepackage_name-unloadtrue"><span class="header-section-number">4.7.1</span> detach(“package:PACKAGE_NAME”, unload=TRUE)</h3>
+<section id="detachpackagepackage_name-unloadtrue" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="detachpackagepackage_name-unloadtrue"><span class="header-section-number">6.7.1</span> detach(“package:PACKAGE_NAME”, unload=TRUE)</h3>
 <p>The “opposite” of libarary(SOME_PACKAGE) and require(SOME_PACKAGE) is detach(“package:PACKAGE_NAME”, unload=TRUE). See the documentation for more info : ?detach To call it you must specify the word “package” before the actual package name. See the example below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">###################################.</span></span>
@@ -987,8 +1028,8 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 </div>
 </div>
 </section>
-<section id="remove.packagessome_package" class="level3" data-number="4.7.2">
-<h3 data-number="4.7.2" class="anchored" data-anchor-id="remove.packagessome_package"><span class="header-section-number">4.7.2</span> remove.packages(SOME_PACKAGE)</h3>
+<section id="remove.packagessome_package" class="level3" data-number="6.7.2">
+<h3 data-number="6.7.2" class="anchored" data-anchor-id="remove.packagessome_package"><span class="header-section-number">6.7.2</span> remove.packages(SOME_PACKAGE)</h3>
 <p>The “opposite” of install.packages(SOME_PACKAGE) is remove.packages(SOME_PACKAGE) <em>NOT uninstall!</em> See the documentation for more info : ?remove.packages</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What is CRAN?</span></span>
@@ -997,8 +1038,8 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 </div>
 </section>
 </section>
-<section id="vignettes" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="vignettes"><span class="header-section-number">4.8</span> vignettes</h2>
+<section id="vignettes" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="vignettes"><span class="header-section-number">6.8</span> vignettes</h2>
 <p>Vignettes are tutorials on some of a package. These are often a good source of information. To see vignettes for a package that you haven’t installed, look at the “Vignettes” listing on its CRAN page.</p>
 <p>You can find the CRAN page for a package here and then search for “vignettes” on the page.</p>
 <blockquote class="blockquote">
@@ -1016,8 +1057,8 @@ PACKAGE_NAME::FUNCTION_NAME(ARGUMENTS,GO,HERE) when you call the function.</p>
 <p><a href="https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html" class="uri">https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html</a></p>
 </blockquote>
 </section>
-<section id="packages-from-other-sources" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="packages-from-other-sources"><span class="header-section-number">4.9</span> Packages from other sources</h2>
+<section id="packages-from-other-sources" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="packages-from-other-sources"><span class="header-section-number">6.9</span> Packages from other sources</h2>
 <p>R packages can be created by anyone and then be submitted to be hosted on CRAN. The official procedures for doing so can be found by reviewing the information here <a href="https://cran.r-project.org/submit.html" class="uri">https://cran.r-project.org/submit.html</a>. There are also books and other sources of information about how to create R packages and submit them to CRAN.</p>
 <p>However, a package doesn’t have to be on CRAN to be used. Many software developers create R packages that are distributed in other ways.</p>
 <p>github.com is a website that hosts code “repositories”. Software developers often post code on github.com that may be freely downloaded and installed. Often developers of R packages first make the package available on github before the package becomes available on CRAN. Sometimes the package never becomes available on CRAN. Often a package is hosted on both github and CRAN. Often github contains the “bleeding edge” version of<br>
@@ -1457,17 +1498,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro00130-chromeExtensions.html" class="pagination-link" aria-label="Chrome Extensions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chrome Extensions</span></span>
+      <a href="./aiCoding00100-overview.html" class="pagination-link" aria-label="<yrChapterNumber>5. </yrChapterNumber> Coding with AI - an overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><yrchapternumber>5. </yrchapternumber> Coding with AI - an overview</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0000017-introToQuarto-v001.html" class="pagination-link" aria-label="Intro to Quarto">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Intro to Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0000017-introToQuarto-v001.html" class="pagination-link" aria-label="<yrChapterNumber>7. </yrChapterNumber> Intro to Quarto">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>
+const titles = document.querySelectorAll('.title');
+
+titles.forEach(title => {
+  if (title.textContent.trim().startsWith('Appendix')) {
+    const chapterNumber = title.querySelector('yrChapterNumber');
+    if (chapterNumber) {
+      chapterNumber.classList.add('yrAppendixChapterNumber');
+    }
+  }
+});
+</script>
 
 
 
