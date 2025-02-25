@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -341,6 +375,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> Practice with Regular Expressions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> "Cleaning" data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -355,19 +395,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> How to run the Bash Shell</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> How to run the Bash Shell</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Working with the Bash Shell.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Working with the Bash Shell.</span></span></a>
   </div>
 </li>
       </ul>
@@ -384,13 +424,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0500100-a-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> dplyr - getting and viewing the data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> dplyr - getting and viewing the data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0500100-b-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> dplyr - select</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> dplyr verbs - select, filter, etc.</span></span></a>
   </div>
 </li>
       </ul>
@@ -407,7 +447,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> Intro to ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -424,7 +464,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> SQL Select</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> SQL Select</span></span></a>
   </div>
 </li>
       </ul>
@@ -441,67 +481,67 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Inner Joins.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Inner Joins.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> aggregate functions, group by, having</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> SQL "window" functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> SQL "window" functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Working directly with databases in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Working directly with databases in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> What is a Database?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
@@ -518,25 +558,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> How a webpage gets to your browser</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Web Scraping with R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Web Scraping with R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> CSS Selector Questions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> CSS Selector Questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -544,29 +584,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
- <span class="menu-text">Questions</span></a>
+ <span class="menu-text">Appendices</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> "Cleaning" data</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
@@ -610,16 +633,21 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#jsonlite-vignettes" id="toc-jsonlite-vignettes" class="nav-link active" data-scroll-target="#jsonlite-vignettes"><span class="header-section-number">16.1</span> jsonlite vignettes</a></li>
-  <li><a href="#tojson---create-json-from-an-r-object" id="toc-tojson---create-json-from-an-r-object" class="nav-link" data-scroll-target="#tojson---create-json-from-an-r-object"><span class="header-section-number">16.2</span> toJSON - create JSON from an R object</a>
+  <li><a href="#summary-of-above" id="toc-summary-of-above" class="nav-link" data-scroll-target="#summary-of-above"><span class="header-section-number">16.2</span> Summary of above</a></li>
+  <li><a href="#working-with-json-in-r-using-jsonlite" id="toc-working-with-json-in-r-using-jsonlite" class="nav-link" data-scroll-target="#working-with-json-in-r-using-jsonlite"><span class="header-section-number">16.3</span> Working with JSON in R using jsonlite</a></li>
+  <li><a href="#tojson---convert-r-objects-to-json-text" id="toc-tojson---convert-r-objects-to-json-text" class="nav-link" data-scroll-target="#tojson---convert-r-objects-to-json-text"><span class="header-section-number">16.4</span> toJSON() - Convert R objects to JSON text</a>
   <ul class="collapse">
-  <li><a href="#pretty-argument-and-prettify-function" id="toc-pretty-argument-and-prettify-function" class="nav-link" data-scroll-target="#pretty-argument-and-prettify-function"><span class="header-section-number">16.2.1</span> pretty argument and prettify function</a></li>
-  <li><a href="#use-writelines-to-write-the-json-to-a-file" id="toc-use-writelines-to-write-the-json-to-a-file" class="nav-link" data-scroll-target="#use-writelines-to-write-the-json-to-a-file"><span class="header-section-number">16.2.2</span> use writeLines to write the JSON to a file</a></li>
-  <li><a href="#tojsonsome_r_object-auto_unboxtrue" id="toc-tojsonsome_r_object-auto_unboxtrue" class="nav-link" data-scroll-target="#tojsonsome_r_object-auto_unboxtrue"><span class="header-section-number">16.2.3</span> toJSON(SOME_R_OBJECT , auto_unbox=TRUE)</a></li>
+  <li><a href="#tojson-prettytrue" id="toc-tojson-prettytrue" class="nav-link" data-scroll-target="#tojson-prettytrue"><span class="header-section-number">16.4.1</span> toJSON( … pretty=TRUE …)</a></li>
+  <li><a href="#prettify-minify" id="toc-prettify-minify" class="nav-link" data-scroll-target="#prettify-minify"><span class="header-section-number">16.4.2</span> prettify() , minify()</a></li>
+  <li><a href="#tojson---how-r-objects-are-converted-into-json" id="toc-tojson---how-r-objects-are-converted-into-json" class="nav-link" data-scroll-target="#tojson---how-r-objects-are-converted-into-json"><span class="header-section-number">16.4.3</span> toJSON() - How R objects are converted into JSON</a></li>
   </ul></li>
-  <li><a href="#fromjson---create-an-r-object-from-json" id="toc-fromjson---create-an-r-object-from-json" class="nav-link" data-scroll-target="#fromjson---create-an-r-object-from-json"><span class="header-section-number">16.3</span> fromJSON - create an R object from JSON</a></li>
-  <li><a href="#working-with-nested-dataframes" id="toc-working-with-nested-dataframes" class="nav-link" data-scroll-target="#working-with-nested-dataframes"><span class="header-section-number">16.4</span> Working with nested dataframes</a>
+  <li><a href="#fromjson---convert-json-text-into-r-objects" id="toc-fromjson---convert-json-text-into-r-objects" class="nav-link" data-scroll-target="#fromjson---convert-json-text-into-r-objects"><span class="header-section-number">16.5</span> fromJSON() - Convert JSON text into R objects</a>
   <ul class="collapse">
-  <li><a href="#tidyr---unnest-expand-crossing-nesting-todo-get-exmaples-from-llms" id="toc-tidyr---unnest-expand-crossing-nesting-todo-get-exmaples-from-llms" class="nav-link" data-scroll-target="#tidyr---unnest-expand-crossing-nesting-todo-get-exmaples-from-llms"><span class="header-section-number">16.4.1</span> tidyr - unnest , expand , crossing , nesting (TODO get exmaples from LLMs)</a></li>
+  <li><a href="#fromjson---the-json-can-come-from-a-character-vector-a-file-or-an-api" id="toc-fromjson---the-json-can-come-from-a-character-vector-a-file-or-an-api" class="nav-link" data-scroll-target="#fromjson---the-json-can-come-from-a-character-vector-a-file-or-an-api"><span class="header-section-number">16.5.1</span> fromJSON() - The JSON can come from a character vector, a file, or an API</a></li>
+  <li><a href="#fromjson---how-the-json-is-converted-to-an-r-object." id="toc-fromjson---how-the-json-is-converted-to-an-r-object." class="nav-link" data-scroll-target="#fromjson---how-the-json-is-converted-to-an-r-object."><span class="header-section-number">16.5.2</span> fromJSON() - How the JSON is converted to an R object.</a></li>
+  <li><a href="#fromjson-simplifyvector-simplifydataframe-simplifymatrix" id="toc-fromjson-simplifyvector-simplifydataframe-simplifymatrix" class="nav-link" data-scroll-target="#fromjson-simplifyvector-simplifydataframe-simplifymatrix"><span class="header-section-number">16.5.3</span> fromJSON( … simplifyVector, simplifyDataFrame, simplifyMatrix …)</a></li>
+  <li><a href="#working-with-nested-data-frames" id="toc-working-with-nested-data-frames" class="nav-link" data-scroll-target="#working-with-nested-data-frames"><span class="header-section-number">16.5.4</span> Working with Nested Data Frames</a></li>
+  <li><a href="#three-dimensional-3d-arrays" id="toc-three-dimensional-3d-arrays" class="nav-link" data-scroll-target="#three-dimensional-3d-arrays"><span class="header-section-number">16.5.5</span> three dimensional (3d) arrays</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -663,29 +691,1113 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://cran.r-project.org/web/packages/jsonlite/vignettes/json-mapping.pdf">A mapping between JSON data and R objects <em>(March 2014)</em></a></p></li>
 <li><p>There are some other vignettes on the CRAN page, but you probably don’t need to look at them.</p></li>
 </ul>
+<!--
+
+## toJSON - create JSON from an R object
+
+### pretty argument and prettify function
+
+### use writeLines to write the JSON to a file
+
+### toJSON(SOME_R_OBJECT , auto_unbox=TRUE)
+
+#### readLines and writeLines
+
+
+## fromJSON - create an R object from JSON
+
+
+## Working with nested dataframes
+
+### tidyr - unnest , expand , crossing , nesting (TODO get exmaples from LLMs)
+
+-->
 </section>
-<section id="tojson---create-json-from-an-r-object" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="tojson---create-json-from-an-r-object"><span class="header-section-number">16.2</span> toJSON - create JSON from an R object</h2>
-<section id="pretty-argument-and-prettify-function" class="level3" data-number="16.2.1">
-<h3 data-number="16.2.1" class="anchored" data-anchor-id="pretty-argument-and-prettify-function"><span class="header-section-number">16.2.1</span> pretty argument and prettify function</h3>
+<section id="summary-of-above" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="summary-of-above"><span class="header-section-number">16.2</span> Summary of above</h2>
+<p>The above vignettes are great for understanding this material. Below I present some of my own material, however, reading the vignettes linked above is just as good (or maybe better) than reading my material.</p>
+<!-- This was created with claude.ai
+URL: https://claude.ai/chat/dc928f19-5a27-48fa-8690-efac36c52d48
+TOPIC: Qarto about jsonlite and nested dataframes
+
+
+TODO - 
+
+* check over this file
+
+* Create new .qmd file with json questions
+
+  - claude:
+    URL: https://claude.ai/chat/5b6736d2-6645-4b82-ad54-b00d73dab00b 
+    TOPIC: Mastering JSON Data Extraction with R's jsonlite
+
+* .qmd file - working with files:
+
+  - review this whole file - some issues are listed below
+
+  - mistake with exmaple of dir() shows contents of wrong folder
+    fix this.
+    
+  - writeup relative paths
+  - pattern argument to dir function
+  - fs package
+    * dir_ls
+    * 
+  
+* 3d arrays - point to content in rnotes book  
+
+* data cleaning assignment 
+
+  - claude
+    URL: https://claude.ai/chat/917af685-f786-4ea9-a220-69f95aa43aac
+    TOPIC: Data Cleaning Assignment Using Regex Functions in R
+
+TO DO AFTER TEST
+
+* add content about readLines and writeLines 
+  see claude
+  URL: https://claude.ai/chat/7699b9f4-b790-4414-aef9-7e5356ff9c37
+  TOPIC: reading and writing text files in r
+  
+  - explain what a text file is
+  - explain about encoding
+-->
 </section>
-<section id="use-writelines-to-write-the-json-to-a-file" class="level3" data-number="16.2.2">
-<h3 data-number="16.2.2" class="anchored" data-anchor-id="use-writelines-to-write-the-json-to-a-file"><span class="header-section-number">16.2.2</span> use writeLines to write the JSON to a file</h3>
+<section id="working-with-json-in-r-using-jsonlite" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="working-with-json-in-r-using-jsonlite"><span class="header-section-number">16.3</span> Working with JSON in R using jsonlite</h2>
+<p>Using R to read/write JSON files and process their contents comes down to knowing how to do the following</p>
+<ul>
+<li><p>read/write JSON text to/from R vectors using the baseR functions readLines() and writeLines()</p></li>
+<li><p>convert between JSON text and R objects (lists, dataframes, matrices, arrays, etc) using the fromJSON() and toJSON() functions from the jsonlite package</p></li>
+<li><p>knowing how to navigate the R objects that were created from the JSON to retrieve the data you want. This is just standard R knowledge about how to navigate R objects.</p></li>
+</ul>
+<p>These topics are covered below.</p>
+<p>To use the toJSON or fromJSON functions we will need to use the jsonlite package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(jsonlite)){<span class="fu">install.packages</span>(<span class="st">"jsonlite"</span>);<span class="fu">require</span>(jsonelite);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: jsonlite</code></pre>
+</div>
+</div>
+<p>The <code>jsonlite</code> package in R provides numerous functions for working with JSON. We will discuss the following functions below:</p>
+<ul>
+<li><p><code>toJSON()</code>: Convert R objects into a JSON format character vector (You can then write this vector to a file using writeLines() - see above)</p></li>
+<li><p><code>fromJSON()</code>: Convert JSON data into R objects</p></li>
+<li><p><code>prettify()</code> : Format the JSON text on different lines and indent the text in a readable way</p></li>
+<li><p><code>minify()</code> : Convert JSON text to a single line and remove all extra spaces and tabs</p></li>
+</ul>
 </section>
-<section id="tojsonsome_r_object-auto_unboxtrue" class="level3" data-number="16.2.3">
-<h3 data-number="16.2.3" class="anchored" data-anchor-id="tojsonsome_r_object-auto_unboxtrue"><span class="header-section-number">16.2.3</span> toJSON(SOME_R_OBJECT , auto_unbox=TRUE)</h3>
-<section id="readlines-and-writelines" class="level4">
-<h4 class="anchored" data-anchor-id="readlines-and-writelines">readLines and writeLines</h4>
+<section id="tojson---convert-r-objects-to-json-text" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="tojson---convert-r-objects-to-json-text"><span class="header-section-number">16.4</span> toJSON() - Convert R objects to JSON text</h2>
+<p>Any R object (e.g.&nbsp;vector, list, dataframe, etc) can be converted to JSON text and written to a JSON file. The steps are:</p>
+<ol type="1">
+<li><p>Convert the R object to JSON text :</p>
+<p><code>jsonText = jsonlite::toJSON( SOME_R_OBJECT )</code></p></li>
+<li><p>Write the JSON text to a file :</p>
+<p><code>writeLines(jsonText, filename)</code></p></li>
+</ol>
+<p><strong>Example</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a dataframe</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">student =</span> <span class="fu">c</span>(<span class="st">"joe"</span>, <span class="st">"sue"</span>, <span class="st">"anne"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">honors =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">test1 =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="dv">80</span>,<span class="dv">90</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">test2 =</span> <span class="fu">c</span>(<span class="dv">75</span>,<span class="dv">85</span>,<span class="dv">95</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  student honors test1 test2
+1     joe  FALSE    NA    75
+2     sue  FALSE    80    85
+3    anne   TRUE    90    95</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert the dataframe to JSON text</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>json <span class="ot">=</span> <span class="fu">toJSON</span>(df, <span class="at">pretty=</span><span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[
+  {
+    "student": "joe",
+    "honors": false,
+    "test2": 75
+  },
+  {
+    "student": "sue",
+    "honors": false,
+    "test1": 80,
+    "test2": 85
+  },
+  {
+    "student": "anne",
+    "honors": true,
+    "test1": 90,
+    "test2": 95
+  }
+] </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new directory (i.e. folder) to contain the json files.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (We create a folder to contain the file. The folder isn't necessary but</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># in general, it's a good idea to organize your files into folders that make sense.)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"jsonFiles"</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">showWarnings=</span><span class="cn">FALSE</span>) <span class="co"># don't warn us if the folder already exists</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a file that contains the JSON data</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(json, <span class="st">"jsonFiles/sampleJsonFile.json"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Use dir() to see that the file has been created.</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"jsonFiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "sampleJsonFile.json"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can see the text of the file by reading the lines of </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the file into a character vector with the BaseR readLines() function.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lines <span class="ot">=</span> <span class="fu">readLines</span>(<span class="st">"jsonFiles/sampleJsonFile.json"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># A character vector - each entry is one line from the file.</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This can be very hard to read.</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>lines</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "["                          "  {"                       
+ [3] "    \"student\": \"joe\","  "    \"honors\": false,"    
+ [5] "    \"test2\": 75"          "  },"                      
+ [7] "  {"                        "    \"student\": \"sue\"," 
+ [9] "    \"honors\": false,"     "    \"test1\": 80,"        
+[11] "    \"test2\": 85"          "  },"                      
+[13] "  {"                        "    \"student\": \"anne\","
+[15] "    \"honors\": true,"      "    \"test1\": 90,"        
+[17] "    \"test2\": 95"          "  }"                       
+[19] "]"                         </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is much easier to read the data with cat</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(lines, <span class="at">sep=</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[
+  {
+    "student": "joe",
+    "honors": false,
+    "test2": 75
+  },
+  {
+    "student": "sue",
+    "honors": false,
+    "test1": 80,
+    "test2": 85
+  },
+  {
+    "student": "anne",
+    "honors": true,
+    "test1": 90,
+    "test2": 95
+  }
+]</code></pre>
+</div>
+</div>
+<!--
+- read/write JSON text to/from R vectors
+
+  * readLines() from Base-R is used to read JSON text from a file into
+    an R character vector
+  
+  * writeLines() from Base-R is used to write a character vector containing
+    JSON text into a file
+
+- convert between JSON text and R objects (lists, dataframes, matrices, arrays, etc)
+
+  * fromJSON() from the jsonlite package is used to convert JSON text from 
+    a character vector into R objects (e.g. lists, dataframes, etc) 
+    
+  * toJSON() (from jsonlite) is used to convert R objects into JSON text.
+
+- knowing how to navigate the R objects that were created from the JSON
+  to retrieve the data you want (This is basically standard R knowledge
+  about how to navigate R objects.)
+-->
+<!--
+## read/write JSON text to/from R vectors (readLines() / writeLines())
+
+-->
+<!--
+## Writing JSON to a text file
+
+JSON in its raw form is just plain text. 
+JSON files are simply text files. We can create a JSON text file
+by writing out the contents of an R character vector that contains
+JSON text to a file by using the writeLines() baseR function.
+
+**Example:**
+
+Create an R variable that contains the JSON text. 
+(The example uses a single character value that contains the entire
+JSON. We could just as well have created a character vector that contains a new 
+character value for each line of the JSON file.)
+
+```
+# Create a character value that contains JSON.
+#
+# We can write a single character value that spans multiple lines
+# using a single set of surrounding 'single quotes'
+
+jsonData = '
+    {
+      "name": "Math 101",
+      "students": ["Alice", "Bob", "Charlie"]
+    }'
+
+# The data will contain \n's, but that's fine.
+jsonData
+  
+# We can use cat to see the contents without the \n's
+cat(jsonData)
+```
+
+Write the data to a file using the writeLines function.
+(We create a folder to contain the file. The folder isn't necessary but
+in general, it's a good idea to organize your files into folders that make sense.)
+
+```
+# Create a new directory (i.e. folder) to contain the json files.
+dir.create("jsonFiles", 
+           showWarnings=FALSE) # don't warn us if the folder already exists
+
+# Create a file that contains the JSON data
+writeLines(jsonData, "jsonFiles/sampleJsonFile.json")
+
+# Use dir() to see that the file has been created.
+dir("jsonFiles")
+```
+
+-->
+<section id="tojson-prettytrue" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="tojson-prettytrue"><span class="header-section-number">16.4.1</span> toJSON( … pretty=TRUE …)</h3>
+<p>Note that toJSON call above included the argument “pretty=TRUE”. This formats the JSON with easy to read indentation.</p>
+<p>By contrast, if you leave out “pretty=TRUE” (or if you specify pretty=FALSE) the JSON is created in “minified” format - i.e.&nbsp;all in one line without any extra “whitespace” (no extra spaces, tabs or newline characters), as shown below. The minified version is easy for computers to read and takes up less space. The “pretty” version is appropriate when you want people to read and understand the JSON.</p>
+<p>There are also standalone functions prettify() and minify() that convert JSON text - see the next section.</p>
+</section>
+<section id="prettify-minify" class="level3" data-number="16.4.2">
+<h3 data-number="16.4.2" class="anchored" data-anchor-id="prettify-minify"><span class="header-section-number">16.4.2</span> prettify() , minify()</h3>
+<p>The jsonlite package also provides standalone functions for formatting JSON text.</p>
+<ul>
+<li><p><code>jsonlite::prettify()</code> formats JSON text on different lines and indents the text in a readable way.</p></li>
+<li><p><code>jsonlite::minify()</code> removes all extra “whitespace” from JSON text. In other words, it converts JSON text to a single line and removes all extra spaces and tabs.</p></li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a compact JSON string</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>json_string <span class="ot">&lt;-</span> <span class="st">'{"name":"Alice","age":25,"hobbies":["reading","hiking"]}'</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make it pretty</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">prettify</span>(json_string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{
+    "name": "Alice",
+    "age": 25,
+    "hobbies": [
+        "reading",
+        "hiking"
+    ]
+}
+ </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make it compact</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">minify</span>(<span class="fu">prettify</span>(json_string))  <span class="co"># Converting pretty JSON back to compact form</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{"name":"Alice","age":25,"hobbies":["reading","hiking"]} </code></pre>
+</div>
+</div>
+</section>
+<section id="tojson---how-r-objects-are-converted-into-json" class="level3" data-number="16.4.3">
+<h3 data-number="16.4.3" class="anchored" data-anchor-id="tojson---how-r-objects-are-converted-into-json"><span class="header-section-number">16.4.3</span> toJSON() - How R objects are converted into JSON</h3>
+<p>The information below reflects the default approach that toJSON() uses in converting R data into JSON. However, toJSON() takes numerous arguments that can be used to adjust exactly what form the resulting JSON takes. For more info see the R help <code>?toJSON</code></p>
+<ul>
+<li><p>R vectors are converted into JSON arrays</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>nums <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">toJSON</span>(nums, <span class="at">pretty=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[10, 20, 30] </code></pre>
+</div>
+</div></li>
+<li><p>R dataframes are converted into a JSON array of JSON classes. Each class represents a row of the dataframe and contains a “name”:value pair for each value in the row. If a row contains NA in a column, the resulting JSON class will be missing the “name”:value pair that corresponds to that column (for an example of NA, see Joe’s grade for test1 in the example below)</p>
+<p><strong>Example:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">student =</span> <span class="fu">c</span>(<span class="st">"joe"</span>, <span class="st">"sue"</span>, <span class="st">"anne"</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">honors =</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">test1 =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="dv">80</span>,<span class="dv">90</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">test2 =</span> <span class="fu">c</span>(<span class="dv">75</span>,<span class="dv">85</span>,<span class="dv">95</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">toJSON</span>(df, <span class="at">pretty=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[
+  {
+    "student": "joe",
+    "honors": false,
+    "test2": 75
+  },
+  {
+    "student": "sue",
+    "honors": false,
+    "test1": 80,
+    "test2": 85
+  },
+  {
+    "student": "anne",
+    "honors": true,
+    "test1": 90,
+    "test2": 95
+  }
+] </code></pre>
+</div>
+</div></li>
+<li><p>R matrices are converted into a JSON array of JSON arrays</p>
+<p><strong>Example</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">10</span>,<span class="dv">120</span>,<span class="at">by=</span><span class="dv">10</span>), <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]   10   40   70  100
+[2,]   20   50   80  110
+[3,]   30   60   90  120</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">toJSON</span>(mat, <span class="at">pretty=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[
+  [10, 40, 70, 100],
+  [20, 50, 80, 110],
+  [30, 60, 90, 120]
+] </code></pre>
+</div>
+</div></li>
+</ul>
+<!-- YRTODO - FINISH THIS PART
+
+- R "3 dimensional arrays" are converted into JSON arrays of
+  JSON arrays of JSON arrays. 
+  
+  **Example**
+  
+
+
+
+
+
+
+
+  ::: {.cell}
+  
+  ```{.r .cell-code}
+  my_array <- array(1:24, dim = c(2, 3, 4))
+  my_array
+  ```
+  
+  ::: {.cell-output .cell-output-stdout}
+  
+  ```
+  , , 1
+  
+       [,1] [,2] [,3]
+  [1,]    1    3    5
+  [2,]    2    4    6
+  
+  , , 2
+  
+       [,1] [,2] [,3]
+  [1,]    7    9   11
+  [2,]    8   10   12
+  
+  , , 3
+  
+       [,1] [,2] [,3]
+  [1,]   13   15   17
+  [2,]   14   16   18
+  
+  , , 4
+  
+       [,1] [,2] [,3]
+  [1,]   19   21   23
+  [2,]   20   22   24
+  ```
+  
+  
+  :::
+  
+  ```{.r .cell-code}
+  toJSON(my_array, pretty=TRUE)
+  ```
+  
+  ::: {.cell-output .cell-output-stdout}
+  
+  ```
+  [
+    [
+      [1, 7, 13, 19],
+      [3, 9, 15, 21],
+      [5, 11, 17, 23]
+    ],
+    [
+      [2, 8, 14, 20],
+      [4, 10, 16, 22],
+      [6, 12, 18, 24]
+    ]
+  ] 
+  ```
+  
+  
+  :::
+  :::
+
+
+
+
+
+
+
+-->
+<ul>
+<li><p>R lists whose values have names are converted into JSON classes.</p>
+<p><strong>Example</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># named lists</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>namedList <span class="ot">=</span> <span class="fu">list</span>( <span class="at">first=</span><span class="st">"joe"</span>, <span class="at">middle=</span><span class="cn">NA</span>, <span class="at">last=</span><span class="st">"jones"</span>, <span class="at">gpa=</span><span class="fl">3.5</span>, <span class="at">honors=</span><span class="cn">FALSE</span> )</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">toJSON</span>(namedList, <span class="at">pretty=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{
+  "first": ["joe"],
+  "middle": [null],
+  "last": ["jones"],
+  "gpa": [3.5],
+  "honors": [false]
+} </code></pre>
+</div>
+</div></li>
+</ul>
+<!--  
+  R lists whose values do NOT have names are converted into JSON arrays.
+  
+  
+  ```
+  # unnamed lists
+  
+  unnamedList = list("abc", TRUE, 100, NA)
+  
+  unnamedList 
+  
+  toJSON(unnamedList, pretty=TRUE)
+
+  ```
+-->
 </section>
 </section>
+<section id="fromjson---convert-json-text-into-r-objects" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="fromjson---convert-json-text-into-r-objects"><span class="header-section-number">16.5</span> fromJSON() - Convert JSON text into R objects</h2>
+<p>Often we start with JSON text - either from a JSON file or JSON data that is returned from a call to a Web API - and we want to convert the JSON into R objects (lists, dataframes, etc) so that we can work with the data in R.</p>
+<p>We can use the fromJSON() function to convert JSON text into an R object. fromJSON() can accept (a) a filename that contains JSON text (b) a Web API URL that returns JSON text or (c) a character vector that contains JSON text. fromJSON() returns an R object (e.g.&nbsp; list, dataframe, matrix, etc) that can be manipulated with R code to get at the exact data you want.</p>
+<p>After converting the JSON text to an R object, it is helpful to use the str() or View() functions to see the structure of the R object so that you can figure out how to access the specific data you want.</p>
+<p><strong>Example</strong>:</p>
+<p>We use fromJSON() to read the file that we created above from the dataframe and get an R object that contains the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">fromJSON</span>(<span class="st">"jsonFiles/sampleJsonFile.json"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  student honors test2 test1
+1     joe  FALSE    75    NA
+2     sue  FALSE    85    80
+3    anne   TRUE    95    90</code></pre>
+</div>
+</div>
+<p>In this case it’s easy to understand that fromJSON() returns a dataframe since we know that we had originally created this JSON from an R dataframe. However, when reading complex JSON files, it can be helpfult to use the str() or View() functions to view the structure of the data so that you can understand how to retrieve the specific data that you want.</p>
+<!--
+
+## Reading JSON from a text file into a character vector
+
+The readLines() function in baseR reads the contents of a text file into
+an R character vector. Each line in the file becomes an entry in 
+the character vector. (This works for JSON files or any other type of text file.)
+To do so, call: 
+
+```
+       SOME_CHARACTER_VECTOR = readLines( SOME_FILENAME )
+```
+
+To demonstrate we use readLines() to read the data from the JSON file we 
+created above into a new variable. 
+
+```
+# Read the json data from the file into an R character vector
+jsonDataReadIn = readLines("jsonFiles/sampleJsonFile.json")
+
+# The vector contains one character entry for each line of the file
+jsonDataReadIn
+
+# Use cat to display the JSON in a more readable way
+cat(jsonDataReadIn, sep='\n')
+```
+-->
+<!--
+If an R character vector contains JSON text, the JSON can be written out to a
+JSON file by calling `writeLines( SOME_VECTOR , SOME_FILENAME )`.
+
+To read the exact text from a text file into an R character vector, 
+simply call `vectorName = readLines( SOME_FILENAME )` That crates a 
+character vector that contains a separate value for each line from 
+the file. 
+-->
+<!--
+## jsonlite::toJSON() - convert R Objects (e.g. vectors, dataframes, lists, etc) to JSON
+
+The `toJSON()` function converts R objects (vectors, lists, data frames) into 
+JSON text.
+
+```
+library(jsonlite)
+
+# Create a nested list
+people <- list(
+  list(
+    name = "Alice",
+    age = 25,
+    hobbies = c("reading", "hiking")
+  ),
+  list(
+    name = "Joe",
+    age = 31,
+    hobbies = c("video games", "cooking")
+  )
+)
+
+# Convert to JSON text
+jsonData = toJSON(people, pretty=TRUE)
+jsonData
+```
+
+The value that is returned from toJSON has a class of "json". 
+However, "under the covers" it is simply a single character value
+whose class attribute is "json".
+You can write this data to a file 
+by calling writeLines(jsonData) (as described above).
+
+```
+# The jsonData variable was created above
+jsonData
+
+# toJSON returns a value with a class of "json"
+class(jsonData)
+
+# If we "unclass" this data we can see it is simply a 
+# character vector of length 1 that contains the 
+# text of the JSON.
+class(unclass(jsonData))
+length(unclass(jsonData))
+
+# You can write the jsonData to a file
+writeLines(jsonData, "exampleJsonData.json")
+```
+
+-->
+<!--
+
+## fromJSON() - convert JSON to R Objects
+
+Use the `fromJSON()` function to convert JSON to an R object. 
+Different types of R objects (e.g. lists, vectors, data.frames, matrices)
+can be created depending on how the JSON is structured (see details
+in the sections below).
+
+```
+# Convert JSON to an R object.
+# (Notice the 'single quotes' around the entire text. These are 
+#  necessary since the JSON itself contains "double quotes".)
+json_text <- '{"name": "Alice", "age": 25}'
+rData = fromJSON(json_text)
+rData
+
+# see the structure of the R object
+str(rData)
+```
+
+-->
+<section id="fromjson---the-json-can-come-from-a-character-vector-a-file-or-an-api" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="fromjson---the-json-can-come-from-a-character-vector-a-file-or-an-api"><span class="header-section-number">16.5.1</span> fromJSON() - The JSON can come from a character vector, a file, or an API</h3>
+<p>The <code>fromJSON()</code> function can accept JSON data from any of the following sources:</p>
+<ol type="1">
+<li><p>From a character vector that contains JSON text. The vector might consist only of a single character value that contains the full JSON text<br>
+(see the example above). The vector can also contain the JSON split up into multiple character values (e.g.&nbsp;one line of JSON per character value) The JSON is treated as the concatenation of all the character values. (see this example)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JSON as a character string</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>json_text <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'{'</span>, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">'  "name": "Alice",'</span>, </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">'  "age": 25'</span>, </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">'}'</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>rData <span class="ot">=</span> <span class="fu">fromJSON</span>(json_text)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>rData</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$name
+[1] "Alice"
+
+$age
+[1] 25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># see the structure of the R object</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 2
+ $ name: chr "Alice"
+ $ age : int 25</code></pre>
+</div>
+</div></li>
+<li><p>From a JSON file</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming you have a file named 'data.json'</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fromJSON("data.json")  # Commented out as file doesn't exist</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>From a Web API URL</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a public API</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fromJSON("https://api.example.com/data")  # Commented out as URL doesn't exist</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
 </section>
-<section id="fromjson---create-an-r-object-from-json" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="fromjson---create-an-r-object-from-json"><span class="header-section-number">16.3</span> fromJSON - create an R object from JSON</h2>
+<section id="fromjson---how-the-json-is-converted-to-an-r-object." class="level3" data-number="16.5.2">
+<h3 data-number="16.5.2" class="anchored" data-anchor-id="fromjson---how-the-json-is-converted-to-an-r-object."><span class="header-section-number">16.5.2</span> fromJSON() - How the JSON is converted to an R object.</h3>
+<p>The general rule is as follows:</p>
+<p>The fromJSON function has a few “simplifyXXX” arguments (see below). The default is that all “simplifyXXX” arguments are set to TRUE. When that is the case then the fromJSON function usually operates in a way that is the opposite to the toJSON function. If toJSON converts a particular type of R object into a particular type of JSON, then fromJSON will convert that type of JSON into the correponding type of R object. See the discussion of the toJSON function above for details.</p>
+<p>This is usually enough to understand what’s going on. To get specific data from the R object, it helps a lot to understand the structure of the object by using the str() or View() functions.</p>
+<p>The following goes into more detail, but you really don’t have to study this too deeply. In general, looking at the str() function and navigating through the data using your knowledge of R is usually enough.</p>
+<p><strong>More details</strong></p>
+<ol type="1">
+<li><p>Usually JSON consists of a JSON class or a JSON array. However, a single number, character value, true/false or null is also valid JSON. In the unusual case that the JSON consists of just one number, character value or logical value then the corresponding R object is just a single R numeric, logical or character value. For exmaple:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a single numeric value, not a list</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(<span class="st">'42'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a single character value, not a list</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(<span class="st">'"apple"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apple"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a single TRUE value, not a list</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(<span class="st">'true'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Similarly, if the JSON consists of a single <code>null</code> value then the<br>
+result is a single NULL value in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a single NULL value, not a list</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(<span class="st">'null'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div></li>
+<li><p>If the JSON consists of <code>["a","JSON","array"]</code> or a <code>{"JSON": "class"}</code>, then the type of R object that is created depends on the values of the structure of the JSON and on the values of the three “simplify” arguments to the fromJSON function (see the next section)</p></li>
+</ol>
 </section>
-<section id="working-with-nested-dataframes" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="working-with-nested-dataframes"><span class="header-section-number">16.4</span> Working with nested dataframes</h2>
-<section id="tidyr---unnest-expand-crossing-nesting-todo-get-exmaples-from-llms" class="level3" data-number="16.4.1">
-<h3 data-number="16.4.1" class="anchored" data-anchor-id="tidyr---unnest-expand-crossing-nesting-todo-get-exmaples-from-llms"><span class="header-section-number">16.4.1</span> tidyr - unnest , expand , crossing , nesting (TODO get exmaples from LLMs)</h3>
+<section id="fromjson-simplifyvector-simplifydataframe-simplifymatrix" class="level3" data-number="16.5.3">
+<h3 data-number="16.5.3" class="anchored" data-anchor-id="fromjson-simplifyvector-simplifydataframe-simplifymatrix"><span class="header-section-number">16.5.3</span> fromJSON( … simplifyVector, simplifyDataFrame, simplifyMatrix …)</h3>
+<p>The help for <code>fromJSON()</code> shows the arguments and their default values:</p>
+<pre><code>```
+fromJSON(
+  txt,
+  simplifyVector = TRUE,
+  simplifyDataFrame = simplifyVector,
+  simplifyMatrix = simplifyVector,
+  flatten = FALSE,
+  ...
+)
+```</code></pre>
+<p>The arguments simplifyVector, simplifyDataFrame and simplifyMatrix control how the R object is created when the JSON consists of a JSON array or a JSON class.</p>
+<p>By default all values are TRUE. Notice that by default, the value for simplifyDataframe and simplifyMatrix are set to the same value as is supplied for simplifyVector. Therefore to set all the values to FALSE, you can simply pass as single FALSE value.</p>
+<p>If all of these values are FALSE, the function will returns an R list. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a list</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">fromJSON</span>(<span class="st">'{"a": 1}'</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$a
+[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 1
+ $ a: int 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a list</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">fromJSON</span>(<span class="st">'[1, 2, 3]'</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 1
+
+[[2]]
+[1] 2
+
+[[3]]
+[1] 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 3
+ $ : int 1
+ $ : int 2
+ $ : int 3</code></pre>
+</div>
+</div>
+<p>When the simplifyVector, simplifyDataFrame or simplifyMatrix arguements are TRUE, then the R object being returned might be a vector, dataframe, matrix or list (depending on the structure of the JSON).</p>
+<section id="fromjson---simplifyvector" class="level4">
+<h4 class="anchored" data-anchor-id="fromjson---simplifyvector">fromJSON() - simplifyVector</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JSON array example</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>json_array <span class="ot">&lt;-</span> <span class="st">'["a", "b", "c"]'</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Default behavior (simplifyVector = TRUE) - you get an R vector</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "b" "c"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without simplification (simplifyVector = FALSE) - you get an R LIST</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json_array, <span class="at">simplifyVector =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "a"
+
+[[2]]
+[1] "b"
+
+[[3]]
+[1] "c"</code></pre>
+</div>
+</div>
+</section>
+<section id="fromjson---simplifydataframe" class="level4">
+<h4 class="anchored" data-anchor-id="fromjson---simplifydataframe">fromJSON() - simplifyDataFrame</h4>
+<p>When simplifyDataframe is set to TRUE JSON data that consists of an array of classes, is returned as an R dataframe. Each row of the dataframe comes from the data of a single class in the JSON array. This makes perfect sense when all of the classes contain the same names. Each name in the classes becomees a column in the resulting dataframe.</p>
+<p>If some of the classes contain names that don’t appear in other classes, then there will be NAs in the resulting dataframe in those columns for rows that correspond to classes that didn’t contain that name.</p>
+<p>See the example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A JSON array of JSON classes</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>jsonText <span class="ot">&lt;-</span> <span class="st">'[</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="st">  {"first": "Bob",   "middle": "Michael", "last": "jones", "age": 30},</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="st">  {"first": "Alice", "last": "cohen",     "age": 25},</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="st">  {"first": "Jane",  "last": "springer",  "age": 25}</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="st">]'</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Default behavior (simplifyDataFrame = TRUE) returns an R dataframe</span></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">fromJSON</span>(jsonText)</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  first  middle     last age
+1   Bob Michael    jones  30
+2 Alice    &lt;NA&gt;    cohen  25
+3  Jane    &lt;NA&gt; springer  25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   3 obs. of  4 variables:
+ $ first : chr  "Bob" "Alice" "Jane"
+ $ middle: chr  "Michael" NA NA
+ $ last  : chr  "jones" "cohen" "springer"
+ $ age   : int  30 25 25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without simplification (simplifyDataFrame = FALSE)</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">fromJSON</span>(jsonText, <span class="at">simplifyDataFrame =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[[1]]$first
+[1] "Bob"
+
+[[1]]$middle
+[1] "Michael"
+
+[[1]]$last
+[1] "jones"
+
+[[1]]$age
+[1] 30
+
+
+[[2]]
+[[2]]$first
+[1] "Alice"
+
+[[2]]$last
+[1] "cohen"
+
+[[2]]$age
+[1] 25
+
+
+[[3]]
+[[3]]$first
+[1] "Jane"
+
+[[3]]$last
+[1] "springer"
+
+[[3]]$age
+[1] 25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 3
+ $ :List of 4
+  ..$ first : chr "Bob"
+  ..$ middle: chr "Michael"
+  ..$ last  : chr "jones"
+  ..$ age   : int 30
+ $ :List of 3
+  ..$ first: chr "Alice"
+  ..$ last : chr "cohen"
+  ..$ age  : int 25
+ $ :List of 3
+  ..$ first: chr "Jane"
+  ..$ last : chr "springer"
+  ..$ age  : int 25</code></pre>
+</div>
+</div>
+<!--
+
+```
+# A JSON array of JSON classes
+jsonText <- '[
+  {"name": "Alice", "age": 25},
+  {"name": "Bob", "age": 30}
+]'
+
+# Default behavior (simplifyDataFrame = TRUE) returns an R dataframe
+x = fromJSON(jsonText)
+x
+str(x)
+
+# Without simplification (simplifyDataFrame = FALSE)
+x = fromJSON(jsonText, simplifyDataFrame = FALSE)
+x
+str(x)
+```
+-->
+</section>
+<section id="fromjson---simplifymatrix" class="level4">
+<h4 class="anchored" data-anchor-id="fromjson---simplifymatrix">fromJSON() - simplifyMatrix</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JSON representing matrix-like data</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>json_matrix <span class="ot">&lt;-</span> <span class="st">'[</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="st">                   [1, 2, 3], </span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="st">                   [4, 5, 6]</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="st">                ]'</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Default behavior (simplifyMatrix = TRUE)</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without simplification (simplifyMatrix = FALSE)</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fromJSON</span>(json_matrix, <span class="at">simplifyMatrix =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 1 2 3
+
+[[2]]
+[1] 4 5 6</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="working-with-nested-data-frames" class="level3" data-number="16.5.4">
+<h3 data-number="16.5.4" class="anchored" data-anchor-id="working-with-nested-data-frames"><span class="header-section-number">16.5.4</span> Working with Nested Data Frames</h3>
+<p>When JSON contains nested objects or arrays, <code>fromJSON()</code> can create nested data frames. A typical dataframe contains only simple individual values (e.g.&nbsp;a single number, text value or logical value) in each cell of the dataframe. A nested dataframe can contain an entire “inner” dataframe or list inside the cells of the “outer” dataframe. The data can be accessed via typical R dataframe techniques. However, it’s important to analyze the structure of the data - e.g.&nbsp;using str() or View() - to understand how to access the data you want.</p>
+<p><strong>Example</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JSON with nested structure</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>nested_json <span class="ot">&lt;-</span> <span class="st">'[</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="st">  {</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="st">    "name": "Alice",</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="st">    "pets": [</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="st">      {"type": "cat", "name": "Whiskers"},</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="st">      {"type": "dog", "name": "Rex"}</span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="st">    ]</span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="st">  },</span></span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="st">  {</span></span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="st">    "name": "Bob",</span></span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="st">    "pets": [</span></span>
+<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="st">      {"type": "fish", "name": "Bubbles"}</span></span>
+<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="st">    ]</span></span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="st">]'</span></span>
+<span id="cb68-17"><a href="#cb68-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-18"><a href="#cb68-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to nested data frame</span></span>
+<span id="cb68-19"><a href="#cb68-19" aria-hidden="true" tabindex="-1"></a>nested_df <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(nested_json)</span>
+<span id="cb68-20"><a href="#cb68-20" aria-hidden="true" tabindex="-1"></a>nested_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   name                    pets
+1 Alice cat, dog, Whiskers, Rex
+2   Bob           fish, Bubbles</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># When trying to retrieve the data it is VERY important to </span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="co"># understand the structure of the R data. </span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co"># You can use the following tools to do so:</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    str() function in baseR</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    View()  function in baseR (View with a capital "V")</span></span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    tidyverse::glimpse() function in tidyverse's dplyr package - similar to str()</span></span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    the variable in the "Environment" window pane in RStudio</span></span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="co"># See the structure of the data to understand how to extract specific data</span></span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nested_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   2 obs. of  2 variables:
+ $ name: chr  "Alice" "Bob"
+ $ pets:List of 2
+  ..$ :'data.frame':    2 obs. of  2 variables:
+  .. ..$ type: chr  "cat" "dog"
+  .. ..$ name: chr  "Whiskers" "Rex"
+  ..$ :'data.frame':    1 obs. of  2 variables:
+  .. ..$ type: chr "fish"
+  .. ..$ name: chr "Bubbles"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By analyzing the output from str() we can understand how to access </span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co"># specific data that we might want.</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the pet owner's names</span></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>nested_df<span class="sc">$</span>name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Alice" "Bob"  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get info for all pets</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>nested_df<span class="sc">$</span>pets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+  type     name
+1  cat Whiskers
+2  dog      Rex
+
+[[2]]
+  type    name
+1 fish Bubbles</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all info for pets of person #1</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>nested_df<span class="sc">$</span>pets[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  type     name
+1  cat Whiskers
+2  dog      Rex</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use str to see the structure of this</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nested_df<span class="sc">$</span>pets[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   2 obs. of  2 variables:
+ $ type: chr  "cat" "dog"
+ $ name: chr  "Whiskers" "Rex"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See all info for the 1st person's 2nd pet</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>nested_df<span class="sc">$</span>pets[[<span class="dv">1</span>]][<span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  type name
+2  dog  Rex</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get all info for pets of person #2</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>nested_df<span class="sc">$</span>pets[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  type    name
+1 fish Bubbles</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the types of pets for person #1</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>nested_df<span class="sc">$</span>pets[[<span class="dv">1</span>]]<span class="sc">$</span>type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "cat" "dog"</code></pre>
+</div>
+</div>
+<p>In this example, the nested data frame has a column <code>pets</code> that contains another data frame. Each row in the <code>pets</code> column corresponds to the pets owned by the person in that row of the main data frame.</p>
+</section>
+<section id="three-dimensional-3d-arrays" class="level3" data-number="16.5.5">
+<h3 data-number="16.5.5" class="anchored" data-anchor-id="three-dimensional-3d-arrays"><span class="header-section-number">16.5.5</span> three dimensional (3d) arrays</h3>
+<p>Some JSON contains JSON arrays nested inside JSON arrays, nested inside a JSON array. This type of data gets converted into an R three dimensional (3d) array. The following shows an example of how to extract data from such a structure in R. There is a lot of similarity to how this data is extracted from 2d matrices. (NOTE - an R matrix is also known as a 2d array).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The following JSON gets converted into a 3 dimensinal array in R</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># which is basically an array of matrices</span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>x<span class="ot">=</span><span class="fu">fromJSON</span>(<span class="st">'[</span></span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="st">              [</span></span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="st">                [1,2,3,4],</span></span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="st">                [5,6,7,8]</span></span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="st">              ],</span></span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a><span class="st">              [</span></span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="st">                [9,10,11,12],</span></span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="st">                [13,14,15,16]</span></span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a><span class="st">              ],</span></span>
+<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a><span class="st">              [</span></span>
+<span id="cb86-14"><a href="#cb86-14" aria-hidden="true" tabindex="-1"></a><span class="st">                [17,18,19,20],</span></span>
+<span id="cb86-15"><a href="#cb86-15" aria-hidden="true" tabindex="-1"></a><span class="st">                [21,22,23,24]</span></span>
+<span id="cb86-16"><a href="#cb86-16" aria-hidden="true" tabindex="-1"></a><span class="st">              ]</span></span>
+<span id="cb86-17"><a href="#cb86-17" aria-hidden="true" tabindex="-1"></a><span class="st">            ]'</span>)</span>
+<span id="cb86-18"><a href="#cb86-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-19"><a href="#cb86-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 1st matrix</span></span>
+<span id="cb86-20"><a href="#cb86-20" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>,,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    2    3    4
+[2,]    5    6    7    8</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2nd matrix</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>,,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    9   10   11   12
+[2,]   13   14   15   16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3rd matrix</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>,,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]   17   18   19   20
+[2,]   21   22   23   24</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first index specifies which matrix or matrices</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 2nd index specifies which row or rows</span></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 3rd index specifies which column or columns</span></span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="co"># all values from 1st row of 3rd matrix</span></span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>,<span class="dv">1</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17 18 19 20</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all values from 2nd column of 1st matrix</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>,,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The 2nd matrix, 1st row, 3rd column</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># All 3 matrices, just the numbers in the first row and first column</span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>x[,<span class="dv">1</span>,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  9 17</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The 2nd rows from each matrix</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>x[,<span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    5    6    7    8
+[2,]   13   14   15   16
+[3,]   21   22   23   24</code></pre>
+</div>
+</div>
 
 
 </section>
