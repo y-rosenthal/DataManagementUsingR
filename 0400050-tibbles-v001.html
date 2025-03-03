@@ -87,6 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -112,32 +113,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="yrStyles-main-v001.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Data Management With R (latest version)</span>
-    </a>
-  </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://yrosenthal.com/datamgmt/theOldBook"> 
-<span class="menu-text">(click here for spring24 version of this website)</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -153,9 +132,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Management With R (latest version)</a> 
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -348,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="sidebar-item-text sidebar-link">
+  <a href="./assignment-api-0000100-weatherDataApi-v002.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
@@ -481,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -783,16 +767,16 @@ tbl</code></pre>
 <pre><code># A tibble: 25 × 12
    patient_id admit_date   age heart_rate blood_pressure_sys
    &lt;chr&gt;      &lt;date&gt;     &lt;int&gt;      &lt;dbl&gt;              &lt;dbl&gt;
- 1 P0001      2024-01-01    29         80                128
- 2 P0002      2024-01-11    44         78                135
- 3 P0003      2024-01-06    73         79                112
- 4 P0004      2024-01-16    68         78                127
- 5 P0005      2024-01-10    38         72                133
- 6 P0006      2024-01-03    91         65                137
- 7 P0007      2024-01-28    93         77                133
- 8 P0008      2024-01-01    62         77                126
- 9 P0009      2024-01-06    41         72                163
-10 P0010      2024-01-18    18         66                114
+ 1 P0001      2024-01-15    63         71                133
+ 2 P0002      2024-01-04    20         72                128
+ 3 P0003      2024-01-06    87         64                117
+ 4 P0004      2024-01-31    25         74                114
+ 5 P0005      2024-01-14    33         67                128
+ 6 P0006      2024-01-12    92         65                106
+ 7 P0007      2024-01-23    74         83                101
+ 8 P0008      2024-01-06    26         81                127
+ 9 P0009      2024-01-18    44         86                115
+10 P0010      2024-01-25    51         72                110
 # ℹ 15 more rows
 # ℹ 7 more variables: blood_pressure_dia &lt;dbl&gt;,
 #   temperature &lt;dbl&gt;, oxygen_saturation &lt;dbl&gt;,
@@ -803,83 +787,83 @@ tbl</code></pre>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(health_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   patient_id admit_date age heart_rate blood_pressure_sys
-1       P0001 2024-01-01  29         80                128
-2       P0002 2024-01-11  44         78                135
-3       P0003 2024-01-06  73         79                112
-4       P0004 2024-01-16  68         78                127
-5       P0005 2024-01-10  38         72                133
-6       P0006 2024-01-03  91         65                137
-7       P0007 2024-01-28  93         77                133
-8       P0008 2024-01-01  62         77                126
-9       P0009 2024-01-06  41         72                163
-10      P0010 2024-01-18  18         66                114
-11      P0011 2024-01-24  52         70                139
-12      P0012 2024-01-25  45         73                121
-13      P0013 2024-01-14  77         75                 55
-14      P0014 2024-01-01  38         77                115
-15      P0015 2024-01-24  54         77                121
-16      P0016 2024-01-22  47         95                131
-17      P0017 2024-01-26  52         80                131
-18      P0018 2024-01-02  66         76                130
-19      P0019 2024-01-31  51         82                104
-20      P0020 2024-01-11  65         72                118
-21      P0021 2024-01-21  64         89                131
-22      P0022 2024-01-22  38         81                134
-23      P0023 2024-01-24  56         88                147
-24      P0024 2024-01-31  91         61                 74
-25      P0025 2024-01-01  94         63                 93
+1       P0001 2024-01-15  63         71                133
+2       P0002 2024-01-04  20         72                128
+3       P0003 2024-01-06  87         64                117
+4       P0004 2024-01-31  25         74                114
+5       P0005 2024-01-14  33         67                128
+6       P0006 2024-01-12  92         65                106
+7       P0007 2024-01-23  74         83                101
+8       P0008 2024-01-06  26         81                127
+9       P0009 2024-01-18  44         86                115
+10      P0010 2024-01-25  51         72                110
+11      P0011 2024-01-04  22         82                112
+12      P0012 2024-01-12  74         74                123
+13      P0013 2024-01-17  62         72                147
+14      P0014 2024-01-08  89         59                122
+15      P0015 2024-01-28  64         62                119
+16      P0016 2024-01-20  26         95                129
+17      P0017 2024-01-21  89         96                118
+18      P0018 2024-01-31  76         80                149
+19      P0019 2024-01-25  69         81                132
+20      P0020 2024-01-23  64         86                119
+21      P0021 2024-01-12  65         58                135
+22      P0022 2024-01-22  60         82                 98
+23      P0023 2024-01-29  20         72                127
+24      P0024 2024-01-24  59         62                103
+25      P0025 2024-01-29  38         83                113
    blood_pressure_dia temperature oxygen_saturation
-1                  69        98.5                96
-2                  91        99.4                99
-3                  79        98.7                97
-4                  87        99.3                98
-5                  86        98.6                99
-6                  94        98.3               100
-7                  80        99.1                95
-8                  90        99.3                97
-9                  88        98.1                98
-10                 64        99.7                99
-11                 77        98.3                98
-12                 83        98.8                99
-13                 66        97.5               100
-14                 84        98.6                97
-15                 81        99.2                96
-16                 78        98.4                98
-17                 76        98.8                96
-18                 68        98.2               101
-19                 73        98.5                98
-20                 83        98.9                98
-21                106        98.4                98
-22                 80        98.4                98
-23                 79        98.0                98
-24                 79        99.3               101
-25                 75        98.7                97
+1                  79        98.3                99
+2                  74        98.8                97
+3                  77        99.2                98
+4                  71        98.4                95
+5                  69        99.0               100
+6                  72        98.4                98
+7                  64        98.6                97
+8                  90        98.8                97
+9                  72        97.5                97
+10                 59        97.6                98
+11                 80        98.5                96
+12                 91        99.5                99
+13                 87        99.0                97
+14                 64        99.3               101
+15                 90        98.2                95
+16                 93        99.3                99
+17                 78        98.0                98
+18                 97        98.0                98
+19                 98        99.4                96
+20                 80        98.3                99
+21                 79        98.3                97
+22                 75        98.7                97
+23                 78        98.8               102
+24                 92        99.3                96
+25                 78        98.8                97
    cholesterol glucose weight_kg height_cm
-1          212      79      75.5       160
-2          145      75      53.5       174
-3          220      61      88.4       176
-4          194      87      55.0       164
-5          205     126      85.0       179
-6          214     100      63.9       174
-7          185      98      73.2       170
-8          209     103      59.6       165
-9          223      98      64.5       171
-10         182      99      56.9       170
-11         167      76      80.5       167
-12         173     101      96.0       161
-13         181      95      97.0       170
-14         236     138      91.5       170
-15         220     102      37.1       167
-16         232      92      81.8       171
-17         208      93      68.3       165
-18         230     140      48.7       167
-19         188      81      80.9       172
-20         222      75      80.9       158
-21         162      75      62.4       179
-22         199      92      93.7       171
-23         173      93      33.4       175
-24         188      89      54.0       174
-25         186      86      81.1       161</code></pre>
+1          155      79      66.3       159
+2          172     124      73.1       157
+3          168      99      74.8       165
+4          163     115      78.3       187
+5          167      78      62.9       162
+6          201     119      63.4       167
+7          254     142      93.7       170
+8          188      98      80.0       172
+9          128     115      69.3       168
+10         212     114      60.9       168
+11         150     112      57.4       171
+12         167      96      74.2       156
+13         164      73      69.8       183
+14         149      98      94.0       174
+15         168     109      89.9       174
+16         186      90      45.7       170
+17         221     100      62.6       187
+18         204      94      30.2       155
+19         213     109      75.3       180
+20         183      54      62.0       169
+21         148     123      65.5       170
+22         132      91      77.0       171
+23         206     117      73.9       169
+24         187      84      70.9       169
+25         165      91      83.9       168</code></pre>
 </div>
 </div>
 </section>
@@ -893,26 +877,26 @@ tbl</code></pre>
 <pre><code># A tibble: 25 × 12
    patient_id admit_date   age heart_rate blood_pressure_sys
    &lt;chr&gt;      &lt;date&gt;     &lt;int&gt;      &lt;dbl&gt;              &lt;dbl&gt;
- 1 P0001      2024-01-01    29         80                128
- 2 P0002      2024-01-11    44         78                135
- 3 P0003      2024-01-06    73         79                112
- 4 P0004      2024-01-16    68         78                127
- 5 P0005      2024-01-10    38         72                133
- 6 P0006      2024-01-03    91         65                137
- 7 P0007      2024-01-28    93         77                133
- 8 P0008      2024-01-01    62         77                126
- 9 P0009      2024-01-06    41         72                163
-10 P0010      2024-01-18    18         66                114
-11 P0011      2024-01-24    52         70                139
-12 P0012      2024-01-25    45         73                121
-13 P0013      2024-01-14    77         75                 55
-14 P0014      2024-01-01    38         77                115
-15 P0015      2024-01-24    54         77                121
-16 P0016      2024-01-22    47         95                131
-17 P0017      2024-01-26    52         80                131
-18 P0018      2024-01-02    66         76                130
-19 P0019      2024-01-31    51         82                104
-20 P0020      2024-01-11    65         72                118
+ 1 P0001      2024-01-15    63         71                133
+ 2 P0002      2024-01-04    20         72                128
+ 3 P0003      2024-01-06    87         64                117
+ 4 P0004      2024-01-31    25         74                114
+ 5 P0005      2024-01-14    33         67                128
+ 6 P0006      2024-01-12    92         65                106
+ 7 P0007      2024-01-23    74         83                101
+ 8 P0008      2024-01-06    26         81                127
+ 9 P0009      2024-01-18    44         86                115
+10 P0010      2024-01-25    51         72                110
+11 P0011      2024-01-04    22         82                112
+12 P0012      2024-01-12    74         74                123
+13 P0013      2024-01-17    62         72                147
+14 P0014      2024-01-08    89         59                122
+15 P0015      2024-01-28    64         62                119
+16 P0016      2024-01-20    26         95                129
+17 P0017      2024-01-21    89         96                118
+18 P0018      2024-01-31    76         80                149
+19 P0019      2024-01-25    69         81                132
+20 P0020      2024-01-23    64         86                119
 # ℹ 5 more rows
 # ℹ 7 more variables: blood_pressure_dia &lt;dbl&gt;,
 #   temperature &lt;dbl&gt;, oxygen_saturation &lt;dbl&gt;,
@@ -925,31 +909,31 @@ tbl</code></pre>
 <pre><code># A tibble: 25 × 12
    patient_id admit_date   age heart_rate blood_pressure_sys
    &lt;chr&gt;      &lt;date&gt;     &lt;int&gt;      &lt;dbl&gt;              &lt;dbl&gt;
- 1 P0001      2024-01-01    29         80                128
- 2 P0002      2024-01-11    44         78                135
- 3 P0003      2024-01-06    73         79                112
- 4 P0004      2024-01-16    68         78                127
- 5 P0005      2024-01-10    38         72                133
- 6 P0006      2024-01-03    91         65                137
- 7 P0007      2024-01-28    93         77                133
- 8 P0008      2024-01-01    62         77                126
- 9 P0009      2024-01-06    41         72                163
-10 P0010      2024-01-18    18         66                114
-11 P0011      2024-01-24    52         70                139
-12 P0012      2024-01-25    45         73                121
-13 P0013      2024-01-14    77         75                 55
-14 P0014      2024-01-01    38         77                115
-15 P0015      2024-01-24    54         77                121
-16 P0016      2024-01-22    47         95                131
-17 P0017      2024-01-26    52         80                131
-18 P0018      2024-01-02    66         76                130
-19 P0019      2024-01-31    51         82                104
-20 P0020      2024-01-11    65         72                118
-21 P0021      2024-01-21    64         89                131
-22 P0022      2024-01-22    38         81                134
-23 P0023      2024-01-24    56         88                147
-24 P0024      2024-01-31    91         61                 74
-25 P0025      2024-01-01    94         63                 93
+ 1 P0001      2024-01-15    63         71                133
+ 2 P0002      2024-01-04    20         72                128
+ 3 P0003      2024-01-06    87         64                117
+ 4 P0004      2024-01-31    25         74                114
+ 5 P0005      2024-01-14    33         67                128
+ 6 P0006      2024-01-12    92         65                106
+ 7 P0007      2024-01-23    74         83                101
+ 8 P0008      2024-01-06    26         81                127
+ 9 P0009      2024-01-18    44         86                115
+10 P0010      2024-01-25    51         72                110
+11 P0011      2024-01-04    22         82                112
+12 P0012      2024-01-12    74         74                123
+13 P0013      2024-01-17    62         72                147
+14 P0014      2024-01-08    89         59                122
+15 P0015      2024-01-28    64         62                119
+16 P0016      2024-01-20    26         95                129
+17 P0017      2024-01-21    89         96                118
+18 P0018      2024-01-31    76         80                149
+19 P0019      2024-01-25    69         81                132
+20 P0020      2024-01-23    64         86                119
+21 P0021      2024-01-12    65         58                135
+22 P0022      2024-01-22    60         82                 98
+23 P0023      2024-01-29    20         72                127
+24 P0024      2024-01-24    59         62                103
+25 P0025      2024-01-29    38         83                113
 # ℹ 7 more variables: blood_pressure_dia &lt;dbl&gt;,
 #   temperature &lt;dbl&gt;, oxygen_saturation &lt;dbl&gt;,
 #   cholesterol &lt;dbl&gt;, glucose &lt;dbl&gt;, weight_kg &lt;dbl&gt;,
@@ -977,16 +961,16 @@ health_data
 # A tibble: 25 × 12
    patient_id admit_date   age heart_rate blood_pressure_sys
    <chr>      <date>     <int>      <dbl>              <dbl>
- 1 P0001      2024-01-01    29         80                128
- 2 P0002      2024-01-11    44         78                135
- 3 P0003      2024-01-06    73         79                112
- 4 P0004      2024-01-16    68         78                127
- 5 P0005      2024-01-10    38         72                133
- 6 P0006      2024-01-03    91         65                137
- 7 P0007      2024-01-28    93         77                133
- 8 P0008      2024-01-01    62         77                126
- 9 P0009      2024-01-06    41         72                163
-10 P0010      2024-01-18    18         66                114
+ 1 P0001      2024-01-15    63         71                133
+ 2 P0002      2024-01-04    20         72                128
+ 3 P0003      2024-01-06    87         64                117
+ 4 P0004      2024-01-31    25         74                114
+ 5 P0005      2024-01-14    33         67                128
+ 6 P0006      2024-01-12    92         65                106
+ 7 P0007      2024-01-23    74         83                101
+ 8 P0008      2024-01-06    26         81                127
+ 9 P0009      2024-01-18    44         86                115
+10 P0010      2024-01-25    51         72                110
 # ℹ 15 more rows
 # ℹ 7 more variables: blood_pressure_dia <dbl>,
 #   temperature <dbl>, oxygen_saturation <dbl>,
@@ -1020,16 +1004,16 @@ options(tibble.print_max = 10)
 <pre><code># A tibble: 25 × 12
    patient_id admit_date   age heart_rate blood_pressure_sys
    &lt;chr&gt;      &lt;date&gt;     &lt;int&gt;      &lt;dbl&gt;              &lt;dbl&gt;
- 1 P0001      2024-01-01    29         80                128
- 2 P0002      2024-01-11    44         78                135
- 3 P0003      2024-01-06    73         79                112
- 4 P0004      2024-01-16    68         78                127
- 5 P0005      2024-01-10    38         72                133
- 6 P0006      2024-01-03    91         65                137
- 7 P0007      2024-01-28    93         77                133
- 8 P0008      2024-01-01    62         77                126
- 9 P0009      2024-01-06    41         72                163
-10 P0010      2024-01-18    18         66                114
+ 1 P0001      2024-01-15    63         71                133
+ 2 P0002      2024-01-04    20         72                128
+ 3 P0003      2024-01-06    87         64                117
+ 4 P0004      2024-01-31    25         74                114
+ 5 P0005      2024-01-14    33         67                128
+ 6 P0006      2024-01-12    92         65                106
+ 7 P0007      2024-01-23    74         83                101
+ 8 P0008      2024-01-06    26         81                127
+ 9 P0009      2024-01-18    44         86                115
+10 P0010      2024-01-25    51         72                110
 # ℹ 15 more rows
 # ℹ 7 more variables: blood_pressure_dia &lt;dbl&gt;, temperature &lt;dbl&gt;,
 #   oxygen_saturation &lt;dbl&gt;, cholesterol &lt;dbl&gt;, glucose &lt;dbl&gt;,
@@ -1043,16 +1027,16 @@ options(tibble.print_max = 10)
 <pre><code># A tibble: 25 × 12
    patient_id admit_date   age heart_rate blood_pressure_sys blood_pressure_dia temperature oxygen_saturation cholesterol glucose weight_kg height_cm
    &lt;chr&gt;      &lt;date&gt;     &lt;int&gt;      &lt;dbl&gt;              &lt;dbl&gt;              &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
- 1 P0001      2024-01-01    29         80                128                 69        98.5                96         212      79      75.5       160
- 2 P0002      2024-01-11    44         78                135                 91        99.4                99         145      75      53.5       174
- 3 P0003      2024-01-06    73         79                112                 79        98.7                97         220      61      88.4       176
- 4 P0004      2024-01-16    68         78                127                 87        99.3                98         194      87      55         164
- 5 P0005      2024-01-10    38         72                133                 86        98.6                99         205     126      85         179
- 6 P0006      2024-01-03    91         65                137                 94        98.3               100         214     100      63.9       174
- 7 P0007      2024-01-28    93         77                133                 80        99.1                95         185      98      73.2       170
- 8 P0008      2024-01-01    62         77                126                 90        99.3                97         209     103      59.6       165
- 9 P0009      2024-01-06    41         72                163                 88        98.1                98         223      98      64.5       171
-10 P0010      2024-01-18    18         66                114                 64        99.7                99         182      99      56.9       170
+ 1 P0001      2024-01-15    63         71                133                 79        98.3                99         155      79      66.3       159
+ 2 P0002      2024-01-04    20         72                128                 74        98.8                97         172     124      73.1       157
+ 3 P0003      2024-01-06    87         64                117                 77        99.2                98         168      99      74.8       165
+ 4 P0004      2024-01-31    25         74                114                 71        98.4                95         163     115      78.3       187
+ 5 P0005      2024-01-14    33         67                128                 69        99                 100         167      78      62.9       162
+ 6 P0006      2024-01-12    92         65                106                 72        98.4                98         201     119      63.4       167
+ 7 P0007      2024-01-23    74         83                101                 64        98.6                97         254     142      93.7       170
+ 8 P0008      2024-01-06    26         81                127                 90        98.8                97         188      98      80         172
+ 9 P0009      2024-01-18    44         86                115                 72        97.5                97         128     115      69.3       168
+10 P0010      2024-01-25    51         72                110                 59        97.6                98         212     114      60.9       168
 # ℹ 15 more rows</code></pre>
 </div>
 </div>
@@ -1077,16 +1061,16 @@ health_data
 # A tibble: 25 × 12
    patient_id admit_date   age heart_rate blood_pressure_sys blood_pressure_dia temperature oxygen_saturation cholesterol glucose weight_kg height_cm
    <chr>      <date>     <int>      <dbl>              <dbl>              <dbl>       <dbl>             <dbl>       <dbl>   <dbl>     <dbl>     <dbl>
- 1 P0001      2024-01-01    29         80                128                 69        98.5                96         212      79      75.5       160
- 2 P0002      2024-01-11    44         78                135                 91        99.4                99         145      75      53.5       174
- 3 P0003      2024-01-06    73         79                112                 79        98.7                97         220      61      88.4       176
- 4 P0004      2024-01-16    68         78                127                 87        99.3                98         194      87      55         164
- 5 P0005      2024-01-10    38         72                133                 86        98.6                99         205     126      85         179
- 6 P0006      2024-01-03    91         65                137                 94        98.3               100         214     100      63.9       174
- 7 P0007      2024-01-28    93         77                133                 80        99.1                95         185      98      73.2       170
- 8 P0008      2024-01-01    62         77                126                 90        99.3                97         209     103      59.6       165
- 9 P0009      2024-01-06    41         72                163                 88        98.1                98         223      98      64.5       171
-10 P0010      2024-01-18    18         66                114                 64        99.7                99         182      99      56.9       170
+ 1 P0001      2024-01-15    63         71                133                 79        98.3                99         155      79      66.3       159
+ 2 P0002      2024-01-04    20         72                128                 74        98.8                97         172     124      73.1       157
+ 3 P0003      2024-01-06    87         64                117                 77        99.2                98         168      99      74.8       165
+ 4 P0004      2024-01-31    25         74                114                 71        98.4                95         163     115      78.3       187
+ 5 P0005      2024-01-14    33         67                128                 69        99                 100         167      78      62.9       162
+ 6 P0006      2024-01-12    92         65                106                 72        98.4                98         201     119      63.4       167
+ 7 P0007      2024-01-23    74         83                101                 64        98.6                97         254     142      93.7       170
+ 8 P0008      2024-01-06    26         81                127                 90        98.8                97         188      98      80         172
+ 9 P0009      2024-01-18    44         86                115                 72        97.5                97         128     115      69.3       168
+10 P0010      2024-01-25    51         72                110                 59        97.6                98         212     114      60.9       168
 # ℹ 15 more rows
 ```
 

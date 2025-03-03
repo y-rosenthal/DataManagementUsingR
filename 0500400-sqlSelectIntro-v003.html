@@ -87,6 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -115,32 +116,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="yrStyles-main-v001.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Data Management With R (latest version)</span>
-    </a>
-  </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://yrosenthal.com/datamgmt/theOldBook"> 
-<span class="menu-text">(click here for spring24 version of this website)</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -156,9 +135,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Management With R (latest version)</a> 
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -351,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="sidebar-item-text sidebar-link">
+  <a href="./assignment-api-0000100-weatherDataApi-v002.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
@@ -484,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -661,20 +645,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#import-the-data-by-typing-some-r-code" id="toc-import-the-data-by-typing-some-r-code" class="nav-link" data-scroll-target="#import-the-data-by-typing-some-r-code"><span class="header-section-number">28.2.4</span> Import the data by typing some R code …</a></li>
   </ul></li>
   <li><a href="#databases-and-sql" id="toc-databases-and-sql" class="nav-link" data-scroll-target="#databases-and-sql"><span class="header-section-number">28.3</span> Databases and SQL</a></li>
-  <li><a href="#dplyr-is-very-similar-to-the-sql-select-command" id="toc-dplyr-is-very-similar-to-the-sql-select-command" class="nav-link" data-scroll-target="#dplyr-is-very-similar-to-the-sql-select-command"><span class="header-section-number">28.4</span> dplyr is very similar to the SQL SELECT command</a></li>
-  <li><a href="#sql-select-clauses-compared-with-dplyr-functions" id="toc-sql-select-clauses-compared-with-dplyr-functions" class="nav-link" data-scroll-target="#sql-select-clauses-compared-with-dplyr-functions"><span class="header-section-number">28.5</span> SQL SELECT “clauses” compared with dplyr “functions”</a></li>
-  <li><a href="#order-of-the-clauses-is-important" id="toc-order-of-the-clauses-is-important" class="nav-link" data-scroll-target="#order-of-the-clauses-is-important"><span class="header-section-number">28.6</span> Order of the clauses is important</a></li>
-  <li><a href="#is-sql-case-sensitive-yes-and-no" id="toc-is-sql-case-sensitive-yes-and-no" class="nav-link" data-scroll-target="#is-sql-case-sensitive-yes-and-no"><span class="header-section-number">28.7</span> Is SQL case sensitive? yes and no</a></li>
-  <li><a href="#whitespace-in-sql-commands-is-ignored" id="toc-whitespace-in-sql-commands-is-ignored" class="nav-link" data-scroll-target="#whitespace-in-sql-commands-is-ignored"><span class="header-section-number">28.8</span> Whitespace in SQL commands is ignored</a></li>
-  <li><a href="#intro-to-erds---i.e.-entity-relationship-diagrams" id="toc-intro-to-erds---i.e.-entity-relationship-diagrams" class="nav-link" data-scroll-target="#intro-to-erds---i.e.-entity-relationship-diagrams"><span class="header-section-number">28.9</span> Intro to ERDs - i.e.&nbsp;“Entity Relationship Diagrams”</a></li>
-  <li><a href="#database-terminology---fields-entities-etc" id="toc-database-terminology---fields-entities-etc" class="nav-link" data-scroll-target="#database-terminology---fields-entities-etc"><span class="header-section-number">28.10</span> Database terminology - fields, entities, etc</a></li>
-  <li><a href="#select-and-from-clauses" id="toc-select-and-from-clauses" class="nav-link" data-scroll-target="#select-and-from-clauses"><span class="header-section-number">28.11</span> SELECT and FROM clauses</a></li>
-  <li><a href="#add-new-columns-in-select-clause" id="toc-add-new-columns-in-select-clause" class="nav-link" data-scroll-target="#add-new-columns-in-select-clause"><span class="header-section-number">28.12</span> add new columns in SELECT clause</a></li>
-  <li><a href="#use-aggregate-functions-in-select-to-create-summary-rows" id="toc-use-aggregate-functions-in-select-to-create-summary-rows" class="nav-link" data-scroll-target="#use-aggregate-functions-in-select-to-create-summary-rows"><span class="header-section-number">28.13</span> use aggregate functions in SELECT to create summary rows</a></li>
-  <li><a href="#where-clause" id="toc-where-clause" class="nav-link" data-scroll-target="#where-clause"><span class="header-section-number">28.14</span> WHERE clause</a></li>
-  <li><a href="#order-by-clause" id="toc-order-by-clause" class="nav-link" data-scroll-target="#order-by-clause"><span class="header-section-number">28.15</span> ORDER BY clause</a></li>
-  <li><a href="#group-by-clause" id="toc-group-by-clause" class="nav-link" data-scroll-target="#group-by-clause"><span class="header-section-number">28.16</span> GROUP BY clause</a></li>
-  <li><a href="#limit-clause" id="toc-limit-clause" class="nav-link" data-scroll-target="#limit-clause"><span class="header-section-number">28.17</span> LIMIT clause</a></li>
+  <li><a href="#using-sql-in-r" id="toc-using-sql-in-r" class="nav-link" data-scroll-target="#using-sql-in-r"><span class="header-section-number">28.4</span> Using SQL in R</a></li>
+  <li><a href="#dplyr-is-very-similar-to-the-sql-select-command" id="toc-dplyr-is-very-similar-to-the-sql-select-command" class="nav-link" data-scroll-target="#dplyr-is-very-similar-to-the-sql-select-command"><span class="header-section-number">28.5</span> dplyr is very similar to the SQL SELECT command</a></li>
+  <li><a href="#sql-select-clauses-compared-with-dplyr-functions" id="toc-sql-select-clauses-compared-with-dplyr-functions" class="nav-link" data-scroll-target="#sql-select-clauses-compared-with-dplyr-functions"><span class="header-section-number">28.6</span> SQL SELECT “clauses” compared with dplyr “functions”</a></li>
+  <li><a href="#order-of-the-clauses-is-important" id="toc-order-of-the-clauses-is-important" class="nav-link" data-scroll-target="#order-of-the-clauses-is-important"><span class="header-section-number">28.7</span> Order of the clauses is important</a></li>
+  <li><a href="#is-sql-case-sensitive-yes-and-no" id="toc-is-sql-case-sensitive-yes-and-no" class="nav-link" data-scroll-target="#is-sql-case-sensitive-yes-and-no"><span class="header-section-number">28.8</span> Is SQL case sensitive? yes and no</a></li>
+  <li><a href="#whitespace-in-sql-commands-is-ignored" id="toc-whitespace-in-sql-commands-is-ignored" class="nav-link" data-scroll-target="#whitespace-in-sql-commands-is-ignored"><span class="header-section-number">28.9</span> Whitespace in SQL commands is ignored</a></li>
+  <li><a href="#intro-to-erds---i.e.-entity-relationship-diagrams" id="toc-intro-to-erds---i.e.-entity-relationship-diagrams" class="nav-link" data-scroll-target="#intro-to-erds---i.e.-entity-relationship-diagrams"><span class="header-section-number">28.10</span> Intro to ERDs - i.e.&nbsp;“Entity Relationship Diagrams”</a></li>
+  <li><a href="#database-terminology---fields-entities-etc" id="toc-database-terminology---fields-entities-etc" class="nav-link" data-scroll-target="#database-terminology---fields-entities-etc"><span class="header-section-number">28.11</span> Database terminology - fields, entities, etc</a></li>
+  <li><a href="#select-and-from-clauses" id="toc-select-and-from-clauses" class="nav-link" data-scroll-target="#select-and-from-clauses"><span class="header-section-number">28.12</span> SELECT and FROM clauses</a></li>
+  <li><a href="#add-new-columns-in-select-clause" id="toc-add-new-columns-in-select-clause" class="nav-link" data-scroll-target="#add-new-columns-in-select-clause"><span class="header-section-number">28.13</span> add new columns in SELECT clause</a></li>
+  <li><a href="#use-aggregate-functions-in-select-to-create-summary-rows" id="toc-use-aggregate-functions-in-select-to-create-summary-rows" class="nav-link" data-scroll-target="#use-aggregate-functions-in-select-to-create-summary-rows"><span class="header-section-number">28.14</span> use aggregate functions in SELECT to create summary rows</a></li>
+  <li><a href="#where-clause" id="toc-where-clause" class="nav-link" data-scroll-target="#where-clause"><span class="header-section-number">28.15</span> WHERE clause</a></li>
+  <li><a href="#order-by-clause" id="toc-order-by-clause" class="nav-link" data-scroll-target="#order-by-clause"><span class="header-section-number">28.16</span> ORDER BY clause</a></li>
+  <li><a href="#group-by-clause" id="toc-group-by-clause" class="nav-link" data-scroll-target="#group-by-clause"><span class="header-section-number">28.17</span> GROUP BY clause</a></li>
+  <li><a href="#limit-clause" id="toc-limit-clause" class="nav-link" data-scroll-target="#limit-clause"><span class="header-section-number">28.18</span> LIMIT clause</a></li>
   </ul>
 </nav>
     </div>
@@ -716,9 +701,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(dplyr)){<span class="fu">install.packages</span>(<span class="st">"dplyr"</span>);<span class="fu">require</span>(dplyr);}</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(readr)){<span class="fu">install.packages</span>(<span class="st">"readr"</span>);<span class="fu">require</span>(readr);}</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(sqldf)){<span class="fu">install.packages</span>(<span class="st">"sqldf"</span>);<span class="fu">require</span>(sqldf);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in contrib.url(repos, "source"): trying to use CRAN without setting a mirror</code></pre>
-</div>
 </div>
 </section>
 <section id="download-the-file" class="level3" data-number="28.2.2">
@@ -740,18 +722,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="28.2.4" class="anchored" data-anchor-id="import-the-data-by-typing-some-r-code"><span class="header-section-number">28.2.4</span> Import the data by typing some R code …</h3>
 <p>The following code reads the data into R. Alternatively, you can follow the instructions above to click on some buttons to import the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data into a tibble</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the following code uses the readr::read_csv function from the readr</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># package which is part of the tidyverse collection of packages. </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This function is similar to the base-R read.csv function.</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># read_csv returns a tibble, which is the data structure that the </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># tidyverse packages use in lieu of dataframes. A tibble is basically</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># a dataframe with extra features.</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># By contrast, the base-r read.csv function returns a dataframe.</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"salespeople-v002.csv"</span>, <span class="at">na=</span><span class="fu">c</span>(<span class="st">""</span>,<span class="st">"NULL"</span>), <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data into a tibble</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the following code uses the readr::read_csv function from the readr</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># package which is part of the tidyverse collection of packages. </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This function is similar to the base-R read.csv function.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># read_csv returns a tibble, which is the data structure that the </span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># tidyverse packages use in lieu of dataframes. A tibble is basically</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># a dataframe with extra features.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># By contrast, the base-r read.csv function returns a dataframe.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"salespeople-v002.csv"</span>, <span class="at">na=</span><span class="fu">c</span>(<span class="st">""</span>,<span class="st">"NULL"</span>), <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -760,17 +742,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A database is an organized collection of data that is designed to be accessed and manipulated by computer programs. We’ll cover a little more about exactly what a database is and how it differs from Excel, R and other programs in the next section of this book. Below is just a brief explanation to give you some background before we start getting into the details of the SQL language that is used to communicate with databases.</p>
 <p>A “relational database” is a type of database in which data is arranged in “tables” that are organized into “rows” and “columns”. A “relational database table” is very similar to an R dataframe or tibble. Relational databases are controlled and managed with software known as “Relational DataBase Management System” (RDBMS) software. Relational database technology dates back to the 1970s and has been around long before R has been around. Relational databases are used by just about every major company all around the world.</p>
 <p>“Structured Query Language” (or SQL for short - pronounced “sequel”) is the standard language that is used to communicate with a DBMS to manage and manipulate the data in a Relational Database. SQL has many different commands. One of the most important SQL commands for data analysts to know is the SQL “SELECT” command. It is this command that is used to extract data from a database and organize the data into a desired form. We will focus in this section on an intro to the SQL SELECT statement.</p>
+</section>
+<section id="using-sql-in-r" class="level2" data-number="28.4">
+<h2 data-number="28.4" class="anchored" data-anchor-id="using-sql-in-r"><span class="header-section-number">28.4</span> Using SQL in R</h2>
 <p>As we said above, R is NOT a Database Management System. However SQL is a very popular language. Many technologists come to R, already having a deep knowledge of the SQL language. Therefore it is nice to know that the SQL language can also be used to manipulate R dataframes. This is possible because R dataframes are very, very similar in structure to Relational Database “tables” (i.e.&nbsp;they have rows, columns, column names and specific datatypes for each column).</p>
 <p>The R “sqldf” package includes a function named “sqldf” which takes a SQL command as its argument. Wherever the SQL command refers to the name of a relational database “table”, sqldf runs the SQL command using the R dataframe with that name.</p>
+<p>There are other more advanced ways for R to connect to SQL databases (DB) and database management systems (DBMS). We will cover the more advanced ways later. For now, sqldf will suit our purposes for this intro.</p>
 </section>
-<section id="dplyr-is-very-similar-to-the-sql-select-command" class="level2" data-number="28.4">
-<h2 data-number="28.4" class="anchored" data-anchor-id="dplyr-is-very-similar-to-the-sql-select-command"><span class="header-section-number">28.4</span> dplyr is very similar to the SQL SELECT command</h2>
+<section id="dplyr-is-very-similar-to-the-sql-select-command" class="level2" data-number="28.5">
+<h2 data-number="28.5" class="anchored" data-anchor-id="dplyr-is-very-similar-to-the-sql-select-command"><span class="header-section-number">28.5</span> dplyr is very similar to the SQL SELECT command</h2>
 <p>The designers of dplyr got inspiration for many of their ideas from SQL. Therefore once you know the basics of dplyr it should be very easy to transfer that knowledge to learning the SQL SELECT statement.</p>
 <p>The following examples show how the concepts you learned in the previous section about dplyr carry over to the SQL SELECT statement.</p>
 <p>The English word “query” means a question. <strong>A SQL SELECT statement is often referred to as a database “query”</strong>. In essence a SQL SELECT statement in essence asks the database a question and gets back an answer.</p>
 </section>
-<section id="sql-select-clauses-compared-with-dplyr-functions" class="level2" data-number="28.5">
-<h2 data-number="28.5" class="anchored" data-anchor-id="sql-select-clauses-compared-with-dplyr-functions"><span class="header-section-number">28.5</span> SQL SELECT “clauses” compared with dplyr “functions”</h2>
+<section id="sql-select-clauses-compared-with-dplyr-functions" class="level2" data-number="28.6">
+<h2 data-number="28.6" class="anchored" data-anchor-id="sql-select-clauses-compared-with-dplyr-functions"><span class="header-section-number">28.6</span> SQL SELECT “clauses” compared with dplyr “functions”</h2>
 <p>While dplyr uses different “functions”, the SQL SELECT statement is comprised of different “clauses”. The clauses in the SQL SELECT statement are listed below. We will elaborate on the details of these clauses in the sections below.</p>
 <ul>
 <li><p>SELECT</p>
@@ -789,20 +775,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Directly analogous to the dplyr print(n=…) function or the dplyr slice_head(n=…) function.</p></li>
 </ul>
 </section>
-<section id="order-of-the-clauses-is-important" class="level2" data-number="28.6">
-<h2 data-number="28.6" class="anchored" data-anchor-id="order-of-the-clauses-is-important"><span class="header-section-number">28.6</span> Order of the clauses is important</h2>
+<section id="order-of-the-clauses-is-important" class="level2" data-number="28.7">
+<h2 data-number="28.7" class="anchored" data-anchor-id="order-of-the-clauses-is-important"><span class="header-section-number">28.7</span> Order of the clauses is important</h2>
 <p>A SQL SELECT statement may contain some or all of the above clauses. Only the SELECT clause is absolutely required. If the SQL SELECT statement contains more than one clause then whichever clauses do appear must appear in the order listed above.</p>
 </section>
-<section id="is-sql-case-sensitive-yes-and-no" class="level2" data-number="28.7">
-<h2 data-number="28.7" class="anchored" data-anchor-id="is-sql-case-sensitive-yes-and-no"><span class="header-section-number">28.7</span> Is SQL case sensitive? yes and no</h2>
+<section id="is-sql-case-sensitive-yes-and-no" class="level2" data-number="28.8">
+<h2 data-number="28.8" class="anchored" data-anchor-id="is-sql-case-sensitive-yes-and-no"><span class="header-section-number">28.8</span> Is SQL case sensitive? yes and no</h2>
 <p>Different SQL products treat case sensitivity differently. In general the names of tables and columns ARE case sensitive. The “keywords” of the language are generally NOT case sensitive. However, it is often the convention of many SQL books and references to show SQL keywords in UPPER CASE. We have done that below but it is not strictly necessary.</p>
 </section>
-<section id="whitespace-in-sql-commands-is-ignored" class="level2" data-number="28.8">
-<h2 data-number="28.8" class="anchored" data-anchor-id="whitespace-in-sql-commands-is-ignored"><span class="header-section-number">28.8</span> Whitespace in SQL commands is ignored</h2>
+<section id="whitespace-in-sql-commands-is-ignored" class="level2" data-number="28.9">
+<h2 data-number="28.9" class="anchored" data-anchor-id="whitespace-in-sql-commands-is-ignored"><span class="header-section-number">28.9</span> Whitespace in SQL commands is ignored</h2>
 <p>A SQL command may be written entirely on one line. However, extra whitespace (i.e.&nbsp;spaces, tabs, newlines) may be added to make the code more readable. It is common to start each SQL SELECT statement clause on a new line and to add extra whitespace to make the code more readable. In general we tried to follow that practice in the code.</p>
 </section>
-<section id="intro-to-erds---i.e.-entity-relationship-diagrams" class="level2" data-number="28.9">
-<h2 data-number="28.9" class="anchored" data-anchor-id="intro-to-erds---i.e.-entity-relationship-diagrams"><span class="header-section-number">28.9</span> Intro to ERDs - i.e.&nbsp;“Entity Relationship Diagrams”</h2>
+<section id="intro-to-erds---i.e.-entity-relationship-diagrams" class="level2" data-number="28.10">
+<h2 data-number="28.10" class="anchored" data-anchor-id="intro-to-erds---i.e.-entity-relationship-diagrams"><span class="header-section-number">28.10</span> Intro to ERDs - i.e.&nbsp;“Entity Relationship Diagrams”</h2>
 <p>An “Entity Relationship Diagram” (ERD) is a diagram that highlights the structure of the tables in a database (in database terminology tables are also known as “entity sets” or “entity types” - see below). The ERD does NOT show the data in the tables, just the structure of the tables. The following is an ERD for the sales data we have been using.</p>
 <p><em>Note that so far we’ve only been using one table. An ERD gets more complicated when</em> <em>a database contains several tables. We will revisit ERDs again later.</em></p>
 <div class="cell" data-layout-align="default">
@@ -872,284 +858,484 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="database-terminology---fields-entities-etc" class="level2" data-number="28.10">
-<h2 data-number="28.10" class="anchored" data-anchor-id="database-terminology---fields-entities-etc"><span class="header-section-number">28.10</span> Database terminology - fields, entities, etc</h2>
+<section id="database-terminology---fields-entities-etc" class="level2" data-number="28.11">
+<h2 data-number="28.11" class="anchored" data-anchor-id="database-terminology---fields-entities-etc"><span class="header-section-number">28.11</span> Database terminology - fields, entities, etc</h2>
 <p>There are different terms used to refer to the rows and columns of a table, dataframe or tibble. Statisticians often refer to each row of a table as an observation and each column of a table as a variable.</p>
 <p>In the world of databases, a column can be referred to as a “column” or a “field”. Rows are referred to as just “rows” but sometimes are referred to as “records” or “entities”. Often an entire table is referred to as an “entity” (technically a table, which is a collection of rows, is an “entity set” or an “entity type”).</p>
 <p>The truth is not many people use the word “entity” or “entity set”. However, an “Entity Relationship Diagram” is used to show the tables in a database and how the tables are “related” to each other.</p>
 <p>In this section we are just focusing on a single table. In a later sections, we’ll learn more about “relationships” between multiple tables and how the relationships are displayed on an Entity Relationship Diagram.</p>
 </section>
-<section id="select-and-from-clauses" class="level2" data-number="28.11">
-<h2 data-number="28.11" class="anchored" data-anchor-id="select-and-from-clauses"><span class="header-section-number">28.11</span> SELECT and FROM clauses</h2>
+<section id="select-and-from-clauses" class="level2" data-number="28.12">
+<h2 data-number="28.12" class="anchored" data-anchor-id="select-and-from-clauses"><span class="header-section-number">28.12</span> SELECT and FROM clauses</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The SELECT clause specifies which columns you want.</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The FROM clause specifies the table (or tables) that contain the data.</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, first, last</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT title, first, last\n       FROM sales"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The SELECT clause specifies which columns you want.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The FROM clause specifies the table (or tables) that contain the data.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, first, last</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             title  first       last
+1          Manager    Joe      Smith
+2      Salesperson    Sam        Lee
+3      Salesperson    Sue  Sallinger
+4  Sr. Salesperson   Barb      Brown
+5          Manager   Jack     Martin
+6  Sr. Salesperson   Kate      Carey
+7      Salesperson    Emy    Parsons
+8      Salesperson Monica        Oja
+9  Sr. Salesperson    Jim Kuruzovich
+10         Manager   Zeke      Cohen
+11     Salesperson   Zeke      Smith
+12     Salesperson    Amy   Markovic
+13 Sr. Salesperson    Joe Washington
+14         Manager    Sam    Lincoln
+15 Sr. Salesperson    Sue      Aames
+16     Salesperson   Barb      Aames
+17     Salesperson   Jack      Aames
+18 Sr. Salesperson   Kate   Zeitchik
+19         Manager    Emy   Zeitchik
+20     Salesperson Monica   Zeitchik
+21     Salesperson    Jim      Brown
+22 Sr. Salesperson  Larry      Green
+23         Manager  Laura      White
+24 Sr. Salesperson   Hugh      Black</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SELECT * in SQL is similar to select(everything()) in dplyr.</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># * is an abbreviation for all of the column names.</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT *\n       FROM sales"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SELECT * in SQL is similar to select(everything()) in dplyr.</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># * is an abbreviation for all of the column names.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    first       last           title region baseInThousands salesInThousands yearsWithCompany
+1     Joe      Smith         Manager    usa              40              100               10
+2     Sam        Lee     Salesperson    usa              40              200                6
+3     Sue  Sallinger     Salesperson   asia              30              150               10
+4    Barb      Brown Sr. Salesperson   asia              35               79                4
+5    Jack     Martin         Manager europe              20               40                3
+6    Kate      Carey Sr. Salesperson europe              20               69                2
+7     Emy    Parsons     Salesperson africa              25               87                3
+8  Monica        Oja     Salesperson africa              35               98               10
+9     Jim Kuruzovich Sr. Salesperson    usa              35              140                3
+10   Zeke      Cohen         Manager    usa              30              250               10
+11   Zeke      Smith     Salesperson   asia              20              120                3
+12    Amy   Markovic     Salesperson   asia              46              340                3
+13    Joe Washington Sr. Salesperson europe              33              370                2
+14    Sam    Lincoln         Manager europe              30              500                2
+15    Sue      Aames Sr. Salesperson africa              35              600               10
+16   Barb      Aames     Salesperson    usa              21              255                7
+17   Jack      Aames     Salesperson    usa              43              105                4
+18   Kate   Zeitchik Sr. Salesperson    usa              50              187                4
+19    Emy   Zeitchik         Manager   asia              34              166                4
+20 Monica   Zeitchik     Salesperson   asia              23              184                1
+21    Jim      Brown     Salesperson europe              50              167                2
+22  Larry      Green Sr. Salesperson europe              20              113                4
+23  Laura      White         Manager africa              20              281                8
+24   Hugh      Black Sr. Salesperson africa              40              261                9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unfortunately, the SQL SELECT * is not as smart as the everything() function in dplyr.</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In dplyr, everything() does not include columns that you already typed.</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In SQL, the * always includes ALL columns. Therefore the following</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># query displays the title and region columns a 2nd time due to the *</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, region, *</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT title, region, *\n       FROM sales"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unfortunately, the SQL SELECT * is not as smart as the everything() function in dplyr.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In dplyr, everything() does not include columns that you already typed.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># In SQL, the * always includes ALL columns. Therefore the following</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># query displays the title and region columns a 2nd time due to the *</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, region, *</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             title region  first       last           title region baseInThousands salesInThousands yearsWithCompany
+1          Manager    usa    Joe      Smith         Manager    usa              40              100               10
+2      Salesperson    usa    Sam        Lee     Salesperson    usa              40              200                6
+3      Salesperson   asia    Sue  Sallinger     Salesperson   asia              30              150               10
+4  Sr. Salesperson   asia   Barb      Brown Sr. Salesperson   asia              35               79                4
+5          Manager europe   Jack     Martin         Manager europe              20               40                3
+6  Sr. Salesperson europe   Kate      Carey Sr. Salesperson europe              20               69                2
+7      Salesperson africa    Emy    Parsons     Salesperson africa              25               87                3
+8      Salesperson africa Monica        Oja     Salesperson africa              35               98               10
+9  Sr. Salesperson    usa    Jim Kuruzovich Sr. Salesperson    usa              35              140                3
+10         Manager    usa   Zeke      Cohen         Manager    usa              30              250               10
+11     Salesperson   asia   Zeke      Smith     Salesperson   asia              20              120                3
+12     Salesperson   asia    Amy   Markovic     Salesperson   asia              46              340                3
+13 Sr. Salesperson europe    Joe Washington Sr. Salesperson europe              33              370                2
+14         Manager europe    Sam    Lincoln         Manager europe              30              500                2
+15 Sr. Salesperson africa    Sue      Aames Sr. Salesperson africa              35              600               10
+16     Salesperson    usa   Barb      Aames     Salesperson    usa              21              255                7
+17     Salesperson    usa   Jack      Aames     Salesperson    usa              43              105                4
+18 Sr. Salesperson    usa   Kate   Zeitchik Sr. Salesperson    usa              50              187                4
+19         Manager   asia    Emy   Zeitchik         Manager   asia              34              166                4
+20     Salesperson   asia Monica   Zeitchik     Salesperson   asia              23              184                1
+21     Salesperson europe    Jim      Brown     Salesperson europe              50              167                2
+22 Sr. Salesperson europe  Larry      Green Sr. Salesperson europe              20              113                4
+23         Manager africa  Laura      White         Manager africa              20              281                8
+24 Sr. Salesperson africa   Hugh      Black Sr. Salesperson africa              40              261                9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The only thing you can do in a select statement without a FROM clause</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># is to perform calculations without data from a table.</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT 3+2, 100*5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT 3+2, 100*5"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The only thing you can do in a select statement without a FROM clause</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># is to perform calculations without data from a table.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT 3+2, 100*5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  3+2 100*5
+1   5   500</code></pre>
 </div>
 </div>
 </section>
-<section id="add-new-columns-in-select-clause" class="level2" data-number="28.12">
-<h2 data-number="28.12" class="anchored" data-anchor-id="add-new-columns-in-select-clause"><span class="header-section-number">28.12</span> add new columns in SELECT clause</h2>
+<section id="add-new-columns-in-select-clause" class="level2" data-number="28.13">
+<h2 data-number="28.13" class="anchored" data-anchor-id="add-new-columns-in-select-clause"><span class="header-section-number">28.13</span> add new columns in SELECT clause</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In dplyr, to add new columns you use the mutate function.</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In the SQL SELECT command this is accomplished as part of the SELECT clause.</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># To add new columns that are calculated from other columns</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># simply add the calculations to the select clause.</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT first, last, salesInThousands, 0.1 * salesInThousands</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT first, last, salesInThousands, 0.1 * salesInThousands\n       FROM sales\n       "): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In dplyr, to add new columns you use the mutate function.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># In the SQL SELECT command this is accomplished as part of the SELECT clause.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># To add new columns that are calculated from other columns</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># simply add the calculations to the select clause.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT first, last, salesInThousands, 0.1 * salesInThousands</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    first       last salesInThousands 0.1 * salesInThousands
+1     Joe      Smith              100                   10.0
+2     Sam        Lee              200                   20.0
+3     Sue  Sallinger              150                   15.0
+4    Barb      Brown               79                    7.9
+5    Jack     Martin               40                    4.0
+6    Kate      Carey               69                    6.9
+7     Emy    Parsons               87                    8.7
+8  Monica        Oja               98                    9.8
+9     Jim Kuruzovich              140                   14.0
+10   Zeke      Cohen              250                   25.0
+11   Zeke      Smith              120                   12.0
+12    Amy   Markovic              340                   34.0
+13    Joe Washington              370                   37.0
+14    Sam    Lincoln              500                   50.0
+15    Sue      Aames              600                   60.0
+16   Barb      Aames              255                   25.5
+17   Jack      Aames              105                   10.5
+18   Kate   Zeitchik              187                   18.7
+19    Emy   Zeitchik              166                   16.6
+20 Monica   Zeitchik              184                   18.4
+21    Jim      Brown              167                   16.7
+22  Larry      Green              113                   11.3
+23  Laura      White              281                   28.1
+24   Hugh      Black              261                   26.1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can give the new column a unique name by following the definition</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the column with "AS columnName".</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT first, last, salesInThousands, 0.1 * salesInThousands as commission</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT first, last, salesInThousands, 0.1 * salesInThousands as commission\n       FROM sales\n       "): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can give the new column a unique name by following the definition</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the column with "AS columnName".</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT first, last, salesInThousands, 0.1 * salesInThousands as commission</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    first       last salesInThousands commission
+1     Joe      Smith              100       10.0
+2     Sam        Lee              200       20.0
+3     Sue  Sallinger              150       15.0
+4    Barb      Brown               79        7.9
+5    Jack     Martin               40        4.0
+6    Kate      Carey               69        6.9
+7     Emy    Parsons               87        8.7
+8  Monica        Oja               98        9.8
+9     Jim Kuruzovich              140       14.0
+10   Zeke      Cohen              250       25.0
+11   Zeke      Smith              120       12.0
+12    Amy   Markovic              340       34.0
+13    Joe Washington              370       37.0
+14    Sam    Lincoln              500       50.0
+15    Sue      Aames              600       60.0
+16   Barb      Aames              255       25.5
+17   Jack      Aames              105       10.5
+18   Kate   Zeitchik              187       18.7
+19    Emy   Zeitchik              166       16.6
+20 Monica   Zeitchik              184       18.4
+21    Jim      Brown              167       16.7
+22  Larry      Green              113       11.3
+23  Laura      White              281       28.1
+24   Hugh      Black              261       26.1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The word "AS" is actually optional. The following adds two new columns</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># but does not use the word AS. All you need is the definition of the column</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># followed by a space followed by the name of the new column.</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT first, last, baseInThousands,  </span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="st">              salesInThousands, 0.1 * salesInThousands commission, </span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">              salesInThousands * 0.1 + baseInThousands takeHome</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE region='africa'</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT first, last, baseInThousands,  \n              salesInThousands, 0.1 * salesInThousands commission, \n              salesInThousands * 0.1 + baseInThousands takeHome\n       FROM sales\n       WHERE region='africa'\n       "): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The word "AS" is actually optional. The following adds two new columns</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># but does not use the word AS. All you need is the definition of the column</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># followed by a space followed by the name of the new column.</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT first, last, baseInThousands,  </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">              salesInThousands, 0.1 * salesInThousands commission, </span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">              salesInThousands * 0.1 + baseInThousands takeHome</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE region='africa'</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   first    last baseInThousands salesInThousands commission takeHome
+1    Emy Parsons              25               87        8.7     33.7
+2 Monica     Oja              35               98        9.8     44.8
+3    Sue   Aames              35              600       60.0     95.0
+4  Laura   White              20              281       28.1     48.1
+5   Hugh   Black              40              261       26.1     66.1</code></pre>
 </div>
 </div>
 </section>
-<section id="use-aggregate-functions-in-select-to-create-summary-rows" class="level2" data-number="28.13">
-<h2 data-number="28.13" class="anchored" data-anchor-id="use-aggregate-functions-in-select-to-create-summary-rows"><span class="header-section-number">28.13</span> use aggregate functions in SELECT to create summary rows</h2>
+<section id="use-aggregate-functions-in-select-to-create-summary-rows" class="level2" data-number="28.14">
+<h2 data-number="28.14" class="anchored" data-anchor-id="use-aggregate-functions-in-select-to-create-summary-rows"><span class="header-section-number">28.14</span> use aggregate functions in SELECT to create summary rows</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The dplyr summarize function is used to summarize (or aggregate) info from</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># several rows into a single row. </span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In the SQL SELECT statement, this is accomplished by simply using</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># aggregate functions in the select clause.</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># SQL has several built in standard aggregate functions</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   count(*) - similar to n() in dplyr - we'll discuss why the * is there later</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   avg(SOME_COLUMN)</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   max(SOME_COLUMN)</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   min(SOME_COLUMN)</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select count(*), avg(baseInThousands), max(baseInThousands)</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("select count(*), avg(baseInThousands), max(baseInThousands)\n       FROM sales\n       ORDER BY region ASC, salesInThousands DESC"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The dplyr summarize function is used to summarize (or aggregate) info from</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># several rows into a single row. </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In the SQL SELECT statement, this is accomplished by simply using</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># aggregate functions in the select clause.</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># SQL has several built in standard aggregate functions</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   count(*) - similar to n() in dplyr - we'll discuss why the * is there later</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   avg(SOME_COLUMN)</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   max(SOME_COLUMN)</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   min(SOME_COLUMN)</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select count(*), avg(baseInThousands), max(baseInThousands)</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  count(*) avg(baseInThousands) max(baseInThousands)
+1       24             32.29167                   50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># As shown above we can assign names to the new columns.</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Again, the word "AS" is optional. The following statement</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># would work exactly the same way if we did not have the word "AS"</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*) as numberOfEmployees, </span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) AS averagebaseInThousands, </span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) AS maxbaseInThousands</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT count(*) as numberOfEmployees, \n              avg(baseInThousands) AS averagebaseInThousands, \n              max(baseInThousands) AS maxbaseInThousands\n       FROM sales\n       ORDER BY region ASC, salesInThousands DESC"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># As shown above we can assign names to the new columns.</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Again, the word "AS" is optional. The following statement</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># would work exactly the same way if we did not have the word "AS"</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*) as numberOfEmployees, </span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) AS averagebaseInThousands, </span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) AS maxbaseInThousands</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  numberOfEmployees averagebaseInThousands maxbaseInThousands
+1                24               32.29167                 50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the same query as above.</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This version does not have the word "AS".</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The results are exactly the same.</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*) as numberOfEmployees, </span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) averagebaseInThousands, </span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) maxbaseInThousands</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT count(*) as numberOfEmployees, \n              avg(baseInThousands) averagebaseInThousands, \n              max(baseInThousands) maxbaseInThousands\n       FROM sales\n       ORDER BY region ASC, salesInThousands DESC"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the same query as above.</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This version does not have the word "AS".</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The results are exactly the same.</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*) as numberOfEmployees, </span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) averagebaseInThousands, </span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) maxbaseInThousands</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  numberOfEmployees averagebaseInThousands maxbaseInThousands
+1                24               32.29167                 50</code></pre>
 </div>
 </div>
 </section>
-<section id="where-clause" class="level2" data-number="28.14">
-<h2 data-number="28.14" class="anchored" data-anchor-id="where-clause"><span class="header-section-number">28.14</span> WHERE clause</h2>
+<section id="where-clause" class="level2" data-number="28.15">
+<h2 data-number="28.15" class="anchored" data-anchor-id="where-clause"><span class="header-section-number">28.15</span> WHERE clause</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WHERE is directly analogous to the dplyr filter function.</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The WHERE clause identifies the rows that will be returned.</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># It takes a logical expression that uses the names of the columns.</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># For every row the SELECT statement analyzes the row and calculates the</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># result of the logical expression for that row. If the logical expression</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for a row is TRUE you get the row back. If not you do not get the row.</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE salesInThousands &lt; 100"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT *\n       FROM sales\n       WHERE salesInThousands &lt; 100"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># WHERE is directly analogous to the dplyr filter function.</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The WHERE clause identifies the rows that will be returned.</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># It takes a logical expression that uses the names of the columns.</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># For every row the SELECT statement analyzes the row and calculates the</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># result of the logical expression for that row. If the logical expression</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for a row is TRUE you get the row back. If not you do not get the row.</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE salesInThousands &lt; 100"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   first    last           title region baseInThousands salesInThousands yearsWithCompany
+1   Barb   Brown Sr. Salesperson   asia              35               79                4
+2   Jack  Martin         Manager europe              20               40                3
+3   Kate   Carey Sr. Salesperson europe              20               69                2
+4    Emy Parsons     Salesperson africa              25               87                3
+5 Monica     Oja     Salesperson africa              35               98               10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This query uses aggregate functions in the SELECT but does NOT have a WHERE.</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Therefore the result is a summary of ALL rows in the table.</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*), min(baseInThousands), max(baseInThousands), avg(baseInThousands)</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT count(*), min(baseInThousands), max(baseInThousands), avg(baseInThousands)\n       FROM sales"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This query uses aggregate functions in the SELECT but does NOT have a WHERE.</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Therefore the result is a summary of ALL rows in the table.</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*), min(baseInThousands), max(baseInThousands), avg(baseInThousands)</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  count(*) min(baseInThousands) max(baseInThousands) avg(baseInThousands)
+1       24                   20                   50             32.29167</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the same query but adds WHERE region='asia'.</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># As a result the summary row only reflects info about the rows for 'asia'.</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the there are fewer rows in the count(*) column and some of the</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># other summary statistics are also different.</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*), min(baseInThousands), max(baseInThousands), avg(baseInThousands)</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE region='asia'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT count(*), min(baseInThousands), max(baseInThousands), avg(baseInThousands)\n       FROM sales\n       WHERE region='asia'"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is the same query but adds WHERE region='asia'.</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># As a result the summary row only reflects info about the rows for 'asia'.</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the there are fewer rows in the count(*) column and some of the</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># other summary statistics are also different.</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*), min(baseInThousands), max(baseInThousands), avg(baseInThousands)</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE region='asia'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  count(*) min(baseInThousands) max(baseInThousands) avg(baseInThousands)
+1        6                   20                   46             31.33333</code></pre>
 </div>
 </div>
 </section>
-<section id="order-by-clause" class="level2" data-number="28.15">
-<h2 data-number="28.15" class="anchored" data-anchor-id="order-by-clause"><span class="header-section-number">28.15</span> ORDER BY clause</h2>
+<section id="order-by-clause" class="level2" data-number="28.16">
+<h2 data-number="28.16" class="anchored" data-anchor-id="order-by-clause"><span class="header-section-number">28.16</span> ORDER BY clause</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The ORDER BY clause is directly anaogous to dplyr's arrange function</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE salesInThousands &lt; 100</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER By salesInThousands"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT *\n       FROM sales\n       WHERE salesInThousands &lt; 100\n       ORDER By salesInThousands"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The ORDER BY clause is directly anaogous to dplyr's arrange function</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE salesInThousands &lt; 100</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER By salesInThousands"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   first    last           title region baseInThousands salesInThousands yearsWithCompany
+1   Jack  Martin         Manager europe              20               40                3
+2   Kate   Carey Sr. Salesperson europe              20               69                2
+3   Barb   Brown Sr. Salesperson   asia              35               79                4
+4    Emy Parsons     Salesperson africa              25               87                3
+5 Monica     Oja     Salesperson africa              35               98               10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just as with dplyr's arrange function the rows can be ordered</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># from largest to smallest by specifying desc, i.e. a descending order</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># for the values of a column.</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE salesInThousands &lt; 100</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT *\n       FROM sales\n       WHERE salesInThousands &lt; 100\n       ORDER BY salesInThousands DESC"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just as with dplyr's arrange function the rows can be ordered</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># from largest to smallest by specifying desc, i.e. a descending order</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># for the values of a column.</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="st">       WHERE salesInThousands &lt; 100</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   first    last           title region baseInThousands salesInThousands yearsWithCompany
+1 Monica     Oja     Salesperson africa              35               98               10
+2    Emy Parsons     Salesperson africa              25               87                3
+3   Barb   Brown Sr. Salesperson   asia              35               79                4
+4   Kate   Carey Sr. Salesperson europe              20               69                2
+5   Jack  Martin         Manager europe              20               40                3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just as with dplyr's arrange function you can specify that the order</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the rows should depend on multiple columns. </span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The first column specified is used to order all of the rows.</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Subsequent columns mentioned in ORDER By are used only for rows</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># in which the values for the earlier columns are the same.</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Each column could have an ascending (asc) or descending (desc) order.</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># If neither asc nor desc is specified, then the default is an ascending order.</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT *\n       FROM sales\n       ORDER BY region ASC, salesInThousands DESC"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just as with dplyr's arrange function you can specify that the order</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the rows should depend on multiple columns. </span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The first column specified is used to order all of the rows.</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Subsequent columns mentioned in ORDER By are used only for rows</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># in which the values for the earlier columns are the same.</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Each column could have an ascending (asc) or descending (desc) order.</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># If neither asc nor desc is specified, then the default is an ascending order.</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region ASC, salesInThousands DESC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    first       last           title region baseInThousands salesInThousands yearsWithCompany
+1     Sue      Aames Sr. Salesperson africa              35              600               10
+2   Laura      White         Manager africa              20              281                8
+3    Hugh      Black Sr. Salesperson africa              40              261                9
+4  Monica        Oja     Salesperson africa              35               98               10
+5     Emy    Parsons     Salesperson africa              25               87                3
+6     Amy   Markovic     Salesperson   asia              46              340                3
+7  Monica   Zeitchik     Salesperson   asia              23              184                1
+8     Emy   Zeitchik         Manager   asia              34              166                4
+9     Sue  Sallinger     Salesperson   asia              30              150               10
+10   Zeke      Smith     Salesperson   asia              20              120                3
+11   Barb      Brown Sr. Salesperson   asia              35               79                4
+12    Sam    Lincoln         Manager europe              30              500                2
+13    Joe Washington Sr. Salesperson europe              33              370                2
+14    Jim      Brown     Salesperson europe              50              167                2
+15  Larry      Green Sr. Salesperson europe              20              113                4
+16   Kate      Carey Sr. Salesperson europe              20               69                2
+17   Jack     Martin         Manager europe              20               40                3
+18   Barb      Aames     Salesperson    usa              21              255                7
+19   Zeke      Cohen         Manager    usa              30              250               10
+20    Sam        Lee     Salesperson    usa              40              200                6
+21   Kate   Zeitchik Sr. Salesperson    usa              50              187                4
+22    Jim Kuruzovich Sr. Salesperson    usa              35              140                3
+23   Jack      Aames     Salesperson    usa              43              105                4
+24    Joe      Smith         Manager    usa              40              100               10</code></pre>
 </div>
 </div>
 </section>
-<section id="group-by-clause" class="level2" data-number="28.16">
-<h2 data-number="28.16" class="anchored" data-anchor-id="group-by-clause"><span class="header-section-number">28.16</span> GROUP BY clause</h2>
+<section id="group-by-clause" class="level2" data-number="28.17">
+<h2 data-number="28.17" class="anchored" data-anchor-id="group-by-clause"><span class="header-section-number">28.17</span> GROUP BY clause</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The GROUP BY clause in SQL is directly analogous to the group_by function in dplyr.</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All of the rows that have the same value for the specified GROUP BY columns</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># are aggregated (i.e. summarized) in a single line of output.</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># GROUP BY should only be used if the SELECT clause includes aggregate functions. </span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY title</span></span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT title, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase\n       FROM sales\n       GROUP BY title\n       ORDER BY title"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The GROUP BY clause in SQL is directly analogous to the group_by function in dplyr.</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All of the rows that have the same value for the specified GROUP BY columns</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># are aggregated (i.e. summarized) in a single line of output.</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># GROUP BY should only be used if the SELECT clause includes aggregate functions. </span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY title</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            title count(*) avgBase maxBase
+1         Manager        6    29.0      40
+2     Salesperson       10    33.3      50
+3 Sr. Salesperson        8    33.5      50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping by a different column - region</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT region, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY region</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT region, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase\n       FROM sales\n       GROUP BY region\n       ORDER BY region"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grouping by a different column - region</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT region, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY region</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  region count(*)  avgBase maxBase
+1 africa        5 31.00000      40
+2   asia        6 31.33333      46
+3 europe        6 28.83333      50
+4    usa        7 37.00000      50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just as with dplyr, the groups can be defined by more than one column.</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The following query treats all of the rows that match in both the</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># region and title columns as a single group.</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, all of the original rows from the sales table</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co"># that have a title of "Salesperson" and a region of "asia" </span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co"># are considered to be part of the same group and are summarized </span></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co"># in a single row of the output.</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, region, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY title, region</span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY title, region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT title, region, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase\n       FROM sales\n       GROUP BY title, region\n       ORDER BY title, region"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just as with dplyr, the groups can be defined by more than one column.</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The following query treats all of the rows that match in both the</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># region and title columns as a single group.</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, all of the original rows from the sales table</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># that have a title of "Salesperson" and a region of "asia" </span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co"># are considered to be part of the same group and are summarized </span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="co"># in a single row of the output.</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT title, region, count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY title, region</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY title, region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             title region count(*)  avgBase maxBase
+1          Manager africa        1 20.00000      20
+2          Manager   asia        1 34.00000      34
+3          Manager europe        2 25.00000      30
+4          Manager    usa        2 35.00000      40
+5      Salesperson africa        2 30.00000      35
+6      Salesperson   asia        4 29.75000      46
+7      Salesperson europe        1 50.00000      50
+8      Salesperson    usa        3 34.66667      43
+9  Sr. Salesperson africa        2 37.50000      40
+10 Sr. Salesperson   asia        1 35.00000      35
+11 Sr. Salesperson europe        3 24.33333      33
+12 Sr. Salesperson    usa        2 42.50000      50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A similar query without a GROUP BY returns just a single row that</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summarizes the data from all rows of the table.</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase\n       FROM sales"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A similar query without a GROUP BY returns just a single row that</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summarizes the data from all rows of the table.</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*), avg(baseInThousands) avgBase, max(baseInThousands) maxBase</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  count(*)  avgBase maxBase
+1       24 32.29167      50</code></pre>
 </div>
 </div>
 </section>
-<section id="limit-clause" class="level2" data-number="28.17">
-<h2 data-number="28.17" class="anchored" data-anchor-id="limit-clause"><span class="header-section-number">28.17</span> LIMIT clause</h2>
+<section id="limit-clause" class="level2" data-number="28.18">
+<h2 data-number="28.18" class="anchored" data-anchor-id="limit-clause"><span class="header-section-number">28.18</span> LIMIT clause</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The LIMIT clause is similar to print(n=) with dplyr.</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It limits the number of rows returned to the first few</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># that would have been returned had the query not included the LIMIT clause.</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The LIMIT clause is usually used with an ORDER BY clause.</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY salesInThousands desc</span></span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="st">       LIMIT 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in sqldf("SELECT *\n       FROM sales\n       ORDER BY salesInThousands desc\n       LIMIT 10"): could not find function "sqldf"</code></pre>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The LIMIT clause is similar to print(n=) with dplyr.</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It limits the number of rows returned to the first few</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># that would have been returned had the query not included the LIMIT clause.</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The LIMIT clause is usually used with an ORDER BY clause.</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT *</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY salesInThousands desc</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="st">       LIMIT 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   first       last           title region baseInThousands salesInThousands yearsWithCompany
+1    Sue      Aames Sr. Salesperson africa              35              600               10
+2    Sam    Lincoln         Manager europe              30              500                2
+3    Joe Washington Sr. Salesperson europe              33              370                2
+4    Amy   Markovic     Salesperson   asia              46              340                3
+5  Laura      White         Manager africa              20              281                8
+6   Hugh      Black Sr. Salesperson africa              40              261                9
+7   Barb      Aames     Salesperson    usa              21              255                7
+8   Zeke      Cohen         Manager    usa              30              250               10
+9    Sam        Lee     Salesperson    usa              40              200                6
+10  Kate   Zeitchik Sr. Salesperson    usa              50              187                4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the LIMIT clause is not standard SQL - some SQL flavors</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># do not contain a LIMIT clause. However, the LIMIT clause or </span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co"># something similar is part of many SQL flavors.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the LIMIT clause is not standard SQL - some SQL flavors</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># do not contain a LIMIT clause. However, the LIMIT clause or </span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># something similar is part of many SQL flavors.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!--
 
@@ -1700,8 +1886,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sql0006-introToDatabases-v023.html" class="pagination-link" aria-label="Different categories of databases">
-        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sql0006-introToDatabases-v023.html" class="pagination-link" aria-label="<yrChapterNumber>29. </yrChapterNumber>  &quot;databases&quot; and &quot;database management systems&quot;">
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> “databases” and “database management systems”</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

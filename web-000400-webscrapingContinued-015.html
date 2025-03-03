@@ -87,6 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -112,32 +113,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="yrStyles-main-v001.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Data Management With R (latest version)</span>
-    </a>
-  </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://yrosenthal.com/datamgmt/theOldBook"> 
-<span class="menu-text">(click here for spring24 version of this website)</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -153,9 +132,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Management With R (latest version)</a> 
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -348,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment-api-0000100-weatherDataApi-v001.html" class="sidebar-item-text sidebar-link">
+  <a href="./assignment-api-0000100-weatherDataApi-v002.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
@@ -481,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Different categories of databases</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1927,16 +1911,15 @@ another line    after a tab</code></pre>
 <span id="cb196-10"><a href="#cb196-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/"</span>)   <span class="co"># show the files and folders in the root of the harddrive</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "$Recycle.Bin"              "$SysReset"                
- [3] "$WinREAgent"               "BGInfo"                   
- [5] "Brother"                   "Config.Msi"               
- [7] "Documents and Settings"    "DumpStack.log"            
- [9] "DumpStack.log.tmp"         "hiberfil.sys"             
-[11] "Intel"                     "OneDriveTemp"             
-[13] "pagefile.sys"              "PerfLogs"                 
-[15] "Program Files"             "Program Files (x86)"      
-[17] "ProgramData"               "Recovery"                 
-[19] "swapfile.sys"              "System Volume Information"
-[21] "Users"                     "Windows"                  </code></pre>
+ [3] "BGInfo"                    "Brother"                  
+ [5] "Documents and Settings"    "DumpStack.log"            
+ [7] "DumpStack.log.tmp"         "hiberfil.sys"             
+ [9] "Intel"                     "OneDriveTemp"             
+[11] "pagefile.sys"              "PerfLogs"                 
+[13] "Program Files"             "Program Files (x86)"      
+[15] "ProgramData"               "Recovery"                 
+[17] "swapfile.sys"              "System Volume Information"
+[19] "Users"                     "Windows"                  </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># robots.txt ####</span></span>
 <span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
@@ -2137,14 +2120,14 @@ another line    after a tab</code></pre>
 <span id="cb218-7"><a href="#cb218-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb218-8"><a href="#cb218-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()    <span class="co"># shows the time on your computer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-02-27 12:59:55 EST"</code></pre>
+<pre><code>[1] "2025-03-03 14:23:09 EST"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb220"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a>start <span class="ot">=</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="co"># put some r code here</span></span>
 <span id="cb220-3"><a href="#cb220-3" aria-hidden="true" tabindex="-1"></a>end <span class="ot">=</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb220-4"><a href="#cb220-4" aria-hidden="true" tabindex="-1"></a>end <span class="sc">-</span> start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 0.0009250641 secs</code></pre>
+<pre><code>Time difference of 0.0009770393 secs</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb222"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb222-1"><a href="#cb222-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="ot">=</span> <span class="fu">Sys.time</span>() <span class="co"># get the time before we start</span></span>
 <span id="cb222-2"><a href="#cb222-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2156,7 +2139,7 @@ another line    after a tab</code></pre>
 <span id="cb224-2"><a href="#cb224-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb224-3"><a href="#cb224-3" aria-hidden="true" tabindex="-1"></a>end_time <span class="sc">-</span> start_time   <span class="co"># show how long it took</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 0.002417088 secs</code></pre>
+<pre><code>Time difference of 0.001987934 secs</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb226"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's examine the results ...</span></span>
 <span id="cb226-2"><a href="#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dataFromAllPages)  <span class="co"># how many rows?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
