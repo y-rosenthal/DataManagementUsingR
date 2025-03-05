@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>29&nbsp; 29.  “databases” and “database management systems” – Data Management With R (latest version)</title>
+<title>28&nbsp; 29.  “databases” and “database management systems” – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,6 +102,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 
 <meta http-equiv="Pragma" content="no-cache">
@@ -122,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -422,7 +425,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">visualizations with ggplot2</span></a>
+ <span class="menu-text">Intro to SQL (assumes knowledge of dplyr)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -430,8 +433,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> Intro to ggplot2</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> SQL Select</span></span></a>
   </div>
 </li>
       </ul>
@@ -439,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to SQL</span></a>
+ <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -447,8 +450,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> SQL Select</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> What is a Database?</span></span></a>
   </div>
 </li>
       </ul>
@@ -456,7 +519,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL (no dplyr knowledge needed)</span></a>
+ <span class="menu-text">Git and Github</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -464,68 +527,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Relational Databases and SQL (using R)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> Inner Joins.</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> SQL "window" functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> What is a Database?</span></span></a>
+  <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span></a>
   </div>
 </li>
       </ul>
@@ -533,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
- <span class="menu-text">Git and Github</span></a>
+ <span class="menu-text">visualizations with ggplot2</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -541,8 +544,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span></a>
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -633,13 +636,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#different-categories-of-databases" id="toc-different-categories-of-databases" class="nav-link active" data-scroll-target="#different-categories-of-databases"><span class="header-section-number">29.1</span> Different categories of databases</a>
+  <li><a href="#common-features-of-databases" id="toc-common-features-of-databases" class="nav-link active" data-scroll-target="#common-features-of-databases"><span class="header-section-number">28.1</span> Common features of databases</a></li>
+  <li><a href="#different-categories-of-databases" id="toc-different-categories-of-databases" class="nav-link" data-scroll-target="#different-categories-of-databases"><span class="header-section-number">28.2</span> Different categories of databases</a>
   <ul class="collapse">
-  <li><a href="#relational-databases" id="toc-relational-databases" class="nav-link" data-scroll-target="#relational-databases"><span class="header-section-number">29.1.1</span> Relational Databases</a></li>
-  <li><a href="#non-relational-databases-aka-nosql-databases" id="toc-non-relational-databases-aka-nosql-databases" class="nav-link" data-scroll-target="#non-relational-databases-aka-nosql-databases"><span class="header-section-number">29.1.2</span> Non-Relational Databases (AKA NoSQL databases)</a></li>
-  <li><a href="#document-databases---e.g.-mongodb" id="toc-document-databases---e.g.-mongodb" class="nav-link" data-scroll-target="#document-databases---e.g.-mongodb"><span class="header-section-number">29.1.3</span> Document databases - e.g.&nbsp;MongoDB</a></li>
-  <li><a href="#graph-databases---e.g.-neo4j" id="toc-graph-databases---e.g.-neo4j" class="nav-link" data-scroll-target="#graph-databases---e.g.-neo4j"><span class="header-section-number">29.1.4</span> Graph databases - e.g.&nbsp;Neo4J</a></li>
-  <li><a href="#other-types-of-nosql-databases" id="toc-other-types-of-nosql-databases" class="nav-link" data-scroll-target="#other-types-of-nosql-databases"><span class="header-section-number">29.1.5</span> Other types of NoSQL databases</a></li>
+  <li><a href="#relational-databases" id="toc-relational-databases" class="nav-link" data-scroll-target="#relational-databases"><span class="header-section-number">28.2.1</span> Relational Databases</a></li>
+  <li><a href="#non-relational-databases-aka-nosql-databases" id="toc-non-relational-databases-aka-nosql-databases" class="nav-link" data-scroll-target="#non-relational-databases-aka-nosql-databases"><span class="header-section-number">28.2.2</span> Non-Relational Databases (AKA NoSQL databases)</a></li>
+  <li><a href="#document-databases---e.g.-mongodb" id="toc-document-databases---e.g.-mongodb" class="nav-link" data-scroll-target="#document-databases---e.g.-mongodb"><span class="header-section-number">28.2.3</span> Document databases - e.g.&nbsp;MongoDB</a></li>
+  <li><a href="#graph-databases---e.g.-neo4j" id="toc-graph-databases---e.g.-neo4j" class="nav-link" data-scroll-target="#graph-databases---e.g.-neo4j"><span class="header-section-number">28.2.4</span> Graph databases - e.g.&nbsp;Neo4J</a></li>
+  <li><a href="#other-types-of-nosql-databases" id="toc-other-types-of-nosql-databases" class="nav-link" data-scroll-target="#other-types-of-nosql-databases"><span class="header-section-number">28.2.5</span> Other types of NoSQL databases</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -647,9 +651,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html">Relational databases and SQL (no dplyr knowledge needed)</a></li><li class="breadcrumb-item"><a href="./sql0006-introToDatabases-v023.html"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> “databases” and “database management systems”</span></h1>
+<h1 class="title"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> “databases” and “database management systems”</span></h1>
 </div>
 
 
@@ -666,12 +670,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>“A database” is a collection of data that can be accessed by a computer programs in an accurate and efficient way.</p>
+<p>A <strong>“database (DB)”</strong> is a collection of data that can be accessed by a computer programs (see below) in an accurate and efficient way.</p>
 <p>A “Database Management System (DBMS)” is the software that is used to enable the storage and retrieval of the data in a database.</p>
-<section id="different-categories-of-databases" class="level2" data-number="29.1">
-<h2 data-number="29.1" class="anchored" data-anchor-id="different-categories-of-databases"><span class="header-section-number">29.1</span> Different categories of databases</h2>
-<section id="relational-databases" class="level3" data-number="29.1.1">
-<h3 data-number="29.1.1" class="anchored" data-anchor-id="relational-databases"><span class="header-section-number">29.1.1</span> Relational Databases</h3>
+<p>Datbases and DBMS software are usually used as part of a larger software system. Software that is coded in programming languages such as R, Python, Java, etc. have the ability to interact with a DBMS to store an retrieve data from a database.</p>
+<section id="common-features-of-databases" class="level2" data-number="28.1">
+<h2 data-number="28.1" class="anchored" data-anchor-id="common-features-of-databases"><span class="header-section-number">28.1</span> Common features of databases</h2>
+<p>Most databases and DBMS software provides the following features:</p>
+<ul>
+<li><p><strong>Reliable and Accurate Data</strong> – Databases have built-in rules to keep data correct and consistent. They prevent mistakes like duplicate entries or missing information by ensuring that all data follows set guidelines.</p></li>
+<li><p><strong>Multi User Access</strong> – Databases allow many people to access and update data at the same time without causing errors or losing information. They use special features to keep everything organized, even when multiple users make changes at once.</p></li>
+<li><p><strong>Handles Tremendous Amounts of Data</strong> – Databases are designed to store and manage huge amounts of data efficiently. They remain fast and responsive even as the amount of data grows.</p></li>
+<li><p><strong>Security</strong> – Databases have security settings to control who can see or change the data.</p></li>
+<li><p><strong>Reliability</strong> - Databases have safeguards to ensure that changes are properly saved and that information isn’t lost, even if something goes wrong (e.g.&nbsp;a blackout, earthquake, etc.).</p></li>
+</ul>
+<div style="font-style: italic">
+<p>Note that Excel is not usually considered a “database”. Excel is FANTASTIC as a tool for quickly gaining insights into data. However, Excel does not have most of the features listed above that describe typical databases.</p>
+</div>
+</section>
+<section id="different-categories-of-databases" class="level2" data-number="28.2">
+<h2 data-number="28.2" class="anchored" data-anchor-id="different-categories-of-databases"><span class="header-section-number">28.2</span> Different categories of databases</h2>
+<section id="relational-databases" class="level3" data-number="28.2.1">
+<h3 data-number="28.2.1" class="anchored" data-anchor-id="relational-databases"><span class="header-section-number">28.2.1</span> Relational Databases</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Different categories of databases exist. Databases in use</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># today in business can be broken down into two different categories:</span></span>
@@ -719,148 +738,161 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">#      and not on the extensions that are provided by the various products.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="non-relational-databases-aka-nosql-databases" class="level3" data-number="29.1.2">
-<h3 data-number="29.1.2" class="anchored" data-anchor-id="non-relational-databases-aka-nosql-databases"><span class="header-section-number">29.1.2</span> Non-Relational Databases (AKA NoSQL databases)</h3>
+<section id="non-relational-databases-aka-nosql-databases" class="level3" data-number="28.2.2">
+<h3 data-number="28.2.2" class="anchored" data-anchor-id="non-relational-databases-aka-nosql-databases"><span class="header-section-number">28.2.2</span> Non-Relational Databases (AKA NoSQL databases)</h3>
+<p>NoSQL (or non-relational) databases organize information in formats other than rows and columns.</p>
+<p>SOME NoSql databases actually CAN be manipulated with the SQL language. However, the term NoSql has come to include any database that stores information in a form other than in strict rows and columns.</p>
+<p>Some examples are shown below.</p>
+</section>
+<section id="document-databases---e.g.-mongodb" class="level3" data-number="28.2.3">
+<h3 data-number="28.2.3" class="anchored" data-anchor-id="document-databases---e.g.-mongodb"><span class="header-section-number">28.2.3</span> Document databases - e.g.&nbsp;MongoDB</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Non-Relational Databases (also known as NoSQL databases)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    We will mention more about these types of databases towards the end of </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#    the semester.</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    These types of databases organize information in formats other than rows</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#    and columns. </span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    SOME NoSql databases actually CAN be manipulated with the SQL language.</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    However, the term NoSql has come to include any database that stores</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    information in a form other than in strict rows and columns.</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#    Some examples are shown below.</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#         MongoDb is an example of Database Management software that stores information</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#         in "JSON" notation. Other similar products include CouchDB, Firebase</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#         and Firestore. We will explore more about JSON later in the semester.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#         However as an example, the above information could be represented in a JSON</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#         file as shown below:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#           [</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "annie",</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ "sam" ]</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "jack",</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ "annie" , "mac" , "doug" , "harry" ]</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "howard",</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ "jack" ]</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "sam",</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "mac",</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "harry",</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "doug",</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#             }</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">#           ]</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="document-databases---e.g.-mongodb" class="level3" data-number="29.1.3">
-<h3 data-number="29.1.3" class="anchored" data-anchor-id="document-databases---e.g.-mongodb"><span class="header-section-number">29.1.3</span> Document databases - e.g.&nbsp;MongoDB</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     (b) MongoDb is an example of Database Management software that stores information</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#         in "JSON" notation. We will explore more about JSON later in the semester.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#         However as an example, the above information could be represented in a JSON</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#          file as shown below:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#           [</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "annie",</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ "sam" ]</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "jack",</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ "annie" , "mac" , "doug" , "harry" ]</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "howard",</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ "jack" ]</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "sam",</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "mac",</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "harry",</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co">#             },</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">#             {</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co">#               "name" : "doug",</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co">#               "friends" : [ ]</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co">#             }</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co">#           ]</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="graph-databases---e.g.-neo4j" class="level3" data-number="28.2.4">
+<h3 data-number="28.2.4" class="anchored" data-anchor-id="graph-databases---e.g.-neo4j"><span class="header-section-number">28.2.4</span> Graph databases - e.g.&nbsp;Neo4J</h3>
+<ol start="2" type="1">
+<li><strong>Graph Databases</strong> <em>(mentioned above)</em></li>
+</ol>
+<p>Neo4J is an example of a “graph database”. These types of databases organize their information in a “graph” structure. A graph looks like a “web” of information. It is comprised of “nodes” that contain data which are connected via “edges” that represent relationships between the nodes.</p>
+<p>For example:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    %% Position nodes to match example layout
+    Sam([Sam])
+    Annie([Annie])
+    Mac([Mac])
+    Jack([Jack])
+    Doug([Doug])
+    Harry([Harry])
+    
+    %% Create bidirectional connections with straight lines
+    Annie &lt;--&gt;|friend| Sam
+    Jack &lt;--&gt;|friend| Annie
+    Jack &lt;--&gt;|friend| Mac
+    Jack &lt;--&gt;|friend| Doug
+    Jack &lt;--&gt;|friend| Harry
+    
+    %% Black and white styling
+    classDef person fill:white,stroke:black,stroke-width:1px;
+    class Sam,Annie,Mac,Jack,Doug,Harry person;
+    
+    %% Force specific layout
+    Sam ~~~ Annie
+    Mac ~~~ Jack ~~~ Doug
+    Jack ~~~ Harry
+    
+    %% Make invisible linkage lines transparent
+    linkStyle 5,6,7 stroke:none;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>This example shows a set of people and who is friends with whom. There is a different icon for each person. “Friend arrows” indicate who is friends with whom.</p>
+<p>For many types of information a diagram as shown above is much more intuitive and understandable than a table of information. This is just one reason why graph databases are popular.</p>
+<p>However, this same information could be converted to the following table and stored in a relational database.</p>
+<pre><code>            name      is_friends_with
+            ----      ---------------
+            annie     sam
+            jack      annie
+            jack      mac
+            jack      doug
+            jack      harry</code></pre>
+<p>The following is version of the graph also includes “company” nodes and relationships indicating where people work. In general, graphs can be quite complex and be used to store all sorts of information.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    %% Define nodes with type labels
+    Sam([Person: Sam])
+    Annie([Person: Annie])
+    Mac([Person: Mac])
+    Jack([Person: Jack])
+    Doug([Person: Doug])
+    Harry([Person: Harry])
+    Acme([Company: Acme Inc.])
+    MikroTek([Company: MikroTek])
+    
+    %% Friend relationships (bidirectional)
+    Annie &lt;--&gt;|friend| Sam
+    Jack &lt;--&gt;|friend| Annie
+    Jack &lt;--&gt;|friend| Mac
+    Jack &lt;--&gt;|friend| Doug
+    Jack &lt;--&gt;|friend| Harry
+    
+    %% Work relationships
+    Sam --&gt;|works at| Acme
+    Annie --&gt;|works at| Acme
+    Mac --&gt;|works at| MikroTek
+    Jack --&gt;|works at| MikroTek
+    Doug --&gt;|works at| MikroTek
+    
+    %% Styling for nodes - white background with black borders and text
+    classDef person fill:white,stroke:black,stroke-width:1px,color:brown;
+    classDef company fill:white,stroke:black,stroke-width:2px,stroke-dasharray:5 2,color:green;
+    
+    %% Apply styles
+    class Sam,Annie,Mac,Jack,Doug,Harry person;
+    class Acme,MikroTek company;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
 </div>
 </section>
-<section id="graph-databases---e.g.-neo4j" class="level3" data-number="29.1.4">
-<h3 data-number="29.1.4" class="anchored" data-anchor-id="graph-databases---e.g.-neo4j"><span class="header-section-number">29.1.4</span> Graph databases - e.g.&nbsp;Neo4J</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#    (a) Neo4J is an example of a "graph database". These types of databases</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        organize their information in a structure that looks like a "web"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#        of information.</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#        For example see the diagram below</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#        (For a better version of this diagram see the picture at the top of</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#         the following webpage: https://aws.amazon.com/nosql/graph/</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#         or see the file "graph-of-friends.png" file in the files for this lesson.)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                           (friend)</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                    Sam &lt;------------ Annie</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                                        ^</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#                                        |</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#                                        |(friend)</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#                                        |</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#                                        |</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#                           (friend)     |        (friend)</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#                   Mac &lt;-------------- Jack ---------------&gt; Doug</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#                                       | ^</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">#                                       | |</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#                              (friend) | | </span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#                                       | | (friend)                </span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#                                       v |         </span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#                                   Harry Howard</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">#        This example shows a set of people and who is friends with whom.</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">#        There is a different icon for each person. "Friend arrows" indicate </span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">#        who is friends with whom. In this example the arrows have a direction.</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">#        For example:</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">#                            (friends)</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">#                     Jack -------------&gt;  Doug   </span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co">#        </span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">#        can mean that Jack is friends with Doug but Doug is not friends with Jack.</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">#        However, graph databases also have the option to assume that a one-way </span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">#        arrow actually implies a two way relationship such that</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co">#        Jack ---&gt; Doug also implies that Doug is friends with Jack. In any</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co">#        case, this lesson is not focusing on the details of graph databases.</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="co">#        For many types of information a diagram as shown above is much more</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co">#        intuitive and understandable than a table of information. This is</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co">#        just one reason why graph databases are popular.</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="co">#        However, this same information could be converted to the following</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co">#        table and stored in a relational database.</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co">#            name      is_friends_with</span></span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="co">#            ----      ---------------</span></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co">#            annie     sam</span></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co">#            jack      annie</span></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co">#            jack      mac</span></span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="co">#            jack      doug</span></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co">#            jack      harry</span></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co">#            howard    jack</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="other-types-of-nosql-databases" class="level3" data-number="29.1.5">
-<h3 data-number="29.1.5" class="anchored" data-anchor-id="other-types-of-nosql-databases"><span class="header-section-number">29.1.5</span> Other types of NoSQL databases</h3>
+<section id="other-types-of-nosql-databases" class="level3" data-number="28.2.5">
+<h3 data-number="28.2.5" class="anchored" data-anchor-id="other-types-of-nosql-databases"><span class="header-section-number">28.2.5</span> Other types of NoSQL databases</h3>
 <p><yraigen url="chatgpt.com" topic="?"></yraigen></p>
-<p>NoSQL databases are categorized into four main types, each optimized for specific use cases:</p>
+<p>The are other types of NoSQL databases. The following are also popular. We will not go into these in more detail now.</p>
+<p>The main thing that NoSQL databases have in common is that the data is NOT stored in a rectangular form (i.e.&nbsp;rows and columns).</p>
 <ol type="1">
-<li><strong>Document Stores</strong> <em>(mentioned above)</em>
-<ul>
-<li>Store data in flexible, JSON-like documents.<br>
-</li>
-<li>Suitable for hierarchical and semi-structured data.<br>
-</li>
-<li><strong>Examples:</strong> MongoDB, CouchDB, Firebase Firestore</li>
-</ul></li>
-<li><strong>Graph Databases</strong> <em>(mentioned above)</em>
-<ul>
-<li>Store relationships between data points as graphs (nodes and edges).<br>
-</li>
-<li>Ideal for social networks, fraud detection, and recommendation systems.<br>
-</li>
-<li><strong>Examples:</strong> Neo4j, ArangoDB, Amazon Neptune3. <strong>Key-Value Stores</strong></li>
-</ul></li>
 <li><strong>Key-Value Stores</strong>
 <ul>
 <li>Store data as a collection of key-value pairs.<br>
@@ -876,22 +908,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Designed for high scalability and distributed storage.<br>
 </li>
 <li><strong>Examples:</strong> Apache Cassandra, HBase, ScyllaDB</li>
-</ul></li>
-<li><strong>Column-Family Stores</strong>
-<ul>
-<li>Organize data into columns rather than rows, optimized for analytical queries.<br>
-</li>
-<li>Designed for high scalability and distributed storage.<br>
-</li>
-<li><strong>Examples:</strong> Apache Cassandra, HBase, ScyllaDB</li>
-</ul></li>
-<li><strong>Graph Databases</strong>
-<ul>
-<li>Store relationships between data points as graphs (nodes and edges).<br>
-</li>
-<li>Ideal for social networks, fraud detection, and recommendation systems.<br>
-</li>
-<li><strong>Examples:</strong> Neo4j, ArangoDB, Amazon Neptune</li>
 </ul></li>
 </ol>
 
@@ -1328,12 +1344,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./0500400-sqlSelectIntro-v003.html" class="pagination-link" aria-label="<yrChapterNumber>28. </yrChapterNumber> SQL Select">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> SQL Select</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> SQL Select</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./sql0014-theBooksDatabase-v001.html" class="pagination-link" aria-label="<yrChapterNumber>30. </yrChapterNumber> Get the data - &quot;books database&quot; and other tables">
-        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Get the data - “books database” and other tables</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Get the data - “books database” and other tables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
