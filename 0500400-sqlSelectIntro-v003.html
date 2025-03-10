@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>29&nbsp; 29.  Introf to SQL Select (assumes some knowledge of dplyr) – Data Management With R (latest version)</title>
+<title>29&nbsp; 29.  Intro to SQL Select (assumes some knowledge of dplyr) – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./0500400-sqlSelectIntro-v003.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Introf to SQL Select ***(assumes some knowledge of dplyr)***</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./0500400-sqlSelectIntro-v003.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Intro to SQL Select ***(assumes some knowledge of dplyr)***</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -446,13 +446,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Introf to SQL Select ***(assumes some knowledge of dplyr)***</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Intro to SQL Select ***(assumes some knowledge of dplyr)***</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Tntro to Relational Databases and SQL ***(no dplyr required)***</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Intro to Relational Databases and SQL ***(no dplyr required)***</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -644,20 +644,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#database-terminology---fields-entities-etc" id="toc-database-terminology---fields-entities-etc" class="nav-link" data-scroll-target="#database-terminology---fields-entities-etc"><span class="header-section-number">29.11</span> Database terminology - fields, entities, etc</a></li>
   <li><a href="#select-and-from-clauses" id="toc-select-and-from-clauses" class="nav-link" data-scroll-target="#select-and-from-clauses"><span class="header-section-number">29.12</span> SELECT and FROM clauses</a></li>
   <li><a href="#add-new-columns-in-select-clause" id="toc-add-new-columns-in-select-clause" class="nav-link" data-scroll-target="#add-new-columns-in-select-clause"><span class="header-section-number">29.13</span> add new columns in SELECT clause</a></li>
-  <li><a href="#use-aggregate-functions-in-select-to-create-summary-rows" id="toc-use-aggregate-functions-in-select-to-create-summary-rows" class="nav-link" data-scroll-target="#use-aggregate-functions-in-select-to-create-summary-rows"><span class="header-section-number">29.14</span> use aggregate functions in SELECT to create summary rows</a></li>
+  <li><a href="#yrAggregateFunctions" id="toc-yrAggregateFunctions" class="nav-link" data-scroll-target="#yrAggregateFunctions"><span class="header-section-number">29.14</span> use aggregate functions in SELECT to create summary rows</a></li>
   <li><a href="#where-clause" id="toc-where-clause" class="nav-link" data-scroll-target="#where-clause"><span class="header-section-number">29.15</span> WHERE clause</a></li>
   <li><a href="#order-by-clause" id="toc-order-by-clause" class="nav-link" data-scroll-target="#order-by-clause"><span class="header-section-number">29.16</span> ORDER BY clause</a></li>
-  <li><a href="#group-by-clause" id="toc-group-by-clause" class="nav-link" data-scroll-target="#group-by-clause"><span class="header-section-number">29.17</span> GROUP BY clause</a></li>
+  <li><a href="#yrGroupBy" id="toc-yrGroupBy" class="nav-link" data-scroll-target="#yrGroupBy"><span class="header-section-number">29.17</span> GROUP BY clause</a></li>
   <li><a href="#limit-clause" id="toc-limit-clause" class="nav-link" data-scroll-target="#limit-clause"><span class="header-section-number">29.18</span> LIMIT clause</a></li>
+  <li><a href="#restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count" id="toc-restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count" class="nav-link" data-scroll-target="#restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count"><span class="header-section-number">29.19</span> Restrictions on SELECT clauses that contain aggregate functions, (eg. avg, sum, min, max, count)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./0500400-sqlSelectIntro-v003.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Introf to SQL Select ***(assumes some knowledge of dplyr)***</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./0500400-sqlSelectIntro-v003.html"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Intro to SQL Select ***(assumes some knowledge of dplyr)***</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Introf to SQL Select <strong><em>(assumes some knowledge of dplyr)</em></strong></span></h1>
+<h1 class="title"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Intro to SQL Select <strong><em>(assumes some knowledge of dplyr)</em></strong></span></h1>
 </div>
 
 
@@ -851,7 +852,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="29.11" class="anchored" data-anchor-id="database-terminology---fields-entities-etc"><span class="header-section-number">29.11</span> Database terminology - fields, entities, etc</h2>
 <p>There are different terms used to refer to the rows and columns of a table, dataframe or tibble. Statisticians often refer to each row of a table as an observation and each column of a table as a variable.</p>
 <p>In the world of databases, a column can be referred to as a “column” or a “field”. Rows are referred to as just “rows” but sometimes are referred to as “records” or “entities”. Often an entire table is referred to as an “entity” (technically a table, which is a collection of rows, is an “entity set” or an “entity type”).</p>
-<p>The truth is not many people use the word “entity” or “entity set”. However, an “Entity Relationship Diagram” is used to show the tables in a database and how the tables are “related” to each other.</p>
+<p>The truth is that not many people use the word “entity” or “entity set”. However, an “Entity Relationship Diagram” is used to show the tables in a database and how the tables are “related” to each other.</p>
 <p>In this section we are just focusing on a single table. In a later sections, we’ll learn more about “relationships” between multiple tables and how the relationships are displayed on an Entity Relationship Diagram.</p>
 </section>
 <section id="select-and-from-clauses" class="level2" data-number="29.12">
@@ -1053,8 +1054,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="use-aggregate-functions-in-select-to-create-summary-rows" class="level2" data-number="29.14">
-<h2 data-number="29.14" class="anchored" data-anchor-id="use-aggregate-functions-in-select-to-create-summary-rows"><span class="header-section-number">29.14</span> use aggregate functions in SELECT to create summary rows</h2>
+<section id="yrAggregateFunctions" class="level2" data-number="29.14">
+<h2 data-number="29.14" class="anchored" data-anchor-id="yrAggregateFunctions"><span class="header-section-number">29.14</span> use aggregate functions in SELECT to create summary rows</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The dplyr summarize function is used to summarize (or aggregate) info from</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># several rows into a single row. </span></span>
@@ -1077,7 +1078,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1       24             32.29167                   50</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># As shown above we can assign names to the new columns.</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Again, the word "AS" is optional. The following statement</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Again, as we said above, the word "AS" is optional. The following statement</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># would work exactly the same way if we did not have the word "AS"</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*) as numberOfEmployees, </span></span>
@@ -1093,7 +1094,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This version does not have the word "AS".</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The results are exactly the same.</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*) as numberOfEmployees, </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"SELECT count(*) numberOfEmployees, </span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) averagebaseInThousands, </span></span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) maxbaseInThousands</span></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM sales</span></span>
@@ -1224,8 +1225,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="group-by-clause" class="level2" data-number="29.17">
-<h2 data-number="29.17" class="anchored" data-anchor-id="group-by-clause"><span class="header-section-number">29.17</span> GROUP BY clause</h2>
+<section id="yrGroupBy" class="level2" data-number="29.17">
+<h2 data-number="29.17" class="anchored" data-anchor-id="yrGroupBy"><span class="header-section-number">29.17</span> GROUP BY clause</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The GROUP BY clause in SQL is directly analogous to the group_by function in dplyr.</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -1299,7 +1300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="limit-clause" class="level2" data-number="29.18">
 <h2 data-number="29.18" class="anchored" data-anchor-id="limit-clause"><span class="header-section-number">29.18</span> LIMIT clause</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The LIMIT clause is similar to print(n=) with dplyr.</span></span>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The LIMIT clause is similar to print(n=...) and slice_head(n=...) with dplyr.</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It limits the number of rows returned to the first few</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># that would have been returned had the query not included the LIMIT clause.</span></span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -1325,6 +1326,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the LIMIT clause is not standard SQL - some SQL flavors</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># do not contain a LIMIT clause. However, the LIMIT clause or </span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># something similar is part of many SQL flavors.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count" class="level2" data-number="29.19">
+<h2 data-number="29.19" class="anchored" data-anchor-id="restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count"><span class="header-section-number">29.19</span> Restrictions on SELECT clauses that contain aggregate functions, (eg. avg, sum, min, max, count)</h2>
+<p><strong>If a SELECT clause includes aggregate functions then the SELECT should NOT</strong> <strong>include non-aggregated columns, unless those columns are part of the</strong> <strong>GROUP BY clause.</strong></p>
+<p><em>(The rest of this section explains this “rule”)</em></p>
+<hr>
+<p>If a SELECT clause contains an <a href="#yrAggregateFunctions">aggregate function</a> then one of the following two things happen:</p>
+<ul>
+<li><p>if there is no GROUP BY, then only one row is returned, (see example below)</p></li>
+<li><p>if the statement contains a GROUP BY then one row is returned per group of rows in the table. (see the <a href="#yrGroupBy">GROUP BY clause</a> above)</p></li>
+</ul>
+<p>For example, in the following statement, the SELECT clause includes aggregate functions but does NOT contain a group by. Therefore only one row is returned. The next example includes a GROUP BY which causes more than one row to be returned.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(baseInThousands) as avgBase, </span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   avgBase maxBase avgYears
+1 32.29167      50 5.166667</code></pre>
+</div>
+</div>
+<p>The following statement is very similar to the statement above. However, the following includes a GROUP BY. Therefore a single row is returned PER GROUP. Note that the SELECT clause also includes the title column, which is also in the GROUP BY clause.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select title,</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="st">       group by title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            title avgBase maxBase avgYears
+1         Manager    29.0      40 6.166667
+2     Salesperson    33.3      50 4.900000
+3 Sr. Salesperson    33.5      50 4.750000</code></pre>
+</div>
+</div>
+<p>This makes sense since an aggregate function (e.g.&nbsp;avg, sum, min, max, count) takes multiple values from different rows in the table and returns only a single value. A select statement that doesn’t have a GROUP BY passes the values from all rows in the table to the aggregate function. If a select has a GROUP BY then the aggregate functions are called once for each group of rows.</p>
+<p>A SELECT clause that includes aggregate functions which also includes non-aggregated values that are not part of the GROUP BY is problematic. Because of the aggregate function(s) only a single row will be returned. However, the non-aggregated values could have multiple rows. This causes a conflict - should only one row be returned (because of the aggregate functions) of should more than one row be returned (because of the non-aggregated data)? The rules of SQL say that ONLY ONE ROW is returned. However, ONE OF THE SEVERAL non-aggregated values will also be returned. This could lead to misleading output.</p>
+<p>For example, <em>DO NOT DO THE FOLLOWING</em>. You will NOT get an error, but the output WILL BE MISLEADING.</p>
+<p>The following SELECT uses aggreagate functions and INCORRECTLY also includes region which is NOT part of the GROUP BY. It appears that the output only reflects data from the region that is output. However, that is NOT correct. The output of a particular row actually is summary info for all rows with the specified title, regardless of the region.</p>
+<p><em>(NOTE: the – in the command below introduces a comment in SQLite)</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select title,</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="st">              region, -- DO NOT DO THIS - region is NOT in the GROUP BY</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="st">       group by title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            title region avgBase maxBase avgYears
+1         Manager    usa    29.0      40 6.166667
+2     Salesperson europe    33.3      50 4.900000
+3 Sr. Salesperson    usa    33.5      50 4.750000</code></pre>
+</div>
+</div>
+<p>The following has the same problem but for a query that doesn’t have any group by.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select </span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="st">              region, -- DO NOT DO THIS - region is NOT in the GROUP BY</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  region  avgBase maxBase avgYears
+1    usa 32.29167      50 5.166667</code></pre>
+</div>
 </div>
 <!--
 
@@ -1875,8 +1947,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sql0010-introToSql-v023.html" class="pagination-link" aria-label="<yrChapterNumber>30. </yrChapterNumber> Tntro to Relational Databases and SQL ***(no dplyr required)***">
-        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Tntro to Relational Databases and SQL <strong><em>(no dplyr required)</em></strong></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sql0010-introToSql-v023.html" class="pagination-link" aria-label="<yrChapterNumber>30. </yrChapterNumber> Intro to Relational Databases and SQL ***(no dplyr required)***">
+        <span class="nav-page-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Intro to Relational Databases and SQL <strong><em>(no dplyr required)</em></strong></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
