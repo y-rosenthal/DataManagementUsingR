@@ -466,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+  <a href="./sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
   </div>
 </li>
@@ -1083,18 +1083,18 @@ I'm not sure how to do this.
 <pre><code># A tibble: 3 × 7
   first last      title region baseInThousands salesInThousands yearsWithCompany
   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Joe   Washingt… Sr. … europe              33              370                2
-2 Amy   Markovic  Sale… asia                46              340                3
-3 Jim   Kuruzovi… Sr. … usa                 35              140                3</code></pre>
+1 Sam   Lincoln   Mana… europe              30              500                2
+2 Larry Green     Sr. … europe              20              113                4
+3 Sue   Sallinger Sale… asia                30              150               10</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly chose 10% of the rows to view</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">prop=</span><span class="fl">0.10</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 7
-  first last  title     region baseInThousands salesInThousands yearsWithCompany
-  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Kate  Carey Sr. Sale… europe              20               69                2
-2 Jack  Aames Salesper… usa                 43              105                4</code></pre>
+  first last      title region baseInThousands salesInThousands yearsWithCompany
+  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 Sam   Lincoln   Mana… europe              30              500                2
+2 Joe   Washingt… Sr. … europe              33              370                2</code></pre>
 </div>
 </div>
 </section>

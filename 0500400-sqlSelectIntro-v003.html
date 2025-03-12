@@ -469,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+  <a href="./sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
   </div>
 </li>
@@ -649,7 +649,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#order-by-clause" id="toc-order-by-clause" class="nav-link" data-scroll-target="#order-by-clause"><span class="header-section-number">29.16</span> ORDER BY clause</a></li>
   <li><a href="#yrGroupBy" id="toc-yrGroupBy" class="nav-link" data-scroll-target="#yrGroupBy"><span class="header-section-number">29.17</span> GROUP BY clause</a></li>
   <li><a href="#limit-clause" id="toc-limit-clause" class="nav-link" data-scroll-target="#limit-clause"><span class="header-section-number">29.18</span> LIMIT clause</a></li>
-  <li><a href="#restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count" id="toc-restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count" class="nav-link" data-scroll-target="#restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count"><span class="header-section-number">29.19</span> Restrictions on SELECT clauses that contain aggregate functions, (eg. avg, sum, min, max, count)</a></li>
+  <li><a href="#do-not-select-both-aggregate-and-non-aggregate-data" id="toc-do-not-select-both-aggregate-and-non-aggregate-data" class="nav-link" data-scroll-target="#do-not-select-both-aggregate-and-non-aggregate-data"><span class="header-section-number">29.19</span> DO NOT select both aggregate and non-aggregate data</a>
+  <ul class="collapse">
+  <li><a href="#example-of-incorrect-select-that-includes-both-aggregate-and-non-aggregated-columns" id="toc-example-of-incorrect-select-that-includes-both-aggregate-and-non-aggregated-columns" class="nav-link" data-scroll-target="#example-of-incorrect-select-that-includes-both-aggregate-and-non-aggregated-columns"><span class="header-section-number">29.19.1</span> Example of INCORRECT select that includes both aggregate and non-aggregated columns</a></li>
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation"><span class="header-section-number">29.19.2</span> Explanation</a></li>
+  <li><a href="#ansi-sql-standard-vs-sqlite-vs-other-databases" id="toc-ansi-sql-standard-vs-sqlite-vs-other-databases" class="nav-link" data-scroll-target="#ansi-sql-standard-vs-sqlite-vs-other-databases"><span class="header-section-number">29.19.3</span> ANSI SQL standard vs SQLite vs other databases</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1328,55 +1333,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># something similar is part of many SQL flavors.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count" class="level2" data-number="29.19">
-<h2 data-number="29.19" class="anchored" data-anchor-id="restrictions-on-select-clauses-that-contain-aggregate-functions-eg.-avg-sum-min-max-count"><span class="header-section-number">29.19</span> Restrictions on SELECT clauses that contain aggregate functions, (eg. avg, sum, min, max, count)</h2>
-<p><strong>If a SELECT clause includes aggregate functions then the SELECT should NOT</strong> <strong>include non-aggregated columns, unless those columns are part of the</strong> <strong>GROUP BY clause.</strong></p>
-<p><em>(The rest of this section explains this “rule”)</em></p>
-<hr>
-<p>If a SELECT clause contains an <a href="#yrAggregateFunctions">aggregate function</a> then one of the following two things happen:</p>
-<ul>
-<li><p>if there is no GROUP BY, then only one row is returned, (see example below)</p></li>
-<li><p>if the statement contains a GROUP BY then one row is returned per group of rows in the table. (see the <a href="#yrGroupBy">GROUP BY clause</a> above)</p></li>
-</ul>
-<p>For example, in the following statement, the SELECT clause includes aggregate functions but does NOT contain a group by. Therefore only one row is returned. The next example includes a GROUP BY which causes more than one row to be returned.</p>
+<section id="do-not-select-both-aggregate-and-non-aggregate-data" class="level2" data-number="29.19">
+<h2 data-number="29.19" class="anchored" data-anchor-id="do-not-select-both-aggregate-and-non-aggregate-data"><span class="header-section-number">29.19</span> DO NOT select both aggregate and non-aggregate data</h2>
+<p><strong>SUMMARY OF THIS SECTION:</strong> <strong>If a SELECT clause includes aggregate functions then the SELECT clause should NOT</strong> <strong>include non-aggregated columns, unless those columns are part of the</strong> <strong>GROUP BY clause.</strong> <em>(The rest of this section explains this rule.)</em> <strong>IMPORTANT</strong> - if you don’t follow this rule, then you will NOT get an error but your output will be misleading.</p>
+<p><em>Before reading the rest of this section I highly recommend that you review</em> <em>the sections above on</em> <em><a href="#yrAggregateFunctions">aggreate functions</a> and the <a href="#yrGroupBy">GROUP BY clause</a></em></p>
+<section id="example-of-incorrect-select-that-includes-both-aggregate-and-non-aggregated-columns" class="level3" data-number="29.19.1">
+<h3 data-number="29.19.1" class="anchored" data-anchor-id="example-of-incorrect-select-that-includes-both-aggregate-and-non-aggregated-columns"><span class="header-section-number">29.19.1</span> Example of INCORRECT select that includes both aggregate and non-aggregated columns</h3>
+<!--
+Do ***NOT*** do the following. You will *not* get an error, but
+***the output WILL BE MISLEADING.*** -->
+<!-- YR-TODO fix the hardcoded data for USA, other regions below with
+queries to get the right data -->
+<p>Examine the query shown below. The SELECT <strong><em>incorrectly</em></strong> uses the aggregate functions <strong><em>avg</em></strong> and <strong><em>max</em></strong> mixed together with non-aggregate data, i.e.&nbsp;<strong><em>region</em></strong> (Note that the region column is NOT part of the GROUP BY). The results are <strong><em>misleading</em></strong>.</p>
+<p>Even though the underlying data in the sales table contains Managers for all of the regions (africa, asia, europe, usa), the results below seem to imply that the data in the “Manager” row is only for Managers for the “usa” region. However, that is NOT the case. The <strong><em>maxBase</em></strong> and <strong><em>avgYears</em></strong> columns show the maxBase and avgYears for <strong><em>ALL</em></strong> managers (not just for those from the usa region). The fact that the output shows “usa” and not “africa”, “asia” or “europe” is by chance. There is no guarantee that one of the other regions would be shown in similar queries.</p>
+<blockquote class="blockquote">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(baseInThousands) as avgBase, </span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   avgBase maxBase avgYears
-1 32.29167      50 5.166667</code></pre>
-</div>
-</div>
-<p>The following statement is very similar to the statement above. However, the following includes a GROUP BY. Therefore a single row is returned PER GROUP. Note that the SELECT clause also includes the title column, which is also in the GROUP BY clause.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select title,</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="st">       group by title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            title avgBase maxBase avgYears
-1         Manager    29.0      40 6.166667
-2     Salesperson    33.3      50 4.900000
-3 Sr. Salesperson    33.5      50 4.750000</code></pre>
-</div>
-</div>
-<p>This makes sense since an aggregate function (e.g.&nbsp;avg, sum, min, max, count) takes multiple values from different rows in the table and returns only a single value. A select statement that doesn’t have a GROUP BY passes the values from all rows in the table to the aggregate function. If a select has a GROUP BY then the aggregate functions are called once for each group of rows.</p>
-<p>A SELECT clause that includes aggregate functions which also includes non-aggregated values that are not part of the GROUP BY is problematic. Because of the aggregate function(s) only a single row will be returned. However, the non-aggregated values could have multiple rows. This causes a conflict - should only one row be returned (because of the aggregate functions) of should more than one row be returned (because of the non-aggregated data)? The rules of SQL say that ONLY ONE ROW is returned. However, ONE OF THE SEVERAL non-aggregated values will also be returned. This could lead to misleading output.</p>
-<p>For example, <em>DO NOT DO THE FOLLOWING</em>. You will NOT get an error, but the output WILL BE MISLEADING.</p>
-<p>The following SELECT uses aggreagate functions and INCORRECTLY also includes region which is NOT part of the GROUP BY. It appears that the output only reflects data from the region that is output. However, that is NOT correct. The output of a particular row actually is summary info for all rows with the specified title, regardless of the region.</p>
-<p><em>(NOTE: the – in the command below introduces a comment in SQLite)</em></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select title,</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="st">              region, -- DO NOT DO THIS - region is NOT in the GROUP BY</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="st">       group by title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: the -- in the command below introduces a comment in SQLite</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select title,</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="st">              region, -- DO NOT DO THIS - region is NOT in the GROUP BY</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="st">       group by title</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="st">       order by title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            title region avgBase maxBase avgYears
 1         Manager    usa    29.0      40 6.166667
@@ -1384,20 +1365,218 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 Sr. Salesperson    usa    33.5      50 4.750000</code></pre>
 </div>
 </div>
-<p>The following has the same problem but for a query that doesn’t have any group by.</p>
+</blockquote>
+<!-- YR-TODO - probably remove this
+You can see that there are multiple values of region for Manager
+rows 
+(i.e. 
+*africa\, asia\, europe\, europe\, usa\, usa* ).
+However the ouptput in the query above only shows one of those regions
+(i.e.
+usa
+)
+It appears that the output
+only reflects data from the 
+usa
+region. However, that is NOT
+correct. Each row contains is summary info for 
+all rows with the specified title, regardless of the region shown in the output.
+-->
+<!-- YR-TODO - probably remove this
+Therefore, 
+even though there will be one row in the output that summarizes all of the
+rows for the same title (e.g. all of the *salesperson* rows) there might be
+multiple different region values for the different underlying *salesperson* 
+rows. To see the different values of region for the diffrent salesperson
+rows we can run the following query:
+
+::: {.callout-note}
+### there are different regions for different Managers
+
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+sqldf("select title, region, first, last
+       from sales
+       where title = 'Manager'
+       order by region")
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+    title region first     last
+1 Manager africa Laura    White
+2 Manager   asia   Emy Zeitchik
+3 Manager europe  Jack   Martin
+4 Manager europe   Sam  Lincoln
+5 Manager    usa   Joe    Smith
+6 Manager    usa  Zeke    Cohen
+```
+
+
+:::
+:::
+
+
+
+
+
+:::
+
+You can see that there are multiple values of region for Manager
+rows 
+(i.e. 
+*africa\, asia\, europe\, europe\, usa\, usa* ).
+However the ouptput in the query below only shows one of those regions
+(i.e.
+usa
+)
+It appears that the output
+only reflects data from the region that is output. However, that is NOT
+correct. The output of a particular row actually is summary info for 
+all rows with the specified title, regardless of the region.
+
+
+-->
+<hr>
+<p>The following has the same problem but for a query that doesn’t contain a GROUP BY. The results shown below seem to imply that the avgBase, maxBase and avgYears columns only take into account rows from the <strong><em>“usa”</em></strong> region. However, that is NOT the case. the avgBase, maxBase and avgYears take into account rows from <strong><em>ALL</em></strong> regions.</p>
+<blockquote class="blockquote">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select </span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="st">              region, -- DO NOT DO THIS - region is NOT in the GROUP BY</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: the -- in the command below introduces a comment in SQLite</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select </span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="st">              region, -- DO NOT DO THIS - region is NOT in the GROUP BY</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="st">       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  region  avgBase maxBase avgYears
 1    usa 32.29167      50 5.166667</code></pre>
 </div>
 </div>
+</blockquote>
+</section>
+<section id="explanation" class="level3" data-number="29.19.2">
+<h3 data-number="29.19.2" class="anchored" data-anchor-id="explanation"><span class="header-section-number">29.19.2</span> Explanation</h3>
+<p>If a SELECT clause contains an <a href="#yrAggregateFunctions">aggregate function</a> then one of the following two things happen:</p>
+<ul>
+<li><p>If there is no GROUP BY, then only one row is returned.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+click for example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The following SELECT clause includes aggregate functions and there is NO group by. Therefore only one row is returned.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(baseInThousands) as avgBase, </span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   avgBase maxBase avgYears
+1 32.29167      50 5.166667</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>If there IS a GROUP BY then one row is returned per group of rows in the table. (see the <a href="#yrGroupBy">GROUP BY clause</a> above)</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+click for example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The following statement is very similar to the statement above. However, this statement includes a GROUP BY. Therefore a single row is returned PER GROUP. Note that the SELECT clause also includes the title column, which is also in the GROUP BY clause.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select title,</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(baseInThousands) as avgBase, </span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="st">              max(baseInThousands) as maxBase, </span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="st">              avg(yearsWithCompany) as avgYears</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="st">       from sales</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="st">       group by title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            title avgBase maxBase avgYears
+1         Manager    29.0      40 6.166667
+2     Salesperson    33.3      50 4.900000
+3 Sr. Salesperson    33.5      50 4.750000</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div></li>
+</ul>
+<p>This makes sense since an aggregate function (e.g.&nbsp;avg, sum, min, max, count) takes multiple values from different rows in the table and returns only a single value. A select statement that doesn’t have a GROUP BY passes the values from all rows in the table to the aggregate function. By contraste, a select with a GROUP BY calls the aggregate functions once for each group of rows.</p>
+<p>A SELECT clause that includes aggregated columns as well as<br>
+non-aggregated columns is problematic.0 The aggregate function(s) return a single value so only a single row should be diplayed. However, the non-aggregated values could have multiple values and hence multiple rows. This causes a conflict (a) should only one row be returned (because of the aggregate functions) or (b) should more than one row be returned (because of the non-aggregated data)? The rules of SQL say that ONLY ONE ROW is returned. However, ONE OF THE SEVERAL non-aggregated values will also be returned. This could lead to misleading output.</p>
+</section>
+<section id="ansi-sql-standard-vs-sqlite-vs-other-databases" class="level3" data-number="29.19.3">
+<h3 data-number="29.19.3" class="anchored" data-anchor-id="ansi-sql-standard-vs-sqlite-vs-other-databases"><span class="header-section-number">29.19.3</span> ANSI SQL standard vs SQLite vs other databases</h3>
+<p>According to the ANSI SQL standard, queries such as those listed above that include both aggregate and non-aggregate columns should cause an ERROR. However, in actuality, different RDBMS software treat this issue differently. By default, when using sqldf() within R, the SQLite version of the SQL is used. SQLite does NOT return an error when issuing such queries. However, as shown above, the results can be very misleading. SQLite’s approach is that the person writing the query is expected to be responsible enough to not break this rule. Other RDBMS software may issue ERRORs or warnings or take a similar approach to SQLite (see the documentation for the specific RDBMS software).</p>
+<section id="why-doesnt-sqlite-check-for-this-error" class="level4">
+<h4 class="anchored" data-anchor-id="why-doesnt-sqlite-check-for-this-error">Why doesn’t SQLite check for this error?</h4>
+<p>There are situations where this rule can be too limiting. For example, the following grades table lists different grades that students got in a class. Each row lists the student’s ID and the student’s social security number (ssn), both of which could theoretically be a primary key for the table (i.e.&nbsp;they are “candiate primary keys”).</p>
+<blockquote class="blockquote">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from grades"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  studentId         ssn assessment grade
+1       001 111-11-1111      test1    70
+2       001 111-11-1111      test2    80
+3       002 222-22-2222      test1    90
+4       002 222-22-2222      test2   100</code></pre>
+</div>
+</div>
+</blockquote>
+<p>The following query breaks the rule described above (ssn is in the SELECT but not in the GROUP BY). Nevertheless, the query gives accurate results. This is because the studentId and the ssn are guaranteed to each contain the same unique values for a specific student.</p>
+<blockquote class="blockquote">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select studentId, ssn, avg(grade)</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="st">       from grades</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="st">       group by studentId</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="st">       order by studentId"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  studentId         ssn avg(grade)
+1       001 111-11-1111         75
+2       002 222-22-2222         95</code></pre>
+</div>
+</div>
+</blockquote>
+<p>Similarly, this also breaks the rule (i.e.&nbsp;studentId is in the SELECT but not in the GROUP BY) but the results are accurate:</p>
+<blockquote class="blockquote">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select studentId, ssn, avg(grade)</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="st">       from grades</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="st">       group by ssn</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="st">       order by studentId"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  studentId         ssn avg(grade)
+1       001 111-11-1111         75
+2       002 222-22-2222         95</code></pre>
+</div>
+</div>
+</blockquote>
+<p>Bottom line is that SQLite requires the person who is writing the SQL to do it correctly!</p>
 <!--
 
 colnames(sales)
@@ -1512,6 +1691,8 @@ sales |>
 -->
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
