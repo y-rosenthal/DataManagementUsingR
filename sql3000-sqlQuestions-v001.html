@@ -1,0 +1,2413 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>39&nbsp; sqlQstns Database Questions (and Answers) – Data Management With R (latest version)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./github-000700-markdownGithubVsQuarto.html" rel="next">
+<link href="./0600100-introToDb-v001.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+
+<meta http-equiv="Pragma" content="no-cache">
+
+<meta http-equiv="Expires" content="0">
+<script src="yrstuff.js"></script>
+
+
+<link rel="stylesheet" href="yrStyles-main-v001.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./sql3000-sqlQuestions-v001.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>sqlQstns Database Questions (and Answers)</yrchapternumber></span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Management With R (latest version)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><yrchapternumber></yrchapternumber> Intro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Some computer basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro00100-operatingSystems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><yrchapternumber>1. </yrchapternumber> What is an "operating system"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro00120-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><yrchapternumber>2. </yrchapternumber> Working with files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><yrchapternumber>3. </yrchapternumber> Chrome Extensions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Into to Coding With AI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> AI in Everyday Use</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><yrchapternumber>5. </yrchapternumber> Coding with AI - an overview</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to R packages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Intro to R packages</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to Quarto</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to Quarto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to tidyverse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> What is the "tidyverse"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> tibbles and tribbles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> stringr tutorial</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working with files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> Working with files</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">JSON data and APIs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Intro to JSON data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000093-jsonParsingPractice-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> JSON Parsing Practice in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-api-0000100-weatherDataApi-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> assignment - weather API</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Expressions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-a-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> regular expressions (regex)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> Practice with Regular Expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> "Cleaning" data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bash</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> How to run the Bash Shell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Working with the Bash Shell.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to dplyr</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0500100-a-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> dplyr - getting and viewing the data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0500100-b-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> dplyr verbs - select, filter, etc.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Relational databases and SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Intro to SQL Select ***(assumes some knowledge of dplyr)***</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Intro to Relational Databases and SQL ***(no dplyr required)***</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> What is a Database?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>sqlQstns Database Questions (and Answers)</yrchapternumber></span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">Git and Github</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">visualizations with ggplot2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Intro to ggplot2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">Web Scraping</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> CSS Selector Questions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>44. </yrchapternumber> Topics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>45. </yrchapternumber> Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>46. </yrchapternumber> Where to find datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Where to find APIs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title"><yrchapternumber>48. </yrchapternumber> Additional topics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#questions" id="toc-questions" class="nav-link active" data-scroll-target="#questions"><span class="header-section-number">39.1</span> QUESTIONS</a>
+  <ul class="collapse">
+  <li><a href="#single-table-queries" id="toc-single-table-queries" class="nav-link" data-scroll-target="#single-table-queries"><span class="header-section-number">39.1.1</span> Single Table queries</a></li>
+  <li><a href="#single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." id="toc-single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." class="nav-link" data-scroll-target="#single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query."><span class="header-section-number">39.1.2</span> Single table queries with aggregate functions but no “group by” (i.e.&nbsp;these will return EXACTLY one row for each query).</a></li>
+  <li><a href="#single-table-queries-with-calculated-values" id="toc-single-table-queries-with-calculated-values" class="nav-link" data-scroll-target="#single-table-queries-with-calculated-values"><span class="header-section-number">39.1.3</span> Single table queries with calculated values</a></li>
+  <li><a href="#single-table-queries-with-group-by.-these-can-use-aggregate-functions-but-will-return-at-most-one-row-in-the-output-for-each-group-of-rows-as-defined-in-the-group-by" id="toc-single-table-queries-with-group-by.-these-can-use-aggregate-functions-but-will-return-at-most-one-row-in-the-output-for-each-group-of-rows-as-defined-in-the-group-by" class="nav-link" data-scroll-target="#single-table-queries-with-group-by.-these-can-use-aggregate-functions-but-will-return-at-most-one-row-in-the-output-for-each-group-of-rows-as-defined-in-the-group-by"><span class="header-section-number">39.1.4</span> Single table queries with “group by”. These can use aggregate functions but will return at most one row in the output for each “group” of rows as defined in the “group by”</a></li>
+  <li><a href="#multiple-table-queries-with-group-by" id="toc-multiple-table-queries-with-group-by" class="nav-link" data-scroll-target="#multiple-table-queries-with-group-by"><span class="header-section-number">39.1.5</span> Multiple table queries with group by</a></li>
+  <li><a href="#multiple-table-queries" id="toc-multiple-table-queries" class="nav-link" data-scroll-target="#multiple-table-queries"><span class="header-section-number">39.1.6</span> Multiple table queries</a></li>
+  <li><a href="#subqueries-outer-joins-unions-and-other-stuff" id="toc-subqueries-outer-joins-unions-and-other-stuff" class="nav-link" data-scroll-target="#subqueries-outer-joins-unions-and-other-stuff"><span class="header-section-number">39.1.7</span> Subqueries, outer joins, unions and other stuff …</a></li>
+  <li><a href="#additional-questions" id="toc-additional-questions" class="nav-link" data-scroll-target="#additional-questions"><span class="header-section-number">39.1.8</span> Additional questions</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./sql3000-sqlQuestions-v001.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>sqlQstns Database Questions (and Answers)</yrchapternumber></span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>sqlQstns Database Questions (and Answers)</yrchapternumber></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>NOTE</strong>: Questions are visible here. To see the ANSWERS, scroll to the bottom of this page and click on the link. There are links in the ANSWER section to hide the answers. Those links haven’t been totally setup yet (the first two have, the rest have not). Therefore ignore the “click here” links in the answer section that do not work. I plan to fix this soon.</p>
+<section id="questions" class="level2" data-number="39.1">
+<h2 data-number="39.1" class="anchored" data-anchor-id="questions"><span class="header-section-number">39.1</span> QUESTIONS</h2>
+<section id="single-table-queries" class="level3" data-number="39.1.1">
+<h3 data-number="39.1.1" class="anchored" data-anchor-id="single-table-queries"><span class="header-section-number">39.1.1</span> Single Table queries</h3>
+<ol type="1">
+<li><p>List all books (title and number sold) that sold more than 1000 copies. List the books with the most sales at the top.</p></li>
+<li><p>List all authors who are live either in NY or CA and whose last name begins with a “K”.</p></li>
+<li><p>List the first and last names of all authors whose last name starts with a letter from A through J<br>
+(HINT: In the where clause, make sure that the first letter of the last name is both &gt;=“A” and also &lt;“K”) (HINT: another possible solution is to use the LIKE several times - once for A, once for B, once for C, etc up to J. Each LIKE should be separated from the others by OR’s)</p></li>
+<li><p>For each author, show their first initial, followed by a period and a space, followed by their last name. In the 2nd column show the author’s state. Show the column heading for the first column as ‘AuthorName’. Order the results in alphabetical order based on the full name of the person.</p></li>
+<li><p>Show the titles of all books. Also show the length of the title, i.e.&nbsp;how many characters, including spaces and punctuation. Display the 2nd column with the name ‘TitleLength’. Sort the output so that the shortest titles are listed first. If two titles are the same length then sort those titles alphabetically.</p></li>
+</ol>
+</section>
+<section id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." class="level3" data-number="39.1.2">
+<h3 data-number="39.1.2" class="anchored" data-anchor-id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query."><span class="header-section-number">39.1.2</span> Single table queries with aggregate functions but no “group by” (i.e.&nbsp;these will return EXACTLY one row for each query).</h3>
+<ol start="6" type="1">
+<li><p>List the average price of all books.</p></li>
+<li><p>List the average price of history books.</p></li>
+<li><p>List the number of pages in the longest and shortest books (don’t list the actual title of the book).</p></li>
+</ol>
+</section>
+<section id="single-table-queries-with-calculated-values" class="level3" data-number="39.1.3">
+<h3 data-number="39.1.3" class="anchored" data-anchor-id="single-table-queries-with-calculated-values"><span class="header-section-number">39.1.3</span> Single table queries with calculated values</h3>
+<ol start="9" type="1">
+<li><p>List the title_name and total revenue for each book. (Revenue for a book is the number sold times the price of the book.)</p></li>
+<li><p>List title of each book and the sale price for the book where the sale price is 10% off of the original price.</p></li>
+</ol>
+</section>
+<section id="single-table-queries-with-group-by.-these-can-use-aggregate-functions-but-will-return-at-most-one-row-in-the-output-for-each-group-of-rows-as-defined-in-the-group-by" class="level3" data-number="39.1.4">
+<h3 data-number="39.1.4" class="anchored" data-anchor-id="single-table-queries-with-group-by.-these-can-use-aggregate-functions-but-will-return-at-most-one-row-in-the-output-for-each-group-of-rows-as-defined-in-the-group-by"><span class="header-section-number">39.1.4</span> Single table queries with “group by”. These can use aggregate functions but will return at most one row in the output for each “group” of rows as defined in the “group by”</h3>
+<ol start="11" type="1">
+<li><p>For each “type” of book (e.g.&nbsp;biography, children, etc) list the number of pages in the shortest book of that type and the number of pages in the longest book of that type. Sort the results alphabetically by the type of book.</p></li>
+<li><p>List the types of books (e.g.&nbsp;history, biography, etc) and the average price of those books for which the average price of books in that category is at least $12.00.</p></li>
+<li><p>For each type of book (e.g.&nbsp;biography, children, etc), show the number of those books that are 450 pages or longer. The column heading should be ‘# of long books’. If there are no titles of a particular type that are so long, then don’t show that type at all.</p></li>
+<li><p>Modify the answer to the previous question so that only those types for which there are at least 2 long books are displayed.</p></li>
+</ol>
+</section>
+<section id="multiple-table-queries-with-group-by" class="level3" data-number="39.1.5">
+<h3 data-number="39.1.5" class="anchored" data-anchor-id="multiple-table-queries-with-group-by"><span class="header-section-number">39.1.5</span> Multiple table queries with group by</h3>
+<ol start="15" type="1">
+<li><p>For each publisher, list the name of the publisher and total number of pages that the publisher has published in all their books (ie. add up all the pages in all books for each publisher). Show the publishers who have published the most pages at the top of the result list.</p></li>
+<li><p>Modify the previous query so that only publishers who have published at least 1250 pages will show up.</p></li>
+<li><p>List each publisher’s name and the numbers of pages in their longest and shortest books. Sort the results by the publisher’s name.</p></li>
+</ol>
+</section>
+<section id="multiple-table-queries" class="level3" data-number="39.1.6">
+<h3 data-number="39.1.6" class="anchored" data-anchor-id="multiple-table-queries"><span class="header-section-number">39.1.6</span> Multiple table queries</h3>
+<ol start="18" type="1">
+<li><p>List the authors first and last names, the author’s state, the title name, the publisher name and the publishers state for all books.</p></li>
+<li><p>List the title, number of pages, authors first and last names and author’s state for all books that are longer than 150 pages and whose author lives in NY or CA.</p></li>
+<li><p>List the authors first and last names, the author’s state, the title name, the publisher name and the publishers state only for those books where the author and publisher are from the same state. (HINT: specify authors.state [note: there is a period between author and state] in the criteria for the publisher’s state).</p></li>
+<li><p>List the title and authors of all books published by “Abatis Publishers” sort the results in alphabetical order by title and then by the au_order column. Do NOT show that au_order column in the output.</p></li>
+<li><p>List the publisher name, author name, and title name for all books that have at least 100 pages and that sold at least 200 copies. Sort the results in alphabetical order first by publisher and then by author.</p></li>
+<li><p>List authors first and last names and the titles they wrote for publishers whose name (ie. the publisher’s name) begins with “A”, “B” or “C”</p></li>
+<li><p>List the publisher name, author’s name and phone number for all authors that have written books for the publisher’s whose name begins with a letter from A through J. (HINT: specify the publisher’s name twice but only show one of them. In the criteria for one of them list &gt;=“A” and in the criteria for the other list &lt;“K”).</p></li>
+<li><p>List the titles of all books and the number of authors for the book (NOT the actual author names). Sort the results so that the books with the most authors appear on top. All books that have the same number of authors should be listed in alphabetical order.</p></li>
+<li><p>List the titles of all books that have 2 or more authors and that are longer than 50 pages.</p></li>
+<li><p>List all publishers and the number of books that the publisher has published (not the actual titles, just the number of books). Sort the list so that the publisher with the most books appears on top.</p></li>
+<li><p>List the publisher name and total revenue for each for each publisher. (Total revenue for a publisher is the total revenue for all books published by that publisher. Revenue for a book is the number sold times the price of the book.)</p></li>
+<li><p>Modify the previous query to only list those publishers who have at least ten thousand dollars in total revenue.</p></li>
+<li><p>List the title and author of each book. For each author for a particular book, list the amount of the “advance” that (s)he got for that book.</p></li>
+<li><p>List the title and author of each book. For each author for a particular book, list the total amount in royalties that (s)he got for that book. Hint: the royalty dollars for a particular book is the “price” times the “sales” times the “royalty_rate” times the “royalty_share”. Sort the results so that the authors who made the most royalty dollars are listed at the top. (NOTE: make sure to read the database description at the top of this document to understand the fields ROYALTIES.ROYALTY_RATE and the field TITLE_AUTHORS.ROYALTY_SHARE).</p></li>
+<li><p>List the name of each author and the total amount of royalty dollars that they received for all of their books (name this column “RoyaltyDollars”). Hint: the royalty dollars for a particular book is the “price” times the “sales” times the “royalty_rate” times the “royalty_share”. Sort the results so that the authors who made the most royalty dollars are listed at the top.</p></li>
+<li><p>Modify the query from the previous question so that the list only includes authors who made more than $50,000.00 in royalties.</p></li>
+</ol>
+</section>
+<section id="subqueries-outer-joins-unions-and-other-stuff" class="level3" data-number="39.1.7">
+<h3 data-number="39.1.7" class="anchored" data-anchor-id="subqueries-outer-joins-unions-and-other-stuff"><span class="header-section-number">39.1.7</span> Subqueries, outer joins, unions and other stuff …</h3>
+<ol start="34" type="1">
+<li><p>Show the title names and number of pages for those books that are longer than (ie. more pages) the average length of all books.</p></li>
+<li><p>Show the publisher’s name and number of authors who have written books for that publisher:</p></li>
+<li><p>Show the pub_name and the number of titles published by that publisher. Only include publishers for whom at least 5 authors have worked.</p></li>
+<li><p>Show the names of publishers who did not publish any books (I guess they are just getting started  )</p></li>
+<li><p>List the name of each publisher and the total number of books that each publisher has published. Sort the results so that the publishers who published the most books appear at the top. If two or more publishers published the same number of books then they should be listed in alphabetical order.</p>
+<ol type="a">
+<li><p>The answer should only include publisher who have published some books.</p></li>
+<li><p>This time make sure to also include publishers who have published zero books</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="additional-questions" class="level3" data-number="39.1.8">
+<h3 data-number="39.1.8" class="anchored"><span class="header-section-number">39.1.8</span> Additional questions</h3>
+<ol start="39" type="1">
+<li><p>Show the names of the authors and the publishers who published their books. Only show those authors/publishers where the author lives in the same state as the publisher who published the book.<br>
+Do not show any author/pbulisher names twice.</p></li>
+<li><p>The exchange rate for nis/usd is 3.3.<br>
+Write a query that shows the titles and prices for biographies that cost between 10 and 20 dollars. Show two columns for the prices. One column for USD and one column for NIS. Name the columns “price in USD” and “price in NIS”. Sort the results so that the most expensive books are displayed first.</p></li>
+<li><p>Show those titles for which the price of the book is greater than the average price of all books and the number of pages of the book is less than the average number of pages for all books.</p></li>
+<li><p>Show the authors who have not written any books</p></li>
+<li><p>In each row show an author’s name and the number of books that author wrote. Only show those authors who wrote at least two books. Sort the results alphabetically (last name, first name).</p></li>
+<li><p>Same as previous question. However, this time, only show those authors who wrote biographies, the count of the number of biographies they wrote and only show those authors who wrote at least 2 biographies.</p></li>
+<li><p>Each row of your output should show the name of an author and a publisher. The author did not necessarily write a book for that publisher. The authors should be those authors whose average book price for books they published is above average. The publishers should be those publishers whose average book price for books they published is above average.</p></li>
+<li><p>Show the names of the most prolific authors, i.e.&nbsp;the authors who have written the most books. Note that there could be several different authors who are “tied” for the most number of books written. Sort the names in alphabetical order (last name, first name) Also show the au_id and the number of titles that the author wrote.</p></li>
+</ol>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click to see answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="answers" class="level2" data-number="39.2">
+<h2 data-number="39.2" class="anchored" data-anchor-id="answers"><span class="header-section-number">39.2</span> ANSWERS</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(readr)){<span class="fu">install.packages</span>(<span class="st">"readr"</span>);<span class="fu">require</span>(readr);}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(sqldf)){<span class="fu">install.packages</span>(<span class="st">"sqldf"</span>);<span class="fu">require</span>(sqldf);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data for the books database - see the </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"titles.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>publishers <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"publishers.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>title_authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"title_authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>royalties <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"royalties.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="single-table-queries-1" class="level3" data-number="39.2.1">
+<h3 data-number="39.2.1" class="anchored" data-anchor-id="single-table-queries-1"><span class="header-section-number">39.2.1</span> Single Table queries</h3>
+<!------------------------------------------------------
+TOPICS: 
+------------------------------------------------------->
+<ol type="1">
+<li>List all books (title and number sold) that sold more than 1000 copies. List the books with the most sales at the top. Given the data shown above, the output should be:</li>
+</ol>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            title_name   sales
+1                    I Blame My Mother 1500200
+2               Exchange of Platitudes  201440
+3            Spontaneous, Not Annoying  100001
+4     Perhaps It's a Glandular Problem   94123
+5         Ask Yor System Administrator   25667
+6            But I Did It Unconciously   13001
+7                     How About Never?   11320
+8  What Are The Civilian Applications?   10467
+9            200 Years of German Humor    9566
+10                     Kiss My Boo Boo    5000
+11        Just Wait Until After School    4095</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select title_name, sales</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from titles</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">        where sales &gt; 1000</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">        order by sales desc;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            title_name   sales
+1                    I Blame My Mother 1500200
+2               Exchange of Platitudes  201440
+3            Spontaneous, Not Annoying  100001
+4     Perhaps It's a Glandular Problem   94123
+5         Ask Yor System Administrator   25667
+6            But I Did It Unconciously   13001
+7                     How About Never?   11320
+8  What Are The Civilian Applications?   10467
+9            200 Years of German Humor    9566
+10                     Kiss My Boo Boo    5000
+11        Just Wait Until After School    4095</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!----------------------------------------------------------->
+<ol start="2" type="1">
+<li>List all authors who are live either in NY or CA and whose last name begins with a “K”.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><p>List the first and last names of all authors whose last name starts with a letter from A through J<br>
+(HINT: In the where clause, make sure that the first letter of the last name is both &gt;=“A” and also &lt;“K”) (HINT: another possible solution is to use the LIKE several times - once for A, once for B, once for C, etc up to J. Each LIKE should be separated from the others by OR’s)</p>
+<p>ANSWER: select au_fname, au_lname from authors where substr(au_lname,1,1) &gt;= ‘A’ and substr(au_lname,1,1) &lt; ‘K’;</p>
+<p>ANOTHER ANSWER select au_fname, au_lname from authors where au_lname like ‘A%’ or au_lname like ‘B%’ or au_lname like ‘C%’ or au_lname like ‘D%’ or au_lname like ‘E%’ or au_lname like ‘F%’ or au_lname like ‘G%’ or au_lname like ‘H%’ or au_lname like ‘I%’ or au_lname like ‘J%’</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li><p>For each author, show their first initial, followed by a period and a space, followed by their last name. In the 2nd column show the author’s state. Show the column heading for the first column as ‘AuthorName’. Order the results in alphabetical order based on the full name of the person.</p>
+<p>ANSWER: select substr(au_fname,1,1) || ‘.’ || au_lname as ‘AuthorName’, state from authors order by au_lname, au_fname;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li><p>Show the titles of all books. Also show the length of the title, i.e.&nbsp;how many characters, including spaces and punctuation. Display the 2nd column with the name ‘TitleLength’. Sort the output so that the shortest titles are listed first. If two titles are the same length then sort those titles alphabetically.</p>
+<p>ANSWER select title_name, length(title_name) as ‘TitleLength’ from titles order by length(title_name), title_name;</p></li>
+</ol>
+</section>
+<section id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query.-1" class="level3" data-number="39.2.2">
+<h3 data-number="39.2.2" class="anchored" data-anchor-id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query.-1"><span class="header-section-number">39.2.2</span> Single table queries with aggregate functions but no “group by” (i.e.&nbsp;these will return EXACTLY one row for each query).</h3>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li><p>List the average price of all books.</p>
+<p>ANSWER: select avg(price) from titles;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li><p>List the average price of history books.</p>
+<p>ANSWER: select avg(price) from titles where type = ‘history’;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="8" type="1">
+<li><p>List the number of pages in the longest and shortest books (don’t list the actual title of the book).</p>
+<p>ANSWER: select min(pages) , max(pages) from titles;</p></li>
+</ol>
+</section>
+<section id="single-table-queries-with-calculated-values-1" class="level3" data-number="39.2.3">
+<h3 data-number="39.2.3" class="anchored" data-anchor-id="single-table-queries-with-calculated-values-1"><span class="header-section-number">39.2.3</span> Single table queries with calculated values</h3>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="9" type="1">
+<li><p>List the title_name and total revenue for each book. (Revenue for a book is the number sold times the price of the book.)</p>
+<p>ANSWER: select title_name, sales * price as ‘Total Revenue’ from titles;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="10" type="1">
+<li><p>List title of each book and the sale price for the book where the sale price is 10% off of the original price.</p>
+<p>ANSWER: select title_name, price * 0.90 as ‘Sale Price’ from titles;</p></li>
+</ol>
+</section>
+</section>
+<section id="single-table-queries-with-group-by." class="level2" data-number="39.3">
+<h2 data-number="39.3" class="anchored" data-anchor-id="single-table-queries-with-group-by."><span class="header-section-number">39.3</span> Single table queries with “group by”.</h2>
+<p>These can use aggregate functions but will return at most one row in the output for each “group” of rows as defined in the “group by”</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="11" type="1">
+<li><p>For each “type” of book (e.g.&nbsp;biography, children, etc) list the number of pages in the shortest book of that type and the number of pages in the longest book of that type. Sort the results alphabetically by the type of book.</p>
+<p>ANSWER: select type, min(pages) AS ‘Length of Shortest’ , max(pages) as ‘Length of Longest’ from titles group by type order by type;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="12" type="1">
+<li><p>List the types of books (e.g.&nbsp;history, biography, etc) and the average price of those books for which the average price of books in that category is at least $12.00.</p>
+<p>ANSWER: select type, avg(price) from titles group by type having avg(price) &gt;= 12;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="13" type="1">
+<li><p>For each type of book (e.g.&nbsp;biography, children, etc), show the number of those books that are 450 pages or longer. The column heading should be ‘# of long books’. If there are no titles of a particular type that are so long, then don’t show that type at all.</p>
+<p>ANSWER select type, count(*) as ‘# of long books’ from titles where pages &gt;= 450 group by type;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="14" type="1">
+<li>Modify the answer to the previous question so that only those types for which there are at least 2 long books are displayed.</li>
+</ol>
+<p>ANSWER - NOTE: the only change to the above answer is the addition of the HAVING clause at the end.</p>
+<pre><code>    select type, count(*) as '# of long books'
+    from titles
+    where pages &gt;= 450
+    group by type
+    having count(*) &gt;= 2;         -- this is the only change.</code></pre>
+</section>
+<section id="multiple-table-queries-with-group-by-1" class="level2" data-number="39.4">
+<h2 data-number="39.4" class="anchored" data-anchor-id="multiple-table-queries-with-group-by-1"><span class="header-section-number">39.4</span> Multiple table queries with group by</h2>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="15" type="1">
+<li><p>For each publisher, list the name of the publisher and total number of pages that the publisher has published in all their books (ie. add up all the pages in all books for each publisher). Show the publishers who have published the most pages at the top of the result list.</p>
+<p>ANSWER select pub_name, sum(pages) from publishers join titles on publishers.pub_id = titles.pub_id group by pub_name order by sum(pages) desc;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="16" type="1">
+<li><p>Modify the previous query so that only publishers who have published at least 1250 pages will show up.</p>
+<p>ANSWER select … – same as previous question from … – same as previous question group … – same as previous question having sum(pages) &gt;= 1250 – THIS LINE IS THE ONLY CHANGE order … – same as previous question</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="17" type="1">
+<li><p>List each publisher’s name and the numbers of pages in their longest and shortest books. Sort the results by the publisher’s name.</p>
+<p>ANSWER: select pub_name, min(pages) AS ‘Length of Shortest’ , max(pages) as ‘Length of Longest’ from titles join publishers on titles.pub_id = publishers.pub_id group by pub_name order by pub_name;</p></li>
+</ol>
+</section>
+<section id="multiple-table-queries-1" class="level2" data-number="39.5">
+<h2 data-number="39.5" class="anchored" data-anchor-id="multiple-table-queries-1"><span class="header-section-number">39.5</span> Multiple table queries</h2>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="18" type="1">
+<li><p>List the authors first and last names, the author’s state, the title name, the publisher name and the publishers state for all books.</p>
+<p>ANSWER: select au_fname, au_lname, authors.state, title_name, pub_name, publishers.state from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on publishers.pub_id = titles.pub_id;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="19" type="1">
+<li><p>List the title, number of pages, authors first and last names and author’s state for all books that are longer than 150 pages and whose author lives in NY or CA.</p>
+<p>ANSWER: select title_name, pages, au_fname, au_lname, authors.state from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id where pages &gt; 150 and (state = ‘NY’ or state = ‘CA’) ; – (parentheses ARE necessary since by default AND is done before OR)</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="20" type="1">
+<li><p>List the authors first and last names, the author’s state, the title name, the publisher name and the publishers state only for those books where the author and publisher are from the same state. (HINT: specify authors.state [note: there is a period between author and state] in the criteria for the publisher’s state).</p>
+<p>ANSWER: select au_fname, au_lname, authors.state, title_name, pub_name, publishers.state from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on publishers.pub_id = titles.pub_id where authors.state = publishers.state;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="21" type="1">
+<li><p>List the title and authors of all books published by “Abatis Publishers” sort the results in alphabetical order by title and then by the au_order column. Do NOT show that au_order column in the output.</p>
+<p>ANSWER: select au_fname, au_lname, title_name, pub_name from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on publishers.pub_id = titles.pub_id where pub_name = ‘Abatis Publishers’ order by title_name, au_order;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="22" type="1">
+<li><p>List the publisher name, author name, and title name for all books that have at least 100 pages and that sold at least 200 copies. Sort the results in alphabetical order first by publisher and then by author.</p>
+<p>ANSWER: select pub_name, au_fname, au_lname, title_name from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on publishers.pub_id = titles.pub_id where pages &gt;= 100 and sales &gt;= 200 order by pub_name, au_lname, au_fname;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="23" type="1">
+<li>List authors first and last names and the titles they wrote for publishers whose name (ie. the publisher’s name) begins with “A”, “B” or “C”</li>
+</ol>
+<p>ANSWER: select au_fname, au_lname, title_name, pub_name from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on publishers.pub_id = titles.pub_id where substr(pub_name, 1,1) IN (‘A’,‘B’,‘C’);</p>
+<p>ANOTHER ANSWER: Same as above but use the following WHERE clause instead: select … # same as above from …. # same as above where substr(pub_name, 1,1) = ‘A’ or substr(pub_name, 1,1) = ‘B’ or substr(pub_name, 1,1) = ‘C’;</p>
+<p>ANOTHER ANSWER: Same as above but use the following WHERE clause instead:</p>
+<pre><code>select …  # same as above
+from …. # same as above
+where pub_name like 'A%'  or  pub_name like 'B%'  or pub_name like 'C%';</code></pre>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="24" type="1">
+<li><p>List the publisher name, author’s name and phone number for all authors that have written books for the publisher’s whose name begins with a letter from A through J. (HINT: specify the publisher’s name twice but only show one of them. In the criteria for one of them list &gt;=“A” and in the criteria for the other list &lt;“K”).</p>
+<p>ANSWER: select pub_name, au_fname, au_lname, phone from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on publishers.pub_id = titles.pub_id where substr(pub_name,1,1) &gt;= ‘A’ and substr(pub_name,1,1) &lt; ‘K’;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="25" type="1">
+<li><p>List the titles of all books and the number of authors for the book (NOT the actual author names). Sort the results so that the books with the most authors appear on top. All books that have the same number of authors should be listed in alphabetical order.</p>
+<p>ANSWER: select title_name, count(<em>) as ‘Number of Authors’ from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id group by titles.title_id, title_name order by count(</em>) desc, title_name;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="26" type="1">
+<li><p>List the titles of all books that have 2 or more authors and that are longer than 50 pages.</p>
+<p>ANSWER: select title_name, count(<em>) as ‘Number of Authors’ from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id where pages &gt;= 50 group by titles.title_id, title_name having count(</em>) &gt;= 2 order by count(*) desc, title_name;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="27" type="1">
+<li><p>List all publishers and the number of books that the publisher has published (not the actual titles, just the number of books). Sort the list so that the publisher with the most books appears on top.</p>
+<p>ANSWER: select pub_name, count(<em>) as ‘# of Books’ from titles join publishers on publishers.pub_id = titles.pub_id group by publishers.pub_id, pub_name order by count(</em>) desc;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="28" type="1">
+<li><p>List the publisher name and total revenue for each for each publisher. (Total revenue for a publisher is the total revenue for all books published by that publisher. Revenue for a book is the number sold times the price of the book.)</p>
+<p>ANSWER: select pub_name, sum(sales * price) as ‘Total Revenue’ from titles join publishers on publishers.pub_id = titles.pub_id group by publishers.pub_id, pub_name ;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="29" type="1">
+<li><p>Modify the previous query to only list those publishers who have at least ten thousand dollars in total revenue.</p>
+<p>ANSWER: select pub_name, sum(sales * price) as ‘Total Revenue’ from titles join publishers on publishers.pub_id = titles.pub_id group by publishers.pub_id, pub_name ; having sum(sales * price) &gt;= 10000;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="30" type="1">
+<li><p>List the title and author of each book. For each author for a particular book, list the amount of the “advance” that (s)he got for that book.</p>
+<p>ANSWER: select title_name, au_fname, au_lname, advance from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join royalties on royalties.title_id = titles.title_id;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="31" type="1">
+<li><p>List the title and author of each book. For each author for a particular book, list the total amount in royalties that (s)he got for that book. Hint: the royalty dollars for a particular book is the “price” times the “sales” times the “royalty_rate” times the “royalty_share”. Sort the results so that the authors who made the most royalty dollars are listed at the top. (NOTE: make sure to read the database description at the top of this document to understand the fields ROYALTIES.ROYALTY_RATE and the field TITLE_AUTHORS.ROYALTY_SHARE).</p>
+<p>ANSWER: select title_name, au_fname, au_lname, royalty_share * royalty_rate * sales * price as ‘Total Royalties for Author’ from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join royalties on royalties.title_id = titles.title_id;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="32" type="1">
+<li><p>List the name of each author and the total amount of royalty dollars that they received for all of their books (name this column “RoyaltyDollars”). Hint: the royalty dollars for a particular book is the “price” times the “sales” times the “royalty_rate” times the “royalty_share”. Sort the results so that the authors who made the most royalty dollars are listed at the top.</p>
+<p>ANSWER: select au_fname, au_lname, sum(royalty_share * royalty_rate * sales * price) as ‘Total Royalties for Author’ from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join royalties on royalties.title_id = titles.title_id group by authors.au_id, au_fname, au_lname order by sum(royalty_share * royalty_rate * sales * price) desc;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="33" type="1">
+<li><p>Modify the query from the previous question so that the list only includes authors who made more than $50,000.00 in royalties.</p>
+<p>ANSWER: select au_fname, au_lname, sum(royalty_share * royalty_rate * sales * price) as ‘Total Royalties for Author’ from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join royalties on royalties.title_id = titles.title_id group by authors.au_id, au_fname, au_lname having sum(royalty_share * royalty_rate * sales * price) &gt; 50000 order by sum(royalty_share * royalty_rate * sales * price) desc;</p></li>
+</ol>
+<!----------------------------------------------------------->
+</section>
+<section id="subqueries-outer-joins-unions-and-other-stuff-1" class="level2" data-number="39.6">
+<h2 data-number="39.6" class="anchored" data-anchor-id="subqueries-outer-joins-unions-and-other-stuff-1"><span class="header-section-number">39.6</span> Subqueries, outer joins, unions and other stuff …</h2>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="34" type="1">
+<li>Show the title names and number of pages for those books that are longer than (ie. more pages) the average length of all books.</li>
+</ol>
+<p>ANSWER: select title_name , pages from titles where pages &gt;= (select avg(pages) from titles);</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="35" type="1">
+<li>Show the publisher’s name and number of authors who have written books for that publisher:</li>
+</ol>
+<p>ANSWER: select pub_name, count(DISTINCT authors.au_id) as ‘# of authors’ from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on publishers.pub_id = titles.pub_id group by pub_id, pub_name;</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="36" type="1">
+<li>Show the pub_name and the number of titles published by that publisher. Only include publishers for whom at least 5 authors have worked.</li>
+</ol>
+<p>ANSWER: select pub_name, count(*) as ‘Number of Titles’ from publishers as pub1 join titles on pub1.pub_id = titles.pub_id group by pub1.pub_id, pub_name having 5 &lt;= ( select count(DISTINCT authors.au_id) from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers as pub2 on pub2.pub_id = titles.pub_id where pub2.pub_id = pub1.pub_id ) ;</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="37" type="1">
+<li>Show the names of publishers who did not publish any books (I guess they are just getting started  )</li>
+</ol>
+<p>ANSWER – with a subquery</p>
+<pre><code>select pub_name 
+from publishers  as   pub1
+where not exists
+    ( select * 
+    from publishers  as pub2  join titles on pub2.pub_id = titles.pub_id
+    where pub2.pub_id = pub1.pub_id );</code></pre>
+<p>ANSWER – with a left join select pub_name from publishes left join titles on publishers.pub_id = titles.pub_id where title_id is NULL;</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="38" type="1">
+<li>List the name of each publisher and the total number of books that each publisher has published. Sort the results so that the publishers who published the most books appear at the top. If two or more publishers published the same number of books then they should be listed in alphabetical order.</li>
+</ol>
+<ol type="a">
+<li><p>The answer should only include publisher who have published some books.</p>
+<p>ANSWER: select pub_name, count(<em>) from titles join publishers on publishers.pub_id = titles.pub_id group by pub_name order by count(</em>) desc, pub_name;</p></li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Same as previous question but this time make sure to also include publishers who have published zero books</li>
+</ol>
+<p>ANSWER: select pub_name, count(titles.title_id) from publishers left join titles on publishers.pub_id = titles.pub_id group by pub_name order by count(*) desc, pub_name;</p>
+<p>ANSWER – with a UNION – however the previous answer is shorter and more to the point</p>
+<pre><code>select pub_name , 0  as  NumTitles
+from publishes left join titles on publishers.pub_id = titles.pub_id
+where title_id is NULL </code></pre>
+<p>UNION</p>
+<pre><code>select pub_name, count(*) as NumTitles
+from titles join publishers on publishers.pub_id = titles.pub_id
+group by pub_name;</code></pre>
+</section>
+<section id="additional-questions-1" class="level2" data-number="39.7">
+<h2 data-number="39.7" class="anchored" data-anchor-id="additional-questions-1"><span class="header-section-number">39.7</span> Additional questions</h2>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="39" type="1">
+<li>Show the names of the authors and the publishers who published their books. Only show those authors/publishers where the author lives in the same state as the publisher who published the book. Do not show any author/pbulisher names twice.</li>
+</ol>
+</section>
+<section id="answer" class="level1" data-number="40">
+<h1 data-number="40"><span class="header-section-number">40</span> ANSWER</h1>
+<p>sqldf(” select distinct au_fname, au_lname, pub_name, authors.state, publishers.state from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id join publishers on titles.pub_id = publishers.pub_id where authors.state = publishers.state “)</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="40" type="1">
+<li>The exchange rate for nis/usd is 3.3.<br>
+Write a query that shows the titles and prices for biographies that cost between 10 and 20 dollars. Show two columns for the prices. One column for USD and one column for NIS. Name the columns “price in USD” and “price in NIS”. Sort the results so that the most expensive books are displayed first.</li>
+</ol>
+</section>
+<section id="answer-1" class="level1" data-number="41">
+<h1 data-number="41"><span class="header-section-number">41</span> ANSWER</h1>
+<p>sqldf(” select title_name, price * 3.3 as ‘price in NIS’, price as ‘price in USD’, type from titles where type = ‘biography’ and price &gt;= 10 and price &lt;= 20 order by price desc “)</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="41" type="1">
+<li>Show those titles for which the price of the book is greater than the average price of all books and the number of pages of the book is less than the average number of pages for all books.</li>
+</ol>
+<p>sqldf(” select title_name, price, pages from titles where price &gt; (select avg(price) from titles) and pages &lt; (select avg(pages) from titles) “)</p>
+<p>sqldf(“select avg(price) from titles”) sqldf(“select avg(pages) from titles”)</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="42" type="1">
+<li>Show the authors who have not written any books</li>
+</ol>
+<p>sqldf(” select au_fname, au_lname from authors left join title_authors on authors.au_id = title_authors.au_id where title_authors.au_id is null “)</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="43" type="1">
+<li>In each row show an author’s name and the number of books that author wrote.<br>
+Only show those authors who wrote at least two books.<br>
+Sort the results alphabetically (last name, first name).</li>
+</ol>
+<p>sqldf(” select au_fname, au_lname, count(<em>) from authors join title_authors on authors.au_id = title_authors.au_id group by au_fname, au_lname having count(</em>) &gt;= 2 “)</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="44" type="1">
+<li>Same as previous question. However, this time, only show those authors who wrote biographies, the count of the number of biographies they wrote and only show those authors who wrote at least 2 biographies.</li>
+</ol>
+<p>sqldf(” select au_fname, au_lname, count(<em>) from authors join title_authors on authors.au_id = title_authors.au_id join titles on title_authors.title_id = titles.title_id where type = ‘biography’ group by au_fname, au_lname having count(</em>) &gt;= 2 “)</p>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="45" type="1">
+<li>Each row of your output should show the name of an author and a publisher. The author did not necessarily write a book for that publisher. The authors should be those authors whose average book price for books they published is above average. The publishers should be those publishers whose average book price for books they published is above average.</li>
+</ol>
+<!----------------------------------------------------------->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Click for answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<ol start="46" type="1">
+<li>Show the names of the most prolific authors, i.e.&nbsp;the authors who have written the most books. Note that there could be several different authors who are “tied” for the most number of books written. Sort the names in alphabetical order (last name, first name) Also show the au_id and the number of titles that the author wrote.</li>
+</ol>
+<p><strong>ANSWER</strong></p>
+<p>This is a rather complex answer. This approach uses a subquery within a subquery. There may be other approaches too. There may be simpler answers too.</p>
+<p>To explain we will show the subqueries and what they produce. Then we will show the full query that includes the subquery.</p>
+<p>The following query is NOT the answer. It is simply a query that shows the number of books that were written by each author. This will be used as a subquery in the answer shown below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">          select authors.au_id, count(*) as numTitles</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">          group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  au_id numTitles
+1   A01         3
+2   A02         4
+3   A03         2
+4   A04         4
+5   A05         1
+6   A06         3</code></pre>
+</div>
+</div>
+<p>We’d like to get the max number of titles that an author wrote. This amounts to getting the highest number from the numTitles column in the previous query. We can do that by using the above query as a subquery in the from clause.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="st">          select max(numTitles2) </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">          from </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">               (select authors.au_id, count(*) as numTitles2</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="st">                from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="st">                group by authors.au_id, au_fname, au_lname)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  max(numTitles2)
+1               4</code></pre>
+</div>
+</div>
+<p>Finally we can put this all together to answer our question. The following is the FULL ANSWER to the original question. It uses the above query as a subquery in the having clause (see the code below). Note that in the following code there is a subquery inside of a subquery.</p>
+<p><strong>FINAL ANSWER:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="st">select authors.au_id, au_fname, au_lname, count(*) as numTitles</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">having numTitles = </span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">          (select max(numTitles2) </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">           from </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="st">               (select authors.au_id, count(*) as numTitles2</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="st">                from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="st">                group by authors.au_id, au_fname, au_lname))</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="st">order by au_lname, au_fname</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  au_id au_fname  au_lname numTitles
+1   A02    Wendy Heydemark         4
+2   A04     Klee      Hull         4</code></pre>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./0600100-introToDb-v001.html" class="pagination-link" aria-label="<yrChapterNumber>38. </yrChapterNumber> What is a Database?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> What is a Database?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./github-000700-markdownGithubVsQuarto.html" class="pagination-link" aria-label="GitHub Markdown vs. Quarto (.qmd) Comparison">
+        <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>
+const titles = document.querySelectorAll('.title');
+
+titles.forEach(title => {
+  if (title.textContent.trim().startsWith('Appendix')) {
+    const chapterNumber = title.querySelector('yrChapterNumber');
+    if (chapterNumber) {
+      chapterNumber.classList.add('yrAppendixChapterNumber');
+    }
+  }
+});
+</script>
+
+
+
+
+</body></html>
