@@ -506,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>sqlQstns Database Questions (and Answers)</yrchapternumber></span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>(sqlQstns-1)</yrchapternumber> Database Questions (and Answers)</span></span></a>
   </div>
 </li>
       </ul>
@@ -523,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>(git-1)</yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
   </div>
 </li>
       </ul>
@@ -634,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#prepare-to-import-the-data" id="toc-prepare-to-import-the-data" class="nav-link active" data-scroll-target="#prepare-to-import-the-data"><span class="header-section-number">27.1</span> Prepare to import the data</a></li>
   <li><a href="#import-the-data-grades" id="toc-import-the-data-grades" class="nav-link" data-scroll-target="#import-the-data-grades"><span class="header-section-number">27.2</span> import the data: grades</a></li>
   <li><a href="#import-the-data-customers-orders-movies-north_american_cities-etc" id="toc-import-the-data-customers-orders-movies-north_american_cities-etc" class="nav-link" data-scroll-target="#import-the-data-customers-orders-movies-north_american_cities-etc"><span class="header-section-number">27.3</span> import the data: customers, orders, movies, north_american_cities, etc</a></li>
-  <li><a href="#the-books-database" id="toc-the-books-database" class="nav-link" data-scroll-target="#the-books-database"><span class="header-section-number">27.4</span> The “Books Database”</a>
+  <li><a href="#yrBooksDatabase" id="toc-yrBooksDatabase" class="nav-link" data-scroll-target="#yrBooksDatabase"><span class="header-section-number">27.4</span> The “Books Database”</a>
   <ul class="collapse">
   <li><a href="#import-the-data-books-database" id="toc-import-the-data-books-database" class="nav-link" data-scroll-target="#import-the-data-books-database"><span class="header-section-number">27.4.1</span> Import the data (books database)</a></li>
   <li><a href="#books-database---entity-relationship-diagram-erd" id="toc-books-database---entity-relationship-diagram-erd" class="nav-link" data-scroll-target="#books-database---entity-relationship-diagram-erd"><span class="header-section-number">27.4.2</span> Books Database - Entity Relationship Diagram (ERD)</a></li>
@@ -1170,8 +1170,8 @@ Click here - north_american_cities table
 </div>
 </div>
 </section>
-<section id="the-books-database" class="level2" data-number="27.4">
-<h2 data-number="27.4" class="anchored" data-anchor-id="the-books-database"><span class="header-section-number">27.4</span> The “Books Database”</h2>
+<section id="yrBooksDatabase" class="level2" data-number="27.4">
+<h2 data-number="27.4" class="anchored" data-anchor-id="yrBooksDatabase"><span class="header-section-number">27.4</span> The “Books Database”</h2>
 <p>Download the CSV files for the “books database”. These CSV files together comprise the data for the “books database”.</p>
 <ul>
 <li><p><a href="data/booksDatabase/titles.csv">titles.csv</a></p></li>
@@ -1195,12 +1195,14 @@ Click here - north_american_cities table
 <section id="import-the-data-books-database" class="level3" data-number="27.4.1">
 <h3 data-number="27.4.1" class="anchored" data-anchor-id="import-the-data-books-database"><span class="header-section-number">27.4.1</span> Import the data (books database)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data for the books database - see the </span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"titles.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>publishers <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"publishers.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>title_authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"title_authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>royalties <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"royalties.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(readr)){<span class="fu">install.packages</span>(<span class="st">"readr"</span>);<span class="fu">require</span>(readr);}</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data for the books database - see the </span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>titles <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"titles.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>publishers <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"publishers.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>title_authors <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"title_authors.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>royalties <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"royalties.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="books-database---entity-relationship-diagram-erd" class="level3" data-number="27.4.2">

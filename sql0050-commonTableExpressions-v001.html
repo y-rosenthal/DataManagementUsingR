@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -469,7 +503,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>sqlQstns Database Questions (and Answers)</yrchapternumber></span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>(sqlQstns-1)</yrchapternumber> Database Questions (and Answers)</span></span></a>
   </div>
 </li>
       </ul>
@@ -486,7 +520,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>(git-1)</yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
   </div>
 </li>
       </ul>
@@ -589,8 +623,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sql-common-table-expressions-cte" id="toc-sql-common-table-expressions-cte" class="nav-link active" data-scroll-target="#sql-common-table-expressions-cte"><span class="header-section-number">34.1</span> SQL Common Table Expressions (CTE)</a></li>
+  <li><a href="#basic-syntax" id="toc-basic-syntax" class="nav-link" data-scroll-target="#basic-syntax"><span class="header-section-number">34.2</span> Basic Syntax</a></li>
+  <li><a href="#multiple-ctes" id="toc-multiple-ctes" class="nav-link" data-scroll-target="#multiple-ctes"><span class="header-section-number">34.3</span> Multiple CTEs</a></li>
+  <li><a href="#recursive-ctes" id="toc-recursive-ctes" class="nav-link" data-scroll-target="#recursive-ctes"><span class="header-section-number">34.4</span> Recursive CTEs</a>
+  <ul class="collapse">
+  <li><a href="#how-recursive-ctes-work" id="toc-how-recursive-ctes-work" class="nav-link" data-scroll-target="#how-recursive-ctes-work"><span class="header-section-number">34.4.1</span> How Recursive CTEs Work</a></li>
+  <li><a href="#basic-syntax-1" id="toc-basic-syntax-1" class="nav-link" data-scroll-target="#basic-syntax-1"><span class="header-section-number">34.4.2</span> Basic Syntax</a></li>
+  <li><a href="#example-employee-hierarchy" id="toc-example-employee-hierarchy" class="nav-link" data-scroll-target="#example-employee-hierarchy"><span class="header-section-number">34.4.3</span> Example: Employee Hierarchy</a></li>
+  <li><a href="#how-the-recursion-unfolds" id="toc-how-the-recursion-unfolds" class="nav-link" data-scroll-target="#how-the-recursion-unfolds"><span class="header-section-number">34.4.4</span> How the Recursion Unfolds</a></li>
+  <li><a href="#preventing-infinite-recursion" id="toc-preventing-infinite-recursion" class="nav-link" data-scroll-target="#preventing-infinite-recursion"><span class="header-section-number">34.4.5</span> Preventing Infinite Recursion</a></li>
+  <li><a href="#sqlite-implementation-notes" id="toc-sqlite-implementation-notes" class="nav-link" data-scroll-target="#sqlite-implementation-notes"><span class="header-section-number">34.4.6</span> SQLite Implementation Notes</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -614,10 +665,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>See the following to learn about this important feature of modern SQL:</p>
+<section id="sql-common-table-expressions-cte" class="level2" data-number="34.1">
+<h2 data-number="34.1" class="anchored" data-anchor-id="sql-common-table-expressions-cte"><span class="header-section-number">34.1</span> SQL Common Table Expressions (CTE)</h2>
+<p>WARNING - the following was generated by AI (claude.ai).</p>
+<p>I still need to double check it for accuracy.</p>
+<p>You can also see the following to learn about this important feature of modern SQL:</p>
 <p><a href="https://learnsql.com/blog/what-is-common-table-expression/" class="uri">https://learnsql.com/blog/what-is-common-table-expression/</a></p>
+<hr>
+<p>Common Table Expressions (CTEs) provide a way to create named temporary result sets that exist only within the scope of a single SQL statement. CTEs make complex queries more readable by breaking them into logical, named components.</p>
+<p>CTEs are very similar to using a subquery in the FROM clause but are much more readable.</p>
+</section>
+<section id="basic-syntax" class="level2" data-number="34.2">
+<h2 data-number="34.2" class="anchored" data-anchor-id="basic-syntax"><span class="header-section-number">34.2</span> Basic Syntax</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> cte_name <span class="kw">AS</span> (</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> column1, column2</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">table</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> condition</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> cte_name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>CTEs are defined using the <code>WITH</code> keyword, followed by a name and the query that defines the temporary result set. You can then reference this named result set in your main query.</p>
+</section>
+<section id="multiple-ctes" class="level2" data-number="34.3">
+<h2 data-number="34.3" class="anchored" data-anchor-id="multiple-ctes"><span class="header-section-number">34.3</span> Multiple CTEs</h2>
+<p>You can define multiple CTEs in a single query:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> cte1 <span class="kw">AS</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> table1 <span class="kw">WHERE</span> condition1</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cte2 <span class="kw">AS</span> (</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> table2 <span class="kw">WHERE</span> condition2</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> cte1</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> cte2 <span class="kw">ON</span> cte1.<span class="kw">id</span> <span class="op">=</span> cte2.<span class="kw">id</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="recursive-ctes" class="level2" data-number="34.4">
+<h2 data-number="34.4" class="anchored" data-anchor-id="recursive-ctes"><span class="header-section-number">34.4</span> Recursive CTEs</h2>
+<p>Recursive CTEs are a powerful feature for handling hierarchical or graph-structured data that would be difficult to query using standard SQL. They’re especially useful for:</p>
+<ul>
+<li>Organizational hierarchies (employee → manager relationships)</li>
+<li>File/folder structures</li>
+<li>Network paths</li>
+<li>Family trees</li>
+<li>Any data with parent-child relationships</li>
+</ul>
+<section id="how-recursive-ctes-work" class="level3" data-number="34.4.1">
+<h3 data-number="34.4.1" class="anchored" data-anchor-id="how-recursive-ctes-work"><span class="header-section-number">34.4.1</span> How Recursive CTEs Work</h3>
+<p>A recursive CTE works by:</p>
+<ol type="1">
+<li>Starting with a “base case” (anchor member) query that returns initial row(s)</li>
+<li>Running a “recursive case” that references the CTE itself</li>
+<li>Combining results with UNION ALL (typically)</li>
+<li>Repeating steps 2-3 until no new rows are returned</li>
+</ol>
+<p>Think of it like a loop that builds the result set iteratively.</p>
+</section>
+<section id="basic-syntax-1" class="level3" data-number="34.4.2">
+<h3 data-number="34.4.2" class="anchored" data-anchor-id="basic-syntax-1"><span class="header-section-number">34.4.2</span> Basic Syntax</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> RECURSIVE cte_name <span class="kw">AS</span> (</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- Base case: initial query that doesn't reference the CTE</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="kw">columns</span> <span class="kw">FROM</span> <span class="kw">table</span> <span class="kw">WHERE</span> condition</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- Recursive case: references the CTE itself to build next iteration</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> t.<span class="kw">columns</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> <span class="kw">table</span> t</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> cte_name c <span class="kw">ON</span> t.parent_id <span class="op">=</span> c.<span class="kw">id</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- Optional: WHERE clause to prevent infinite recursion</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> cte_name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="example-employee-hierarchy" class="level3" data-number="34.4.3">
+<h3 data-number="34.4.3" class="anchored" data-anchor-id="example-employee-hierarchy"><span class="header-section-number">34.4.3</span> Example: Employee Hierarchy</h3>
+<p>Consider a table of employees where each employee has a manager (who is also an employee):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Table structure</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> employees (</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> <span class="dt">INTEGER</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    name TEXT,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    manager_id <span class="dt">INTEGER</span> <span class="kw">NULL</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- Sample data: CEO has NULL manager_id</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> employees <span class="kw">VALUES</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>, <span class="st">'CEO'</span>, <span class="kw">NULL</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>, <span class="st">'VP Sales'</span>, <span class="dv">1</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span>, <span class="st">'VP Marketing'</span>, <span class="dv">1</span>),</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>, <span class="st">'Sales Manager East'</span>, <span class="dv">2</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span>, <span class="st">'Sales Manager West'</span>, <span class="dv">2</span>),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>(<span class="dv">6</span>, <span class="st">'Sales Rep 1'</span>, <span class="dv">4</span>),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>(<span class="dv">7</span>, <span class="st">'Sales Rep 2'</span>, <span class="dv">4</span>);</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">-- Recursive CTE to find all employees under VP Sales (id=2)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> RECURSIVE org_chart <span class="kw">AS</span> (</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- Base case: Start with VP Sales</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="kw">id</span>, name, manager_id, <span class="dv">0</span> <span class="kw">AS</span> <span class="kw">level</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- Recursive case: Find all direct reports of each employee in org_chart</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> e.<span class="kw">id</span>, e.name, e.manager_id, oc.<span class="kw">level</span> <span class="op">+</span> <span class="dv">1</span> <span class="kw">AS</span> <span class="kw">level</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> employees e</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> org_chart oc <span class="kw">ON</span> e.manager_id <span class="op">=</span> oc.<span class="kw">id</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">-- Final query using the CTE</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">id</span>, name, <span class="kw">level</span>, </span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>       <span class="fu">SUBSTR</span>(<span class="st">'    '</span>, <span class="dv">1</span>, <span class="kw">level</span><span class="op">*</span><span class="dv">4</span>) <span class="op">||</span> name <span class="kw">AS</span> hierarchical_view</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> org_chart</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="kw">level</span>, name;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This query returns:</p>
+<pre><code>id | name            | level | hierarchical_view
+------------------------------------------------------------------------------------
+2  | VP Sales        | 0     | VP Sales
+4  | Sales Manager East | 1  |     Sales Manager East
+5  | Sales Manager West | 1  |     Sales Manager West
+6  | Sales Rep 1     | 2     |         Sales Rep 1
+7  | Sales Rep 2     | 2     |         Sales Rep 2</code></pre>
+</section>
+<section id="how-the-recursion-unfolds" class="level3" data-number="34.4.4">
+<h3 data-number="34.4.4" class="anchored" data-anchor-id="how-the-recursion-unfolds"><span class="header-section-number">34.4.4</span> How the Recursion Unfolds</h3>
+<ol type="1">
+<li><strong>Iteration 0 (Base Case):</strong>
+<ul>
+<li>Returns VP Sales (id=2)</li>
+</ul></li>
+<li><strong>Iteration 1:</strong>
+<ul>
+<li>Joins employees who have manager_id=2</li>
+<li>Adds Sales Manager East and West (ids 4 and 5)</li>
+</ul></li>
+<li><strong>Iteration 2:</strong>
+<ul>
+<li>Joins employees who have manager_id=4 or 5</li>
+<li>Adds Sales Rep 1 and 2 (ids 6 and 7)</li>
+</ul></li>
+<li><strong>Iteration 3:</strong>
+<ul>
+<li>No employees have manager_id=6 or 7</li>
+<li>No new rows, recursion stops</li>
+</ul></li>
+</ol>
+</section>
+<section id="preventing-infinite-recursion" class="level3" data-number="34.4.5">
+<h3 data-number="34.4.5" class="anchored" data-anchor-id="preventing-infinite-recursion"><span class="header-section-number">34.4.5</span> Preventing Infinite Recursion</h3>
+<p>If your data has cycles (e.g., A manages B, B manages C, C manages A), you need safeguards:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> RECURSIVE org_chart <span class="kw">AS</span> (</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- Base case</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="kw">id</span>, name, manager_id, <span class="dv">0</span> <span class="kw">AS</span> <span class="kw">level</span>, <span class="kw">id</span> <span class="kw">AS</span> path</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> employees</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">-- Recursive case with cycle prevention</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> e.<span class="kw">id</span>, e.name, e.manager_id, oc.<span class="kw">level</span> <span class="op">+</span> <span class="dv">1</span>, oc.path <span class="op">||</span> <span class="st">','</span> <span class="op">||</span> e.<span class="kw">id</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> employees e</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> org_chart oc <span class="kw">ON</span> e.manager_id <span class="op">=</span> oc.<span class="kw">id</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> oc.<span class="kw">level</span> <span class="op">&lt;</span> <span class="dv">10</span>  <span class="co">-- Depth limit</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      <span class="kw">AND</span> <span class="fu">instr</span>(<span class="st">','</span> <span class="op">||</span> oc.path <span class="op">||</span> <span class="st">','</span>, <span class="st">','</span> <span class="op">||</span> e.<span class="kw">id</span> <span class="op">||</span> <span class="st">','</span>) <span class="op">=</span> <span class="dv">0</span>  <span class="co">-- Path check for cycles</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> org_chart;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sqlite-implementation-notes" class="level3" data-number="34.4.6">
+<h3 data-number="34.4.6" class="anchored" data-anchor-id="sqlite-implementation-notes"><span class="header-section-number">34.4.6</span> SQLite Implementation Notes</h3>
+<p>SQLite’s implementation of recursive CTEs follows the ANSI SQL standard closely with some specific behaviors:</p>
+<ul>
+<li>The <code>RECURSIVE</code> keyword is required (consistent with ANSI standard)</li>
+<li>The recursive part must connect to the non-recursive part with either <code>UNION</code>, <code>UNION ALL</code>, <code>INTERSECT</code>, or <code>EXCEPT</code></li>
+<li>SQLite imposes a default recursion limit of 1000, which can be modified using the <code>PRAGMA recursive_triggers</code> setting</li>
+<li>Each iteration must return at least one row, or recursion stops</li>
+</ul>
+<p>CTEs can significantly improve query readability and maintenance, especially for complex queries involving multiple steps or self-joins.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

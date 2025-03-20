@@ -503,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>sqlQstns Database Questions (and Answers)</yrchapternumber></span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>(sqlQstns-1)</yrchapternumber> Database Questions (and Answers)</span></span></a>
   </div>
 </li>
       </ul>
@@ -520,7 +520,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>(git-1)</yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
   </div>
 </li>
       </ul>
@@ -1087,20 +1087,20 @@ I'm not sure how to do this.
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">3</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
-  first last      title region baseInThousands salesInThousands yearsWithCompany
-  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Jim   Kuruzovi… Sr. … usa                 35              140                3
-2 Jack  Aames     Sale… usa                 43              105                4
-3 Larry Green     Sr. … europe              20              113                4</code></pre>
+  first  last     title region baseInThousands salesInThousands yearsWithCompany
+  &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 Barb   Aames    Sale… usa                 21              255                7
+2 Joe    Washing… Sr. … europe              33              370                2
+3 Monica Zeitchik Sale… asia                23              184                1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly chose 10% of the rows to view</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">prop=</span><span class="fl">0.10</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 7
-  first last  title     region baseInThousands salesInThousands yearsWithCompany
-  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Zeke  Cohen Manager   usa                 30              250               10
-2 Larry Green Sr. Sale… europe              20              113                4</code></pre>
+  first last     title  region baseInThousands salesInThousands yearsWithCompany
+  &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 Zeke  Cohen    Manag… usa                 30              250               10
+2 Kate  Zeitchik Sr. S… usa                 50              187                4</code></pre>
 </div>
 </div>
 </section>
