@@ -801,7 +801,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>temperature</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 60 °F"</code></pre>
+<pre><code>character(0)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">read_html</span>(url)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -814,13 +814,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">html_elements</span>(x, cssSelector )</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (1)}
-[1] &lt;p class="temp temp-high"&gt;High: 60 °F&lt;/p&gt;\n</code></pre>
+<pre><code>{xml_nodeset (0)}</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">html_text</span>(y)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 60 °F"</code></pre>
+<pre><code>character(0)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What is the structure of x?</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -865,8 +864,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>forecasts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 60 °F" "Low: 47 °F"  "High: 62 °F" "Low: 50 °F"  "High: 65 °F"
-[6] "Low: 50 °F"  "High: 67 °F" "Low: 51 °F"  "High: 75 °F"</code></pre>
+<pre><code>[1] "Low: 51 °F"  "High: 78 °F" "Low: 58 °F"  "High: 77 °F" "Low: 54 °F" 
+[6] "High: 63 °F" "Low: 52 °F"  "High: 61 °F" "Low: 48 °F" </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">read_html</span>(url)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -880,21 +879,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{xml_nodeset (9)}
-[1] &lt;p class="temp temp-high"&gt;High: 60 °F&lt;/p&gt;\n
-[2] &lt;p class="temp temp-low"&gt;Low: 47 °F&lt;/p&gt;\n
-[3] &lt;p class="temp temp-high"&gt;High: 62 °F&lt;/p&gt;\n
-[4] &lt;p class="temp temp-low"&gt;Low: 50 °F&lt;/p&gt;\n
-[5] &lt;p class="temp temp-high"&gt;High: 65 °F&lt;/p&gt;\n
-[6] &lt;p class="temp temp-low"&gt;Low: 50 °F&lt;/p&gt;\n
-[7] &lt;p class="temp temp-high"&gt;High: 67 °F&lt;/p&gt;\n
-[8] &lt;p class="temp temp-low"&gt;Low: 51 °F&lt;/p&gt;\n
-[9] &lt;p class="temp temp-high"&gt;High: 75 °F&lt;/p&gt;\n</code></pre>
+[1] &lt;p class="temp temp-low"&gt;Low: 51 °F&lt;/p&gt;\n
+[2] &lt;p class="temp temp-high"&gt;High: 78 °F&lt;/p&gt;\n
+[3] &lt;p class="temp temp-low"&gt;Low: 58 °F&lt;/p&gt;\n
+[4] &lt;p class="temp temp-high"&gt;High: 77 °F&lt;/p&gt;\n
+[5] &lt;p class="temp temp-low"&gt;Low: 54 °F&lt;/p&gt;\n
+[6] &lt;p class="temp temp-high"&gt;High: 63 °F&lt;/p&gt;\n
+[7] &lt;p class="temp temp-low"&gt;Low: 52 °F&lt;/p&gt;\n
+[8] &lt;p class="temp temp-high"&gt;High: 61 °F&lt;/p&gt;\n
+[9] &lt;p class="temp temp-low"&gt;Low: 48 °F&lt;/p&gt;\n</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">html_text</span>(y)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "High: 60 °F" "Low: 47 °F"  "High: 62 °F" "Low: 50 °F"  "High: 65 °F"
-[6] "Low: 50 °F"  "High: 67 °F" "Low: 51 °F"  "High: 75 °F"</code></pre>
+<pre><code>[1] "Low: 51 °F"  "High: 78 °F" "Low: 58 °F"  "High: 77 °F" "Low: 54 °F" 
+[6] "High: 63 °F" "Low: 52 °F"  "High: 61 °F" "Low: 48 °F" </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What is the structure of x?</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4835,14 +4834,14 @@ another line    after a tab</code></pre>
 <span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.time</span>()    <span class="co"># shows the time on your computer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-03-20 12:37:34 EDT"</code></pre>
+<pre><code>[1] "2025-03-24 02:33:38 EDT"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>start <span class="ot">=</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="co"># put some r code here</span></span>
 <span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>end <span class="ot">=</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>end <span class="sc">-</span> start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 0.0004351139 secs</code></pre>
+<pre><code>Time difference of 0.0004429817 secs</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="ot">=</span> <span class="fu">Sys.time</span>() <span class="co"># get the time before we start</span></span>
 <span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -4852,7 +4851,7 @@ another line    after a tab</code></pre>
 <span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>end_time <span class="sc">-</span> start_time   <span class="co"># show how long it took</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time difference of 30.57148 secs</code></pre>
+<pre><code>Time difference of 29.99229 secs</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's examine the results ...</span></span>
 <span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dataFromAllPages)  <span class="co"># how many rows?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
