@@ -466,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
   </div>
 </li>
@@ -1087,11 +1087,11 @@ I'm not sure how to do this.
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">3</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
-  first last      title region baseInThousands salesInThousands yearsWithCompany
-  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Sue   Aames     Sr. … africa              35              600               10
-2 Sue   Sallinger Sale… asia                30              150               10
-3 Kate  Zeitchik  Sr. … usa                 50              187                4</code></pre>
+  first last    title   region baseInThousands salesInThousands yearsWithCompany
+  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 Jim   Brown   Salesp… europe              50              167                2
+2 Kate  Carey   Sr. Sa… europe              20               69                2
+3 Sam   Lincoln Manager europe              30              500                2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly chose 10% of the rows to view</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">prop=</span><span class="fl">0.10</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1099,8 +1099,8 @@ I'm not sure how to do this.
 <pre><code># A tibble: 2 × 7
   first last  title     region baseInThousands salesInThousands yearsWithCompany
   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Sam   Lee   Salesper… usa                 40              200                6
-2 Joe   Smith Manager   usa                 40              100               10</code></pre>
+1 Larry Green Sr. Sale… europe              20              113                4
+2 Sue   Aames Sr. Sale… africa              35              600               10</code></pre>
 </div>
 </div>
 </section>

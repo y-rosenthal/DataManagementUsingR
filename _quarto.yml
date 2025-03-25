@@ -93,8 +93,8 @@ book:
       - sql0010-introToSql-v023.qmd       # NO dplyr knowledge # yrChapterNumber 30
       - sql0035-workingWithMultipleTables-v012.qmd # inner joins - renumbered from sql0020 # yrChapterNumber 31
       - sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.qmd # yrChapterNumber 32
-      #- sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.qmd # yrChapterNumber 33
-      - sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.qmd # yrChapterNumber 33
+      - sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.qmd # yrChapterNumber 33
+      #- sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.qmd # yrChapterNumber 33
       #- sql0040-b-crossJoin-leftJoin-subquery-selfJoins-v023.qmd # yrChapterNumber 33
       #- sql0040-c-crossJoin-leftJoin-subquery-selfJoins-v023.qmd # yrChapterNumber 33
       #- sql0040-d-crossJoin-leftJoin-subquery-selfJoins-v023.qmd # yrChapterNumber 33
