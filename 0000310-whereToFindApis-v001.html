@@ -701,20 +701,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Loading required package: rvest</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://cran.r-project.org/web/packages/available_packages_by_name.html"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">read_html</span>(url)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">=</span> <span class="fu">html_elements</span>(page, <span class="st">"table"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">html_table</span>(tables[[<span class="dv">1</span>]]))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pkgs) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"package"</span>, <span class="st">"description"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">=</span> <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"package"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">|</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"description"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>numberOfApiPackages <span class="ot">=</span> <span class="fu">sum</span>(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">read_html</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in open.connection(x, "rb"): cannot open the connection</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">=</span> <span class="fu">html_elements</span>(page, <span class="st">"table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in UseMethod("xml_find_all"): no applicable method for 'xml_find_all' applied to an object of class "function"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">html_table</span>(tables[[<span class="dv">1</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'tables' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pkgs) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"package"</span>, <span class="st">"description"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'pkgs' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">=</span> <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"package"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">|</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"description"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'pkgs' not found</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>numberOfApiPackages <span class="ot">=</span> <span class="fu">sum</span>(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'rows' not found</code></pre>
+</div>
 </div>
 <p>As of the date this document was compiled there were</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 608</code></pre>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'numberOfApiPackages' not found</code></pre>
 </div>
 </div>
 <p>packages on CRAN that have the letters API in either the name of the package or the description.</p>
