@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>39&nbsp; (sqlQstns-1) Database Questions (and Answers) – Data Management With R (latest version)</title>
+<title>40&nbsp;  Database Questions (and Answers) – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./github-000700-markdownGithubVsQuarto.html" rel="next">
-<link href="./0600100-introToDb-v001.html" rel="prev">
+<link href="./sql0935-dbNormalization-v001.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./sql3000-sqlQuestions-v001.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>(sqlQstns-1)</yrchapternumber> Database Questions (and Answers)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./sql3000-sqlQuestions-v001.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber></yrchapternumber> Database Questions (and Answers)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -493,20 +493,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Working directly with databases in R</span></span></a>
+  <a href="./sql0915-workingWithSqliteDatabasesInR-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37a. </yrchapternumber> Working with SQLite databases in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0600100-introToDb-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> What is a Database?</span></span></a>
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>37b. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0935-dbNormalization-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Database Normalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>(sqlQstns-1)</yrchapternumber> Database Questions (and Answers)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber></yrchapternumber> Database Questions (and Answers)</span></span></a>
   </div>
 </li>
       </ul>
@@ -523,7 +529,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>(git-1)</yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber></yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
   </div>
 </li>
       </ul>
@@ -540,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Intro to ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -557,25 +563,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> How a webpage gets to your browser</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Web Scraping with R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Web Scraping with R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000130-WebscrapingJavascriptSites-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> CSS Selector Questions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> CSS Selector Questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -592,31 +598,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>44. </yrchapternumber> Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>44. </yrchapternumber> Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>45. </yrchapternumber> Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>45. </yrchapternumber> Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>46. </yrchapternumber> Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><yrchapternumber>46. </yrchapternumber> Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title"><yrchapternumber>48. </yrchapternumber> Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title"><yrchapternumber>48. </yrchapternumber> Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -631,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#single-table-queries" id="toc-single-table-queries" class="nav-link active" data-scroll-target="#single-table-queries"><span class="header-section-number">39.1.5</span> Single Table queries</a>
+  <li><a href="#single-table-queries" id="toc-single-table-queries" class="nav-link active" data-scroll-target="#single-table-queries"><span class="header-section-number">40.1.5</span> Single Table queries</a>
   <ul>
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
@@ -639,31 +645,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
   <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
   </ul></li>
-  <li><a href="#single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." id="toc-single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." class="nav-link" data-scroll-target="#single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query."><span class="header-section-number">39.1.6</span> Single table queries with aggregate functions but no “group by” (i.e.&nbsp;these will return EXACTLY one row for each query).</a>
+  <li><a href="#single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." id="toc-single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." class="nav-link" data-scroll-target="#single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query."><span class="header-section-number">40.1.6</span> Single table queries with aggregate functions but no “group by” (i.e.&nbsp;these will return EXACTLY one row for each query).</a>
   <ul>
   <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
   <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
   <li><a href="#question-8" id="toc-question-8" class="nav-link" data-scroll-target="#question-8">Question 8</a></li>
   </ul></li>
-  <li><a href="#single-table-queries-with-calculated-values" id="toc-single-table-queries-with-calculated-values" class="nav-link" data-scroll-target="#single-table-queries-with-calculated-values"><span class="header-section-number">39.1.7</span> Single table queries with calculated values</a>
+  <li><a href="#single-table-queries-with-calculated-values" id="toc-single-table-queries-with-calculated-values" class="nav-link" data-scroll-target="#single-table-queries-with-calculated-values"><span class="header-section-number">40.1.7</span> Single table queries with calculated values</a>
   <ul>
   <li><a href="#question-9" id="toc-question-9" class="nav-link" data-scroll-target="#question-9">Question 9</a></li>
   <li><a href="#question-10" id="toc-question-10" class="nav-link" data-scroll-target="#question-10">Question 10</a></li>
   </ul></li>
-  <li><a href="#single-table-queries-with-group-by." id="toc-single-table-queries-with-group-by." class="nav-link" data-scroll-target="#single-table-queries-with-group-by."><span class="header-section-number">39.2</span> Single table queries with “group by”.</a>
+  <li><a href="#single-table-queries-with-group-by." id="toc-single-table-queries-with-group-by." class="nav-link" data-scroll-target="#single-table-queries-with-group-by."><span class="header-section-number">40.2</span> Single table queries with “group by”.</a>
   <ul>
   <li><a href="#question-11" id="toc-question-11" class="nav-link" data-scroll-target="#question-11">Question 11</a></li>
   <li><a href="#question-12" id="toc-question-12" class="nav-link" data-scroll-target="#question-12">Question 12</a></li>
   <li><a href="#question-13" id="toc-question-13" class="nav-link" data-scroll-target="#question-13">Question 13</a></li>
   <li><a href="#question-14" id="toc-question-14" class="nav-link" data-scroll-target="#question-14">Question 14</a></li>
   </ul></li>
-  <li><a href="#multiple-table-queries-with-group-by" id="toc-multiple-table-queries-with-group-by" class="nav-link" data-scroll-target="#multiple-table-queries-with-group-by"><span class="header-section-number">39.3</span> Multiple table queries with group by</a>
+  <li><a href="#multiple-table-queries-with-group-by" id="toc-multiple-table-queries-with-group-by" class="nav-link" data-scroll-target="#multiple-table-queries-with-group-by"><span class="header-section-number">40.3</span> Multiple table queries with group by</a>
   <ul>
   <li><a href="#question-15" id="toc-question-15" class="nav-link" data-scroll-target="#question-15">Question 15</a></li>
   <li><a href="#question-16" id="toc-question-16" class="nav-link" data-scroll-target="#question-16">Question 16</a></li>
   <li><a href="#question-17" id="toc-question-17" class="nav-link" data-scroll-target="#question-17">Question 17</a></li>
   </ul></li>
-  <li><a href="#multiple-table-queries" id="toc-multiple-table-queries" class="nav-link" data-scroll-target="#multiple-table-queries"><span class="header-section-number">39.4</span> Multiple table queries</a>
+  <li><a href="#multiple-table-queries" id="toc-multiple-table-queries" class="nav-link" data-scroll-target="#multiple-table-queries"><span class="header-section-number">40.4</span> Multiple table queries</a>
   <ul>
   <li><a href="#question-18" id="toc-question-18" class="nav-link" data-scroll-target="#question-18">Question 18</a></li>
   <li><a href="#question-19" id="toc-question-19" class="nav-link" data-scroll-target="#question-19">Question 19</a></li>
@@ -682,7 +688,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#question-32" id="toc-question-32" class="nav-link" data-scroll-target="#question-32">Question 32</a></li>
   <li><a href="#question-33" id="toc-question-33" class="nav-link" data-scroll-target="#question-33">Question 33</a></li>
   </ul></li>
-  <li><a href="#subqueries-outer-joins-unions-and-other-stuff" id="toc-subqueries-outer-joins-unions-and-other-stuff" class="nav-link" data-scroll-target="#subqueries-outer-joins-unions-and-other-stuff"><span class="header-section-number">39.5</span> Subqueries, outer joins, unions and other stuff …</a>
+  <li><a href="#subqueries-outer-joins-unions-and-other-stuff" id="toc-subqueries-outer-joins-unions-and-other-stuff" class="nav-link" data-scroll-target="#subqueries-outer-joins-unions-and-other-stuff"><span class="header-section-number">40.5</span> Subqueries, outer joins, unions and other stuff …</a>
   <ul>
   <li><a href="#question-34" id="toc-question-34" class="nav-link" data-scroll-target="#question-34">Question 34</a></li>
   <li><a href="#question-35" id="toc-question-35" class="nav-link" data-scroll-target="#question-35">Question 35</a></li>
@@ -690,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#question-37" id="toc-question-37" class="nav-link" data-scroll-target="#question-37">Question 37</a></li>
   <li><a href="#question-38" id="toc-question-38" class="nav-link" data-scroll-target="#question-38">Question 38</a></li>
   </ul></li>
-  <li><a href="#additional-questions" id="toc-additional-questions" class="nav-link" data-scroll-target="#additional-questions"><span class="header-section-number">39.6</span> Additional questions</a>
+  <li><a href="#additional-questions" id="toc-additional-questions" class="nav-link" data-scroll-target="#additional-questions"><span class="header-section-number">40.6</span> Additional questions</a>
   <ul>
   <li><a href="#question-39" id="toc-question-39" class="nav-link" data-scroll-target="#question-39">Question 39</a></li>
   <li><a href="#question-40" id="toc-question-40" class="nav-link" data-scroll-target="#question-40">Question 40</a></li>
@@ -711,9 +717,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./sql3000-sqlQuestions-v001.html"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>(sqlQstns-1)</yrchapternumber> Database Questions (and Answers)</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sql0014-theBooksDatabase-v001.html">Relational databases and SQL</a></li><li class="breadcrumb-item"><a href="./sql3000-sqlQuestions-v001.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber></yrchapternumber> Database Questions (and Answers)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>(sqlQstns-1)</yrchapternumber> Database Questions (and Answers)</span></h1>
+<h1 class="title"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber></yrchapternumber> Database Questions (and Answers)</span></h1>
 </div>
 
 
@@ -752,8 +758,8 @@ Click here to hide/show this section
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse show">
-<section id="yrBooksDatabase" class="level2 callout-body-container callout-body" data-number="39.1">
-<h2 data-number="39.1" class="anchored" data-anchor-id="yrBooksDatabase"><span class="header-section-number">39.1</span> The “Books Database”</h2>
+<section id="yrBooksDatabase" class="level2 callout-body-container callout-body" data-number="40.1">
+<h2 data-number="40.1" class="anchored" data-anchor-id="yrBooksDatabase"><span class="header-section-number">40.1</span> The “Books Database”</h2>
 <p>The “books database” is a collection of several tables that contains data relating to books (i.e.&nbsp;“titles”), authors, publishers, etc.</p>
 <p>You can download the data for the database in the following ways:</p>
 <ul>
@@ -761,8 +767,8 @@ Click here to hide/show this section
 <li><p>as a single sqlite3 database file (<a href="#yrBooksCsvFiles">see below</a>)</p></li>
 </ul>
 <p>See below for details.</p>
-<section id="yrBooksSqliteFile" class="level3" data-number="39.1.1">
-<h3 data-number="39.1.1" class="anchored" data-anchor-id="yrBooksSqliteFile"><span class="header-section-number">39.1.1</span> SQLite file for “Books Database”</h3>
+<section id="yrBooksSqliteFile" class="level3" data-number="40.1.1">
+<h3 data-number="40.1.1" class="anchored" data-anchor-id="yrBooksSqliteFile"><span class="header-section-number">40.1.1</span> SQLite file for “Books Database”</h3>
 <p>Click <a href="data/booksDatabase/books-v025.sqlite">here</a> to download all the data for the books datbase as a single “SQLite” database file.</p>
 <p>To use this file you can do one of the following:</p>
 <ol type="1">
@@ -777,8 +783,8 @@ Click here to hide/show this section
 <li><p>See this chapter (in this book) <a href="https://y-rosenthal.github.io/DataManagementUsingR/sql0950-workingWithDatabasesInR-v010.html" class="uri">https://y-rosenthal.github.io/DataManagementUsingR/sql0950-workingWithDatabasesInR-v010.html</a> for instructions on how to access this database file directly via R commands.</p></li>
 </ol>
 </section>
-<section id="yrBooksCsvFiles" class="level3" data-number="39.1.2">
-<h3 data-number="39.1.2" class="anchored" data-anchor-id="yrBooksCsvFiles"><span class="header-section-number">39.1.2</span> CSV files for “Books Database”</h3>
+<section id="yrBooksCsvFiles" class="level3" data-number="40.1.2">
+<h3 data-number="40.1.2" class="anchored" data-anchor-id="yrBooksCsvFiles"><span class="header-section-number">40.1.2</span> CSV files for “Books Database”</h3>
 <p>Download the CSV files for the “books database”. These CSV files together comprise the data for the “books database”.</p>
 <ul>
 <li><p><a href="data/booksDatabase/titles.csv">titles.csv</a></p></li>
@@ -800,8 +806,8 @@ Click here to hide/show this section
 </ol>
 <p>Once you’ve downloaded the various CSV files you can run the following commands to import the data into R.</p>
 </section>
-<section id="import-the-data-books-database" class="level3" data-number="39.1.3">
-<h3 data-number="39.1.3" class="anchored" data-anchor-id="import-the-data-books-database"><span class="header-section-number">39.1.3</span> Import the data (books database)</h3>
+<section id="import-the-data-books-database" class="level3" data-number="40.1.3">
+<h3 data-number="40.1.3" class="anchored" data-anchor-id="import-the-data-books-database"><span class="header-section-number">40.1.3</span> Import the data (books database)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(readr)){<span class="fu">install.packages</span>(<span class="st">"readr"</span>);<span class="fu">require</span>(readr);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -815,8 +821,8 @@ Click here to hide/show this section
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>royalties <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"royalties.csv"</span>, <span class="at">na=</span><span class="st">"NULL"</span>, <span class="at">show_col_types=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="books-database---entity-relationship-diagram-erd" class="level3" data-number="39.1.4">
-<h3 data-number="39.1.4" class="anchored" data-anchor-id="books-database---entity-relationship-diagram-erd"><span class="header-section-number">39.1.4</span> Books Database - Entity Relationship Diagram (ERD)</h3>
+<section id="books-database---entity-relationship-diagram-erd" class="level3" data-number="40.1.4">
+<h3 data-number="40.1.4" class="anchored" data-anchor-id="books-database---entity-relationship-diagram-erd"><span class="header-section-number">40.1.4</span> Books Database - Entity Relationship Diagram (ERD)</h3>
 <p>The following is an “Entity Relationship Diagram (ERD)” that describes the relationships between the tables. See the Word document linked above for more info:</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -1156,8 +1162,8 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log("All collapsed callouts:", document.querySelectorAll('.callout-note .callout-collapse.collapse:not(.show)').length);
 });
 </script>
-<section id="single-table-queries" class="level3" data-number="39.1.5">
-<h3 data-number="39.1.5" class="anchored" data-anchor-id="single-table-queries"><span class="header-section-number">39.1.5</span> Single Table queries</h3>
+<section id="single-table-queries" class="level3" data-number="40.1.5">
+<h3 data-number="40.1.5" class="anchored" data-anchor-id="single-table-queries"><span class="header-section-number">40.1.5</span> Single Table queries</h3>
 <section id="question-1" class="level4">
 <h4 class="anchored" data-anchor-id="question-1">Question 1</h4>
 <p>List all books (title and number sold) that sold more than 100 copies. List the books with the most sales at the top.</p>
@@ -1372,8 +1378,8 @@ Click for answer
 </div>
 </section>
 </section>
-<section id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." class="level3" data-number="39.1.6">
-<h3 data-number="39.1.6" class="anchored" data-anchor-id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query."><span class="header-section-number">39.1.6</span> Single table queries with aggregate functions but no “group by” (i.e.&nbsp;these will return EXACTLY one row for each query).</h3>
+<section id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query." class="level3" data-number="40.1.6">
+<h3 data-number="40.1.6" class="anchored" data-anchor-id="single-table-queries-with-aggregate-functions-but-no-group-by-i.e.-these-will-return-exactly-one-row-for-each-query."><span class="header-section-number">40.1.6</span> Single table queries with aggregate functions but no “group by” (i.e.&nbsp;these will return EXACTLY one row for each query).</h3>
 <!----------------------------------------------------------->
 <section id="question-6" class="level4">
 <h4 class="anchored" data-anchor-id="question-6">Question 6</h4>
@@ -1472,8 +1478,8 @@ Click for answer
 </div>
 </section>
 </section>
-<section id="single-table-queries-with-calculated-values" class="level3" data-number="39.1.7">
-<h3 data-number="39.1.7" class="anchored" data-anchor-id="single-table-queries-with-calculated-values"><span class="header-section-number">39.1.7</span> Single table queries with calculated values</h3>
+<section id="single-table-queries-with-calculated-values" class="level3" data-number="40.1.7">
+<h3 data-number="40.1.7" class="anchored" data-anchor-id="single-table-queries-with-calculated-values"><span class="header-section-number">40.1.7</span> Single table queries with calculated values</h3>
 <section id="question-9" class="level4">
 <h4 class="anchored" data-anchor-id="question-9">Question 9</h4>
 <p>List the title_name and total revenue for each book. (Revenue for a book is the number sold times the price of the book.)</p>
@@ -1563,8 +1569,8 @@ Click for answer
 </div>
 </section>
 </section>
-<section id="single-table-queries-with-group-by." class="level2" data-number="39.2">
-<h2 data-number="39.2" class="anchored" data-anchor-id="single-table-queries-with-group-by."><span class="header-section-number">39.2</span> Single table queries with “group by”.</h2>
+<section id="single-table-queries-with-group-by." class="level2" data-number="40.2">
+<h2 data-number="40.2" class="anchored" data-anchor-id="single-table-queries-with-group-by."><span class="header-section-number">40.2</span> Single table queries with “group by”.</h2>
 <p>These can use aggregate functions but will return at most one row in the output for each “group” of rows as defined in the “group by”</p>
 <section id="question-11" class="level4">
 <h4 class="anchored" data-anchor-id="question-11">Question 11</h4>
@@ -1715,8 +1721,8 @@ Click for answer
 </div>
 </section>
 </section>
-<section id="multiple-table-queries-with-group-by" class="level2" data-number="39.3">
-<h2 data-number="39.3" class="anchored" data-anchor-id="multiple-table-queries-with-group-by"><span class="header-section-number">39.3</span> Multiple table queries with group by</h2>
+<section id="multiple-table-queries-with-group-by" class="level2" data-number="40.3">
+<h2 data-number="40.3" class="anchored" data-anchor-id="multiple-table-queries-with-group-by"><span class="header-section-number">40.3</span> Multiple table queries with group by</h2>
 <section id="question-15" class="level4">
 <h4 class="anchored" data-anchor-id="question-15">Question 15</h4>
 <p>For each publisher, list the name of the publisher and total number of pages that the publisher has published in all their books (ie. add up all the pages in all books for each publisher). Show the publishers who have published the most pages at the top of the result list.</p>
@@ -1828,8 +1834,8 @@ Click for answer
 </div>
 </section>
 </section>
-<section id="multiple-table-queries" class="level2" data-number="39.4">
-<h2 data-number="39.4" class="anchored" data-anchor-id="multiple-table-queries"><span class="header-section-number">39.4</span> Multiple table queries</h2>
+<section id="multiple-table-queries" class="level2" data-number="40.4">
+<h2 data-number="40.4" class="anchored" data-anchor-id="multiple-table-queries"><span class="header-section-number">40.4</span> Multiple table queries</h2>
 <section id="question-18" class="level4">
 <h4 class="anchored" data-anchor-id="question-18">Question 18</h4>
 <p>List the authors first and last names, the author’s state, the title name, the publisher name and the publishers state for all books.</p>
@@ -2608,8 +2614,8 @@ Click for answer
 <!----------------------------------------------------------->
 </section>
 </section>
-<section id="subqueries-outer-joins-unions-and-other-stuff" class="level2" data-number="39.5">
-<h2 data-number="39.5" class="anchored" data-anchor-id="subqueries-outer-joins-unions-and-other-stuff"><span class="header-section-number">39.5</span> Subqueries, outer joins, unions and other stuff …</h2>
+<section id="subqueries-outer-joins-unions-and-other-stuff" class="level2" data-number="40.5">
+<h2 data-number="40.5" class="anchored" data-anchor-id="subqueries-outer-joins-unions-and-other-stuff"><span class="header-section-number">40.5</span> Subqueries, outer joins, unions and other stuff …</h2>
 <!----------------------------------------------------------->
 <section id="question-34" class="level4">
 <h4 class="anchored" data-anchor-id="question-34">Question 34</h4>
@@ -2888,8 +2894,8 @@ Click for answer
 </div>
 </section>
 </section>
-<section id="additional-questions" class="level2" data-number="39.6">
-<h2 data-number="39.6" class="anchored" data-anchor-id="additional-questions"><span class="header-section-number">39.6</span> Additional questions</h2>
+<section id="additional-questions" class="level2" data-number="40.6">
+<h2 data-number="40.6" class="anchored" data-anchor-id="additional-questions"><span class="header-section-number">40.6</span> Additional questions</h2>
 <section id="question-39" class="level4">
 <h4 class="anchored" data-anchor-id="question-39">Question 39</h4>
 <p>Show the names of the authors and the publishers who published their books. Only show those authors/publishers where the author lives in the same state as the publisher who published the book. Do not show any author/pbulisher names twice.</p>
@@ -4580,13 +4586,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./0600100-introToDb-v001.html" class="pagination-link" aria-label="<yrChapterNumber>38. </yrChapterNumber> What is a Database?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> What is a Database?</span></span>
+      <a href="./sql0935-dbNormalization-v001.html" class="pagination-link" aria-label="<yrChapterNumber>38. </yrChapterNumber> Database Normalization">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Database Normalization</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./github-000700-markdownGithubVsQuarto.html" class="pagination-link" aria-label="<yrChapterNumber>(git-1)</yrChapterNumber> GitHub Markdown vs. Quarto (.qmd) Comparison">
-        <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>(git-1)</yrchapternumber> GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./github-000700-markdownGithubVsQuarto.html" class="pagination-link" aria-label="<yrChapterNumber></yrChapterNumber> GitHub Markdown vs. Quarto (.qmd) Comparison">
+        <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber></yrchapternumber> GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
