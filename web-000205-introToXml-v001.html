@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>48&nbsp; 47.  Intro to ggplot2 – Data Management With R (latest version)</title>
+<title>41&nbsp; 40.  Intro to XML – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./0000100-topics-v001.html" rel="next">
-<link href="./github-000700-markdownGithubVsQuarto.html" rel="prev">
+<link href="./web-000220-parsingXmUsingR-v001.html" rel="next">
+<link href="./sql3000-sqlQuestions-v001.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./050050-tdyvrsGgplot2-v0001.html">visualizations with ggplot2</a></li><li class="breadcrumb-item"><a href="./050050-tdyvrsGgplot2-v0001.html"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Intro to ggplot2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000205-introToXml-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000205-introToXml-v001.html"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Intro to XML</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -525,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./web-000205-introToXml-v001.html" class="sidebar-item-text sidebar-link">
+  <a href="./web-000205-introToXml-v001.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Intro to XML</span></span></a>
   </div>
 </li>
@@ -589,7 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link active">
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
@@ -646,17 +646,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#code-from-sections-1.1-thorugh-1.3-of-r4ds2e" id="toc-code-from-sections-1.1-thorugh-1.3-of-r4ds2e" class="nav-link active" data-scroll-target="#code-from-sections-1.1-thorugh-1.3-of-r4ds2e"><span class="header-section-number">48.1</span> Code from sections 1.1 thorugh 1.3 of r4ds2e</a></li>
-  <li><a href="#other-stuff" id="toc-other-stuff" class="nav-link" data-scroll-target="#other-stuff"><span class="header-section-number">48.2</span> Other stuff</a></li>
+  <li><a href="#introduction-to-xml" id="toc-introduction-to-xml" class="nav-link active" data-scroll-target="#introduction-to-xml"><span class="header-section-number">41.1</span> Introduction to XML</a></li>
+  <li><a href="#xml-basics" id="toc-xml-basics" class="nav-link" data-scroll-target="#xml-basics"><span class="header-section-number">41.2</span> XML Basics</a>
+  <ul class="collapse">
+  <li><a href="#what-is-xml" id="toc-what-is-xml" class="nav-link" data-scroll-target="#what-is-xml"><span class="header-section-number">41.2.1</span> What is XML?</a></li>
+  <li><a href="#xml-syntax-rules" id="toc-xml-syntax-rules" class="nav-link" data-scroll-target="#xml-syntax-rules"><span class="header-section-number">41.2.2</span> XML Syntax Rules</a></li>
+  </ul></li>
+  <li><a href="#xml-document-structure" id="toc-xml-document-structure" class="nav-link" data-scroll-target="#xml-document-structure"><span class="header-section-number">41.3</span> XML Document Structure</a>
+  <ul class="collapse">
+  <li><a href="#xml-declaration" id="toc-xml-declaration" class="nav-link" data-scroll-target="#xml-declaration"><span class="header-section-number">41.3.1</span> XML Declaration</a></li>
+  <li><a href="#elements" id="toc-elements" class="nav-link" data-scroll-target="#elements"><span class="header-section-number">41.3.2</span> Elements</a></li>
+  <li><a href="#attributes" id="toc-attributes" class="nav-link" data-scroll-target="#attributes"><span class="header-section-number">41.3.3</span> Attributes</a></li>
+  <li><a href="#empty-elements" id="toc-empty-elements" class="nav-link" data-scroll-target="#empty-elements"><span class="header-section-number">41.3.4</span> Empty Elements</a></li>
+  </ul></li>
+  <li><a href="#xml-design-patterns" id="toc-xml-design-patterns" class="nav-link" data-scroll-target="#xml-design-patterns"><span class="header-section-number">41.4</span> XML Design Patterns</a>
+  <ul class="collapse">
+  <li><a href="#attribute-centric-vs.-element-centric-design" id="toc-attribute-centric-vs.-element-centric-design" class="nav-link" data-scroll-target="#attribute-centric-vs.-element-centric-design"><span class="header-section-number">41.4.1</span> Attribute-Centric vs.&nbsp;Element-Centric Design</a></li>
+  <li><a href="#mixed-content" id="toc-mixed-content" class="nav-link" data-scroll-target="#mixed-content"><span class="header-section-number">41.4.2</span> Mixed Content</a></li>
+  </ul></li>
+  <li><a href="#xml-data-modeling-examples" id="toc-xml-data-modeling-examples" class="nav-link" data-scroll-target="#xml-data-modeling-examples"><span class="header-section-number">41.5</span> XML Data Modeling Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-book-information" id="toc-example-1-book-information" class="nav-link" data-scroll-target="#example-1-book-information"><span class="header-section-number">41.5.1</span> Example 1: Book Information</a></li>
+  <li><a href="#example-2-publisher-information" id="toc-example-2-publisher-information" class="nav-link" data-scroll-target="#example-2-publisher-information"><span class="header-section-number">41.5.2</span> Example 2: Publisher Information</a></li>
+  <li><a href="#example-3-author-information" id="toc-example-3-author-information" class="nav-link" data-scroll-target="#example-3-author-information"><span class="header-section-number">41.5.3</span> Example 3: Author Information</a></li>
+  <li><a href="#example-4-format-information" id="toc-example-4-format-information" class="nav-link" data-scroll-target="#example-4-format-information"><span class="header-section-number">41.5.4</span> Example 4: Format Information</a></li>
+  </ul></li>
+  <li><a href="#best-practices-for-xml-design" id="toc-best-practices-for-xml-design" class="nav-link" data-scroll-target="#best-practices-for-xml-design"><span class="header-section-number">41.6</span> Best Practices for XML Design</a></li>
+  <li><a href="#working-with-xml-in-different-programming-languages" id="toc-working-with-xml-in-different-programming-languages" class="nav-link" data-scroll-target="#working-with-xml-in-different-programming-languages"><span class="header-section-number">41.7</span> Working with XML in Different Programming Languages</a>
+  <ul class="collapse">
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">41.7.1</span> R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">41.7.2</span> Python</a></li>
+  <li><a href="#javascript" id="toc-javascript" class="nav-link" data-scroll-target="#javascript"><span class="header-section-number">41.7.3</span> JavaScript</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">41.8</span> Conclusion</a></li>
+  <li><a href="#resources-for-further-learning" id="toc-resources-for-further-learning" class="nav-link" data-scroll-target="#resources-for-further-learning"><span class="header-section-number">41.9</span> Resources for Further Learning</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./050050-tdyvrsGgplot2-v0001.html">visualizations with ggplot2</a></li><li class="breadcrumb-item"><a href="./050050-tdyvrsGgplot2-v0001.html"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Intro to ggplot2</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./web-000205-introToXml-v001.html">Web Scraping</a></li><li class="breadcrumb-item"><a href="./web-000205-introToXml-v001.html"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Intro to XML</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Intro to ggplot2</span></h1>
+<h1 class="title"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Intro to XML</span></h1>
 </div>
 
 
@@ -673,212 +705,253 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The info below is adapted from the book “R for Data Science, second edition” (r4ds2e). The book is available both online and in print. It was written by Hadley Wickham, who in large part is the driving force behind the tidyverse packages.<br>
-The online version of r4ds2e is here:&nbsp;<a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a><br>
-The intro to ggplot2 chapter appears here:&nbsp;<a href="https://r4ds.hadley.nz/data-visualize" class="uri">https://r4ds.hadley.nz/data-visualize</a></p>
-<p>In class we covered sections 1.1 through 1.3 of chapter 1, Data visualization from r4ds2e. In that context we discussed different “geometries” of a graph (e.g.&nbsp;dot plot, histogram, bar plot, box plot), aesthetics of a particular geometry (e.g.&nbsp;x position, y position, color, shape, size). We also discussed the concept of how variables in your data can be “mapped” to particular aesthetics.</p>
-<section id="code-from-sections-1.1-thorugh-1.3-of-r4ds2e" class="level2" data-number="48.1">
-<h2 data-number="48.1" class="anchored" data-anchor-id="code-from-sections-1.1-thorugh-1.3-of-r4ds2e"><span class="header-section-number">48.1</span> Code from sections 1.1 thorugh 1.3 of r4ds2e</h2>
-<p>Below is a summary of the code that we went through.<br>
-Please see the following webpage for more info: <a href="https://r4ds.hadley.nz/data-visualize" class="uri">https://r4ds.hadley.nz/data-visualize</a></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org/"</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(palmerpenguins)){<span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>);<span class="fu">require</span>(palmerpenguins);}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(dplyr)){<span class="fu">install.packages</span>(<span class="st">"dplyr"</span>);<span class="fu">require</span>(dplyr);} <span class="co"># needed for glimpse</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggplot2)){<span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>);<span class="fu">require</span>(ggplot2);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here are the first few rows data.</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># When viewing a tibble, you may not see all the columns if your screen is too narrow.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 8
-   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
- 1 Adelie  Torgersen           39.1          18.7               181        3750
- 2 Adelie  Torgersen           39.5          17.4               186        3800
- 3 Adelie  Torgersen           40.3          18                 195        3250
- 4 Adelie  Torgersen           NA            NA                  NA          NA
- 5 Adelie  Torgersen           36.7          19.3               193        3450
- 6 Adelie  Torgersen           39.3          20.6               190        3650
- 7 Adelie  Torgersen           38.9          17.8               181        3625
- 8 Adelie  Torgersen           39.2          19.6               195        4675
- 9 Adelie  Torgersen           34.1          18.1               193        3475
-10 Adelie  Torgersen           42            20.2               190        4250
-# ℹ 334 more rows
-# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can use the dplyr::glimpse function to </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># view the names and datatypes of ALL the columns as well as </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># view the first few values of each column.</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 344
-Columns: 8
-$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
-$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
-$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
-$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
-$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
-$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
-$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also use the following command to "View" the entire tibble in the </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># RStudio viewer window:</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#View(penguins)  # It is a capital "V" in "View"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting up the "aesthetics"</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This doesn't display any actual data.</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="050050-tdyvrsGgplot2-v0001_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You will start seeing "data" on the plot once you set the "geometry".</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we set the "geometry" to be geom_point().</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Each "dot" on the plot represents a row of data from the tibble, i.e. one penguin.</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="050050-tdyvrsGgplot2-v0001_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can add some color and shapes to each dot on the plot based on the species.</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species, <span class="at">shape=</span>species)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="050050-tdyvrsGgplot2-v0001_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The function call, geom_smooth(method = "lm") </span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># adds linear regressions lines, one for each species. </span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Since "color=species, shape=species" was mapped in the ggplot function, the data was</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># divided into 3 different subsets, one for each species. </span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># That is why there are 3 different linear regression lines, one for</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># each species (compare this with the next plot).</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">color =</span> species, <span class="at">shape=</span>species)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range (`stat_smooth()`).
-Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="050050-tdyvrsGgplot2-v0001_files/figure-html/unnamed-chunk-2-4.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the following plot, "color=species, shape=species", was moved</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># from the ggplot function to the geom_point function.</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Since we did not set the color in the ggplot function we no longer</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># consider the data as three different subsets and we get a single linear </span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># regression line for the entire set of data.</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range (`stat_smooth()`).
-Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="050050-tdyvrsGgplot2-v0001_files/figure-html/unnamed-chunk-2-5.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finally, the following plot adds a title and subtitle to the graph</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and labels for the x-axis, y-axis and legend.</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> species, <span class="at">shape =</span> species)) <span class="sc">+</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Body mass and flipper length"</span>,</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Flipper length (mm)"</span>, <span class="at">y =</span> <span class="st">"Body mass (g)"</span>,</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Penguin Species"</span>, <span class="at">shape =</span> <span class="st">"Penguin Species"</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range (`stat_smooth()`).
-Removed 2 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="050050-tdyvrsGgplot2-v0001_files/figure-html/unnamed-chunk-2-6.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="introduction-to-xml" class="level2" data-number="41.1">
+<h2 data-number="41.1" class="anchored" data-anchor-id="introduction-to-xml"><span class="header-section-number">41.1</span> Introduction to XML</h2>
+<p>XML (eXtensible Markup Language) is a versatile markup language that defines rules for encoding documents in a format that is both human-readable and machine-readable. Unlike HTML, which was designed specifically for web pages, XML is designed to store and transport data.</p>
+<p>In this tutorial, we’ll explore the fundamentals of XML using a publishing database example, covering key concepts and demonstrating different ways to structure data in XML.</p>
 </section>
-<section id="other-stuff" class="level2" data-number="48.2">
-<h2 data-number="48.2" class="anchored" data-anchor-id="other-stuff"><span class="header-section-number">48.2</span> Other stuff</h2>
-<p>The info above goes through the main ideas of how to use ggplot2. Using that knowledge you should be in good shape for learning on your own how to use other more advanced features of ggplot2.</p>
-<p>The rest of the webpage, <a href="https://r4ds.hadley.nz/data-visualize" class="uri">https://r4ds.hadley.nz/data-visualize</a>, shows how to use several other features of ggplot2. The following topics are described on the rest of that webpage:</p>
+<section id="xml-basics" class="level2" data-number="41.2">
+<h2 data-number="41.2" class="anchored" data-anchor-id="xml-basics"><span class="header-section-number">41.2</span> XML Basics</h2>
+<section id="what-is-xml" class="level3" data-number="41.2.1">
+<h3 data-number="41.2.1" class="anchored" data-anchor-id="what-is-xml"><span class="header-section-number">41.2.1</span> What is XML?</h3>
+<p>XML stands for eXtensible Markup Language. It’s a markup language designed to store and transport data that is both human-readable and machine-readable. Key characteristics of XML include:</p>
 <ul>
-<li><p>Other geometries (histograms, box plots, etc)</p>
-<p>How to use several other geometries (i.e.&nbsp;bar blots, histograms, density plots, box plots, stacked bar plots).</p></li>
-<li><p>Facets</p>
-<p>How to break up a graph into several smaller graphs using the facet_wrap function.</p></li>
-<li><p>How to save a plot to an image file</p>
-<p>You can use the ggsave function to save an image file with a copy of the last plot that you created. You can then import the image file to other files, e.g.&nbsp;a Word document, a powerpoint, etc.</p>
-<p>See ?ggsave for more info.</p></li>
+<li>It’s platform-independent</li>
+<li>It supports Unicode, allowing almost any information in any language to be communicated</li>
+<li>It’s self-descriptive through customizable tags</li>
+<li>It separates data from presentation</li>
+<li>It’s hierarchical, allowing complex data structures to be represented</li>
+</ul>
+</section>
+<section id="xml-syntax-rules" class="level3" data-number="41.2.2">
+<h3 data-number="41.2.2" class="anchored" data-anchor-id="xml-syntax-rules"><span class="header-section-number">41.2.2</span> XML Syntax Rules</h3>
+<p>XML documents must follow certain rules:</p>
+<ol type="1">
+<li>XML documents must have a root element</li>
+<li>XML elements must have a closing tag or be self-closing</li>
+<li>XML tags are case sensitive</li>
+<li>XML elements must be properly nested</li>
+<li>XML attribute values must be quoted</li>
+</ol>
+<p>Let’s examine a sample XML document that will serve as our reference throughout this tutorial:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">books</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">book</span><span class="ot"> id=</span><span class="st">"B001"</span><span class="ot"> title=</span><span class="st">"1977!"</span><span class="ot"> type=</span><span class="st">"history"</span><span class="ot"> pages=</span><span class="st">"107"</span><span class="ot"> price=</span><span class="st">"21.99"</span><span class="ot"> sales=</span><span class="st">"566"</span><span class="ot"> pubdate=</span><span class="st">"2000-08-01"</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">publisher</span><span class="ot"> city=</span><span class="st">"New York"</span><span class="ot"> state=</span><span class="st">"NY"</span><span class="ot"> country=</span><span class="st">"USA"</span>&gt;Abatis Publishers&lt;/<span class="kw">publisher</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">pulitzerPrizeWinner</span> /&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">royalty</span><span class="ot"> advance=</span><span class="st">"10000"</span><span class="ot"> rate=</span><span class="st">"0.05"</span> /&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">authors</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">author</span><span class="ot"> order=</span><span class="st">"1"</span><span class="ot"> royalty_shares=</span><span class="st">"1"</span><span class="ot"> primary=</span><span class="st">"true"</span>&gt;Sarah Buchman</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">phone</span>&gt;718-496-7223&lt;/<span class="kw">phone</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">address</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">street</span>&gt;75 West 205 St&lt;/<span class="kw">street</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">city</span>&gt;Bronx&lt;/<span class="kw">city</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">state</span>&gt;NY&lt;/<span class="kw">state</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>          &lt;<span class="kw">zip</span>&gt;10468&lt;/<span class="kw">zip</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">address</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      &lt;/<span class="kw">author</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">authors</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">book</span>&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Additional books omitted for brevity --&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">books</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="xml-document-structure" class="level2" data-number="41.3">
+<h2 data-number="41.3" class="anchored" data-anchor-id="xml-document-structure"><span class="header-section-number">41.3</span> XML Document Structure</h2>
+<section id="xml-declaration" class="level3" data-number="41.3.1">
+<h3 data-number="41.3.1" class="anchored" data-anchor-id="xml-declaration"><span class="header-section-number">41.3.1</span> XML Declaration</h3>
+<p>Every XML document typically begins with an XML declaration that specifies the XML version and character encoding:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This tells processing applications that this is an XML document that conforms to XML 1.0 specifications and uses UTF-8 character encoding.</p>
+</section>
+<section id="elements" class="level3" data-number="41.3.2">
+<h3 data-number="41.3.2" class="anchored" data-anchor-id="elements"><span class="header-section-number">41.3.2</span> Elements</h3>
+<p>Elements are the building blocks of XML. An element consists of a start tag, content, and an end tag.</p>
+<section id="elements-with-start-and-end-tags" class="level4">
+<h4 class="anchored" data-anchor-id="elements-with-start-and-end-tags">Elements with Start and End Tags</h4>
+<p>Most elements have both a start tag and an end tag, with content between them:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">phone</span>&gt;718-496-7223&lt;/<span class="kw">phone</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In our example, most elements follow this pattern, including <code>&lt;publisher&gt;</code>, <code>&lt;phone&gt;</code>, and <code>&lt;author&gt;</code>.</p>
+</section>
+<section id="nested-elements" class="level4">
+<h4 class="anchored" data-anchor-id="nested-elements">Nested Elements</h4>
+<p>XML elements can be nested within other elements, creating a hierarchical structure:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">address</span>&gt;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">street</span>&gt;75 West 205 St&lt;/<span class="kw">street</span>&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">city</span>&gt;Bronx&lt;/<span class="kw">city</span>&gt;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">state</span>&gt;NY&lt;/<span class="kw">state</span>&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">zip</span>&gt;10468&lt;/<span class="kw">zip</span>&gt;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">address</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the <code>address</code> element contains four child elements: <code>street</code>, <code>city</code>, <code>state</code>, and <code>zip</code>.</p>
+</section>
+</section>
+<section id="attributes" class="level3" data-number="41.3.3">
+<h3 data-number="41.3.3" class="anchored" data-anchor-id="attributes"><span class="header-section-number">41.3.3</span> Attributes</h3>
+<p>Attributes provide additional information about elements and are always specified in the start tag:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">book</span><span class="ot"> id=</span><span class="st">"B001"</span><span class="ot"> title=</span><span class="st">"1977!"</span><span class="ot"> type=</span><span class="st">"history"</span><span class="ot"> pages=</span><span class="st">"107"</span><span class="ot"> price=</span><span class="st">"21.99"</span><span class="ot"> sales=</span><span class="st">"566"</span><span class="ot"> pubdate=</span><span class="st">"2000-08-01"</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the <code>book</code> element has several attributes: <code>id</code>, <code>title</code>, <code>type</code>, <code>pages</code>, <code>price</code>, <code>sales</code>, and <code>pubdate</code>.</p>
+<p>Attributes must always be quoted, using either single (<code>'</code>) or double (<code>"</code>) quotes.</p>
+</section>
+<section id="empty-elements" class="level3" data-number="41.3.4">
+<h3 data-number="41.3.4" class="anchored" data-anchor-id="empty-elements"><span class="header-section-number">41.3.4</span> Empty Elements</h3>
+<p>Empty elements are elements that don’t contain any content. There are two ways to write empty elements:</p>
+<section id="empty-elements-with-attributes" class="level4">
+<h4 class="anchored" data-anchor-id="empty-elements-with-attributes">Empty Elements with Attributes</h4>
+<p>Some empty elements contain attributes but no content:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">format</span><span class="ot"> type=</span><span class="st">"audiobook"</span><span class="ot"> available=</span><span class="st">"false"</span> /&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the <code>format</code> element has attributes but no content. Note the <code>/</code> before the closing bracket, which indicates that this is a self-closing tag.</p>
+</section>
+<section id="empty-elements-without-attributes" class="level4">
+<h4 class="anchored" data-anchor-id="empty-elements-without-attributes">Empty Elements without Attributes</h4>
+<p>Some empty elements have neither content nor attributes:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">pulitzerPrizeWinner</span> /&gt;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">bio</span> /&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These self-closing tags indicate the presence of an element without any additional information.</p>
+</section>
+</section>
+</section>
+<section id="xml-design-patterns" class="level2" data-number="41.4">
+<h2 data-number="41.4" class="anchored" data-anchor-id="xml-design-patterns"><span class="header-section-number">41.4</span> XML Design Patterns</h2>
+<p>There are different ways to structure data in XML. Let’s explore some common design patterns with examples from our publishing database.</p>
+<section id="attribute-centric-vs.-element-centric-design" class="level3" data-number="41.4.1">
+<h3 data-number="41.4.1" class="anchored" data-anchor-id="attribute-centric-vs.-element-centric-design"><span class="header-section-number">41.4.1</span> Attribute-Centric vs.&nbsp;Element-Centric Design</h3>
+<p>Data in XML can be represented either as attributes or as child elements. Let’s compare these approaches:</p>
+<section id="attribute-centric" class="level4">
+<h4 class="anchored" data-anchor-id="attribute-centric">Attribute-Centric</h4>
+<p>The book element uses an attribute-centric approach for its basic information:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">book</span><span class="ot"> id=</span><span class="st">"B001"</span><span class="ot"> title=</span><span class="st">"1977!"</span><span class="ot"> type=</span><span class="st">"history"</span><span class="ot"> pages=</span><span class="st">"107"</span><span class="ot"> price=</span><span class="st">"21.99"</span><span class="ot"> sales=</span><span class="st">"566"</span><span class="ot"> pubdate=</span><span class="st">"2000-08-01"</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Advantages: - More compact - Often easier to read for simple values - More efficient for parsing</p>
+</section>
+<section id="element-centric" class="level4">
+<h4 class="anchored" data-anchor-id="element-centric">Element-Centric</h4>
+<p>The author’s address uses an element-centric approach:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">address</span>&gt;</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">street</span>&gt;75 West 205 St&lt;/<span class="kw">street</span>&gt;</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">city</span>&gt;Bronx&lt;/<span class="kw">city</span>&gt;</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">state</span>&gt;NY&lt;/<span class="kw">state</span>&gt;</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">zip</span>&gt;10468&lt;/<span class="kw">zip</span>&gt;</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">address</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Advantages: - Better for complex or structured data - Can contain mixed content (text and other elements) - More extensible for future changes</p>
+</section>
+</section>
+<section id="mixed-content" class="level3" data-number="41.4.2">
+<h3 data-number="41.4.2" class="anchored" data-anchor-id="mixed-content"><span class="header-section-number">41.4.2</span> Mixed Content</h3>
+<p>XML can contain mixed content, where an element contains both text and child elements:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">author</span><span class="ot"> order=</span><span class="st">"1"</span><span class="ot"> royalty_shares=</span><span class="st">"1"</span><span class="ot"> primary=</span><span class="st">"true"</span>&gt;Sarah Buchman</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">phone</span>&gt;718-496-7223&lt;/<span class="kw">phone</span>&gt;</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">address</span>&gt;</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Address details --&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">address</span>&gt;</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">author</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the <code>author</code> element contains both the author’s name as text content and child elements for contact information.</p>
+</section>
+</section>
+<section id="xml-data-modeling-examples" class="level2" data-number="41.5">
+<h2 data-number="41.5" class="anchored" data-anchor-id="xml-data-modeling-examples"><span class="header-section-number">41.5</span> XML Data Modeling Examples</h2>
+<p>Let’s explore some specific modeling examples from our publishing database:</p>
+<section id="example-1-book-information" class="level3" data-number="41.5.1">
+<h3 data-number="41.5.1" class="anchored" data-anchor-id="example-1-book-information"><span class="header-section-number">41.5.1</span> Example 1: Book Information</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">book</span><span class="ot"> id=</span><span class="st">"B001"</span><span class="ot"> title=</span><span class="st">"1977!"</span><span class="ot"> type=</span><span class="st">"history"</span><span class="ot"> pages=</span><span class="st">"107"</span><span class="ot"> price=</span><span class="st">"21.99"</span><span class="ot"> sales=</span><span class="st">"566"</span><span class="ot"> pubdate=</span><span class="st">"2000-08-01"</span>&gt;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- Book contents --&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">book</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This example shows how basic book metadata is represented as attributes of the <code>book</code> element.</p>
+</section>
+<section id="example-2-publisher-information" class="level3" data-number="41.5.2">
+<h3 data-number="41.5.2" class="anchored" data-anchor-id="example-2-publisher-information"><span class="header-section-number">41.5.2</span> Example 2: Publisher Information</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">publisher</span><span class="ot"> city=</span><span class="st">"New York"</span><span class="ot"> state=</span><span class="st">"NY"</span><span class="ot"> country=</span><span class="st">"USA"</span>&gt;Abatis Publishers&lt;/<span class="kw">publisher</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This example demonstrates a mixed approach: - Publisher location details as attributes - Publisher name as text content</p>
+</section>
+<section id="example-3-author-information" class="level3" data-number="41.5.3">
+<h3 data-number="41.5.3" class="anchored" data-anchor-id="example-3-author-information"><span class="header-section-number">41.5.3</span> Example 3: Author Information</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">author</span><span class="ot"> order=</span><span class="st">"1"</span><span class="ot"> royalty_shares=</span><span class="st">"1"</span><span class="ot"> primary=</span><span class="st">"true"</span>&gt;Sarah Buchman</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">phone</span>&gt;718-496-7223&lt;/<span class="kw">phone</span>&gt;</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">address</span>&gt;</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">street</span>&gt;75 West 205 St&lt;/<span class="kw">street</span>&gt;</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">city</span>&gt;Bronx&lt;/<span class="kw">city</span>&gt;</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">state</span>&gt;NY&lt;/<span class="kw">state</span>&gt;</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">zip</span>&gt;10468&lt;/<span class="kw">zip</span>&gt;</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">address</span>&gt;</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">author</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This example shows a more complex structure: - Author-book relationship details as attributes - Author name as text content - Contact information as nested elements</p>
+</section>
+<section id="example-4-format-information" class="level3" data-number="41.5.4">
+<h3 data-number="41.5.4" class="anchored" data-anchor-id="example-4-format-information"><span class="header-section-number">41.5.4</span> Example 4: Format Information</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">formats</span>&gt;</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">format</span><span class="ot"> type=</span><span class="st">"hardcover"</span><span class="ot"> available=</span><span class="st">"true"</span><span class="ot"> price=</span><span class="st">"29.99"</span> /&gt;</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">format</span><span class="ot"> type=</span><span class="st">"paperback"</span><span class="ot"> available=</span><span class="st">"true"</span><span class="ot"> price=</span><span class="st">"7.99"</span> /&gt;</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">format</span><span class="ot"> type=</span><span class="st">"ebook"</span><span class="ot"> available=</span><span class="st">"true"</span><span class="ot"> price=</span><span class="st">"4.99"</span> /&gt;</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">format</span><span class="ot"> type=</span><span class="st">"audiobook"</span><span class="ot"> available=</span><span class="st">"false"</span> /&gt;</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">formats</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This example shows a collection of empty elements with attributes, representing the available formats for a book.</p>
+</section>
+</section>
+<section id="best-practices-for-xml-design" class="level2" data-number="41.6">
+<h2 data-number="41.6" class="anchored" data-anchor-id="best-practices-for-xml-design"><span class="header-section-number">41.6</span> Best Practices for XML Design</h2>
+<p>Based on our examples, here are some best practices for designing XML documents:</p>
+<ol type="1">
+<li><p><strong>Choose appropriate element names</strong>: Use clear, descriptive names that reflect the data’s meaning.</p></li>
+<li><p><strong>Be consistent in your design approach</strong>: If you use attributes for certain types of information, do so consistently.</p></li>
+<li><p><strong>Use attributes for metadata</strong>: Attributes are good for information that describes the element but isn’t part of its primary content.</p></li>
+<li><p><strong>Use elements for structured data</strong>: When data has its own structure or might need to be extended in the future, use elements.</p></li>
+<li><p><strong>Keep it simple</strong>: Only make your XML as complex as it needs to be. Overly complex structures can be difficult to maintain and process.</p></li>
+<li><p><strong>Document your schema</strong>: Whether using DTD, XML Schema, or RelaxNG, documenting your schema helps others understand your data structure.</p></li>
+<li><p><strong>Consider your use case</strong>: The optimal XML design depends on how the data will be used. Consider factors like readability, processing efficiency, and future extensibility.</p></li>
+</ol>
+</section>
+<section id="working-with-xml-in-different-programming-languages" class="level2" data-number="41.7">
+<h2 data-number="41.7" class="anchored" data-anchor-id="working-with-xml-in-different-programming-languages"><span class="header-section-number">41.7</span> Working with XML in Different Programming Languages</h2>
+<p>Here are brief examples of how to work with XML in different programming languages:</p>
+<section id="r" class="level3" data-number="41.7.1">
+<h3 data-number="41.7.1" class="anchored" data-anchor-id="r"><span class="header-section-number">41.7.1</span> R</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read XML file</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xml2)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>books_xml <span class="ot">&lt;-</span> <span class="fu">read_xml</span>(<span class="st">"books.xml"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract book titles</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>book_titles <span class="ot">&lt;-</span> <span class="fu">xml_find_all</span>(books_xml, <span class="st">"//book"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xml_attr</span>(<span class="st">"title"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the titles</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(book_titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="python" class="level3" data-number="41.7.2">
+<h3 data-number="41.7.2" class="anchored" data-anchor-id="python"><span class="header-section-number">41.7.2</span> Python</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xml.etree.ElementTree <span class="im">as</span> ET</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse XML file</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>tree <span class="op">=</span> ET.parse(<span class="st">'books.xml'</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> tree.getroot()</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print all book titles</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> book <span class="kw">in</span> root.findall(<span class="st">'./book'</span>):</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(book.get(<span class="st">'title'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="javascript" class="level3" data-number="41.7.3">
+<h3 data-number="41.7.3" class="anchored" data-anchor-id="javascript"><span class="header-section-number">41.7.3</span> JavaScript</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Using browser's DOMParser</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> parser <span class="op">=</span> <span class="kw">new</span> <span class="fu">DOMParser</span>()<span class="op">;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> xmlDoc <span class="op">=</span> parser<span class="op">.</span><span class="fu">parseFromString</span>(xmlString<span class="op">,</span> <span class="st">"text/xml"</span>)<span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Get all book titles</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> books <span class="op">=</span> xmlDoc<span class="op">.</span><span class="fu">getElementsByTagName</span>(<span class="st">"book"</span>)<span class="op">;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> books<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(books[i]<span class="op">.</span><span class="fu">getAttribute</span>(<span class="st">"title"</span>))<span class="op">;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="conclusion" class="level2" data-number="41.8">
+<h2 data-number="41.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">41.8</span> Conclusion</h2>
+<p>XML is a powerful and flexible way to structure data. By understanding the basic elements, attributes, and design patterns, you can create XML documents that effectively represent complex data hierarchies.</p>
+<p>Our publishing database example demonstrates various XML features and design approaches, from attribute-heavy elements to deeply nested structures. The best approach for your XML depends on your specific use case, considering factors like readability, processing efficiency, and future extensibility.</p>
+<p>As you continue working with XML, remember that good design balances technical correctness with practical usability, creating documents that are both machine-processable and human-understandable.</p>
+</section>
+<section id="resources-for-further-learning" class="level2" data-number="41.9">
+<h2 data-number="41.9" class="anchored" data-anchor-id="resources-for-further-learning"><span class="header-section-number">41.9</span> Resources for Further Learning</h2>
+<ul>
+<li><a href="https://www.w3.org/TR/xml/">W3C XML Specification</a></li>
+<li><a href="https://www.w3schools.com/xml/">W3Schools XML Tutorial</a></li>
+<li><a href="https://www.xml.com/">XML.com</a></li>
 </ul>
 
 
@@ -1312,13 +1385,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./github-000700-markdownGithubVsQuarto.html" class="pagination-link" aria-label="<yrChapterNumber>46. </yrChapterNumber> GitHub Markdown vs. Quarto (.qmd) Comparison">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>46. </yrchapternumber> GitHub Markdown vs.&nbsp;Quarto (.qmd) Comparison</span></span>
+      <a href="./sql3000-sqlQuestions-v001.html" class="pagination-link" aria-label="<yrChapterNumber></yrChapterNumber> Database Questions (and Answers)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber></yrchapternumber> Database Questions (and Answers)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0000100-topics-v001.html" class="pagination-link" aria-label="<yrChapterNumber>48. </yrChapterNumber> Topics">
-        <span class="nav-page-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><yrchapternumber>48. </yrchapternumber> Topics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./web-000220-parsingXmUsingR-v001.html" class="pagination-link" aria-label="<yrChapterNumber>41. </yrChapterNumber> Parsing XML using R">
+        <span class="nav-page-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Parsing XML using R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
