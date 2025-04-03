@@ -1170,23 +1170,20 @@ TOPIC: Normalization Examples for Database Course
 <caption>classes</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">crn</th>
-<th style="text-align: left;">className</th>
 <th style="text-align: left;">classNum</th>
+<th style="text-align: left;">className</th>
 <th style="text-align: right;">credits</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">12100</td>
-<td style="text-align: left;">Intro to IDS</td>
 <td style="text-align: left;">IDS1020</td>
+<td style="text-align: left;">Intro to IDS</td>
 <td style="text-align: right;">3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">14301</td>
-<td style="text-align: left;">Database Design</td>
 <td style="text-align: left;">IDS2040</td>
+<td style="text-align: left;">Database Design</td>
 <td style="text-align: right;">4</td>
 </tr>
 </tbody>
@@ -1198,6 +1195,7 @@ TOPIC: Normalization Examples for Database Course
 <thead>
 <tr class="header">
 <th style="text-align: left;">crn</th>
+<th style="text-align: left;">classNum</th>
 <th style="text-align: right;">section</th>
 <th style="text-align: left;">room</th>
 <th style="text-align: left;">prof_id</th>
@@ -1206,30 +1204,35 @@ TOPIC: Normalization Examples for Database Course
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">12100</td>
+<td style="text-align: left;">IDS1020</td>
 <td style="text-align: right;">231</td>
 <td style="text-align: left;">F201</td>
 <td style="text-align: left;">P100</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">12100</td>
+<td style="text-align: left;">IDS1020</td>
 <td style="text-align: right;">241</td>
 <td style="text-align: left;">F201</td>
 <td style="text-align: left;">P100</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">12100</td>
+<td style="text-align: left;">IDS1020</td>
 <td style="text-align: right;">331</td>
 <td style="text-align: left;">F310</td>
 <td style="text-align: left;">P200</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">12100</td>
+<td style="text-align: left;">IDS1020</td>
 <td style="text-align: right;">341</td>
 <td style="text-align: left;">F310</td>
 <td style="text-align: left;">P200</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">14301</td>
+<td style="text-align: left;">IDS2040</td>
 <td style="text-align: right;">133</td>
 <td style="text-align: left;">F250</td>
 <td style="text-align: left;">P100</td>
@@ -1277,14 +1280,14 @@ TOPIC: Normalization Examples for Database Course
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>queryResults <span class="ot">=</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">    select className, classNum, credits, section, room, </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">    select className, classes.classNum, credits, section, room, </span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">           first || ' ' || last as professor, office, email, tel</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">    from classes join offerings on classes.crn = offerings.crn </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">    from classes join offerings on classes.classNum = offerings.classNum </span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">                 join professors on offerings.prof_id = professors.prof_id</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    order by classNum, section</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    order by classes.classNum, section</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>)</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(queryResults, <span class="at">caption =</span> <span class="st">"queryResults"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(queryResults, <span class="at">caption =</span> <span class="st">"queryResults"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>queryResults</caption>
@@ -1667,7 +1670,7 @@ TOPIC: Normalization Examples for Database Course
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the 2NF tables</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_2nf, <span class="at">caption =</span> <span class="st">"student table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_2nf, <span class="at">caption =</span> <span class="st">"student table"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>student table</caption>
@@ -1697,7 +1700,7 @@ TOPIC: Normalization Examples for Database Course
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_course_2nf, <span class="at">caption =</span> <span class="st">"registration table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_course_2nf, <span class="at">caption =</span> <span class="st">"registration table"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>registration table</caption>
@@ -1737,7 +1740,7 @@ TOPIC: Normalization Examples for Database Course
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(course_2nf, <span class="at">caption =</span> <span class="st">"course table (2NF but not yet in 3NF)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(course_2nf, <span class="at">caption =</span> <span class="st">"course table (2NF but not yet in 3NF)"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>course table (2NF but not yet in 3NF)</caption>
@@ -1872,7 +1875,7 @@ i.e.&nbsp;CourseID determines DepartmentID</li>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the 3NF tables</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(course_3nf, <span class="at">caption =</span> <span class="st">"Course Table (3NF)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(course_3nf, <span class="at">caption =</span> <span class="st">"Course Table (3NF)"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Course Table (3NF)</caption>
@@ -1906,7 +1909,7 @@ i.e.&nbsp;CourseID determines DepartmentID</li>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(department_3nf, <span class="at">caption =</span> <span class="st">"Department Table (3NF)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(department_3nf, <span class="at">caption =</span> <span class="st">"Department Table (3NF)"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Department Table (3NF)</caption>
@@ -1952,7 +1955,7 @@ i.e.&nbsp;CourseID determines DepartmentID</li>
 <p>The final 3NF versions of the tables are shown below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the 3NF tables</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_2nf, <span class="at">caption =</span> <span class="st">"student table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_2nf, <span class="at">caption =</span> <span class="st">"student table"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>student table</caption>
@@ -1982,7 +1985,7 @@ i.e.&nbsp;CourseID determines DepartmentID</li>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_course_2nf, <span class="at">caption =</span> <span class="st">"student_course table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(student_course_2nf, <span class="at">caption =</span> <span class="st">"student_course table"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>student_course table</caption>
@@ -2022,7 +2025,7 @@ i.e.&nbsp;CourseID determines DepartmentID</li>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(course_3nf, <span class="at">caption =</span> <span class="st">"course table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(course_3nf, <span class="at">caption =</span> <span class="st">"course table"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>course table</caption>
@@ -2056,7 +2059,7 @@ i.e.&nbsp;CourseID determines DepartmentID</li>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(department_3nf, <span class="at">caption =</span> <span class="st">"department table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(department_3nf, <span class="at">caption =</span> <span class="st">"department table"</span>, <span class="at">booktabs=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>department table</caption>
@@ -2112,6 +2115,8 @@ i.e.&nbsp;CourseID determines DepartmentID</li>
 ### Summary of Our Normalization Process
 
 Let's visualize the relationships between our normalized tables:
+
+
 
 
 
@@ -2269,8 +2274,12 @@ kable(department_3nf)
 
 
 
+
+
 -->
 <!--
+
+
 
 
 
@@ -2307,6 +2316,8 @@ Table: Reconstructed Data from Normalized Tables
 
 :::
 :::
+
+
 
 
 
@@ -2531,6 +2542,8 @@ A table is in Third Normal Form if:
 
 
 
+
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -2575,9 +2588,13 @@ Table: Unnormalized Books Table
 
 
 
+
+
 #### Example 1 -  1NF
 
 In this case, the data is already in 1NF as it has a primary key (BookID) and all values are atomic.
+
+
 
 
 
@@ -2612,9 +2629,13 @@ Table: Books Table in 1NF
 
 
 
+
+
 #### Example 1 - 2NF
 
 To move to 2NF, we need to separate the data into multiple tables to eliminate partial dependencies.
+
+
 
 
 
@@ -2737,9 +2758,13 @@ Table: Categories Table in 2NF
 
 
 
+
+
 #### Example 1 - 3NF
 
 For this example, the 2NF design is already in 3NF because there are no transitive dependencies.
+
+
 
 
 
@@ -2867,6 +2892,8 @@ dbDisconnect(db)
 
 
 
+
+
 ### Example 2: University Enrollment
 
 #### Example 2 - Functional Dependencies
@@ -2878,6 +2905,8 @@ Let's identify the functional dependencies (FDs) in our data:
 - StudentID, CourseID → Grade
 
 **Unnormalized Data**
+
+
 
 
 
@@ -2931,6 +2960,8 @@ Table: Unnormalized Enrollments Table
 
 
 
+
+
 #### Example 2 - 1NF
 
 The data is already in 1NF as all values are atomic and there are no repeating groups.
@@ -2946,6 +2977,8 @@ In our unnormalized table, the primary key is the composite key (StudentID, Cour
 3. InstructorName, InstructorDept, and DeptChairContactInfo depend only on InstructorID, which itself depends on CourseID
 
 These are all partial dependencies because they depend on only part of the primary key (either StudentID or CourseID alone), not the entire key (StudentID, CourseID). To achieve 2NF, we need to eliminate these partial dependencies by creating separate tables.
+
+
 
 
 
@@ -3073,6 +3106,8 @@ Table: Enrollment Table in 2NF
 
 
 
+
+
 Now each table has a simple primary key (not composite), and all attributes in each table are fully dependent on the primary key of that table. We've resolved the partial dependencies:
 - Students table: StudentName fully depends on StudentID
 - Courses table: CourseName, Credits, Room, and InstructorID fully depend on CourseID
@@ -3094,6 +3129,8 @@ Let's look at the data more closely:
 - All instructors in the Mathematics department have the same chair contact (math-chair@university.edu)
 
 This indicates that DeptChairContactInfo is really a property of the department, not of the individual instructor. To eliminate this transitive dependency, we need to create a separate Departments table.
+
+
 
 
 
@@ -3310,6 +3347,8 @@ dbDisconnect(db)
 
 
 
+
+
 With these changes, all tables are now in 3NF because:
 
 1. They are in 2NF (all non-key attributes are fully functionally dependent on the primary key)
@@ -3332,6 +3371,8 @@ Note that we can still reconstruct the original data by joining these normalized
 ### Example 2: University Enrollment
 
 **Unnormalized Data**
+
+
 
 
 
@@ -3384,6 +3425,8 @@ Table: Unnormalized Enrollments Table
 
 
 
+
+
 #### Example 2 - Functional Dependencies
 
 Let's identify the functional dependencies (FDs) in our data:
@@ -3418,6 +3461,8 @@ In our unnormalized table, the primary key is the composite key (StudentID, Cour
   InstructorName and InstructorDept depend only on InstructorID, which itself depends on CourseID
 
 These are all partial dependencies because they depend on only part of the primary key (either StudentID or CourseID alone), not the entire key (StudentID, CourseID). To achieve 2NF, we need to eliminate these partial dependencies by creating separate tables.
+
+
 
 
 
@@ -3544,6 +3589,8 @@ Table: Enrollment Table in 2NF
 
 
 
+
+
 Now each table has a simple primary key (not composite), and all attributes in each table are fully dependent on the primary key of that table. We've resolved the partial dependencies:
 
 - Students table: StudentName fully depends on StudentID
@@ -3564,6 +3611,8 @@ But we can further normalize by recognizing that departments can exist independe
 InstructorID → DeptID → DeptName
 
 To eliminate this transitive dependency, we need to create a separate Departments table and modify the Instructors table to reference DeptID instead of storing DeptName directly.
+
+
 
 
 
@@ -3779,6 +3828,8 @@ dbDisconnect(db)
 
 
 
+
+
 With these changes, all tables are now in 3NF because:
 1. They are in 2NF (all non-key attributes are fully functionally dependent on the primary key)
 2. There are no transitive dependencies (no non-key attribute depends on another non-key attribute)
@@ -3804,6 +3855,8 @@ Note that we can still reconstruct the original data by joining these normalized
 - StudentID, CourseID → Grade
 
 **Unnormalized Data**
+
+
 
 
 
@@ -3856,6 +3909,8 @@ Table: Unnormalized Enrollments Table
 
 
 
+
+
 #### Example 2 - 1NF
 
 The data is already in 1NF as all values are atomic
@@ -3864,6 +3919,8 @@ and there are no repeating groups.
 #### Example 2 - 2NF
 
 To move to 2NF, we need to separate the data to eliminate partial dependencies.
+
+
 
 
 
@@ -3990,9 +4047,13 @@ Table: Enrollment Table in 2NF
 
 
 
+
+
 #### Example 2 - 3NF
 
 To move to 3NF, we need to eliminate transitive dependencies.
+
+
 
 
 
@@ -4208,6 +4269,8 @@ dbDisconnect(db)
 
 
 
+
+
 ### Example 3: Retail Store Inventory
 
 #### Example 3 - Functional Dependencies
@@ -4219,6 +4282,8 @@ dbDisconnect(db)
 - ProductID, WarehouseID → Quantity
 
 **Unnormalized Data**
+
+
 
 
 
@@ -4272,9 +4337,13 @@ Table: Unnormalized Inventory Table
 
 
 
+
+
 #### Example 3 - 1NF
 
 The data is already in 1NF as it has a primary key and all values are atomic.
+
+
 
 
 
@@ -4310,9 +4379,13 @@ Table: Inventory Table in 1NF
 
 
 
+
+
 #### Example 3 - 2NF
 
 To move to 2NF, we need to separate the data to eliminate partial dependencies.
+
+
 
 
 
@@ -4464,9 +4537,13 @@ Table: Inventory Items Table in 2NF
 
 
 
+
+
 #### Example 3 - 3NF
 
 For this example, the 2NF design is already in 3NF because there are no transitive dependencies.
+
+
 
 
 
@@ -4620,6 +4697,8 @@ dbDisconnect(db)
 
 
 
+
+
 ### Example 4: Medical Clinic
 
 #### Example 4 - Functional Dependencies
@@ -4630,6 +4709,8 @@ dbDisconnect(db)
 - DeptID → DeptName, DeptLocation
 
 **Unnormalized Data**
+
+
 
 
 
@@ -4684,9 +4765,13 @@ Table: Unnormalized Appointments Table
 
 
 
+
+
 #### Example 4 - 1NF
 
 The data is already in 1NF as it has a primary key and all values are atomic.
+
+
 
 
 
@@ -4722,9 +4807,13 @@ Table: Appointments Table in 1NF
 
 
 
+
+
 #### Example 4 - 2NF
 
 To move to 2NF, we need to separate the data to eliminate partial dependencies.
+
+
 
 
 
@@ -4853,9 +4942,13 @@ Table: Departments Table in 2NF
 
 
 
+
+
 #### Example 4 - 3NF
 
 For this example, the tables are already in 3NF because there are no transitive dependencies.
+
+
 
 
 
@@ -4992,6 +5085,8 @@ dbDisconnect(db)
 
 
 
+
+
 ### Example 5: Hotel Reservations
 
 #### Example 5 - Functional Dependencies
@@ -5002,6 +5097,8 @@ dbDisconnect(db)
 - PaymentID → PaymentType, PaymentAmount
 
 #### Example 5 - Unnormalized Data
+
+
 
 
 
@@ -5057,9 +5154,13 @@ Table: Unnormalized Reservations Table
 
 
 
+
+
 #### Example 5 - 1NF
 
 The data is already in 1NF as it has a primary key and all values are atomic.
+
+
 
 
 
@@ -5095,9 +5196,13 @@ Table: Reservations Table in 1NF
 
 
 
+
+
 #### Example 5 - 2NF
 
 To move to 2NF, we need to separate the data to eliminate partial dependencies.
+
+
 
 
 
@@ -5229,9 +5334,13 @@ Table: Payments Table in 2NF
 
 
 
+
+
 #### Example 5 - 3NF
 
 For this example, the 2NF design is already in 3NF because there are no transitive dependencies.
+
+
 
 
 
@@ -5363,6 +5472,8 @@ Table: Joined Data from 3NF Tables
 dbDisconnect(db)
 ```
 :::
+
+
 
 
 
