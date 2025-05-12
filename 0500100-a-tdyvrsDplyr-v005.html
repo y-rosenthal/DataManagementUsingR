@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta http-equiv="Pragma" content="no-cache">
 
 <meta http-equiv="Expires" content="0">
-<script src="yrstuff.js"></script>
+<script src="yrstuff-v001.js"></script>
 
 
 <link rel="stylesheet" href="yrStyles-main-v001.css">
@@ -503,13 +503,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0935-dbNormalization-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Database Normalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Database Normalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Database Questions (and Answers)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Database Questions (and Answers)</span></span></a>
   </div>
 </li>
       </ul>
@@ -526,25 +526,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000205-introToXml-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Intro to XML</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Intro to XML</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000220-parsingXmUsingR-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Parsing XML using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Parsing XML using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> How a webpage gets to your browser</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000325-introToHtmlAndCss-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">HTML and CSS Features Tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Introduction to HTML and CSS</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1111,20 +1111,20 @@ I'm not sure how to do this.
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">3</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 7
-  first last      title region baseInThousands salesInThousands yearsWithCompany
-  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Barb  Brown     Sr. … asia                35               79                4
-2 Sam   Lincoln   Mana… europe              30              500                2
-3 Joe   Washingt… Sr. … europe              33              370                2</code></pre>
+  first  last     title region baseInThousands salesInThousands yearsWithCompany
+  &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 Sue    Salling… Sale… asia                30              150               10
+2 Emy    Zeitchik Mana… asia                34              166                4
+3 Monica Zeitchik Sale… asia                23              184                1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># randomly chose 10% of the rows to view</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">prop=</span><span class="fl">0.10</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 7
-  first  last     title region baseInThousands salesInThousands yearsWithCompany
-  &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-1 Monica Oja      Sale… africa              35               98               10
-2 Emy    Zeitchik Mana… asia                34              166                4</code></pre>
+  first last      title region baseInThousands salesInThousands yearsWithCompany
+  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+1 Sue   Sallinger Sale… asia                30              150               10
+2 Jim   Kuruzovi… Sr. … usa                 35              140                3</code></pre>
 </div>
 </div>
 </section>

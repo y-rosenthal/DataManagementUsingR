@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta http-equiv="Pragma" content="no-cache">
 
 <meta http-equiv="Expires" content="0">
-<script src="yrstuff.js"></script>
+<script src="yrstuff-v001.js"></script>
 
 
 <link rel="stylesheet" href="yrStyles-main-v001.css">
@@ -503,13 +503,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql0935-dbNormalization-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Database Normalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Database Normalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Database Questions (and Answers)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Database Questions (and Answers)</span></span></a>
   </div>
 </li>
       </ul>
@@ -526,25 +526,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000205-introToXml-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Intro to XML</span></span></a>
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Intro to XML</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000220-parsingXmUsingR-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Parsing XML using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Parsing XML using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> How a webpage gets to your browser</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000325-introToHtmlAndCss-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">HTML and CSS Features Tutorial</span></span></a>
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Introduction to HTML and CSS</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -718,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>dbExecute()</li>
 <li>many other other functions</li>
 </ul>
-<p>These “generic functions” provide some basic functionality that for databases. However, the specifics of each RDBMS system are not coded here. Rather each RDBMS (e.g.&nbsp;MySql, Postgres, SQLite, etc) would have a different package written just for that RDBMS that understands the specifics of how that particular package works.</p></li>
+<p>These “generic functions” provide some basic functionality for databases. However, the specifics of each RDBMS system are not coded here. Rather each RDBMS (e.g.&nbsp;MySql, Postgres, SQLite, etc) would have a different package written just for that RDBMS that understands the specifics of how that particular package works.</p></li>
 <li><p>RSQLite - this package provides functionality that is needed to work with the SQLite product. It provides functions that understand the specifics for how to work with SQLite databases (as opposed to MySql, Postgres or other competing offerings). You must use this in conjunction with the DBI package. In general, you call the functions from the DBI package which in turn call the functions in the RSQLite package.</p></li>
 <li><p>sqldf - this is the same package we’ve used before for accessing R dataframes with SELECT statements. We will use the sqldf function now to work with data that is contained inside an actual SQLite database.</p></li>
 </ul>
@@ -742,9 +742,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In order to access the data in a SQLite database (or any other RDBMS database) you must create a “connection” object. You do that by calling dbConnect()</p>
 <section id="rsqlitesqlite-creates-a-driver-for-sqlite-dbconnect-creates-a-connection" class="level3" data-number="37.3.1">
 <h3 data-number="37.3.1" class="anchored" data-anchor-id="rsqlitesqlite-creates-a-driver-for-sqlite-dbconnect-creates-a-connection"><span class="header-section-number">37.3.1</span> RSQLite::SQLite() creates a “driver” for sqlite, dbConnect() creates a connection</h3>
-<p>Remember that the DBI package understands the generic concept of databases but the RSQLite package knows about the specifics related to SQLite. Therefore we call the RSQLite::SQLite() function to create a “driver” for the SQLite() database.</p>
-<p>A “driver” is a piece of software that knows the specifics of how to use a specific pieced of software or hardware. For example when you buy a printer you may need to install “driver” software for your printer in order for your computer to know how to use your specific printer’s features. Very often these driver software products are already installed for major printer manufacturers on your computer. However, you many need to install an updated driver to get your computer to know how to use the new features on your brand new printer.</p>
-<p>We pass the “driver” to the dbConnect function. dbConnect() then returns a connection object, that will need to be passed to any other function that we use to interface with out database.</p>
+<p>Remember that the DBI package understands the generic concept of databases but the RSQLite package knows about the specifics related to SQLite. Therefore we call the RSQLite::SQLite() function to create a <strong><em>“driver”</em></strong> for the SQLite() database.</p>
+<p>A <strong><em>“driver”</em></strong> is software that knows the specifics of how to use a specific software or hardware product. For example when you buy a printer you may need to install “driver” software for your printer in order for your computer to know how to use your specific printer’s features. Very often these driver software products are already installed for major printer manufacturers on your computer. However, you many need to install an updated driver to get your computer to know how to use the new features on your brand new printer.</p>
+<p>The RSQLite() function in the RSQLite package returns a “driver object” that contains information about how SQLite software works. We then pass that “driver” to the dbConnect function. dbConnect() then returns a connection object, that will need to be passed to any other function that we use to interface with our database.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a connection to the database.</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># If the database doesn't exist then this will also create the database.</span></span>
@@ -753,17 +753,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="call-dbdisconnectcon-when-you-are-done." class="level3" data-number="37.3.2">
 <h3 data-number="37.3.2" class="anchored" data-anchor-id="call-dbdisconnectcon-when-you-are-done."><span class="header-section-number">37.3.2</span> Call dbDisconnect(con) when you are done.</h3>
-<p>When you are finished using the database you should make sure to call dbDisconnect(con), otherwise the mydb.sqlite file will be considered to be “busy” and you will not be able to remove it or do other similar things with it.</p>
+<p>When you are finished using the database you should make sure to call dbDisconnect(con), otherwise the sqlite file will be considered to be “busy” and you will not be able to remove it or do other similar things with it.</p>
 </section>
 </section>
 <section id="running-sql-commands-in-the-database-with-dbexecute-and-sqldf" class="level2" data-number="37.4">
 <h2 data-number="37.4" class="anchored" data-anchor-id="running-sql-commands-in-the-database-with-dbexecute-and-sqldf"><span class="header-section-number">37.4</span> Running SQL commands in the database with dbExecute and sqldf</h2>
-<p>We will use the dbExecute to run any type of SQL command (other than SELECT) in the database.</p>
-<p>We will continue to use the sqldf function specifically for running SELECT statements in the database.</p>
+<p>We will continue to use the <code>sqldf</code> function for running <code>SELECT</code> statements. However, we’ll use the <code>dbExecute</code> function for all other types of SQL commands For example, we will use the dbExecute function for the following types of commands</p>
+<ul>
+<li><code>CREATE TABLE</code> statements to create a new tables</li>
+<li><code>INSERT</code> statements to insert new rows</li>
+<li><code>UPDATE</code> statements to modify existing data</li>
+<li><code>DELETE</code> statements to delete rows from a table</li>
+<li>etc…</li>
+</ul>
 <section id="dbexecute" class="level3" data-number="37.4.1">
 <h3 data-number="37.4.1" class="anchored" data-anchor-id="dbexecute"><span class="header-section-number">37.4.1</span> dbExecute</h3>
-<p>The dbExecute command will take a SQL command and execute it in the database. (NOTE that for SELECT commands we will continue to use sqldf instead of dbExecute).</p>
-<p>The dbExecute function takes the connection object as its first argument and the actual SQL command as its 2nd argument.</p>
+<p>The dbExecute command taked a SQL command and executed it in the database. (NOTE that for SELECT commands we will continue to use sqldf instead of dbExecute).</p>
+<p>The dbExecute function takes the connection object as its first argument and the actual SQL command as its second argument.</p>
 <p>The return value of dbExecute is the number of rows that were affected by the command. This is mainly an issue for INSERT, UPDATE, DELETE and other commands that modify the contents of a table. In the following example, we are calling dbExecute to create a table. Therefore the function returns 0 since zero rows are affected by the creation of a table.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To run any SQL command other than SELECT you can use</span></span>
@@ -830,12 +836,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="37.5.1" class="anchored" data-anchor-id="inserting-rows-into-a-table"><span class="header-section-number">37.5.1</span> Inserting rows into a table</h3>
 <p>We can use the insert SQL statement to insert a row. Remember that the dbExecute function returns the number of rows affected by the command. Therefore, if everything works correctly, this call to dbExecute should return 1.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"insert into authors values('a100','anne','andrews')"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(<span class="at">conn =</span> con, <span class="st">"insert into authors values('a100','anne','andrews')"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
 </div>
-<p>We now can see that row in the database.</p>
+<p>Now that row appears when we SELECT the contents of the table.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select * from authors"</span>, <span class="at">connection =</span> con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -856,7 +862,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We can use the code below to build up the following SQL insert statement:</span></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    insert into authors values( 'a200' , 'bill' , 'jones' )</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#    insert into authors values( 'a200' , 'bill' , 'bell' )</span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>insertStatement <span class="ot">=</span> <span class="fu">paste0</span>(</span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"insert into authors "</span>,</span>
@@ -898,17 +904,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># In the following example, we insert a new author row using this technique.</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's pretend that these variables came from an API or any other source of info</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># (e.g. a file or user input).</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>authorId <span class="ot">=</span> <span class="st">'a300'</span></span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>authorFname <span class="ot">=</span> <span class="st">'carie'</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>authorLname <span class="ot">=</span> <span class="st">'cox'</span></span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the ? marks and the params argument that contains the actual</span></span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co"># values to replace the ? marks.</span></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"insert into authors values (?,?,?)"</span>,</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">params =</span> <span class="fu">list</span>( authorId, authorFname, authorLname ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># The example below is just to demonstrate to use the params argument. </span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># To keep the example simple, the values (e.g. 'a300', 'carie', etc) are typed</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># explicitly into the code. However, in reality, these values, would come</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># from an API, or a file, interactive user input via readline() as shown</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co"># below in the #comments</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>authorId <span class="ot">=</span> <span class="st">'a300'</span>       <span class="co"># authorId = readline("Enter author ID: ")</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>authorFname <span class="ot">=</span> <span class="st">'carie'</span>   <span class="co"># authorFname = readline("Enter the author's first name: ")</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>authorLname <span class="ot">=</span> <span class="st">'cox'</span>     <span class="co"># authorLname = readline("Enter the author's last name: ")</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the ? marks and the params argument that contains the actual</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="co"># values to replace the ? marks.</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(<span class="at">conn =</span> con, <span class="st">"insert into authors values (?,?,?)"</span>,</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>          <span class="at">params =</span> <span class="fu">list</span>( authorId, authorFname, authorLname ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
@@ -962,7 +971,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Notice the ? marks and the params argument that contains the actual</span></span>
 <span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># values to replace the ? marks.</span></span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbExecute</span>(con, <span class="st">"insert into authors values (?,?,?)"</span>,</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dbExecute</span>(<span class="at">conn =</span> con, <span class="st">"insert into authors values (?,?,?)"</span>,</span>
 <span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">params =</span> <span class="fu">list</span>( newId, authorFirstName , authorLastName ))</span>
 <span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>}</span>
