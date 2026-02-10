@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> Intro to Command Line Interfaces (CLIs)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> Command Line Interfaces (CLI)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -669,7 +669,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#relative-paths-vs-full-paths" id="toc-relative-paths-vs-full-paths" class="nav-link" data-scroll-target="#relative-paths-vs-full-paths"><span class="header-section-number">16.5</span> “relative paths” vs “full paths”</a>
   <ul class="collapse">
   <li><a href="#mac-and-linux-style-paths-vs-windows-style-paths" id="toc-mac-and-linux-style-paths-vs-windows-style-paths" class="nav-link" data-scroll-target="#mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">16.5.1</span> Mac and Linux style paths VS Windows style paths</a></li>
-  <li><a href="#windows-drive-letters" id="toc-windows-drive-letters" class="nav-link" data-scroll-target="#windows-drive-letters"><span class="header-section-number">16.5.2</span> Windows drive letters</a></li>
+  <li><a href="#homejoe-maclinux-vs-usersjoe-win" id="toc-homejoe-maclinux-vs-usersjoe-win" class="nav-link" data-scroll-target="#homejoe-maclinux-vs-usersjoe-win"><span class="header-section-number">16.5.2</span> /home/joe (Mac,Linux) vs /Users/joe (Win)</a></li>
+  <li><a href="#windows-drive-letters" id="toc-windows-drive-letters" class="nav-link" data-scroll-target="#windows-drive-letters"><span class="header-section-number">16.5.3</span> Windows drive letters</a></li>
   </ul></li>
   <li><a href="#dir-some_folder-same-as-list.files-some_folder" id="toc-dir-some_folder-same-as-list.files-some_folder" class="nav-link" data-scroll-target="#dir-some_folder-same-as-list.files-some_folder"><span class="header-section-number">16.6</span> dir( SOME_FOLDER ) # same as list.files( SOME_FOLDER )</a></li>
   <li><a href="#the-working-directory-getwd-setwd-dir" id="toc-the-working-directory-getwd-setwd-dir" class="nav-link" data-scroll-target="#the-working-directory-getwd-setwd-dir"><span class="header-section-number">16.7</span> The “working directory”, getwd(), setwd(), dir()</a>
@@ -758,7 +759,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Example:</p>
 <p>For example,</p>
 <ul>
-<li><p>The “full path” <code>/Users/yrosenth/myFiles/personal/work/endOfMonthReport.txt</code> identifies the following file</p>
+<li><p>The “full path” <code>/home/yitz/myFiles/personal/work/endOfMonthReport.txt</code> identifies the following file</p>
 <ul>
 <li><p>the file is named “endOfMonthReport.txt” (the last part of the path)</p></li>
 <li><p>the file is in a folder named “work” (the 2nd to last part of the path).</p></li>
@@ -767,9 +768,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>the work folder is a folder named “personal”</p></li>
 <li><p>which is in a folder named “myFiles”</p></li>
-<li><p>which is in a folder named “yrosenth”</p></li>
-<li><p>which is in a folder named “Users”.</p></li>
-<li><p>The folder “Users” is in the “root” folder (i.e.&nbsp;the “highest” level folder - see above) on the computer.</p></li>
+<li><p>which is in a folder named “yitz”</p></li>
+<li><p>which is in a folder named “home”.</p></li>
+<li><p>The folder “home” is in the “root” folder (i.e.&nbsp;the “highest” level folder - see above) on the computer.</p></li>
+<li><p>The “root” folder is a folder simply named “/”</p></li>
 </ul></li>
 </ul>
 </section>
@@ -778,21 +780,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Just like two people named Sarah Johnson can live at different addresses (one in Chicago, one in New York), you can have two files with the same name in different directories (i.e.&nbsp;folders).</p>
 <p>For example, the following are the “full paths” for two different files with the same name, “budget.xlsx”. The full path helps you tell the two files apart by showing exactly where each file is located.</p>
 <ul>
-<li><p>Full path 1: /Users/Joe/work/budget.xlsx</p>
+<li><p>Full path 1: /home/Joe/work/budget.xlsx</p>
 <ul>
 <li>This file is named “budget.xlsx”.</li>
 <li>It is in the “work” folder,</li>
 <li>which is in the folder named “Joe”<br>
 </li>
-<li>which is in the folder name “Users”</li>
+<li>which is in the folder name “home”</li>
 <li>which is in the “root” (i.e.&nbsp;/) folder (<a href="#yr-full-path">see above</a>)</li>
 </ul></li>
-<li><p>Full path 2: /Users/Sue/personal/budget.xlsx</p>
+<li><p>Full path 2: /home/Sue/personal/budget.xlsx</p>
 <ul>
 <li>This file is also named “budget.xlsx”.</li>
 <li>It is in the “personal” folder</li>
 <li>which is in the folder named “Sue”</li>
-<li>which is in the “Users” folder</li>
+<li>which is in the “home” folder</li>
 <li>which is in the “root” (i.e.&nbsp;/) folder (<a href="#yr-full-path">see above</a>)</li>
 </ul></li>
 </ul>
@@ -809,13 +811,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="16.5.1" class="anchored" data-anchor-id="mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">16.5.1</span> Mac and Linux style paths VS Windows style paths</h3>
 <p>Mac and Linux systems use forward slashes (/) as path separators - i.e.&nbsp; see the paths above, eg. /home/Joe/work/budget.xlsx</p>
 <p>Windows traditionally uses backslashes (\) as separators, like this:</p>
-<p>\\Users\\Joe\\work\\budget.xlsx</p>
+<p>\\home\\Joe\\work\\budget.xlsx</p>
 <p>Note that R understands the Linux/Mac style paths (with forward slashes) even on Windows. It is recommended therefore to always use Linux/Mac style paths in R code so that the code will work on both Linux/Mac and on Windows.</p>
 <p>However, since backslashes have a special meaning in R if you need to use Windows-style paths in R, you must use double backslashes (\), e.g.</p>
-<pre><code>dir_tree("\\Users\\Joe\\work")</code></pre>
+<pre><code>dir_tree("\\home\\Joe\\work")</code></pre>
 </section>
-<section id="windows-drive-letters" class="level3" data-number="16.5.2">
-<h3 data-number="16.5.2" class="anchored" data-anchor-id="windows-drive-letters"><span class="header-section-number">16.5.2</span> Windows drive letters</h3>
+<section id="homejoe-maclinux-vs-usersjoe-win" class="level3" data-number="16.5.2">
+<h3 data-number="16.5.2" class="anchored" data-anchor-id="homejoe-maclinux-vs-usersjoe-win"><span class="header-section-number">16.5.2</span> /home/joe (Mac,Linux) vs /Users/joe (Win)</h3>
+<p>On Mac, Windows and Linux, a user’s has a special folder known as their “home directory” or “User folder” that contains all of their files and folders.</p>
+<p>On Mac and Linux the “home directory” is usually named <code>/home/USER_NAME</code> (e.g.&nbsp;<code>/home/joe</code>)</p>
+<p>On Windows, the User folder is usually named <code>/Users/USER_NAME</code> (e.g.&nbsp;<code>/Users/joe</code>)</p>
+</section>
+<section id="windows-drive-letters" class="level3" data-number="16.5.3">
+<h3 data-number="16.5.3" class="anchored" data-anchor-id="windows-drive-letters"><span class="header-section-number">16.5.3</span> Windows drive letters</h3>
 <p>Windows systems use letters (like C:, D:) at the start of paths to represent different drives or storage devices. The C: drive is typically your main hard drive where Windows is installed. Other letters might be additional hard drives, USB drives, or network drives.</p>
 <p>For example:</p>
 <pre><code>C:\Users\username\Documents\file.txt (your main hard drive)
@@ -830,20 +838,20 @@ E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
 <p>dir() does exactly the same thing as list.files() - they’re just two names for the same function. Some people prefer dir() because it’s shorter to type. See ?dir</p>
 <p>For example the following shows the contents of a folder located at the specified full path.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/personal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/home/yitz/Downloads/myFiles/personal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code>[1] "school"           "shakepereBio.txt" "work"            </code></pre>
 </div>
 </div>
 <p>The following shows the contents of the <code>school</code> and <code>work</code> folders that are located inside the <code>personal</code> folder shown above.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/personal/school"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/home/yitz/Downloads/myFiles/personal/school"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code>[1] "datamgmt" "english"  "finance" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/personal/work"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/home/yitz/Downloads/myFiles/personal/work"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code>[1] "bigProject"       "endOfMonthReport"</code></pre>
 </div>
 </div>
 </section>
@@ -860,371 +868,34 @@ E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
 <p>The setwd( SOME_PATH ) - allows you to set the “working directory” to a path of your choice.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the working directory</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in setwd("/Users/yrosenth/Downloads/myFiles"): cannot change working directory</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show that it worked</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/home/yitz/Downloads/myFiles"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show that it worked</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/yitz/Dropbox/_yrQuarto-master/DataManagementUsingRSrc"</code></pre>
+<pre><code>[1] "/home/yitz/Downloads/myFiles"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using dir() without a specified directory returns the contents</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the working directory. </span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using dir() without a specified directory returns the contents</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of the working directory. </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] "_book"                                                                
-  [2] "_book-save2"                                                          
-  [3] "_book.save"                                                           
-  [4] "_inProgressWork"                                                      
-  [5] "_quarto-backup.yml"                                                   
-  [6] "_quarto-before-fix.yml"                                               
-  [7] "_quarto-fixed.yml"                                                    
-  [8] "_quarto-save.yml"                                                     
-  [9] "_quarto.yml"                                                          
- [10] "_quarto.yml.bak"                                                      
- [11] "_quarto2.yml"                                                         
- [12] "_quarto3.yml"                                                         
- [13] "_quartoDiff-fixed.yml"                                                
- [14] "_quartoDiff-v002-fixed.yml"                                           
- [15] "_quartoDiff-v002.yml"                                                 
- [16] "_quartoDiff.yml"                                                      
- [17] "_yr"                                                                  
- [18] "00000-InstallingRPackages-v002_files.save"                            
- [19] "00000-tmpMermaid.qmd"                                                 
- [20] "0000006-bash-externalResources-v001.html"                             
- [21] "0000006-bash-externalResources-v001.qmd"                              
- [22] "0000011-WhatIsACli-v010_files-save"                                   
- [23] "0000011-WhatIsACli-v010.html"                                         
- [24] "0000011-WhatIsACli-v010.qmd"                                          
- [25] "0000013-HowToRunTheBashShellCli-v011.html"                            
- [26] "0000013-HowToRunTheBashShellCli-v011.qmd"                             
- [27] "0000013-introToBash-image01.png"                                      
- [28] "0000013-introToBash-image02.png"                                      
- [29] "0000013-introToBash-image03.png"                                      
- [30] "0000013-introToBash-image04.png"                                      
- [31] "0000013-introToBash-image05.png"                                      
- [32] "0000013-IntroToTheBashCLI-v009.qmd"                                   
- [33] "0000017-introToQuarto-v001.html"                                      
- [34] "0000017-introToQuarto-v001.qmd"                                       
- [35] "0000022-InstallingRPackages-v003_files-save"                          
- [36] "0000022-InstallingRPackages-v003.html"                                
- [37] "0000022-InstallingRPackages-v003.qmd"                                 
- [38] "0000025-introToBash-v007_files-save"                                  
- [39] "0000025-introToBash-v007.html"                                        
- [40] "0000025-introToBash-v007.ipynb"                                       
- [41] "0000025-introToBash-v007.qmd"                                         
- [42] "0000031-IntroToJson-v001_files"                                       
- [43] "0000031-IntroToJson-v001.qmd"                                         
- [44] "0000033-IntroToCli-v001.qmd"                                          
- [45] "0000051-filenames-v001.qmd"                                           
- [46] "0000055-workingWithFiles.qmd"                                         
- [47] "0000055-workingWithFiles.rmarkdown"                                   
- [48] "0000075-whatIsJsonData.qmd"                                           
- [49] "0000075-whatIsJsonData.quarto_ipynb"                                  
- [50] "0000080-editingAndValidatingJsonFiles.qmd"                            
- [51] "0000085-jsonDataTypes.qmd"                                            
- [52] "0000088-nestedDataframes_files"                                       
- [53] "0000088-nestedDataframes.qmd"                                         
- [54] "0000090-usingJsonInR.qmd"                                             
- [55] "0000093-jsonParsingPractice-v001.qmd"                                 
- [56] "0000100-topics-v001.qmd"                                              
- [57] "000013-IntroToTheBashShellCLI-v008.docx"                              
- [58] "000013-IntroToTheBashShellCLI-v008.qmd"                               
- [59] "000013-IntroToTheBashShellCLI-v009_files-save"                        
- [60] "000013-IntroToTheBashShellCLI-v009.qmd"                               
- [61] "0000200-bibliography-v001.qmd"                                        
- [62] "000025-introToCliCommands-v003.zip"                                   
- [63] "000025-introToCliCommands-v004"                                       
- [64] "000025-introToCliCommands-v004.zip"                                   
- [65] "000025-introToCliCommands-v005.qmd"                                   
- [66] "000025-introToCliCommands-v006.ipynb"                                 
- [67] "000025-introToCliCommands-v006.qmd"                                   
- [68] "0000300-whereToFindDatasets-v001.qmd"                                 
- [69] "0000300-whereTogetDatasets-v001.qmd"                                  
- [70] "0000310-whereToFindApis-v001.qmd"                                     
- [71] "000130-WebscrapingJavascriptSitesWithRselenium-v002.docx"             
- [72] "000200-IntroToJSONDataFormat-v008.docx"                               
- [73] "000260-PracticeWithRegulaExpressions-v003_files-save"                 
- [74] "000260-PracticeWithRegulaExpressions-v003.qmd"                        
- [75] "000420-practiceWithWebScraping-v001.docx"                             
- [76] "0100100-stringr-tutorials-v001.ipynb"                                 
- [77] "0100100-stringr-tutorials-v001.qmd"                                   
- [78] "0100100-stringr-tutorials-v002.ipynb"                                 
- [79] "0200200-a-introToRegularExpressions-v036.qmd"                         
- [80] "0200200-b-introToRegularExpressions-v036.qmd"                         
- [81] "0200200-introToRegularExpressions-v034.qmd"                           
- [82] "0200200-introToRegularExpressions-v036.qmd"                           
- [83] "0200200-rstudioFolding-v033.qmd"                                      
- [84] "0300100-excelAndR-v001.qmd"                                           
- [85] "0400050-tibbles-v001.html"                                            
- [86] "0400050-tibbles-v001.qmd"                                             
- [87] "0400050-whatIsTidyverse-v001.html"                                    
- [88] "0400050-whatIsTidyverse-v001.qmd"                                     
- [89] "0400100-usingPipes-v001.html"                                         
- [90] "0400100-usingPipes-v001.qmd"                                          
- [91] "0400200-stringr-tutorials-v003.html"                                  
- [92] "0400200-stringr-tutorials-v003.qmd"                                   
- [93] "0500100-a-tdyvrsDplyr-v005.qmd"                                       
- [94] "0500100-b-tdyvrsDplyr-v005.qmd"                                       
- [95] "0500100-tdyvrsDplyr-v0001.qmd"                                        
- [96] "0500100-tdyvrsDplyr-v002.qmd"                                         
- [97] "0500100-tdyvrsDplyr-v003_files-save"                                  
- [98] "0500100-tdyvrsDplyr-v003.html"                                        
- [99] "0500100-tdyvrsDplyr-v003.qmd"                                         
-[100] "0500100-tdyvrsDplyr-v004_files-save"                                  
-[101] "0500100-tdyvrsDplyr-v004.html"                                        
-[102] "0500100-tdyvrsDplyr-v004.qmd"                                         
-[103] "0500400-sqlSelectIntro-v003.qmd"                                      
-[104] "050050-tdyvrsGgplot2-v0001_files-save"                                
-[105] "050050-tdyvrsGgplot2-v0001.qmd"                                       
-[106] "0600100-introToDb-v001.qmd"                                           
-[107] "0990000-part-Questions-v001.qmd"                                      
-[108] "0990000-partQuestions-v001_files.save"                                
-[109] "0990100-cleaningData-v001_files.save"                                 
-[110] "0990100-cleaningData-v001.qmd"                                        
-[111] "0999000-appendices-v001.qmd"                                          
-[112] "0999000-toDo-v001.qmd"                                                
-[113] "83spr23"                                                              
-[114] "83spr23-datamgmt-000600-WebScraping"                                  
-[115] "ai-000100-overview.html"                                              
-[116] "ai-000100-overview.qmd"                                               
-[117] "aiCoding00100-overview.html"                                          
-[118] "aiCoding00100-overview.qmd"                                           
-[119] "appointments_2nf.csv"                                                 
-[120] "appointments_unnormalized.csv"                                        
-[121] "assignment-api-0000100-weatherDataApi-v001_files"                     
-[122] "assignment-api-0000100-weatherDataApi-v001.html"                      
-[123] "assignment-api-0000100-weatherDataApi-v001.qmd"                       
-[124] "assignment-api-0000100-weatherDataApi-v001.quarto_ipynb"              
-[125] "assignment-api-0000100-weatherDataApi-v002.qmd"                       
-[126] "authors_2nf.csv"                                                      
-[127] "authors_extracted.csv"                                                
-[128] "authors.csv"                                                          
-[129] "books_2nf.csv"                                                        
-[130] "books_unnormalized.csv"                                               
-[131] "books-v025.xml"                                                       
-[132] "booksDatabase-AnswersWithDplyr-v001.R"                                
-[133] "booksDatabaseDescription-withQuestions-ANSWERS-v021.docx"             
-[134] "booksDatabaseDescription-withQuestions-ANSWERS-v022.docx"             
-[135] "booksDatabaseDescription-withQuestions-ANSWERS-v023.docx"             
-[136] "categories_2nf.csv"                                                   
-[137] "cellsize.xlsx"                                                        
-[138] "claude-json-parsing-exercises.md"                                     
-[139] "codepen-quarto-html-syncRenderedToCode-v003.html"                     
-[140] "codepen-quarto-html-syncRenderedToCode-v003.qmd"                      
-[141] "codepen-quarto-html-syncRenderedToCode.html"                          
-[142] "codepen-quarto-html-syncRenderedToCode.qmd"                           
-[143] "codepen-quarto-html.html"                                             
-[144] "codepen-quarto-html.qmd"                                              
-[145] "copy_quartoYml_to_bookFolder-v001.R"                                  
-[146] "courses_2nf.csv"                                                      
-[147] "cover.png"                                                            
-[148] "createData-famousQuotesDf-v001.R"                                     
-[149] "createData-vecAddresses-v001.R"                                       
-[150] "createData-vecFruit-v001.R"                                           
-[151] "cssSelectorExamples-v001.html"                                        
-[152] "data"                                                                 
-[153] "data.csv"                                                             
-[154] "data.lnk"                                                             
-[155] "data2.csv"                                                            
-[156] "data3.csv"                                                            
-[157] "DataManagementUsingR.Rproj"                                           
-[158] "datamgmt"                                                             
-[159] "demo-quarto-html_files"                                               
-[160] "demo-quarto-html.html"                                                
-[161] "demo-quarto-html.qmd"                                                 
-[162] "demo-quarto-html.quarto_ipynb"                                        
-[163] "departments_2nf.csv"                                                  
-[164] "departments_3nf.csv"                                                  
-[165] "doctors_2nf.csv"                                                      
-[166] "enrollment_2nf.csv"                                                   
-[167] "enrollments_unnormalized.csv"                                         
-[168] "files"                                                                
-[169] "forecastDfRows-v002.png"                                              
-[170] "forecastDfRows.png"                                                   
-[171] "github-000700-markdownGithubVsQuarto.qmd"                             
-[172] "google-logo (1).png"                                                  
-[173] "google-logo (2).png"                                                  
-[174] "google-logo (3).png"                                                  
-[175] "google-logo.png"                                                      
-[176] "grades.csv"                                                           
-[177] "guests_2nf.csv"                                                       
-[178] "hello"                                                                
-[179] "htmlExamples"                                                         
-[180] "htmlExamples-v001.zip"                                                
-[181] "httpdocs-web.config"                                                  
-[182] "hw1-v002.R"                                                           
-[183] "hw1-v003-separateTitles.R"                                            
-[184] "images"                                                               
-[185] "index_files.save"                                                     
-[186] "index.html"                                                           
-[187] "index.qmd"                                                            
-[188] "indexNew.qmd"                                                         
-[189] "instructors_2nf.csv"                                                  
-[190] "instructors_3nf.csv"                                                  
-[191] "intro.qmd"                                                            
-[192] "intro00100-operatingSystems.html"                                     
-[193] "intro00100-operatingSystems.qmd"                                      
-[194] "intro00120-files.html"                                                
-[195] "intro00120-files.qmd"                                                 
-[196] "intro00130-chromeExtensions.html"                                     
-[197] "intro00130-chromeExtensions.qmd"                                      
-[198] "inventory_items_2nf.csv"                                              
-[199] "inventory_unnormalized.csv"                                           
-[200] "javascriptExample-v002.html"                                          
-[201] "json-0001000-processingJsonInR-v003.qmd"                              
-[202] "jsonFiles"                                                            
-[203] "jsonStuff"                                                            
-[204] "mydb.sqlite"                                                          
-[205] "myf"                                                                  
-[206] "myFiles"                                                              
-[207] "myFiles.zip"                                                          
-[208] "nyc_weather"                                                          
-[209] "NYTimes-APIs-v001.R"                                                  
-[210] "oldfiles"                                                             
-[211] "otherSqlWebsites-dataMgmt-spring2024-v001.docx"                       
-[212] "otherSqlWebsites-ids1020-spring2024-v001.docx"                        
-[213] "patients_2nf.csv"                                                     
-[214] "payments_2nf.csv"                                                     
-[215] "penguin-plot.png"                                                     
-[216] "products_2nf.csv"                                                     
-[217] "publishers_2nf.csv"                                                   
-[218] "publishers_extracted.csv"                                             
-[219] "publishers.csv"                                                       
-[220] "references.bib"                                                       
-[221] "references.qmd"                                                       
-[222] "regex-0200300-practice_files"                                         
-[223] "regex-0200300-practice-TMP.qmd"                                       
-[224] "regex-0200300-practice-v001.qmd"                                      
-[225] "regex-0200300-practice-v002_files"                                    
-[226] "regex-0200300-practice-v002.html"                                     
-[227] "regex-0200300-practice-v002.knit.md"                                  
-[228] "regex-0200300-practice-v002.qmd"                                      
-[229] "regex-0200300-practice-v003_files"                                    
-[230] "regex-0200300-practice-v003.html"                                     
-[231] "regex-0200300-practice-v003.qmd"                                      
-[232] "regex-0200300-practice-v004_files"                                    
-[233] "regex-0200300-practice-v004.html"                                     
-[234] "regex-0200300-practice-v004.qmd"                                      
-[235] "regex-0200300-practice.html"                                          
-[236] "reservations_2nf.csv"                                                 
-[237] "reservations_unnormalized.csv"                                        
-[238] "retiredFiles"                                                         
-[239] "rooms_2nf.csv"                                                        
-[240] "royalties_extracted.csv"                                              
-[241] "royalties.csv"                                                        
-[242] "salespeople-v002.csv"                                                 
-[243] "site_libs"                                                            
-[244] "site_libs.save"                                                       
-[245] "spr25-wilf231-final-v007-GIVEN-corrected.qmd"                         
-[246] "sql0006-introToDatabases-v023.qmd"                                    
-[247] "sql0010-introToSql-v023.qmd"                                          
-[248] "sql0014-theBooksDatabase-v001.qmd"                                    
-[249] "sql0017-RDataFiles-v001.qmd"                                          
-[250] "sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.qmd"      
-[251] "sql0035-workingWithMultipleTables-v012.qmd"                           
-[252] "sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[253] "sql0040-b-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[254] "sql0040-c-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[255] "sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"               
-[256] "sql0040-d-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[257] "sql0050-commonTableExpressions-v001.qmd"                              
-[258] "sql0200-otherSqlCommands-v001.R"                                      
-[259] "sql0200-otherSqlCommands-v002.qmd"                                    
-[260] "sql0900-sqlWindowFunctions-v001.R"                                    
-[261] "sql0900-sqlWindowFunctions-v002.qmd"                                  
-[262] "sql0915-workingWithSqliteDatabasesInR-v001.qmd"                       
-[263] "sql0935-dbNormalization-v001.qmd"                                     
-[264] "sql0950-workingWithDatabasesInR-v009.R"                               
-[265] "sql0950-workingWithDatabasesInR-v010.qmd"                             
-[266] "sql3000-sqlQuestions-v001-tmpSAVE.qmd"                                
-[267] "sql3000-sqlQuestions-v001.qmd"                                        
-[268] "sqlbolt_tables-v007-xxxx.RData"                                       
-[269] "sqlbolt_tables-v007.RData"                                            
-[270] "students_2nf.csv"                                                     
-[271] "stuffToDo-v002.html"                                                  
-[272] "stuffToDo-v003 (1).html"                                              
-[273] "stuffToDo-v003 (2).html"                                              
-[274] "stuffToDo-v003.html"                                                  
-[275] "stuffToDo-withCss-v002.html"                                          
-[276] "stuffToDo.html"                                                       
-[277] "summary.qmd"                                                          
-[278] "suppliers_2nf.csv"                                                    
-[279] "The jsonlite Package A Practical and Consistent Mapping-1403.2805.pdf"
-[280] "title_authors_extracted.csv"                                          
-[281] "title_authors.csv"                                                    
-[282] "titles_extracted.csv"                                                 
-[283] "titles.csv"                                                           
-[284] "tmp"                                                                  
-[285] "tmp.qmd"                                                              
-[286] "tmp1.txt"                                                             
-[287] "tmp2"                                                                 
-[288] "tmp2.txt"                                                             
-[289] "tmp3"                                                                 
-[290] "tmp4"                                                                 
-[291] "tmptmp"                                                               
-[292] "todo"                                                                 
-[293] "Use the following websites to practice CSS selectors.docx"            
-[294] "warehouses_2nf.csv"                                                   
-[295] "weather-nyc-3-5"                                                      
-[296] "web-000130-WebscrapingJavascriptSites-v003.qmd"                       
-[297] "web-000130-WebscrapingJavascriptSites-v004.qmd"                       
-[298] "web-000205-introToXml-v001.qmd"                                       
-[299] "web-000220-parsingXmUsingR-v001.qmd"                                  
-[300] "web-000300-internetArchitecture-v001.ipynb"                           
-[301] "web-000300-internetArchitecture-v001.qmd"                             
-[302] "web-000325-introToHtmlAndCss-v001.qmd"                                
-[303] "web-000400-webscrapingContinued-011.qmd"                              
-[304] "web-000400-webscrapingContinued-015_files-save"                       
-[305] "web-000400-webscrapingContinued-015.qmd"                              
-[306] "web-000420-practiceWithWebScraping-v001-ANSWERS-v002.qmd"             
-[307] "web-000420-practiceWithWebScraping-v001.qmd"                          
-[308] "web-current-changed.config"                                           
-[309] "web-current.config"                                                   
-[310] "web.config"                                                           
-[311] "web.config-save-old"                                                  
-[312] "web.config-suggestionFromChatGPT.config"                              
-[313] "yellowUmbrella (1).png"                                               
-[314] "yellowUmbrella (2).png"                                               
-[315] "yellowUmbrella.png"                                                   
-[316] "yrBooksDatabase-common-v001_files"                                    
-[317] "yrBooksDatabase-common-v001.html"                                     
-[318] "yrBooksDatabase-common-v001.qmd"                                      
-[319] "yrBuildQuarto-v001.sh"                                                
-[320] "yrBuildQuarto-v004.sh"                                                
-[321] "yrChapterNumber-tmp.sh"                                               
-[322] "yrChapterNumber-v001.sh"                                              
-[323] "yrChapterNumber-v002.sh"                                              
-[324] "yrChapterNumber-v003.sh"                                              
-[325] "yrChapterNumber-v004.sh"                                              
-[326] "yrNocacheHeaders-v001.html"                                           
-[327] "yrReadme-DatamanagementUsingRSrc.md"                                  
-[328] "yrRenumberChapters-v001.sh"                                           
-[329] "yrRenumberChapters-v002.sh"                                           
-[330] "yrRenumberChapters-v003.sh"                                           
-[331] "yrRenumberChapters-v004.sh"                                           
-[332] "yrRenumberChapters-v005.sh"                                           
-[333] "yrstuff-v001.js"                                                      
-[334] "yrStyles-main-v001.css"                                               
-[335] "yrUtil-v001.R"                                                        
-[336] "yrZipQmdFiles.R"                                                      </code></pre>
+<pre><code>[1] "bashShellScripts" "mixOfFiles"       "personal"        </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Since the working directory is currently </span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    /Users/yrosenth/Downloads/myFiles</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the above call to </span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    dir() </span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># without a path is the same as the following call to</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    dir("/Users/yrosenth/Downloads/myFiles")</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Since the working directory is currently </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#    /home/yitz/Downloads/myFiles</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the above call to </span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#    dir() </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># without a path is the same as the following call to</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#    dir("/home/yitz/Downloads/myFiles")</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/home/yitz/Downloads/myFiles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code>[1] "bashShellScripts" "mixOfFiles"       "personal"        </code></pre>
 </div>
 </div>
 <section id="specifying-a-pattern-to-dir" class="level3" data-number="16.7.1">
@@ -1234,355 +905,34 @@ E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
 <section id="summary---different-ways-of-using-dir-function" class="level3" data-number="16.7.2">
 <h3 data-number="16.7.2" class="anchored" data-anchor-id="summary---different-ways-of-using-dir-function"><span class="header-section-number">16.7.2</span> Summary - different ways of using dir function:</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list everything in the "working directory"</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the working directory</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/home/yitz/Downloads/myFiles"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list everything in the "working directory"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] "_book"                                                                
-  [2] "_book-save2"                                                          
-  [3] "_book.save"                                                           
-  [4] "_inProgressWork"                                                      
-  [5] "_quarto-backup.yml"                                                   
-  [6] "_quarto-before-fix.yml"                                               
-  [7] "_quarto-fixed.yml"                                                    
-  [8] "_quarto-save.yml"                                                     
-  [9] "_quarto.yml"                                                          
- [10] "_quarto.yml.bak"                                                      
- [11] "_quarto2.yml"                                                         
- [12] "_quarto3.yml"                                                         
- [13] "_quartoDiff-fixed.yml"                                                
- [14] "_quartoDiff-v002-fixed.yml"                                           
- [15] "_quartoDiff-v002.yml"                                                 
- [16] "_quartoDiff.yml"                                                      
- [17] "_yr"                                                                  
- [18] "00000-InstallingRPackages-v002_files.save"                            
- [19] "00000-tmpMermaid.qmd"                                                 
- [20] "0000006-bash-externalResources-v001.html"                             
- [21] "0000006-bash-externalResources-v001.qmd"                              
- [22] "0000011-WhatIsACli-v010_files-save"                                   
- [23] "0000011-WhatIsACli-v010.html"                                         
- [24] "0000011-WhatIsACli-v010.qmd"                                          
- [25] "0000013-HowToRunTheBashShellCli-v011.html"                            
- [26] "0000013-HowToRunTheBashShellCli-v011.qmd"                             
- [27] "0000013-introToBash-image01.png"                                      
- [28] "0000013-introToBash-image02.png"                                      
- [29] "0000013-introToBash-image03.png"                                      
- [30] "0000013-introToBash-image04.png"                                      
- [31] "0000013-introToBash-image05.png"                                      
- [32] "0000013-IntroToTheBashCLI-v009.qmd"                                   
- [33] "0000017-introToQuarto-v001.html"                                      
- [34] "0000017-introToQuarto-v001.qmd"                                       
- [35] "0000022-InstallingRPackages-v003_files-save"                          
- [36] "0000022-InstallingRPackages-v003.html"                                
- [37] "0000022-InstallingRPackages-v003.qmd"                                 
- [38] "0000025-introToBash-v007_files-save"                                  
- [39] "0000025-introToBash-v007.html"                                        
- [40] "0000025-introToBash-v007.ipynb"                                       
- [41] "0000025-introToBash-v007.qmd"                                         
- [42] "0000031-IntroToJson-v001_files"                                       
- [43] "0000031-IntroToJson-v001.qmd"                                         
- [44] "0000033-IntroToCli-v001.qmd"                                          
- [45] "0000051-filenames-v001.qmd"                                           
- [46] "0000055-workingWithFiles.qmd"                                         
- [47] "0000055-workingWithFiles.rmarkdown"                                   
- [48] "0000075-whatIsJsonData.qmd"                                           
- [49] "0000075-whatIsJsonData.quarto_ipynb"                                  
- [50] "0000080-editingAndValidatingJsonFiles.qmd"                            
- [51] "0000085-jsonDataTypes.qmd"                                            
- [52] "0000088-nestedDataframes_files"                                       
- [53] "0000088-nestedDataframes.qmd"                                         
- [54] "0000090-usingJsonInR.qmd"                                             
- [55] "0000093-jsonParsingPractice-v001.qmd"                                 
- [56] "0000100-topics-v001.qmd"                                              
- [57] "000013-IntroToTheBashShellCLI-v008.docx"                              
- [58] "000013-IntroToTheBashShellCLI-v008.qmd"                               
- [59] "000013-IntroToTheBashShellCLI-v009_files-save"                        
- [60] "000013-IntroToTheBashShellCLI-v009.qmd"                               
- [61] "0000200-bibliography-v001.qmd"                                        
- [62] "000025-introToCliCommands-v003.zip"                                   
- [63] "000025-introToCliCommands-v004"                                       
- [64] "000025-introToCliCommands-v004.zip"                                   
- [65] "000025-introToCliCommands-v005.qmd"                                   
- [66] "000025-introToCliCommands-v006.ipynb"                                 
- [67] "000025-introToCliCommands-v006.qmd"                                   
- [68] "0000300-whereToFindDatasets-v001.qmd"                                 
- [69] "0000300-whereTogetDatasets-v001.qmd"                                  
- [70] "0000310-whereToFindApis-v001.qmd"                                     
- [71] "000130-WebscrapingJavascriptSitesWithRselenium-v002.docx"             
- [72] "000200-IntroToJSONDataFormat-v008.docx"                               
- [73] "000260-PracticeWithRegulaExpressions-v003_files-save"                 
- [74] "000260-PracticeWithRegulaExpressions-v003.qmd"                        
- [75] "000420-practiceWithWebScraping-v001.docx"                             
- [76] "0100100-stringr-tutorials-v001.ipynb"                                 
- [77] "0100100-stringr-tutorials-v001.qmd"                                   
- [78] "0100100-stringr-tutorials-v002.ipynb"                                 
- [79] "0200200-a-introToRegularExpressions-v036.qmd"                         
- [80] "0200200-b-introToRegularExpressions-v036.qmd"                         
- [81] "0200200-introToRegularExpressions-v034.qmd"                           
- [82] "0200200-introToRegularExpressions-v036.qmd"                           
- [83] "0200200-rstudioFolding-v033.qmd"                                      
- [84] "0300100-excelAndR-v001.qmd"                                           
- [85] "0400050-tibbles-v001.html"                                            
- [86] "0400050-tibbles-v001.qmd"                                             
- [87] "0400050-whatIsTidyverse-v001.html"                                    
- [88] "0400050-whatIsTidyverse-v001.qmd"                                     
- [89] "0400100-usingPipes-v001.html"                                         
- [90] "0400100-usingPipes-v001.qmd"                                          
- [91] "0400200-stringr-tutorials-v003.html"                                  
- [92] "0400200-stringr-tutorials-v003.qmd"                                   
- [93] "0500100-a-tdyvrsDplyr-v005.qmd"                                       
- [94] "0500100-b-tdyvrsDplyr-v005.qmd"                                       
- [95] "0500100-tdyvrsDplyr-v0001.qmd"                                        
- [96] "0500100-tdyvrsDplyr-v002.qmd"                                         
- [97] "0500100-tdyvrsDplyr-v003_files-save"                                  
- [98] "0500100-tdyvrsDplyr-v003.html"                                        
- [99] "0500100-tdyvrsDplyr-v003.qmd"                                         
-[100] "0500100-tdyvrsDplyr-v004_files-save"                                  
-[101] "0500100-tdyvrsDplyr-v004.html"                                        
-[102] "0500100-tdyvrsDplyr-v004.qmd"                                         
-[103] "0500400-sqlSelectIntro-v003.qmd"                                      
-[104] "050050-tdyvrsGgplot2-v0001_files-save"                                
-[105] "050050-tdyvrsGgplot2-v0001.qmd"                                       
-[106] "0600100-introToDb-v001.qmd"                                           
-[107] "0990000-part-Questions-v001.qmd"                                      
-[108] "0990000-partQuestions-v001_files.save"                                
-[109] "0990100-cleaningData-v001_files.save"                                 
-[110] "0990100-cleaningData-v001.qmd"                                        
-[111] "0999000-appendices-v001.qmd"                                          
-[112] "0999000-toDo-v001.qmd"                                                
-[113] "83spr23"                                                              
-[114] "83spr23-datamgmt-000600-WebScraping"                                  
-[115] "ai-000100-overview.html"                                              
-[116] "ai-000100-overview.qmd"                                               
-[117] "aiCoding00100-overview.html"                                          
-[118] "aiCoding00100-overview.qmd"                                           
-[119] "appointments_2nf.csv"                                                 
-[120] "appointments_unnormalized.csv"                                        
-[121] "assignment-api-0000100-weatherDataApi-v001_files"                     
-[122] "assignment-api-0000100-weatherDataApi-v001.html"                      
-[123] "assignment-api-0000100-weatherDataApi-v001.qmd"                       
-[124] "assignment-api-0000100-weatherDataApi-v001.quarto_ipynb"              
-[125] "assignment-api-0000100-weatherDataApi-v002.qmd"                       
-[126] "authors_2nf.csv"                                                      
-[127] "authors_extracted.csv"                                                
-[128] "authors.csv"                                                          
-[129] "books_2nf.csv"                                                        
-[130] "books_unnormalized.csv"                                               
-[131] "books-v025.xml"                                                       
-[132] "booksDatabase-AnswersWithDplyr-v001.R"                                
-[133] "booksDatabaseDescription-withQuestions-ANSWERS-v021.docx"             
-[134] "booksDatabaseDescription-withQuestions-ANSWERS-v022.docx"             
-[135] "booksDatabaseDescription-withQuestions-ANSWERS-v023.docx"             
-[136] "categories_2nf.csv"                                                   
-[137] "cellsize.xlsx"                                                        
-[138] "claude-json-parsing-exercises.md"                                     
-[139] "codepen-quarto-html-syncRenderedToCode-v003.html"                     
-[140] "codepen-quarto-html-syncRenderedToCode-v003.qmd"                      
-[141] "codepen-quarto-html-syncRenderedToCode.html"                          
-[142] "codepen-quarto-html-syncRenderedToCode.qmd"                           
-[143] "codepen-quarto-html.html"                                             
-[144] "codepen-quarto-html.qmd"                                              
-[145] "copy_quartoYml_to_bookFolder-v001.R"                                  
-[146] "courses_2nf.csv"                                                      
-[147] "cover.png"                                                            
-[148] "createData-famousQuotesDf-v001.R"                                     
-[149] "createData-vecAddresses-v001.R"                                       
-[150] "createData-vecFruit-v001.R"                                           
-[151] "cssSelectorExamples-v001.html"                                        
-[152] "data"                                                                 
-[153] "data.csv"                                                             
-[154] "data.lnk"                                                             
-[155] "data2.csv"                                                            
-[156] "data3.csv"                                                            
-[157] "DataManagementUsingR.Rproj"                                           
-[158] "datamgmt"                                                             
-[159] "demo-quarto-html_files"                                               
-[160] "demo-quarto-html.html"                                                
-[161] "demo-quarto-html.qmd"                                                 
-[162] "demo-quarto-html.quarto_ipynb"                                        
-[163] "departments_2nf.csv"                                                  
-[164] "departments_3nf.csv"                                                  
-[165] "doctors_2nf.csv"                                                      
-[166] "enrollment_2nf.csv"                                                   
-[167] "enrollments_unnormalized.csv"                                         
-[168] "files"                                                                
-[169] "forecastDfRows-v002.png"                                              
-[170] "forecastDfRows.png"                                                   
-[171] "github-000700-markdownGithubVsQuarto.qmd"                             
-[172] "google-logo (1).png"                                                  
-[173] "google-logo (2).png"                                                  
-[174] "google-logo (3).png"                                                  
-[175] "google-logo.png"                                                      
-[176] "grades.csv"                                                           
-[177] "guests_2nf.csv"                                                       
-[178] "hello"                                                                
-[179] "htmlExamples"                                                         
-[180] "htmlExamples-v001.zip"                                                
-[181] "httpdocs-web.config"                                                  
-[182] "hw1-v002.R"                                                           
-[183] "hw1-v003-separateTitles.R"                                            
-[184] "images"                                                               
-[185] "index_files.save"                                                     
-[186] "index.html"                                                           
-[187] "index.qmd"                                                            
-[188] "indexNew.qmd"                                                         
-[189] "instructors_2nf.csv"                                                  
-[190] "instructors_3nf.csv"                                                  
-[191] "intro.qmd"                                                            
-[192] "intro00100-operatingSystems.html"                                     
-[193] "intro00100-operatingSystems.qmd"                                      
-[194] "intro00120-files.html"                                                
-[195] "intro00120-files.qmd"                                                 
-[196] "intro00130-chromeExtensions.html"                                     
-[197] "intro00130-chromeExtensions.qmd"                                      
-[198] "inventory_items_2nf.csv"                                              
-[199] "inventory_unnormalized.csv"                                           
-[200] "javascriptExample-v002.html"                                          
-[201] "json-0001000-processingJsonInR-v003.qmd"                              
-[202] "jsonFiles"                                                            
-[203] "jsonStuff"                                                            
-[204] "mydb.sqlite"                                                          
-[205] "myf"                                                                  
-[206] "myFiles"                                                              
-[207] "myFiles.zip"                                                          
-[208] "nyc_weather"                                                          
-[209] "NYTimes-APIs-v001.R"                                                  
-[210] "oldfiles"                                                             
-[211] "otherSqlWebsites-dataMgmt-spring2024-v001.docx"                       
-[212] "otherSqlWebsites-ids1020-spring2024-v001.docx"                        
-[213] "patients_2nf.csv"                                                     
-[214] "payments_2nf.csv"                                                     
-[215] "penguin-plot.png"                                                     
-[216] "products_2nf.csv"                                                     
-[217] "publishers_2nf.csv"                                                   
-[218] "publishers_extracted.csv"                                             
-[219] "publishers.csv"                                                       
-[220] "references.bib"                                                       
-[221] "references.qmd"                                                       
-[222] "regex-0200300-practice_files"                                         
-[223] "regex-0200300-practice-TMP.qmd"                                       
-[224] "regex-0200300-practice-v001.qmd"                                      
-[225] "regex-0200300-practice-v002_files"                                    
-[226] "regex-0200300-practice-v002.html"                                     
-[227] "regex-0200300-practice-v002.knit.md"                                  
-[228] "regex-0200300-practice-v002.qmd"                                      
-[229] "regex-0200300-practice-v003_files"                                    
-[230] "regex-0200300-practice-v003.html"                                     
-[231] "regex-0200300-practice-v003.qmd"                                      
-[232] "regex-0200300-practice-v004_files"                                    
-[233] "regex-0200300-practice-v004.html"                                     
-[234] "regex-0200300-practice-v004.qmd"                                      
-[235] "regex-0200300-practice.html"                                          
-[236] "reservations_2nf.csv"                                                 
-[237] "reservations_unnormalized.csv"                                        
-[238] "retiredFiles"                                                         
-[239] "rooms_2nf.csv"                                                        
-[240] "royalties_extracted.csv"                                              
-[241] "royalties.csv"                                                        
-[242] "salespeople-v002.csv"                                                 
-[243] "site_libs"                                                            
-[244] "site_libs.save"                                                       
-[245] "spr25-wilf231-final-v007-GIVEN-corrected.qmd"                         
-[246] "sql0006-introToDatabases-v023.qmd"                                    
-[247] "sql0010-introToSql-v023.qmd"                                          
-[248] "sql0014-theBooksDatabase-v001.qmd"                                    
-[249] "sql0017-RDataFiles-v001.qmd"                                          
-[250] "sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.qmd"      
-[251] "sql0035-workingWithMultipleTables-v012.qmd"                           
-[252] "sql0040-a-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[253] "sql0040-b-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[254] "sql0040-c-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[255] "sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"               
-[256] "sql0040-d-crossJoin-leftJoin-subquery-selfJoins-v023.qmd"             
-[257] "sql0050-commonTableExpressions-v001.qmd"                              
-[258] "sql0200-otherSqlCommands-v001.R"                                      
-[259] "sql0200-otherSqlCommands-v002.qmd"                                    
-[260] "sql0900-sqlWindowFunctions-v001.R"                                    
-[261] "sql0900-sqlWindowFunctions-v002.qmd"                                  
-[262] "sql0915-workingWithSqliteDatabasesInR-v001.qmd"                       
-[263] "sql0935-dbNormalization-v001.qmd"                                     
-[264] "sql0950-workingWithDatabasesInR-v009.R"                               
-[265] "sql0950-workingWithDatabasesInR-v010.qmd"                             
-[266] "sql3000-sqlQuestions-v001-tmpSAVE.qmd"                                
-[267] "sql3000-sqlQuestions-v001.qmd"                                        
-[268] "sqlbolt_tables-v007-xxxx.RData"                                       
-[269] "sqlbolt_tables-v007.RData"                                            
-[270] "students_2nf.csv"                                                     
-[271] "stuffToDo-v002.html"                                                  
-[272] "stuffToDo-v003 (1).html"                                              
-[273] "stuffToDo-v003 (2).html"                                              
-[274] "stuffToDo-v003.html"                                                  
-[275] "stuffToDo-withCss-v002.html"                                          
-[276] "stuffToDo.html"                                                       
-[277] "summary.qmd"                                                          
-[278] "suppliers_2nf.csv"                                                    
-[279] "The jsonlite Package A Practical and Consistent Mapping-1403.2805.pdf"
-[280] "title_authors_extracted.csv"                                          
-[281] "title_authors.csv"                                                    
-[282] "titles_extracted.csv"                                                 
-[283] "titles.csv"                                                           
-[284] "tmp"                                                                  
-[285] "tmp.qmd"                                                              
-[286] "tmp1.txt"                                                             
-[287] "tmp2"                                                                 
-[288] "tmp2.txt"                                                             
-[289] "tmp3"                                                                 
-[290] "tmp4"                                                                 
-[291] "tmptmp"                                                               
-[292] "todo"                                                                 
-[293] "Use the following websites to practice CSS selectors.docx"            
-[294] "warehouses_2nf.csv"                                                   
-[295] "weather-nyc-3-5"                                                      
-[296] "web-000130-WebscrapingJavascriptSites-v003.qmd"                       
-[297] "web-000130-WebscrapingJavascriptSites-v004.qmd"                       
-[298] "web-000205-introToXml-v001.qmd"                                       
-[299] "web-000220-parsingXmUsingR-v001.qmd"                                  
-[300] "web-000300-internetArchitecture-v001.ipynb"                           
-[301] "web-000300-internetArchitecture-v001.qmd"                             
-[302] "web-000325-introToHtmlAndCss-v001.qmd"                                
-[303] "web-000400-webscrapingContinued-011.qmd"                              
-[304] "web-000400-webscrapingContinued-015_files-save"                       
-[305] "web-000400-webscrapingContinued-015.qmd"                              
-[306] "web-000420-practiceWithWebScraping-v001-ANSWERS-v002.qmd"             
-[307] "web-000420-practiceWithWebScraping-v001.qmd"                          
-[308] "web-current-changed.config"                                           
-[309] "web-current.config"                                                   
-[310] "web.config"                                                           
-[311] "web.config-save-old"                                                  
-[312] "web.config-suggestionFromChatGPT.config"                              
-[313] "yellowUmbrella (1).png"                                               
-[314] "yellowUmbrella (2).png"                                               
-[315] "yellowUmbrella.png"                                                   
-[316] "yrBooksDatabase-common-v001_files"                                    
-[317] "yrBooksDatabase-common-v001.html"                                     
-[318] "yrBooksDatabase-common-v001.qmd"                                      
-[319] "yrBuildQuarto-v001.sh"                                                
-[320] "yrBuildQuarto-v004.sh"                                                
-[321] "yrChapterNumber-tmp.sh"                                               
-[322] "yrChapterNumber-v001.sh"                                              
-[323] "yrChapterNumber-v002.sh"                                              
-[324] "yrChapterNumber-v003.sh"                                              
-[325] "yrChapterNumber-v004.sh"                                              
-[326] "yrNocacheHeaders-v001.html"                                           
-[327] "yrReadme-DatamanagementUsingRSrc.md"                                  
-[328] "yrRenumberChapters-v001.sh"                                           
-[329] "yrRenumberChapters-v002.sh"                                           
-[330] "yrRenumberChapters-v003.sh"                                           
-[331] "yrRenumberChapters-v004.sh"                                           
-[332] "yrRenumberChapters-v005.sh"                                           
-[333] "yrstuff-v001.js"                                                      
-[334] "yrStyles-main-v001.css"                                               
-[335] "yrUtil-v001.R"                                                        
-[336] "yrZipQmdFiles.R"                                                      </code></pre>
+<pre><code>[1] "bashShellScripts" "mixOfFiles"       "personal"        </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list everything in the specified directory</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/work"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list everything in the specified directory</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/home/yitz/Downloads/myFiles/mixOfFiles"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code> [1] "datamanagementNotes.docx" "dickens.txt"             
+ [3] "doneList"                 "expenses.xlsx"           
+ [5] "friMenu"                  "greeting"                
+ [7] "letterToJoe.docx"         "menuForWeek"             
+ [9] "monMenu"                  "nums"                    
+[11] "nums11to15"               "nums1to10"               
+[13] "nums1to15"                "nums1to15-sorted"        
+[15] "onceupon"                 "payroll.xlsx"            
+[17] "thuMenu"                  "todoList"                
+[19] "todolist-v2"              "todoList-wed"            
+[21] "tuesMenu"                 "wedMenu"                 
+[23] "wordCounts"              </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list only files and folders containing .xlsx in the name</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/Users/yrosenth/Downloads/myFiles/work"</span>, <span class="at">pattern =</span> <span class="st">".xlsx"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list only files and folders containing .xlsx in the name</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="st">"/home/yitz/Downloads/myFiles/mixOfFiles"</span>, <span class="at">pattern =</span> <span class="st">".xlsx"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>character(0)</code></pre>
+<pre><code>[1] "expenses.xlsx" "payroll.xlsx" </code></pre>
 </div>
 </div>
 </section>
