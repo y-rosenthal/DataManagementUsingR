@@ -661,19 +661,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#important-note" id="toc-important-note" class="nav-link active" data-scroll-target="#important-note"><span class="header-section-number">31.1</span> IMPORTANT NOTE</a></li>
   <li><a href="#intro-to-sql" id="toc-intro-to-sql" class="nav-link" data-scroll-target="#intro-to-sql"><span class="header-section-number">31.2</span> Intro to SQL</a></li>
   <li><a href="#web-resources-for-learning-sql" id="toc-web-resources-for-learning-sql" class="nav-link" data-scroll-target="#web-resources-for-learning-sql"><span class="header-section-number">31.3</span> Web resources for learning SQL</a></li>
-  <li><a href="#what-software-do-i-need-to-use-sql" id="toc-what-software-do-i-need-to-use-sql" class="nav-link" data-scroll-target="#what-software-do-i-need-to-use-sql"><span class="header-section-number">31.4</span> What software do I need to use SQL?</a>
+  <li><a href="#the-data-for-this-page" id="toc-the-data-for-this-page" class="nav-link" data-scroll-target="#the-data-for-this-page"><span class="header-section-number">31.4</span> The data for this page:</a></li>
+  <li><a href="#what-software-do-i-need-to-use-sql" id="toc-what-software-do-i-need-to-use-sql" class="nav-link" data-scroll-target="#what-software-do-i-need-to-use-sql"><span class="header-section-number">31.5</span> What software do I need to use SQL?</a>
   <ul class="collapse">
-  <li><a href="#the-sqldf-r-package" id="toc-the-sqldf-r-package" class="nav-link" data-scroll-target="#the-sqldf-r-package"><span class="header-section-number">31.4.1</span> The sqldf R package</a></li>
+  <li><a href="#yrsqliteviewer" id="toc-yrsqliteviewer" class="nav-link" data-scroll-target="#yrsqliteviewer"><span class="header-section-number">31.5.1</span> yrSqliteViewer</a></li>
+  <li><a href="#running-sql-commands-from-the-r-programming-language" id="toc-running-sql-commands-from-the-r-programming-language" class="nav-link" data-scroll-target="#running-sql-commands-from-the-r-programming-language"><span class="header-section-number">31.5.2</span> Running SQL commands from the R programming language</a></li>
   </ul></li>
   <li><a href="#using-the-sqldf-r-package" id="toc-using-the-sqldf-r-package" class="nav-link" data-scroll-target="#using-the-sqldf-r-package"><span class="header-section-number">32</span> Using the sqldf R package</a>
   <ul class="collapse">
-  <li><a href="#data-for-this-part-of-the-tutorial" id="toc-data-for-this-part-of-the-tutorial" class="nav-link" data-scroll-target="#data-for-this-part-of-the-tutorial"><span class="header-section-number">32.1</span> data for this part of the tutorial</a></li>
+  <li><a href="#data-for-this-part-of-the-tutorial" id="toc-data-for-this-part-of-the-tutorial" class="nav-link" data-scroll-target="#data-for-this-part-of-the-tutorial"><span class="header-section-number">32.1</span> Data for this part of the tutorial</a>
+  <ul class="collapse">
+  <li><a href="#use-this-one-file-if-youre-using-yrsqliteviewer-to-access-the-data" id="toc-use-this-one-file-if-youre-using-yrsqliteviewer-to-access-the-data" class="nav-link" data-scroll-target="#use-this-one-file-if-youre-using-yrsqliteviewer-to-access-the-data"><span class="header-section-number">32.1.1</span> Use this one file if you’re using yrSqliteViewer to access the data</a></li>
+  <li><a href="#use-these-files-if-youre-using-r-to-access-the-data" id="toc-use-these-files-if-youre-using-r-to-access-the-data" class="nav-link" data-scroll-target="#use-these-files-if-youre-using-r-to-access-the-data"><span class="header-section-number">32.1.2</span> Use these files if you’re using R to access the data</a></li>
+  <li><a href="#contents-of-the-tables" id="toc-contents-of-the-tables" class="nav-link" data-scroll-target="#contents-of-the-tables"><span class="header-section-number">32.1.3</span> Contents of the tables:</a></li>
+  </ul></li>
   <li><a href="#sql-select-statement" id="toc-sql-select-statement" class="nav-link" data-scroll-target="#sql-select-statement"><span class="header-section-number">32.2</span> SQL SELECT statement</a></li>
-  <li><a href="#how-to-use-the-r-sqldf-function" id="toc-how-to-use-the-r-sqldf-function" class="nav-link" data-scroll-target="#how-to-use-the-r-sqldf-function"><span class="header-section-number">32.3</span> How to use the R sqldf() function</a></li>
+  <li><a href="#note-for-r-users-how-to-use-the-r-sqldf-function" id="toc-note-for-r-users-how-to-use-the-r-sqldf-function" class="nav-link" data-scroll-target="#note-for-r-users-how-to-use-the-r-sqldf-function"><span class="header-section-number">32.3</span> Note for R users: How to use the R sqldf() function</a></li>
   <li><a href="#intro-to-the-sql-select-command" id="toc-intro-to-the-sql-select-command" class="nav-link" data-scroll-target="#intro-to-the-sql-select-command"><span class="header-section-number">32.4</span> Intro to the SQL SELECT command</a></li>
   <li><a href="#select-from-.." id="toc-select-from-.." class="nav-link" data-scroll-target="#select-from-.."><span class="header-section-number">32.5</span> SELECT * FROM …..</a></li>
-  <li><a href="#capturing-the-output-of-sqldf-in-an-r-variable" id="toc-capturing-the-output-of-sqldf-in-an-r-variable" class="nav-link" data-scroll-target="#capturing-the-output-of-sqldf-in-an-r-variable"><span class="header-section-number">32.6</span> capturing the output of sqldf in an R variable</a></li>
-  <li><a href="#a-note-about-case-sensitivity-in-sqldf" id="toc-a-note-about-case-sensitivity-in-sqldf" class="nav-link" data-scroll-target="#a-note-about-case-sensitivity-in-sqldf"><span class="header-section-number">32.7</span> A note about case-sensitivity in sqldf()</a></li>
+  <li><a href="#note-for-r-users-capturing-the-output-of-sqldf-in-an-r-variable" id="toc-note-for-r-users-capturing-the-output-of-sqldf-in-an-r-variable" class="nav-link" data-scroll-target="#note-for-r-users-capturing-the-output-of-sqldf-in-an-r-variable"><span class="header-section-number">32.6</span> Note for R users: capturing the output of sqldf in an R variable</a></li>
+  <li><a href="#note-for-r-users-a-note-about-case-sensitivity-in-sqldf" id="toc-note-for-r-users-a-note-about-case-sensitivity-in-sqldf" class="nav-link" data-scroll-target="#note-for-r-users-a-note-about-case-sensitivity-in-sqldf"><span class="header-section-number">32.7</span> Note for R users: A note about case-sensitivity in sqldf()</a></li>
   <li><a href="#order-by" id="toc-order-by" class="nav-link" data-scroll-target="#order-by"><span class="header-section-number">32.8</span> order by</a>
   <ul class="collapse">
   <li><a href="#ordering-by-2-or-more-columns" id="toc-ordering-by-2-or-more-columns" class="nav-link" data-scroll-target="#ordering-by-2-or-more-columns"><span class="header-section-number">32.8.1</span> Ordering by 2 or more columns</a></li>
@@ -696,7 +703,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#where-clause" id="toc-where-clause" class="nav-link" data-scroll-target="#where-clause"><span class="header-section-number">32.16</span> where clause</a></li>
   <li><a href="#sql-operators" id="toc-sql-operators" class="nav-link" data-scroll-target="#sql-operators"><span class="header-section-number">32.17</span> SQL operators</a></li>
   <li><a href="#performing-calculations-with-sql" id="toc-performing-calculations-with-sql" class="nav-link" data-scroll-target="#performing-calculations-with-sql"><span class="header-section-number">32.18</span> Performing calculations with SQL</a></li>
-  <li><a href="#reminder---how-na-works-in-r" id="toc-reminder---how-na-works-in-r" class="nav-link" data-scroll-target="#reminder---how-na-works-in-r"><span class="header-section-number">32.19</span> Reminder - how NA works in R</a></li>
+  <li><a href="#note-for-r-users-reminder---how-na-works-in-r" id="toc-note-for-r-users-reminder---how-na-works-in-r" class="nav-link" data-scroll-target="#note-for-r-users-reminder---how-na-works-in-r"><span class="header-section-number">32.19</span> Note for R users: Reminder - how NA works in R</a></li>
   <li><a href="#null-in-sql" id="toc-null-in-sql" class="nav-link" data-scroll-target="#null-in-sql"><span class="header-section-number">32.20</span> NULL in SQL</a></li>
   <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1"><span class="header-section-number">32.21</span> Practice</a></li>
   <li><a href="#tutorials-sqlbolt.com-and-w3chools.com" id="toc-tutorials-sqlbolt.com-and-w3chools.com" class="nav-link" data-scroll-target="#tutorials-sqlbolt.com-and-w3chools.com"><span class="header-section-number">32.22</span> Tutorials sqlbolt.com and w3chools.com</a></li>
@@ -780,8 +787,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="what-software-do-i-need-to-use-sql" class="level2" data-number="31.4">
-<h2 data-number="31.4" class="anchored" data-anchor-id="what-software-do-i-need-to-use-sql"><span class="header-section-number">31.4</span> What software do I need to use SQL?</h2>
+<section id="the-data-for-this-page" class="level2" data-number="31.4">
+<h2 data-number="31.4" class="anchored" data-anchor-id="the-data-for-this-page"><span class="header-section-number">31.4</span> The data for this page:</h2>
+<p>You can download the data for the work on this page below. This file is a sqlite database file.</p>
+</section>
+<section id="what-software-do-i-need-to-use-sql" class="level2" data-number="31.5">
+<h2 data-number="31.5" class="anchored" data-anchor-id="what-software-do-i-need-to-use-sql"><span class="header-section-number">31.5</span> What software do I need to use SQL?</h2>
+<p>There are many different software packages that can be used to learn SQL. These different packages each have a learning curve of their own beyond the raw SQL language. Our focus is to study the SQL language. The following are just two of many, many options.</p>
+<section id="yrsqliteviewer" class="level3" data-number="31.5.1">
+<h3 data-number="31.5.1" class="anchored" data-anchor-id="yrsqliteviewer"><span class="header-section-number">31.5.1</span> yrSqliteViewer</h3>
+<p>This is an extremely simple option for getting to work with SQL without much fuss. This option makes use of SQLite database files.</p>
+<p>The yrSqliteViewer.html file is a webpage that is installed locally on your computer. You can download it from here. You can also download some sample data from the same page. Scroll to the bottom of this page for instructions.</p>
+<p><a href="https://github.com/y-rosenthal/yrSqliteViewer" class="uri">https://github.com/y-rosenthal/yrSqliteViewer</a></p>
+</section>
+<section id="running-sql-commands-from-the-r-programming-language" class="level3" data-number="31.5.2">
+<h3 data-number="31.5.2" class="anchored" data-anchor-id="running-sql-commands-from-the-r-programming-language"><span class="header-section-number">31.5.2</span> Running SQL commands from the R programming language</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The sqldf package in R.  ####</span></span>
@@ -804,7 +824,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># However, the underlying SQL language that is used by all of these </span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># different software packages tends to be very, very similar. </span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># For this class we will be using R to learn the basic SQL commands.</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># You can use the R programming language to process SQL commands.</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># The sqldf package in R includes the sqldf function that takes a single</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># character value. The value is expected to be a valid SQL command. </span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Instead of referring to database "tables" the sqldf function interprets</span></span>
@@ -820,8 +840,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="the-sqldf-r-package" class="level3" data-number="31.4.1">
-<h3 data-number="31.4.1" class="anchored" data-anchor-id="the-sqldf-r-package"><span class="header-section-number">31.4.1</span> The sqldf R package</h3>
+<section id="the-sqldf-r-package" class="level4">
+<h4 class="anchored" data-anchor-id="the-sqldf-r-package">The sqldf R package</h4>
+</section>
 </section>
 </section>
 <section id="using-the-sqldf-r-package" class="level1" data-number="32">
@@ -833,8 +854,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(sqldf, <span class="at">quietly=</span><span class="cn">TRUE</span>, <span class="at">warn.conflicts=</span><span class="cn">FALSE</span>)){<span class="fu">install.packages</span>(<span class="st">"sqldf"</span>);<span class="fu">require</span>(sqldf);}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="data-for-this-part-of-the-tutorial" class="level2" data-number="32.1">
-<h2 data-number="32.1" class="anchored" data-anchor-id="data-for-this-part-of-the-tutorial"><span class="header-section-number">32.1</span> data for this part of the tutorial</h2>
+<h2 data-number="32.1" class="anchored" data-anchor-id="data-for-this-part-of-the-tutorial"><span class="header-section-number">32.1</span> Data for this part of the tutorial</h2>
 <p>You can download the data for this tutorial from the following files.</p>
+<section id="use-this-one-file-if-youre-using-yrsqliteviewer-to-access-the-data" class="level3" data-number="32.1.1">
+<h3 data-number="32.1.1" class="anchored" data-anchor-id="use-this-one-file-if-youre-using-yrsqliteviewer-to-access-the-data"><span class="header-section-number">32.1.1</span> Use this one file if you’re using yrSqliteViewer to access the data</h3>
+<ul>
+<li><a href="sqlbolt_tables.sqlite">sqlbolt_tables.sqlite</a></li>
+</ul>
+</section>
+<section id="use-these-files-if-youre-using-r-to-access-the-data" class="level3" data-number="32.1.2">
+<h3 data-number="32.1.2" class="anchored" data-anchor-id="use-these-files-if-youre-using-r-to-access-the-data"><span class="header-section-number">32.1.2</span> Use these files if you’re using R to access the data</h3>
 <ul>
 <li><p><a href="grades.csv">grades.csv</a> This is a .csv file. You can read the contents of the file into R with the read.csv function as shown below.</p></li>
 <li><p><a href="sqlbolt_tables-v007.RData">sqlbolt_tables-v007.RData</a> This is a .RData file. You can read the contents of the file into R with the load function as shown below.</p></li>
@@ -844,7 +873,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>grades <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"grades.csv"</span>, <span class="at">na.strings=</span><span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NULL"</span>, <span class="st">"NA"</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"sqlbolt_tables-v007.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Below are the contents of these tables:</p>
+</section>
+<section id="contents-of-the-tables" class="level3" data-number="32.1.3">
+<h3 data-number="32.1.3" class="anchored" data-anchor-id="contents-of-the-tables"><span class="header-section-number">32.1.3</span> Contents of the tables:</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1280,6 +1311,7 @@ Click here to see the <strong>north_american_cities</strong> table
 </div>
 </div>
 </section>
+</section>
 <section id="sql-select-statement" class="level2" data-number="32.2">
 <h2 data-number="32.2" class="anchored" data-anchor-id="sql-select-statement"><span class="header-section-number">32.2</span> SQL SELECT statement</h2>
 <p>The “select” statement is used to retrieve information from a relational database table (or in our case, from an R dataframe). The select statement has several “clauses”. The following are the allowed clauses. The … after each clause name represents additional text that needs to be typed. We will learn how to use each of these different clauses below.</p>
@@ -1302,8 +1334,8 @@ Click here to see the <strong>north_american_cities</strong> table
 <p>The sqldf package that we will be using is case-INsensitve (i.e.&nbsp;case does NOT matter) for everything EXCEPT for table names (i.e.&nbsp;dataframe names).</p></li>
 </ol>
 </section>
-<section id="how-to-use-the-r-sqldf-function" class="level2" data-number="32.3">
-<h2 data-number="32.3" class="anchored" data-anchor-id="how-to-use-the-r-sqldf-function"><span class="header-section-number">32.3</span> How to use the R sqldf() function</h2>
+<section id="note-for-r-users-how-to-use-the-r-sqldf-function" class="level2" data-number="32.3">
+<h2 data-number="32.3" class="anchored" data-anchor-id="note-for-r-users-how-to-use-the-r-sqldf-function"><span class="header-section-number">32.3</span> Note for R users: How to use the R sqldf() function</h2>
 <p>The sqldf function accepts a single argument that is expected to be a SQL SELECT command - e.g.&nbsp;<code>sqldf( SOME_SQL_COMMAND )</code>.<br>
 The table names in the SELECT command are expected to be R dataframes.</p>
 <p>You can get help with the sqldf package by typing: <code>help(package="sqldf")</code></p>
@@ -1362,8 +1394,8 @@ The table names in the SELECT command are expected to be R dataframes.</p>
 </div>
 </div>
 </section>
-<section id="capturing-the-output-of-sqldf-in-an-r-variable" class="level2" data-number="32.6">
-<h2 data-number="32.6" class="anchored" data-anchor-id="capturing-the-output-of-sqldf-in-an-r-variable"><span class="header-section-number">32.6</span> capturing the output of sqldf in an R variable</h2>
+<section id="note-for-r-users-capturing-the-output-of-sqldf-in-an-r-variable" class="level2" data-number="32.6">
+<h2 data-number="32.6" class="anchored" data-anchor-id="note-for-r-users-capturing-the-output-of-sqldf-in-an-r-variable"><span class="header-section-number">32.6</span> Note for R users: capturing the output of sqldf in an R variable</h2>
 <p>In R, when using the sqldf function, you can capture the output of sqldf in another variable. This simply creates a new R dataframe (which in sqldf is analogous to a database table).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Capture the output of the sql command in a new dataframe</span></span>
@@ -1415,8 +1447,8 @@ The table names in the SELECT command are expected to be R dataframes.</p>
 <p>Remember though that the actual sqldf() function in R is NOT technically part of the SQL language. It is simply how we can use SQL commands to manipulate R dataframes.</p>
 <p>In a relational database there usually is some way to capture the output of a select statement in a different table however, the actual mechanism is not standard. MANY sql database software products use the “into” clause of the select statement to do so. That is not the case for SQLite (the version of SQL that we are using). The bottom line is that the exact technique of storing the output of a SELECT statement in a new table is different from SQL product to SQL product.</p>
 </section>
-<section id="a-note-about-case-sensitivity-in-sqldf" class="level2" data-number="32.7">
-<h2 data-number="32.7" class="anchored" data-anchor-id="a-note-about-case-sensitivity-in-sqldf"><span class="header-section-number">32.7</span> A note about case-sensitivity in sqldf()</h2>
+<section id="note-for-r-users-a-note-about-case-sensitivity-in-sqldf" class="level2" data-number="32.7">
+<h2 data-number="32.7" class="anchored" data-anchor-id="note-for-r-users-a-note-about-case-sensitivity-in-sqldf"><span class="header-section-number">32.7</span> Note for R users: A note about case-sensitivity in sqldf()</h2>
 <p>As mentioned above, sqldf is case-INsensitive regarding parts of the command OTHER THAN the table names (i.e.&nbsp;the dataframe names). To demonstrate, the following will produce the same results as the command above.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same results as above</span></span>
@@ -3172,8 +3204,8 @@ click here for answer
 </div>
 </div>
 </section>
-<section id="reminder---how-na-works-in-r" class="level2" data-number="32.19">
-<h2 data-number="32.19" class="anchored" data-anchor-id="reminder---how-na-works-in-r"><span class="header-section-number">32.19</span> Reminder - how NA works in R</h2>
+<section id="note-for-r-users-reminder---how-na-works-in-r" class="level2" data-number="32.19">
+<h2 data-number="32.19" class="anchored" data-anchor-id="note-for-r-users-reminder---how-na-works-in-r"><span class="header-section-number">32.19</span> Note for R users: Reminder - how NA works in R</h2>
 <p><strong>NOTE</strong>:</p>
 <ul>
 <li>“IDS1020-Intro to IDS” students can ignore this section.</li>

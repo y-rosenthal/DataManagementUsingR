@@ -2443,9 +2443,6 @@ Click for answer
 <p>Modify the previous query to only list those publishers who have at least ten thousand dollars in total revenue.</p>
 <p>Using the data shown above, the output should be:</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Ignoring remaining part of query: having sum(sales * price) &gt;= 10000;</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name Total Revenue
 1    Abatis Publishers       1917871
@@ -2467,12 +2464,12 @@ Click for answer
 <div id="callout-35" class="callout-35-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, sum(sales * price) as 'Total Revenue'</span></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from titles join publishers on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name    ;</span></span>
-<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a><span class="st">        having sum(sales * price) &gt;= 10000;</span></span>
-<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, sum(sales * price) as 'Total Revenue'</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from titles join publishers on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name    </span></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="st">        having sum(sales * price) &gt;= 10000;</span></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2517,12 +2514,12 @@ Click for answer
 <div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select title_name, au_fname, au_lname, advance</span></span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
-<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
-<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id;</span></span>
-<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select title_name, au_fname, au_lname, advance</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id;</span></span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2567,11 +2564,11 @@ Click for answer
 <div id="callout-37" class="callout-37-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select title_name, au_fname, au_lname, royalty_rate * royalty_rate * sales * price as  'Total Royalties for Author'</span></span>
-<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
-<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
-<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id;       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select title_name, au_fname, au_lname, royalty_rate * royalty_rate * sales * price as  'Total Royalties for Author'</span></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id;       "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2605,14 +2602,14 @@ Click for answer
 <div id="callout-38" class="callout-38-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select au_fname, au_lname, sum(royalty_rate * royalty_rate * sales * price)  as  'Total Royalties for Author'</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
-<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
-<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id</span></span>
-<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="st">        order by sum(royalty_rate * royalty_rate * sales * price)  desc;</span></span>
-<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select au_fname, au_lname, sum(royalty_rate * royalty_rate * sales * price)  as  'Total Royalties for Author'</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id</span></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a><span class="st">        order by sum(royalty_rate * royalty_rate * sales * price)  desc;</span></span>
+<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2642,15 +2639,15 @@ Click for answer
 <div id="callout-39" class="callout-39-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select au_fname, au_lname, sum(royalty_rate * royalty_rate * sales * price)  as  'Total Royalties for Author'</span></span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id</span></span>
-<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a><span class="st">        having sum(royalty_rate * royalty_rate * sales * price) &gt; 50000</span></span>
-<span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a><span class="st">        order by sum(royalty_rate * royalty_rate * sales * price)  desc;</span></span>
-<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select au_fname, au_lname, sum(royalty_rate * royalty_rate * sales * price)  as  'Total Royalties for Author'</span></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join royalties on royalties.title_id = titles.title_id</span></span>
+<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a><span class="st">        having sum(royalty_rate * royalty_rate * sales * price) &gt; 50000</span></span>
+<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a><span class="st">        order by sum(royalty_rate * royalty_rate * sales * price)  desc;</span></span>
+<span id="cb87-9"><a href="#cb87-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2689,11 +2686,11 @@ Click for answer
 <div id="callout-40" class="callout-40-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select title_name , pages</span></span>
-<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from titles</span></span>
-<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="st">    where pages &gt;= (select avg(pages) from titles);</span></span>
-<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select title_name , pages</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from titles</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a><span class="st">    where pages &gt;= (select avg(pages) from titles);</span></span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2721,13 +2718,13 @@ Click for answer
 <div id="callout-41" class="callout-41-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, count(DISTINCT authors.au_id) as '# of authors'</span></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
-<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
-<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join publishers on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a><span class="st">        group by pub_id, pub_name;</span></span>
-<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, count(DISTINCT authors.au_id) as '# of authors'</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="st">                              join publishers on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="st">        group by pub_id, pub_name;</span></span>
+<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: ambiguous column name: pub_id</code></pre>
 </div>
@@ -2759,16 +2756,16 @@ Click for answer
 <div id="callout-42" class="callout-42-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name, count(*) as 'Number of Titles'</span></span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from publishers as pub1 join titles on pub1.pub_id = titles.pub_id</span></span>
-<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="st">    group by pub1.pub_id, pub_name</span></span>
-<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="st">    having   5 &lt;= ( select count(DISTINCT authors.au_id)</span></span>
-<span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
-<span id="cb95-7"><a href="#cb95-7" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
-<span id="cb95-8"><a href="#cb95-8" aria-hidden="true" tabindex="-1"></a><span class="st">                              join publishers as pub2 on pub2.pub_id = titles.pub_id</span></span>
-<span id="cb95-9"><a href="#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="st">        where pub2.pub_id = pub1.pub_id ) ;</span></span>
-<span id="cb95-10"><a href="#cb95-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name, count(*) as 'Number of Titles'</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from publishers as pub1 join titles on pub1.pub_id = titles.pub_id</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="st">    group by pub1.pub_id, pub_name</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a><span class="st">    having   5 &lt;= ( select count(DISTINCT authors.au_id)</span></span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id </span></span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a><span class="st">                              join titles on title_authors.title_id = titles.title_id </span></span>
+<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a><span class="st">                              join publishers as pub2 on pub2.pub_id = titles.pub_id</span></span>
+<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a><span class="st">        where pub2.pub_id = pub1.pub_id ) ;</span></span>
+<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2798,14 +2795,14 @@ Click for answer
 <div class="callout-body-container callout-body">
 <p><strong>ANSWER – with a subquery</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name </span></span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from publishers  as   pub1</span></span>
-<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="st">    where not exists</span></span>
-<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a><span class="st">        ( select * </span></span>
-<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers  as pub2  join titles on pub2.pub_id = titles.pub_id</span></span>
-<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a><span class="st">        where pub2.pub_id = pub1.pub_id )</span></span>
-<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name </span></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from publishers  as   pub1</span></span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="st">    where not exists</span></span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="st">        ( select * </span></span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers  as pub2  join titles on pub2.pub_id = titles.pub_id</span></span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a><span class="st">        where pub2.pub_id = pub1.pub_id )</span></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           pub_name
 1 Tneterhooks Press</code></pre>
@@ -2815,10 +2812,10 @@ Click for answer
 <h5 class="anchored" data-anchor-id="click-for-answer-37">Click for answer</h5>
 <p><strong>ANSWER – with a left join</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name from publishers left join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="st">    where title_id is NULL</span></span>
-<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name from publishers left join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="st">    where title_id is NULL</span></span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           pub_name
 1 Tneterhooks Press</code></pre>
@@ -2858,12 +2855,12 @@ Click for answer
 <div id="callout-44" class="callout-44-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, count(*)</span></span>
-<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from titles join publishers on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="st">        group by pub_name</span></span>
-<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a><span class="st">        order by count(*) desc, pub_name;</span></span>
-<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, count(*)</span></span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from titles join publishers on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="st">        group by pub_name</span></span>
+<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a><span class="st">        order by count(*) desc, pub_name;</span></span>
+<span id="cb101-6"><a href="#cb101-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2896,12 +2893,12 @@ Click for answer
 <div class="callout-body-container callout-body">
 <p><strong>ANSWER - with a left join</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, count(titles.title_id)</span></span>
-<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers left join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="st">        group by pub_name</span></span>
-<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="st">        order by count(*) desc, pub_name;</span></span>
-<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="st">        select pub_name, count(titles.title_id)</span></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers left join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="st">        group by pub_name</span></span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="st">        order by count(*) desc, pub_name;</span></span>
+<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name count(titles.title_id)
 1    Abatis Publishers                      6
@@ -2913,17 +2910,17 @@ Click for answer
 </div>
 <p><strong>ANSWER – with a UNION</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name , 0  as  NumTitles</span></span>
-<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from publishers left join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="st">    where title_id is NULL </span></span>
-<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a><span class="st">UNION</span></span>
-<span id="cb106-7"><a href="#cb106-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb106-8"><a href="#cb106-8" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name, count(*) as NumTitles</span></span>
-<span id="cb106-9"><a href="#cb106-9" aria-hidden="true" tabindex="-1"></a><span class="st">    from titles join publishers on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb106-10"><a href="#cb106-10" aria-hidden="true" tabindex="-1"></a><span class="st">    group by pub_name;</span></span>
-<span id="cb106-11"><a href="#cb106-11" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name , 0  as  NumTitles</span></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="st">    from publishers left join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="st">    where title_id is NULL </span></span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-6"><a href="#cb105-6" aria-hidden="true" tabindex="-1"></a><span class="st">UNION</span></span>
+<span id="cb105-7"><a href="#cb105-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-8"><a href="#cb105-8" aria-hidden="true" tabindex="-1"></a><span class="st">    select pub_name, count(*) as NumTitles</span></span>
+<span id="cb105-9"><a href="#cb105-9" aria-hidden="true" tabindex="-1"></a><span class="st">    from titles join publishers on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb105-10"><a href="#cb105-10" aria-hidden="true" tabindex="-1"></a><span class="st">    group by pub_name;</span></span>
+<span id="cb105-11"><a href="#cb105-11" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name NumTitles
 1       AAA Publishing         3
@@ -2966,13 +2963,13 @@ Click for answer
 <div id="callout-46" class="callout-46-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="st">select distinct au_fname, au_lname, pub_name, authors.state, publishers.state</span></span>
-<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="st">             join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="st">where authors.state = publishers.state</span></span>
-<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="st">select distinct au_fname, au_lname, pub_name, authors.state, publishers.state</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="st">             join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="st">where authors.state = publishers.state</span></span>
+<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -3003,13 +3000,13 @@ Click for answer
 <div id="callout-47" class="callout-47-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="st">select title_name, price * 3.3 as 'price in NIS', price as 'price in USD', type</span></span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="st">from titles</span></span>
-<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a><span class="st">where type = 'biography' and</span></span>
-<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a><span class="st">      price &gt;= 10 and price &lt;= 20</span></span>
-<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a><span class="st">order by price desc</span></span>
-<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="st">select title_name, price * 3.3 as 'price in NIS', price as 'price in USD', type</span></span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="st">from titles</span></span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a><span class="st">where type = 'biography' and</span></span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a><span class="st">      price &gt;= 10 and price &lt;= 20</span></span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="st">order by price desc</span></span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -3040,23 +3037,23 @@ Click for answer
 <div id="callout-48" class="callout-48-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="st">select title_name, price, pages</span></span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="st">from titles</span></span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="st">where price &gt; (select avg(price) from titles) and</span></span>
-<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a><span class="st">      pages &lt; (select avg(pages) from titles)</span></span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="st">select title_name, price, pages</span></span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="st">from titles</span></span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="st">where price &gt; (select avg(price) from titles) and</span></span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a><span class="st">      pages &lt; (select avg(pages) from titles)</span></span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The answer above uses the following two “non-correlated” subqueries. It might help your understanding of the answer above to see the output of the subqueries when they are run by themselves.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The average price of all books</span></span>
-<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(price) from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The average price of all books</span></span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(price) from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  avg(price)
 1    18.3875</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The average number of pages of all books</span></span>
-<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(pages) from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The average number of pages of all books</span></span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(pages) from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  avg(pages)
 1   425.5833</code></pre>
@@ -3089,11 +3086,11 @@ Click for answer
 <div id="callout-49" class="callout-49-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname, au_lname</span></span>
-<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors left join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a><span class="st">where title_authors.au_id is null</span></span>
-<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname, au_lname</span></span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors left join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="st">where title_authors.au_id is null</span></span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -3128,12 +3125,12 @@ Click for answer
 <div id="callout-50" class="callout-50-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname, au_lname, count(*)</span></span>
-<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by au_fname, au_lname</span></span>
-<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="st">having count(*) &gt;= 2</span></span>
-<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname, au_lname, count(*)</span></span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb120-4"><a href="#cb120-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by au_fname, au_lname</span></span>
+<span id="cb120-5"><a href="#cb120-5" aria-hidden="true" tabindex="-1"></a><span class="st">having count(*) &gt;= 2</span></span>
+<span id="cb120-6"><a href="#cb120-6" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -3162,14 +3159,14 @@ Click for answer
 <div id="callout-51" class="callout-51-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname, au_lname, count(*)</span></span>
-<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a><span class="st">where type = 'biography'</span></span>
-<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a><span class="st">group by au_fname, au_lname</span></span>
-<span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a><span class="st">having count(*) &gt;= 2</span></span>
-<span id="cb123-8"><a href="#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname, au_lname, count(*)</span></span>
+<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="st">where type = 'biography'</span></span>
+<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a><span class="st">group by au_fname, au_lname</span></span>
+<span id="cb122-7"><a href="#cb122-7" aria-hidden="true" tabindex="-1"></a><span class="st">having count(*) &gt;= 2</span></span>
+<span id="cb122-8"><a href="#cb122-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -3201,28 +3198,28 @@ Click for answer - using subqueries in WHERE
 <div id="callout-52" class="callout-52-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname, title_name</span></span>
-<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="st">             join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb125-6"><a href="#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="st">where authors.au_id in </span></span>
-<span id="cb125-7"><a href="#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="st">         (</span></span>
-<span id="cb125-8"><a href="#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="st">           select authors.au_id </span></span>
-<span id="cb125-9"><a href="#cb125-9" aria-hidden="true" tabindex="-1"></a><span class="st">           from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb125-10"><a href="#cb125-10" aria-hidden="true" tabindex="-1"></a><span class="st">                        join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb125-11"><a href="#cb125-11" aria-hidden="true" tabindex="-1"></a><span class="st">           group by authors.au_id </span></span>
-<span id="cb125-12"><a href="#cb125-12" aria-hidden="true" tabindex="-1"></a><span class="st">           having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb125-13"><a href="#cb125-13" aria-hidden="true" tabindex="-1"></a><span class="st">         )</span></span>
-<span id="cb125-14"><a href="#cb125-14" aria-hidden="true" tabindex="-1"></a><span class="st">      and publishers.pub_id in</span></span>
-<span id="cb125-15"><a href="#cb125-15" aria-hidden="true" tabindex="-1"></a><span class="st">         (</span></span>
-<span id="cb125-16"><a href="#cb125-16" aria-hidden="true" tabindex="-1"></a><span class="st">           select publishers.pub_id </span></span>
-<span id="cb125-17"><a href="#cb125-17" aria-hidden="true" tabindex="-1"></a><span class="st">           from titles join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb125-18"><a href="#cb125-18" aria-hidden="true" tabindex="-1"></a><span class="st">           group by publishers.pub_id</span></span>
-<span id="cb125-19"><a href="#cb125-19" aria-hidden="true" tabindex="-1"></a><span class="st">           having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb125-20"><a href="#cb125-20" aria-hidden="true" tabindex="-1"></a><span class="st">         )</span></span>
-<span id="cb125-21"><a href="#cb125-21" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
-<span id="cb125-22"><a href="#cb125-22" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname, title_name</span></span>
+<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a><span class="st">             join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a><span class="st">where authors.au_id in </span></span>
+<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a><span class="st">         (</span></span>
+<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a><span class="st">           select authors.au_id </span></span>
+<span id="cb124-9"><a href="#cb124-9" aria-hidden="true" tabindex="-1"></a><span class="st">           from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb124-10"><a href="#cb124-10" aria-hidden="true" tabindex="-1"></a><span class="st">                        join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb124-11"><a href="#cb124-11" aria-hidden="true" tabindex="-1"></a><span class="st">           group by authors.au_id </span></span>
+<span id="cb124-12"><a href="#cb124-12" aria-hidden="true" tabindex="-1"></a><span class="st">           having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb124-13"><a href="#cb124-13" aria-hidden="true" tabindex="-1"></a><span class="st">         )</span></span>
+<span id="cb124-14"><a href="#cb124-14" aria-hidden="true" tabindex="-1"></a><span class="st">      and publishers.pub_id in</span></span>
+<span id="cb124-15"><a href="#cb124-15" aria-hidden="true" tabindex="-1"></a><span class="st">         (</span></span>
+<span id="cb124-16"><a href="#cb124-16" aria-hidden="true" tabindex="-1"></a><span class="st">           select publishers.pub_id </span></span>
+<span id="cb124-17"><a href="#cb124-17" aria-hidden="true" tabindex="-1"></a><span class="st">           from titles join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb124-18"><a href="#cb124-18" aria-hidden="true" tabindex="-1"></a><span class="st">           group by publishers.pub_id</span></span>
+<span id="cb124-19"><a href="#cb124-19" aria-hidden="true" tabindex="-1"></a><span class="st">           having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb124-20"><a href="#cb124-20" aria-hidden="true" tabindex="-1"></a><span class="st">         )</span></span>
+<span id="cb124-21"><a href="#cb124-21" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
+<span id="cb124-22"><a href="#cb124-22" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name  au_fname  au_lname                          title_name
 1      Core Dump Books Christian     Kells        Ask Yor System Administrator
@@ -3247,31 +3244,31 @@ Click for answer - using subqueries in FROM
 <div id="callout-53" class="callout-53-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname, title_name</span></span>
-<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="st">from    (</span></span>
-<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="st">          select authors.*</span></span>
-<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a><span class="st">                       join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb127-7"><a href="#cb127-7" aria-hidden="true" tabindex="-1"></a><span class="st">          group by authors.au_id </span></span>
-<span id="cb127-8"><a href="#cb127-8" aria-hidden="true" tabindex="-1"></a><span class="st">          having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb127-9"><a href="#cb127-9" aria-hidden="true" tabindex="-1"></a><span class="st">        ) as highEndAuthors </span></span>
-<span id="cb127-10"><a href="#cb127-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-11"><a href="#cb127-11" aria-hidden="true" tabindex="-1"></a><span class="st">      join title_authors on highEndAuthors.au_id = title_authors.au_id</span></span>
-<span id="cb127-12"><a href="#cb127-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-13"><a href="#cb127-13" aria-hidden="true" tabindex="-1"></a><span class="st">      join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb127-14"><a href="#cb127-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-15"><a href="#cb127-15" aria-hidden="true" tabindex="-1"></a><span class="st">      join </span></span>
-<span id="cb127-16"><a href="#cb127-16" aria-hidden="true" tabindex="-1"></a><span class="st">        (</span></span>
-<span id="cb127-17"><a href="#cb127-17" aria-hidden="true" tabindex="-1"></a><span class="st">          select publishers.*</span></span>
-<span id="cb127-18"><a href="#cb127-18" aria-hidden="true" tabindex="-1"></a><span class="st">          from titles join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb127-19"><a href="#cb127-19" aria-hidden="true" tabindex="-1"></a><span class="st">          group by publishers.pub_id</span></span>
-<span id="cb127-20"><a href="#cb127-20" aria-hidden="true" tabindex="-1"></a><span class="st">          having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb127-21"><a href="#cb127-21" aria-hidden="true" tabindex="-1"></a><span class="st">        )</span></span>
-<span id="cb127-22"><a href="#cb127-22" aria-hidden="true" tabindex="-1"></a><span class="st">      as highEndPublishers on titles.pub_id = highEndPublishers.pub_id</span></span>
-<span id="cb127-23"><a href="#cb127-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-24"><a href="#cb127-24" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
-<span id="cb127-25"><a href="#cb127-25" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname, title_name</span></span>
+<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="st">from    (</span></span>
+<span id="cb126-4"><a href="#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="st">          select authors.*</span></span>
+<span id="cb126-5"><a href="#cb126-5" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb126-6"><a href="#cb126-6" aria-hidden="true" tabindex="-1"></a><span class="st">                       join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb126-7"><a href="#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="st">          group by authors.au_id </span></span>
+<span id="cb126-8"><a href="#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="st">          having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb126-9"><a href="#cb126-9" aria-hidden="true" tabindex="-1"></a><span class="st">        ) as highEndAuthors </span></span>
+<span id="cb126-10"><a href="#cb126-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-11"><a href="#cb126-11" aria-hidden="true" tabindex="-1"></a><span class="st">      join title_authors on highEndAuthors.au_id = title_authors.au_id</span></span>
+<span id="cb126-12"><a href="#cb126-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-13"><a href="#cb126-13" aria-hidden="true" tabindex="-1"></a><span class="st">      join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb126-14"><a href="#cb126-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-15"><a href="#cb126-15" aria-hidden="true" tabindex="-1"></a><span class="st">      join </span></span>
+<span id="cb126-16"><a href="#cb126-16" aria-hidden="true" tabindex="-1"></a><span class="st">        (</span></span>
+<span id="cb126-17"><a href="#cb126-17" aria-hidden="true" tabindex="-1"></a><span class="st">          select publishers.*</span></span>
+<span id="cb126-18"><a href="#cb126-18" aria-hidden="true" tabindex="-1"></a><span class="st">          from titles join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb126-19"><a href="#cb126-19" aria-hidden="true" tabindex="-1"></a><span class="st">          group by publishers.pub_id</span></span>
+<span id="cb126-20"><a href="#cb126-20" aria-hidden="true" tabindex="-1"></a><span class="st">          having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb126-21"><a href="#cb126-21" aria-hidden="true" tabindex="-1"></a><span class="st">        )</span></span>
+<span id="cb126-22"><a href="#cb126-22" aria-hidden="true" tabindex="-1"></a><span class="st">      as highEndPublishers on titles.pub_id = highEndPublishers.pub_id</span></span>
+<span id="cb126-23"><a href="#cb126-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-24"><a href="#cb126-24" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
+<span id="cb126-25"><a href="#cb126-25" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name  au_fname  au_lname                          title_name
 1      Core Dump Books Christian     Kells        Ask Yor System Administrator
@@ -3297,31 +3294,31 @@ Click for answer - using Common Table Expressions (CTE)
 <div class="callout-body-container callout-body">
 <p>You can modify either of the previous queries to use CTE instead of subqueries. The following modifies the previous query.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="st">with </span></span>
-<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndAuthors as </span></span>
-<span id="cb129-4"><a href="#cb129-4" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
-<span id="cb129-5"><a href="#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="st">    select authors.*</span></span>
-<span id="cb129-6"><a href="#cb129-6" aria-hidden="true" tabindex="-1"></a><span class="st">    from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb129-7"><a href="#cb129-7" aria-hidden="true" tabindex="-1"></a><span class="st">                 join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb129-8"><a href="#cb129-8" aria-hidden="true" tabindex="-1"></a><span class="st">    group by authors.au_id </span></span>
-<span id="cb129-9"><a href="#cb129-9" aria-hidden="true" tabindex="-1"></a><span class="st">    having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb129-10"><a href="#cb129-10" aria-hidden="true" tabindex="-1"></a><span class="st">  ),</span></span>
-<span id="cb129-11"><a href="#cb129-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-12"><a href="#cb129-12" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndPublishers as </span></span>
-<span id="cb129-13"><a href="#cb129-13" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
-<span id="cb129-14"><a href="#cb129-14" aria-hidden="true" tabindex="-1"></a><span class="st">    select publishers.*</span></span>
-<span id="cb129-15"><a href="#cb129-15" aria-hidden="true" tabindex="-1"></a><span class="st">    from titles join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb129-16"><a href="#cb129-16" aria-hidden="true" tabindex="-1"></a><span class="st">    group by publishers.pub_id</span></span>
-<span id="cb129-17"><a href="#cb129-17" aria-hidden="true" tabindex="-1"></a><span class="st">    having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb129-18"><a href="#cb129-18" aria-hidden="true" tabindex="-1"></a><span class="st">  )</span></span>
-<span id="cb129-19"><a href="#cb129-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb129-20"><a href="#cb129-20" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname, title_name</span></span>
-<span id="cb129-21"><a href="#cb129-21" aria-hidden="true" tabindex="-1"></a><span class="st">from highEndAuthors join title_authors on highEndAuthors.au_id = title_authors.au_id</span></span>
-<span id="cb129-22"><a href="#cb129-22" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb129-23"><a href="#cb129-23" aria-hidden="true" tabindex="-1"></a><span class="st">             join highEndPublishers on titles.pub_id = highEndPublishers.pub_id</span></span>
-<span id="cb129-24"><a href="#cb129-24" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
-<span id="cb129-25"><a href="#cb129-25" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="st">with </span></span>
+<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndAuthors as </span></span>
+<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
+<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="st">    select authors.*</span></span>
+<span id="cb128-6"><a href="#cb128-6" aria-hidden="true" tabindex="-1"></a><span class="st">    from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb128-7"><a href="#cb128-7" aria-hidden="true" tabindex="-1"></a><span class="st">                 join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb128-8"><a href="#cb128-8" aria-hidden="true" tabindex="-1"></a><span class="st">    group by authors.au_id </span></span>
+<span id="cb128-9"><a href="#cb128-9" aria-hidden="true" tabindex="-1"></a><span class="st">    having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb128-10"><a href="#cb128-10" aria-hidden="true" tabindex="-1"></a><span class="st">  ),</span></span>
+<span id="cb128-11"><a href="#cb128-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-12"><a href="#cb128-12" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndPublishers as </span></span>
+<span id="cb128-13"><a href="#cb128-13" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
+<span id="cb128-14"><a href="#cb128-14" aria-hidden="true" tabindex="-1"></a><span class="st">    select publishers.*</span></span>
+<span id="cb128-15"><a href="#cb128-15" aria-hidden="true" tabindex="-1"></a><span class="st">    from titles join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb128-16"><a href="#cb128-16" aria-hidden="true" tabindex="-1"></a><span class="st">    group by publishers.pub_id</span></span>
+<span id="cb128-17"><a href="#cb128-17" aria-hidden="true" tabindex="-1"></a><span class="st">    having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb128-18"><a href="#cb128-18" aria-hidden="true" tabindex="-1"></a><span class="st">  )</span></span>
+<span id="cb128-19"><a href="#cb128-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-20"><a href="#cb128-20" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname, title_name</span></span>
+<span id="cb128-21"><a href="#cb128-21" aria-hidden="true" tabindex="-1"></a><span class="st">from highEndAuthors join title_authors on highEndAuthors.au_id = title_authors.au_id</span></span>
+<span id="cb128-22"><a href="#cb128-22" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb128-23"><a href="#cb128-23" aria-hidden="true" tabindex="-1"></a><span class="st">             join highEndPublishers on titles.pub_id = highEndPublishers.pub_id</span></span>
+<span id="cb128-24"><a href="#cb128-24" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
+<span id="cb128-25"><a href="#cb128-25" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name  au_fname  au_lname                          title_name
 1      Core Dump Books Christian     Kells        Ask Yor System Administrator
@@ -3351,21 +3348,21 @@ Click for answer - Method 1: Using EXCEPT
 <div id="callout-55" class="callout-55-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="st">-- All existing and non-existing publisher/author relationships</span></span>
-<span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_name, authors.au_fname, authors.au_lname </span></span>
-<span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers</span></span>
-<span id="cb131-5"><a href="#cb131-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb131-6"><a href="#cb131-6" aria-hidden="true" tabindex="-1"></a><span class="st">EXCEPT</span></span>
-<span id="cb131-7"><a href="#cb131-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb131-8"><a href="#cb131-8" aria-hidden="true" tabindex="-1"></a><span class="st">-- Only the existing publisher/author relationships</span></span>
-<span id="cb131-9"><a href="#cb131-9" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_name, authors.au_fname, authors.au_lname </span></span>
-<span id="cb131-10"><a href="#cb131-10" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors JOIN title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb131-11"><a href="#cb131-11" aria-hidden="true" tabindex="-1"></a><span class="st">             JOIN titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb131-12"><a href="#cb131-12" aria-hidden="true" tabindex="-1"></a><span class="st">             JOIN publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb131-13"><a href="#cb131-13" aria-hidden="true" tabindex="-1"></a><span class="st"> </span></span>
-<span id="cb131-14"><a href="#cb131-14" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname</span></span>
-<span id="cb131-15"><a href="#cb131-15" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="st">-- All existing and non-existing publisher/author relationships</span></span>
+<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_name, authors.au_fname, authors.au_lname </span></span>
+<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers</span></span>
+<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a><span class="st">EXCEPT</span></span>
+<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a><span class="st">-- Only the existing publisher/author relationships</span></span>
+<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_name, authors.au_fname, authors.au_lname </span></span>
+<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors JOIN title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a><span class="st">             JOIN titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a><span class="st">             JOIN publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb130-13"><a href="#cb130-13" aria-hidden="true" tabindex="-1"></a><span class="st"> </span></span>
+<span id="cb130-14"><a href="#cb130-14" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname</span></span>
+<span id="cb130-15"><a href="#cb130-15" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               pub_name  au_fname    au_lname
 1        AAA Publishing     Sarah     Buchman
@@ -3408,19 +3405,19 @@ Click for answer - Method 2: Using LEFT JOIN
 <div id="callout-56" class="callout-56-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_id, pub_name, authors.au_id, au_fname, au_lname</span></span>
-<span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers</span></span>
-<span id="cb133-4"><a href="#cb133-4" aria-hidden="true" tabindex="-1"></a><span class="st">             LEFT JOIN (</span></span>
-<span id="cb133-5"><a href="#cb133-5" aria-hidden="true" tabindex="-1"></a><span class="st">                SELECT DISTINCT title_authors.au_id, titles.pub_id</span></span>
-<span id="cb133-6"><a href="#cb133-6" aria-hidden="true" tabindex="-1"></a><span class="st">                FROM title_authors JOIN titles </span></span>
-<span id="cb133-7"><a href="#cb133-7" aria-hidden="true" tabindex="-1"></a><span class="st">                                   ON title_authors.title_id = titles.title_id</span></span>
-<span id="cb133-8"><a href="#cb133-8" aria-hidden="true" tabindex="-1"></a><span class="st">             ) AS author_publisher </span></span>
-<span id="cb133-9"><a href="#cb133-9" aria-hidden="true" tabindex="-1"></a><span class="st">               ON authors.au_id = author_publisher.au_id AND </span></span>
-<span id="cb133-10"><a href="#cb133-10" aria-hidden="true" tabindex="-1"></a><span class="st">                  publishers.pub_id = author_publisher.pub_id</span></span>
-<span id="cb133-11"><a href="#cb133-11" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE author_publisher.au_id IS NULL</span></span>
-<span id="cb133-12"><a href="#cb133-12" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
-<span id="cb133-13"><a href="#cb133-13" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_id, pub_name, authors.au_id, au_fname, au_lname</span></span>
+<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers</span></span>
+<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="st">             LEFT JOIN (</span></span>
+<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="st">                SELECT DISTINCT title_authors.au_id, titles.pub_id</span></span>
+<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="st">                FROM title_authors JOIN titles </span></span>
+<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a><span class="st">                                   ON title_authors.title_id = titles.title_id</span></span>
+<span id="cb132-8"><a href="#cb132-8" aria-hidden="true" tabindex="-1"></a><span class="st">             ) AS author_publisher </span></span>
+<span id="cb132-9"><a href="#cb132-9" aria-hidden="true" tabindex="-1"></a><span class="st">               ON authors.au_id = author_publisher.au_id AND </span></span>
+<span id="cb132-10"><a href="#cb132-10" aria-hidden="true" tabindex="-1"></a><span class="st">                  publishers.pub_id = author_publisher.pub_id</span></span>
+<span id="cb132-11"><a href="#cb132-11" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE author_publisher.au_id IS NULL</span></span>
+<span id="cb132-12"><a href="#cb132-12" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
+<span id="cb132-13"><a href="#cb132-13" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   pub_id             pub_name au_id  au_fname    au_lname
 1     P05       AAA Publishing   A01     Sarah     Buchman
@@ -3463,27 +3460,27 @@ Click for answer - Method 3: Using NOT EXISTS
 <div id="callout-57" class="callout-57-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_id, pub_name, authors.au_id, au_fname, au_lname</span></span>
-<span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers </span></span>
-<span id="cb135-4"><a href="#cb135-4" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE NOT EXISTS (</span></span>
-<span id="cb135-5"><a href="#cb135-5" aria-hidden="true" tabindex="-1"></a><span class="st">    -- NOTE 1 - This is a correlated subquery.</span></span>
-<span id="cb135-6"><a href="#cb135-6" aria-hidden="true" tabindex="-1"></a><span class="st">    --</span></span>
-<span id="cb135-7"><a href="#cb135-7" aria-hidden="true" tabindex="-1"></a><span class="st">    -- NOTE 2 - (unrelated to Note 1) With an EXISTS or NOT EXISTS subquery,</span></span>
-<span id="cb135-8"><a href="#cb135-8" aria-hidden="true" tabindex="-1"></a><span class="st">    -- it doesn't make a difference what data is returned by the subquery. </span></span>
-<span id="cb135-9"><a href="#cb135-9" aria-hidden="true" tabindex="-1"></a><span class="st">    -- As long as ANYTHING is returned the query is considered to 'EXIST'</span></span>
-<span id="cb135-10"><a href="#cb135-10" aria-hidden="true" tabindex="-1"></a><span class="st">    -- Threfore it's more efficient to return as little info as possilble.</span></span>
-<span id="cb135-11"><a href="#cb135-11" aria-hidden="true" tabindex="-1"></a><span class="st">    -- SELECT 1 just returns the number 1 for each row that matches as </span></span>
-<span id="cb135-12"><a href="#cb135-12" aria-hidden="true" tabindex="-1"></a><span class="st">    -- opposed to returning actual data from the tables. The query would</span></span>
-<span id="cb135-13"><a href="#cb135-13" aria-hidden="true" tabindex="-1"></a><span class="st">    -- work in the exact same way if we said SELECT * (or anything else) </span></span>
-<span id="cb135-14"><a href="#cb135-14" aria-hidden="true" tabindex="-1"></a><span class="st">    -- it's just for efficiency that we say SELECT 1.</span></span>
-<span id="cb135-15"><a href="#cb135-15" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT 1 </span></span>
-<span id="cb135-16"><a href="#cb135-16" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM titles JOIN title_authors ON titles.title_id = title_authors.title_id</span></span>
-<span id="cb135-17"><a href="#cb135-17" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE title_authors.au_id = authors.au_id</span></span>
-<span id="cb135-18"><a href="#cb135-18" aria-hidden="true" tabindex="-1"></a><span class="st">    AND titles.pub_id = publishers.pub_id</span></span>
-<span id="cb135-19"><a href="#cb135-19" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
-<span id="cb135-20"><a href="#cb135-20" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
-<span id="cb135-21"><a href="#cb135-21" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_id, pub_name, authors.au_id, au_fname, au_lname</span></span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers </span></span>
+<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE NOT EXISTS (</span></span>
+<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a><span class="st">    -- NOTE 1 - This is a correlated subquery.</span></span>
+<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a><span class="st">    --</span></span>
+<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="st">    -- NOTE 2 - (unrelated to Note 1) With an EXISTS or NOT EXISTS subquery,</span></span>
+<span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a><span class="st">    -- it doesn't make a difference what data is returned by the subquery. </span></span>
+<span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="st">    -- As long as ANYTHING is returned the query is considered to 'EXIST'</span></span>
+<span id="cb134-10"><a href="#cb134-10" aria-hidden="true" tabindex="-1"></a><span class="st">    -- Threfore it's more efficient to return as little info as possilble.</span></span>
+<span id="cb134-11"><a href="#cb134-11" aria-hidden="true" tabindex="-1"></a><span class="st">    -- SELECT 1 just returns the number 1 for each row that matches as </span></span>
+<span id="cb134-12"><a href="#cb134-12" aria-hidden="true" tabindex="-1"></a><span class="st">    -- opposed to returning actual data from the tables. The query would</span></span>
+<span id="cb134-13"><a href="#cb134-13" aria-hidden="true" tabindex="-1"></a><span class="st">    -- work in the exact same way if we said SELECT * (or anything else) </span></span>
+<span id="cb134-14"><a href="#cb134-14" aria-hidden="true" tabindex="-1"></a><span class="st">    -- it's just for efficiency that we say SELECT 1.</span></span>
+<span id="cb134-15"><a href="#cb134-15" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT 1 </span></span>
+<span id="cb134-16"><a href="#cb134-16" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM titles JOIN title_authors ON titles.title_id = title_authors.title_id</span></span>
+<span id="cb134-17"><a href="#cb134-17" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE title_authors.au_id = authors.au_id</span></span>
+<span id="cb134-18"><a href="#cb134-18" aria-hidden="true" tabindex="-1"></a><span class="st">    AND titles.pub_id = publishers.pub_id</span></span>
+<span id="cb134-19"><a href="#cb134-19" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb134-20"><a href="#cb134-20" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
+<span id="cb134-21"><a href="#cb134-21" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   pub_id             pub_name au_id  au_fname    au_lname
 1     P05       AAA Publishing   A01     Sarah     Buchman
@@ -3526,16 +3523,16 @@ Click for answer - Method 4: Using NOT IN
 <div id="callout-58" class="callout-58-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_id, pub_name, authors.au_id, au_fname, au_lname</span></span>
-<span id="cb137-3"><a href="#cb137-3" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers</span></span>
-<span id="cb137-4"><a href="#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE (authors.au_id, publishers.pub_id) NOT IN (</span></span>
-<span id="cb137-5"><a href="#cb137-5" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT title_authors.au_id, titles.pub_id</span></span>
-<span id="cb137-6"><a href="#cb137-6" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM title_authors</span></span>
-<span id="cb137-7"><a href="#cb137-7" aria-hidden="true" tabindex="-1"></a><span class="st">    JOIN titles ON title_authors.title_id = titles.title_id</span></span>
-<span id="cb137-8"><a href="#cb137-8" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
-<span id="cb137-9"><a href="#cb137-9" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
-<span id="cb137-10"><a href="#cb137-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT publishers.pub_id, pub_name, authors.au_id, au_fname, au_lname</span></span>
+<span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="st">FROM authors CROSS JOIN publishers</span></span>
+<span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE (authors.au_id, publishers.pub_id) NOT IN (</span></span>
+<span id="cb136-5"><a href="#cb136-5" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT title_authors.au_id, titles.pub_id</span></span>
+<span id="cb136-6"><a href="#cb136-6" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM title_authors</span></span>
+<span id="cb136-7"><a href="#cb136-7" aria-hidden="true" tabindex="-1"></a><span class="st">    JOIN titles ON title_authors.title_id = titles.title_id</span></span>
+<span id="cb136-8"><a href="#cb136-8" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb136-9"><a href="#cb136-9" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
+<span id="cb136-10"><a href="#cb136-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   pub_id             pub_name au_id  au_fname    au_lname
 1     P05       AAA Publishing   A01     Sarah     Buchman
@@ -3579,29 +3576,29 @@ Click for answer - Method 5: Using Common Table Expressions (CTE)
 <div class="callout-body-container callout-body">
 <p>Any of the previous queries could be reorganized by using Common Table Expressions (CTE). For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH </span></span>
-<span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a><span class="st">all_pairs AS (</span></span>
-<span id="cb139-5"><a href="#cb139-5" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT authors.au_id, au_fname, au_lname, publishers.pub_id, pub_name</span></span>
-<span id="cb139-6"><a href="#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM authors CROSS JOIN publishers</span></span>
-<span id="cb139-7"><a href="#cb139-7" aria-hidden="true" tabindex="-1"></a><span class="st">),</span></span>
-<span id="cb139-8"><a href="#cb139-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-9"><a href="#cb139-9" aria-hidden="true" tabindex="-1"></a><span class="st">existing_pairs AS (</span></span>
-<span id="cb139-10"><a href="#cb139-10" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT DISTINCT title_authors.au_id, titles.pub_id</span></span>
-<span id="cb139-11"><a href="#cb139-11" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM title_authors JOIN titles ON title_authors.title_id = titles.title_id</span></span>
-<span id="cb139-12"><a href="#cb139-12" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
-<span id="cb139-13"><a href="#cb139-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-14"><a href="#cb139-14" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT all_pairs.pub_id,   all_pairs.pub_name, all_pairs.au_id, </span></span>
-<span id="cb139-15"><a href="#cb139-15" aria-hidden="true" tabindex="-1"></a><span class="st">       all_pairs.au_fname, all_pairs.au_lname</span></span>
-<span id="cb139-16"><a href="#cb139-16" aria-hidden="true" tabindex="-1"></a><span class="st">FROM all_pairs</span></span>
-<span id="cb139-17"><a href="#cb139-17" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE NOT EXISTS (</span></span>
-<span id="cb139-18"><a href="#cb139-18" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT 1 FROM existing_pairs</span></span>
-<span id="cb139-19"><a href="#cb139-19" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE existing_pairs.au_id = all_pairs.au_id </span></span>
-<span id="cb139-20"><a href="#cb139-20" aria-hidden="true" tabindex="-1"></a><span class="st">    AND existing_pairs.pub_id = all_pairs.pub_id</span></span>
-<span id="cb139-21"><a href="#cb139-21" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
-<span id="cb139-22"><a href="#cb139-22" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
-<span id="cb139-23"><a href="#cb139-23" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH </span></span>
+<span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-4"><a href="#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="st">all_pairs AS (</span></span>
+<span id="cb138-5"><a href="#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT authors.au_id, au_fname, au_lname, publishers.pub_id, pub_name</span></span>
+<span id="cb138-6"><a href="#cb138-6" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM authors CROSS JOIN publishers</span></span>
+<span id="cb138-7"><a href="#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="st">),</span></span>
+<span id="cb138-8"><a href="#cb138-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-9"><a href="#cb138-9" aria-hidden="true" tabindex="-1"></a><span class="st">existing_pairs AS (</span></span>
+<span id="cb138-10"><a href="#cb138-10" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT DISTINCT title_authors.au_id, titles.pub_id</span></span>
+<span id="cb138-11"><a href="#cb138-11" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM title_authors JOIN titles ON title_authors.title_id = titles.title_id</span></span>
+<span id="cb138-12"><a href="#cb138-12" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb138-13"><a href="#cb138-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-14"><a href="#cb138-14" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT all_pairs.pub_id,   all_pairs.pub_name, all_pairs.au_id, </span></span>
+<span id="cb138-15"><a href="#cb138-15" aria-hidden="true" tabindex="-1"></a><span class="st">       all_pairs.au_fname, all_pairs.au_lname</span></span>
+<span id="cb138-16"><a href="#cb138-16" aria-hidden="true" tabindex="-1"></a><span class="st">FROM all_pairs</span></span>
+<span id="cb138-17"><a href="#cb138-17" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE NOT EXISTS (</span></span>
+<span id="cb138-18"><a href="#cb138-18" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT 1 FROM existing_pairs</span></span>
+<span id="cb138-19"><a href="#cb138-19" aria-hidden="true" tabindex="-1"></a><span class="st">    WHERE existing_pairs.au_id = all_pairs.au_id </span></span>
+<span id="cb138-20"><a href="#cb138-20" aria-hidden="true" tabindex="-1"></a><span class="st">    AND existing_pairs.pub_id = all_pairs.pub_id</span></span>
+<span id="cb138-21"><a href="#cb138-21" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb138-22"><a href="#cb138-22" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY pub_name, au_lname, au_fname;</span></span>
+<span id="cb138-23"><a href="#cb138-23" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   pub_id             pub_name au_id  au_fname    au_lname
 1     P05       AAA Publishing   A01     Sarah     Buchman
@@ -3663,7 +3660,7 @@ Click here for some hints
 <ul>
 <li><p>The average selling price of all books is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(price) from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"select avg(price) from titles"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  avg(price)
 1    18.3875</code></pre>
@@ -3671,12 +3668,12 @@ Click here for some hints
 </div></li>
 <li><p>The average selling price of books by different publishers are: (The rows are sorted in decreasing order by average price.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb144-2"><a href="#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="st">select round(avg(price),2) as 'avg price of publishers books', pub_name</span></span>
-<span id="cb144-3"><a href="#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="st">from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb144-4"><a href="#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by publishers.pub_id, pub_name</span></span>
-<span id="cb144-5"><a href="#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, pub_name</span></span>
-<span id="cb144-6"><a href="#cb144-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb143-2"><a href="#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="st">select round(avg(price),2) as 'avg price of publishers books', pub_name</span></span>
+<span id="cb143-3"><a href="#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="st">from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb143-4"><a href="#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by publishers.pub_id, pub_name</span></span>
+<span id="cb143-5"><a href="#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, pub_name</span></span>
+<span id="cb143-6"><a href="#cb143-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  avg price of publishers books             pub_name
 1                         39.95      Core Dump Books
@@ -3687,13 +3684,13 @@ Click here for some hints
 </div></li>
 <li><p>Therefore the publishers who are potential introduction candidates are those whose avg book price is higher than average, ie.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name</span></span>
-<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="st">from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by publishers.pub_id, pub_name</span></span>
-<span id="cb146-5"><a href="#cb146-5" aria-hidden="true" tabindex="-1"></a><span class="st">having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb146-6"><a href="#cb146-6" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, pub_name</span></span>
-<span id="cb146-7"><a href="#cb146-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name</span></span>
+<span id="cb145-3"><a href="#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="st">from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb145-4"><a href="#cb145-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by publishers.pub_id, pub_name</span></span>
+<span id="cb145-5"><a href="#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="st">having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb145-6"><a href="#cb145-6" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, pub_name</span></span>
+<span id="cb145-7"><a href="#cb145-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name
 1      Core Dump Books
@@ -3702,13 +3699,13 @@ Click here for some hints
 </div></li>
 <li><p>These are the average selling prices of the books for the various authors (The rows are sorted in decreasing order by average price.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="st">select round(avg(price),2) as 'avg price of authors books', au_fname,   au_lname</span></span>
-<span id="cb148-3"><a href="#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
-<span id="cb148-4"><a href="#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb148-5"><a href="#cb148-5" aria-hidden="true" tabindex="-1"></a><span class="st">group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb148-6"><a href="#cb148-6" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, au_lname, au_fname</span></span>
-<span id="cb148-7"><a href="#cb148-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="st">select round(avg(price),2) as 'avg price of authors books', au_fname,   au_lname</span></span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a><span class="st">group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb147-6"><a href="#cb147-6" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, au_lname, au_fname</span></span>
+<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  avg price of authors books  au_fname  au_lname
 1                      39.95 Christian     Kells
@@ -3721,14 +3718,14 @@ Click here for some hints
 </div></li>
 <li><p>Therefore the authors who are potential introduction candidates are those whose avg book price is higher than average, ie.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb150-2"><a href="#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname,   au_lname</span></span>
-<span id="cb150-3"><a href="#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
-<span id="cb150-4"><a href="#cb150-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb150-5"><a href="#cb150-5" aria-hidden="true" tabindex="-1"></a><span class="st">group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb150-6"><a href="#cb150-6" aria-hidden="true" tabindex="-1"></a><span class="st">having avg(price) &gt; (select avg(price) from titles)</span></span>
-<span id="cb150-7"><a href="#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, au_lname, au_fname</span></span>
-<span id="cb150-8"><a href="#cb150-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb149-2"><a href="#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="st">select au_fname,   au_lname</span></span>
+<span id="cb149-3"><a href="#cb149-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
+<span id="cb149-4"><a href="#cb149-4" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb149-5"><a href="#cb149-5" aria-hidden="true" tabindex="-1"></a><span class="st">group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb149-6"><a href="#cb149-6" aria-hidden="true" tabindex="-1"></a><span class="st">having avg(price) &gt; (select avg(price) from titles)</span></span>
+<span id="cb149-7"><a href="#cb149-7" aria-hidden="true" tabindex="-1"></a><span class="st">order by avg(price) desc, au_lname, au_fname</span></span>
+<span id="cb149-8"><a href="#cb149-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   au_fname  au_lname
 1 Christian     Kells
@@ -3754,38 +3751,38 @@ Click for answer - using EXCEPT with subqueries
 <div class="callout-body-container callout-body">
 <p><strong>Answer using EXCEPT with subqueries</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb152-2"><a href="#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="st">-- These are the potential matchups for highEnd authors/publishers</span></span>
-<span id="cb152-3"><a href="#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname</span></span>
-<span id="cb152-4"><a href="#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="st">from (</span></span>
-<span id="cb152-5"><a href="#cb152-5" aria-hidden="true" tabindex="-1"></a><span class="st">        select authors.au_id, au_fname, au_lname</span></span>
-<span id="cb152-6"><a href="#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb152-7"><a href="#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb152-8"><a href="#cb152-8" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb152-9"><a href="#cb152-9" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
-<span id="cb152-10"><a href="#cb152-10" aria-hidden="true" tabindex="-1"></a><span class="st">                 (select avg(price) from titles)</span></span>
-<span id="cb152-11"><a href="#cb152-11" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndAuthors</span></span>
-<span id="cb152-12"><a href="#cb152-12" aria-hidden="true" tabindex="-1"></a><span class="st">     </span></span>
-<span id="cb152-13"><a href="#cb152-13" aria-hidden="true" tabindex="-1"></a><span class="st">     cross join</span></span>
-<span id="cb152-14"><a href="#cb152-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-15"><a href="#cb152-15" aria-hidden="true" tabindex="-1"></a><span class="st">     (</span></span>
-<span id="cb152-16"><a href="#cb152-16" aria-hidden="true" tabindex="-1"></a><span class="st">        select publishers.pub_id, pub_name</span></span>
-<span id="cb152-17"><a href="#cb152-17" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb152-18"><a href="#cb152-18" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name</span></span>
-<span id="cb152-19"><a href="#cb152-19" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
-<span id="cb152-20"><a href="#cb152-20" aria-hidden="true" tabindex="-1"></a><span class="st">                  (select avg(price) from titles)</span></span>
-<span id="cb152-21"><a href="#cb152-21" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndPublishers</span></span>
-<span id="cb152-22"><a href="#cb152-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-23"><a href="#cb152-23" aria-hidden="true" tabindex="-1"></a><span class="st">EXCEPT</span></span>
-<span id="cb152-24"><a href="#cb152-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-25"><a href="#cb152-25" aria-hidden="true" tabindex="-1"></a><span class="st">-- These are the existing publisher/author relationships</span></span>
-<span id="cb152-26"><a href="#cb152-26" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name , au_fname, au_lname</span></span>
-<span id="cb152-27"><a href="#cb152-27" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
-<span id="cb152-28"><a href="#cb152-28" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb152-29"><a href="#cb152-29" aria-hidden="true" tabindex="-1"></a><span class="st">             join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb152-30"><a href="#cb152-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-31"><a href="#cb152-31" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
-<span id="cb152-32"><a href="#cb152-32" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="st">-- These are the potential matchups for highEnd authors/publishers</span></span>
+<span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname</span></span>
+<span id="cb151-4"><a href="#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="st">from (</span></span>
+<span id="cb151-5"><a href="#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="st">        select authors.au_id, au_fname, au_lname</span></span>
+<span id="cb151-6"><a href="#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb151-7"><a href="#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb151-8"><a href="#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb151-9"><a href="#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
+<span id="cb151-10"><a href="#cb151-10" aria-hidden="true" tabindex="-1"></a><span class="st">                 (select avg(price) from titles)</span></span>
+<span id="cb151-11"><a href="#cb151-11" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndAuthors</span></span>
+<span id="cb151-12"><a href="#cb151-12" aria-hidden="true" tabindex="-1"></a><span class="st">     </span></span>
+<span id="cb151-13"><a href="#cb151-13" aria-hidden="true" tabindex="-1"></a><span class="st">     cross join</span></span>
+<span id="cb151-14"><a href="#cb151-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-15"><a href="#cb151-15" aria-hidden="true" tabindex="-1"></a><span class="st">     (</span></span>
+<span id="cb151-16"><a href="#cb151-16" aria-hidden="true" tabindex="-1"></a><span class="st">        select publishers.pub_id, pub_name</span></span>
+<span id="cb151-17"><a href="#cb151-17" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb151-18"><a href="#cb151-18" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name</span></span>
+<span id="cb151-19"><a href="#cb151-19" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
+<span id="cb151-20"><a href="#cb151-20" aria-hidden="true" tabindex="-1"></a><span class="st">                  (select avg(price) from titles)</span></span>
+<span id="cb151-21"><a href="#cb151-21" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndPublishers</span></span>
+<span id="cb151-22"><a href="#cb151-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-23"><a href="#cb151-23" aria-hidden="true" tabindex="-1"></a><span class="st">EXCEPT</span></span>
+<span id="cb151-24"><a href="#cb151-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-25"><a href="#cb151-25" aria-hidden="true" tabindex="-1"></a><span class="st">-- These are the existing publisher/author relationships</span></span>
+<span id="cb151-26"><a href="#cb151-26" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name , au_fname, au_lname</span></span>
+<span id="cb151-27"><a href="#cb151-27" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
+<span id="cb151-28"><a href="#cb151-28" aria-hidden="true" tabindex="-1"></a><span class="st">             join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb151-29"><a href="#cb151-29" aria-hidden="true" tabindex="-1"></a><span class="st">             join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb151-30"><a href="#cb151-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-31"><a href="#cb151-31" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
+<span id="cb151-32"><a href="#cb151-32" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name  au_fname  au_lname
 1      Core Dump Books     Sarah   Buchman
@@ -3832,39 +3829,39 @@ Click for answer - using NOT EXISTS with subqueries
 <div id="callout-63" class="callout-63-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb155-2"><a href="#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname</span></span>
-<span id="cb155-3"><a href="#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="st">from (</span></span>
-<span id="cb155-4"><a href="#cb155-4" aria-hidden="true" tabindex="-1"></a><span class="st">        select authors.au_id, au_fname, au_lname</span></span>
-<span id="cb155-5"><a href="#cb155-5" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb155-6"><a href="#cb155-6" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb155-7"><a href="#cb155-7" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb155-8"><a href="#cb155-8" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
-<span id="cb155-9"><a href="#cb155-9" aria-hidden="true" tabindex="-1"></a><span class="st">                 (select avg(price) from titles)</span></span>
-<span id="cb155-10"><a href="#cb155-10" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndAuthors</span></span>
-<span id="cb155-11"><a href="#cb155-11" aria-hidden="true" tabindex="-1"></a><span class="st">     </span></span>
-<span id="cb155-12"><a href="#cb155-12" aria-hidden="true" tabindex="-1"></a><span class="st">     cross join</span></span>
-<span id="cb155-13"><a href="#cb155-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-14"><a href="#cb155-14" aria-hidden="true" tabindex="-1"></a><span class="st">     (</span></span>
-<span id="cb155-15"><a href="#cb155-15" aria-hidden="true" tabindex="-1"></a><span class="st">        select publishers.pub_id, pub_name</span></span>
-<span id="cb155-16"><a href="#cb155-16" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb155-17"><a href="#cb155-17" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name</span></span>
-<span id="cb155-18"><a href="#cb155-18" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
-<span id="cb155-19"><a href="#cb155-19" aria-hidden="true" tabindex="-1"></a><span class="st">                  (select avg(price) from titles)</span></span>
-<span id="cb155-20"><a href="#cb155-20" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndPublishers</span></span>
-<span id="cb155-21"><a href="#cb155-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-22"><a href="#cb155-22" aria-hidden="true" tabindex="-1"></a><span class="st">where not exists</span></span>
-<span id="cb155-23"><a href="#cb155-23" aria-hidden="true" tabindex="-1"></a><span class="st">     (  -- correlated subquery</span></span>
-<span id="cb155-24"><a href="#cb155-24" aria-hidden="true" tabindex="-1"></a><span class="st">        select 1</span></span>
-<span id="cb155-25"><a href="#cb155-25" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
-<span id="cb155-26"><a href="#cb155-26" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb155-27"><a href="#cb155-27" aria-hidden="true" tabindex="-1"></a><span class="st">                     join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb155-28"><a href="#cb155-28" aria-hidden="true" tabindex="-1"></a><span class="st">        where publishers.pub_id = highEndPublishers.pub_id and</span></span>
-<span id="cb155-29"><a href="#cb155-29" aria-hidden="true" tabindex="-1"></a><span class="st">              authors.au_id = highEndAuthors.au_id</span></span>
-<span id="cb155-30"><a href="#cb155-30" aria-hidden="true" tabindex="-1"></a><span class="st">     )</span></span>
-<span id="cb155-31"><a href="#cb155-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-32"><a href="#cb155-32" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
-<span id="cb155-33"><a href="#cb155-33" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb154-2"><a href="#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname</span></span>
+<span id="cb154-3"><a href="#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="st">from (</span></span>
+<span id="cb154-4"><a href="#cb154-4" aria-hidden="true" tabindex="-1"></a><span class="st">        select authors.au_id, au_fname, au_lname</span></span>
+<span id="cb154-5"><a href="#cb154-5" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb154-6"><a href="#cb154-6" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb154-7"><a href="#cb154-7" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb154-8"><a href="#cb154-8" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
+<span id="cb154-9"><a href="#cb154-9" aria-hidden="true" tabindex="-1"></a><span class="st">                 (select avg(price) from titles)</span></span>
+<span id="cb154-10"><a href="#cb154-10" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndAuthors</span></span>
+<span id="cb154-11"><a href="#cb154-11" aria-hidden="true" tabindex="-1"></a><span class="st">     </span></span>
+<span id="cb154-12"><a href="#cb154-12" aria-hidden="true" tabindex="-1"></a><span class="st">     cross join</span></span>
+<span id="cb154-13"><a href="#cb154-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-14"><a href="#cb154-14" aria-hidden="true" tabindex="-1"></a><span class="st">     (</span></span>
+<span id="cb154-15"><a href="#cb154-15" aria-hidden="true" tabindex="-1"></a><span class="st">        select publishers.pub_id, pub_name</span></span>
+<span id="cb154-16"><a href="#cb154-16" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb154-17"><a href="#cb154-17" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name</span></span>
+<span id="cb154-18"><a href="#cb154-18" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
+<span id="cb154-19"><a href="#cb154-19" aria-hidden="true" tabindex="-1"></a><span class="st">                  (select avg(price) from titles)</span></span>
+<span id="cb154-20"><a href="#cb154-20" aria-hidden="true" tabindex="-1"></a><span class="st">     ) as highEndPublishers</span></span>
+<span id="cb154-21"><a href="#cb154-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-22"><a href="#cb154-22" aria-hidden="true" tabindex="-1"></a><span class="st">where not exists</span></span>
+<span id="cb154-23"><a href="#cb154-23" aria-hidden="true" tabindex="-1"></a><span class="st">     (  -- correlated subquery</span></span>
+<span id="cb154-24"><a href="#cb154-24" aria-hidden="true" tabindex="-1"></a><span class="st">        select 1</span></span>
+<span id="cb154-25"><a href="#cb154-25" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
+<span id="cb154-26"><a href="#cb154-26" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb154-27"><a href="#cb154-27" aria-hidden="true" tabindex="-1"></a><span class="st">                     join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb154-28"><a href="#cb154-28" aria-hidden="true" tabindex="-1"></a><span class="st">        where publishers.pub_id = highEndPublishers.pub_id and</span></span>
+<span id="cb154-29"><a href="#cb154-29" aria-hidden="true" tabindex="-1"></a><span class="st">              authors.au_id = highEndAuthors.au_id</span></span>
+<span id="cb154-30"><a href="#cb154-30" aria-hidden="true" tabindex="-1"></a><span class="st">     )</span></span>
+<span id="cb154-31"><a href="#cb154-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-32"><a href="#cb154-32" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
+<span id="cb154-33"><a href="#cb154-33" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name  au_fname  au_lname
 1      Core Dump Books     Sarah   Buchman
@@ -3888,44 +3885,44 @@ Click for answer - using NOT EXISTS with Common Table Expressions (CTE)**
 <div id="callout-64" class="callout-64-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb157-2"><a href="#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="st">with</span></span>
-<span id="cb157-3"><a href="#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndAuthors as </span></span>
-<span id="cb157-4"><a href="#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
-<span id="cb157-5"><a href="#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="st">        select authors.au_id, au_fname, au_lname</span></span>
-<span id="cb157-6"><a href="#cb157-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb157-7"><a href="#cb157-7" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb157-8"><a href="#cb157-8" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb157-9"><a href="#cb157-9" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
-<span id="cb157-10"><a href="#cb157-10" aria-hidden="true" tabindex="-1"></a><span class="st">                 (select avg(price) from titles)</span></span>
-<span id="cb157-11"><a href="#cb157-11" aria-hidden="true" tabindex="-1"></a><span class="st">  ),</span></span>
-<span id="cb157-12"><a href="#cb157-12" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb157-13"><a href="#cb157-13" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndPublishers as</span></span>
-<span id="cb157-14"><a href="#cb157-14" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
-<span id="cb157-15"><a href="#cb157-15" aria-hidden="true" tabindex="-1"></a><span class="st">        select publishers.pub_id, pub_name</span></span>
-<span id="cb157-16"><a href="#cb157-16" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
-<span id="cb157-17"><a href="#cb157-17" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name</span></span>
-<span id="cb157-18"><a href="#cb157-18" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
-<span id="cb157-19"><a href="#cb157-19" aria-hidden="true" tabindex="-1"></a><span class="st">                  (select avg(price) from titles)</span></span>
-<span id="cb157-20"><a href="#cb157-20" aria-hidden="true" tabindex="-1"></a><span class="st">  ),</span></span>
-<span id="cb157-21"><a href="#cb157-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-22"><a href="#cb157-22" aria-hidden="true" tabindex="-1"></a><span class="st">  existingRelationships as </span></span>
-<span id="cb157-23"><a href="#cb157-23" aria-hidden="true" tabindex="-1"></a><span class="st">     (  -- correlated subquery</span></span>
-<span id="cb157-24"><a href="#cb157-24" aria-hidden="true" tabindex="-1"></a><span class="st">        select 1</span></span>
-<span id="cb157-25"><a href="#cb157-25" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
-<span id="cb157-26"><a href="#cb157-26" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb157-27"><a href="#cb157-27" aria-hidden="true" tabindex="-1"></a><span class="st">                     join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb157-28"><a href="#cb157-28" aria-hidden="true" tabindex="-1"></a><span class="st">        where publishers.pub_id = highEndPublishers.pub_id and</span></span>
-<span id="cb157-29"><a href="#cb157-29" aria-hidden="true" tabindex="-1"></a><span class="st">              authors.au_id = highEndAuthors.au_id</span></span>
-<span id="cb157-30"><a href="#cb157-30" aria-hidden="true" tabindex="-1"></a><span class="st">     )</span></span>
-<span id="cb157-31"><a href="#cb157-31" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
-<span id="cb157-32"><a href="#cb157-32" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname</span></span>
-<span id="cb157-33"><a href="#cb157-33" aria-hidden="true" tabindex="-1"></a><span class="st">from highEndAuthors cross join highEndPublishers</span></span>
-<span id="cb157-34"><a href="#cb157-34" aria-hidden="true" tabindex="-1"></a><span class="st">where not exists</span></span>
-<span id="cb157-35"><a href="#cb157-35" aria-hidden="true" tabindex="-1"></a><span class="st">     ( select 1 from existingRelationships )</span></span>
-<span id="cb157-36"><a href="#cb157-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-37"><a href="#cb157-37" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
-<span id="cb157-38"><a href="#cb157-38" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="st">with</span></span>
+<span id="cb156-3"><a href="#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndAuthors as </span></span>
+<span id="cb156-4"><a href="#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
+<span id="cb156-5"><a href="#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="st">        select authors.au_id, au_fname, au_lname</span></span>
+<span id="cb156-6"><a href="#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb156-7"><a href="#cb156-7" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb156-8"><a href="#cb156-8" aria-hidden="true" tabindex="-1"></a><span class="st">        group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb156-9"><a href="#cb156-9" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
+<span id="cb156-10"><a href="#cb156-10" aria-hidden="true" tabindex="-1"></a><span class="st">                 (select avg(price) from titles)</span></span>
+<span id="cb156-11"><a href="#cb156-11" aria-hidden="true" tabindex="-1"></a><span class="st">  ),</span></span>
+<span id="cb156-12"><a href="#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb156-13"><a href="#cb156-13" aria-hidden="true" tabindex="-1"></a><span class="st">  highEndPublishers as</span></span>
+<span id="cb156-14"><a href="#cb156-14" aria-hidden="true" tabindex="-1"></a><span class="st">  (</span></span>
+<span id="cb156-15"><a href="#cb156-15" aria-hidden="true" tabindex="-1"></a><span class="st">        select publishers.pub_id, pub_name</span></span>
+<span id="cb156-16"><a href="#cb156-16" aria-hidden="true" tabindex="-1"></a><span class="st">        from publishers join titles on publishers.pub_id = titles.pub_id</span></span>
+<span id="cb156-17"><a href="#cb156-17" aria-hidden="true" tabindex="-1"></a><span class="st">        group by publishers.pub_id, pub_name</span></span>
+<span id="cb156-18"><a href="#cb156-18" aria-hidden="true" tabindex="-1"></a><span class="st">        having avg(price) &gt; </span></span>
+<span id="cb156-19"><a href="#cb156-19" aria-hidden="true" tabindex="-1"></a><span class="st">                  (select avg(price) from titles)</span></span>
+<span id="cb156-20"><a href="#cb156-20" aria-hidden="true" tabindex="-1"></a><span class="st">  ),</span></span>
+<span id="cb156-21"><a href="#cb156-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-22"><a href="#cb156-22" aria-hidden="true" tabindex="-1"></a><span class="st">  existingRelationships as </span></span>
+<span id="cb156-23"><a href="#cb156-23" aria-hidden="true" tabindex="-1"></a><span class="st">     (  -- correlated subquery</span></span>
+<span id="cb156-24"><a href="#cb156-24" aria-hidden="true" tabindex="-1"></a><span class="st">        select 1</span></span>
+<span id="cb156-25"><a href="#cb156-25" aria-hidden="true" tabindex="-1"></a><span class="st">        from authors join title_authors on authors.au_id = title_authors. au_id</span></span>
+<span id="cb156-26"><a href="#cb156-26" aria-hidden="true" tabindex="-1"></a><span class="st">                     join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb156-27"><a href="#cb156-27" aria-hidden="true" tabindex="-1"></a><span class="st">                     join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb156-28"><a href="#cb156-28" aria-hidden="true" tabindex="-1"></a><span class="st">        where publishers.pub_id = highEndPublishers.pub_id and</span></span>
+<span id="cb156-29"><a href="#cb156-29" aria-hidden="true" tabindex="-1"></a><span class="st">              authors.au_id = highEndAuthors.au_id</span></span>
+<span id="cb156-30"><a href="#cb156-30" aria-hidden="true" tabindex="-1"></a><span class="st">     )</span></span>
+<span id="cb156-31"><a href="#cb156-31" aria-hidden="true" tabindex="-1"></a><span class="st">  </span></span>
+<span id="cb156-32"><a href="#cb156-32" aria-hidden="true" tabindex="-1"></a><span class="st">select pub_name, au_fname, au_lname</span></span>
+<span id="cb156-33"><a href="#cb156-33" aria-hidden="true" tabindex="-1"></a><span class="st">from highEndAuthors cross join highEndPublishers</span></span>
+<span id="cb156-34"><a href="#cb156-34" aria-hidden="true" tabindex="-1"></a><span class="st">where not exists</span></span>
+<span id="cb156-35"><a href="#cb156-35" aria-hidden="true" tabindex="-1"></a><span class="st">     ( select 1 from existingRelationships )</span></span>
+<span id="cb156-36"><a href="#cb156-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-37"><a href="#cb156-37" aria-hidden="true" tabindex="-1"></a><span class="st">order by pub_name, au_lname, au_fname</span></span>
+<span id="cb156-38"><a href="#cb156-38" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              pub_name  au_fname  au_lname
 1      Core Dump Books     Sarah   Buchman
@@ -3965,11 +3962,11 @@ Click for answer
 <p>To explain we will show the subqueries and what they produce. Then we will show the full query that includes the subquery.</p>
 <p>The following query is NOT the answer. It is simply a query that shows the number of books that were written by each author. This will be used as a subquery in the answer shown below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="st">          select authors.au_id, count(*) as numTitles</span></span>
-<span id="cb160-3"><a href="#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb160-4"><a href="#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="st">          group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb160-5"><a href="#cb160-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="st">          select authors.au_id, count(*) as numTitles</span></span>
+<span id="cb159-3"><a href="#cb159-3" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb159-4"><a href="#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="st">          group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb159-5"><a href="#cb159-5" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  au_id numTitles
 1   A01         3
@@ -3982,13 +3979,13 @@ Click for answer
 </div>
 <p>We’d like to get the max number of titles that an author wrote. This amounts to getting the highest number from the numTitles column in the previous query. We can do that by using the above query as a subquery in the from clause.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb162-2"><a href="#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="st">          select max(numTitles2) </span></span>
-<span id="cb162-3"><a href="#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="st">          from </span></span>
-<span id="cb162-4"><a href="#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="st">               (select authors.au_id, count(*) as numTitles2</span></span>
-<span id="cb162-5"><a href="#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="st">                from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb162-6"><a href="#cb162-6" aria-hidden="true" tabindex="-1"></a><span class="st">                group by authors.au_id, au_fname, au_lname)</span></span>
-<span id="cb162-7"><a href="#cb162-7" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb161-2"><a href="#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="st">          select max(numTitles2) </span></span>
+<span id="cb161-3"><a href="#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="st">          from </span></span>
+<span id="cb161-4"><a href="#cb161-4" aria-hidden="true" tabindex="-1"></a><span class="st">               (select authors.au_id, count(*) as numTitles2</span></span>
+<span id="cb161-5"><a href="#cb161-5" aria-hidden="true" tabindex="-1"></a><span class="st">                from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb161-6"><a href="#cb161-6" aria-hidden="true" tabindex="-1"></a><span class="st">                group by authors.au_id, au_fname, au_lname)</span></span>
+<span id="cb161-7"><a href="#cb161-7" aria-hidden="true" tabindex="-1"></a><span class="st">      "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  max(numTitles2)
 1               4</code></pre>
@@ -3997,18 +3994,18 @@ Click for answer
 <p>Finally we can put this all together to answer our question. The following is the FULL ANSWER to the original question. It uses the above query as a subquery in the having clause (see the code below). Note that in the following code there is a subquery inside of a subquery.</p>
 <p><strong>FINAL ANSWER:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="st">select authors.au_id, au_fname, au_lname, count(*) as numTitles</span></span>
-<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb164-4"><a href="#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by authors.au_id, au_fname, au_lname</span></span>
-<span id="cb164-5"><a href="#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="st">having numTitles = </span></span>
-<span id="cb164-6"><a href="#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="st">          (select max(numTitles2) </span></span>
-<span id="cb164-7"><a href="#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="st">           from </span></span>
-<span id="cb164-8"><a href="#cb164-8" aria-hidden="true" tabindex="-1"></a><span class="st">               (select authors.au_id, count(*) as numTitles2</span></span>
-<span id="cb164-9"><a href="#cb164-9" aria-hidden="true" tabindex="-1"></a><span class="st">                from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb164-10"><a href="#cb164-10" aria-hidden="true" tabindex="-1"></a><span class="st">                group by authors.au_id, au_fname, au_lname))</span></span>
-<span id="cb164-11"><a href="#cb164-11" aria-hidden="true" tabindex="-1"></a><span class="st">order by au_lname, au_fname</span></span>
-<span id="cb164-12"><a href="#cb164-12" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="st">select authors.au_id, au_fname, au_lname, count(*) as numTitles</span></span>
+<span id="cb163-3"><a href="#cb163-3" aria-hidden="true" tabindex="-1"></a><span class="st">from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb163-4"><a href="#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="st">group by authors.au_id, au_fname, au_lname</span></span>
+<span id="cb163-5"><a href="#cb163-5" aria-hidden="true" tabindex="-1"></a><span class="st">having numTitles = </span></span>
+<span id="cb163-6"><a href="#cb163-6" aria-hidden="true" tabindex="-1"></a><span class="st">          (select max(numTitles2) </span></span>
+<span id="cb163-7"><a href="#cb163-7" aria-hidden="true" tabindex="-1"></a><span class="st">           from </span></span>
+<span id="cb163-8"><a href="#cb163-8" aria-hidden="true" tabindex="-1"></a><span class="st">               (select authors.au_id, count(*) as numTitles2</span></span>
+<span id="cb163-9"><a href="#cb163-9" aria-hidden="true" tabindex="-1"></a><span class="st">                from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb163-10"><a href="#cb163-10" aria-hidden="true" tabindex="-1"></a><span class="st">                group by authors.au_id, au_fname, au_lname))</span></span>
+<span id="cb163-11"><a href="#cb163-11" aria-hidden="true" tabindex="-1"></a><span class="st">order by au_lname, au_fname</span></span>
+<span id="cb163-12"><a href="#cb163-12" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  au_id au_fname  au_lname numTitles
 1   A02    Wendy Heydemark         4
@@ -4049,13 +4046,13 @@ Click for answer
 <div id="callout-66" class="callout-66-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select type, au_fname || ' ' || au_lname as author</span></span>
-<span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from titles join title_authors on titles.title_id = title_authors.title_id</span></span>
-<span id="cb167-4"><a href="#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="st">                join authors on title_authors.au_id = authors.au_id</span></span>
-<span id="cb167-5"><a href="#cb167-5" aria-hidden="true" tabindex="-1"></a><span class="st">        group by type, authors.au_id, au_fname, au_lname</span></span>
-<span id="cb167-6"><a href="#cb167-6" aria-hidden="true" tabindex="-1"></a><span class="st">        order by type, au_lname, au_fname;</span></span>
-<span id="cb167-7"><a href="#cb167-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="st">    select type, au_fname || ' ' || au_lname as author</span></span>
+<span id="cb166-3"><a href="#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="st">        from titles join title_authors on titles.title_id = title_authors.title_id</span></span>
+<span id="cb166-4"><a href="#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="st">                join authors on title_authors.au_id = authors.au_id</span></span>
+<span id="cb166-5"><a href="#cb166-5" aria-hidden="true" tabindex="-1"></a><span class="st">        group by type, authors.au_id, au_fname, au_lname</span></span>
+<span id="cb166-6"><a href="#cb166-6" aria-hidden="true" tabindex="-1"></a><span class="st">        order by type, au_lname, au_fname;</span></span>
+<span id="cb166-7"><a href="#cb166-7" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -4087,15 +4084,15 @@ Click for answer
 <div id="callout-67" class="callout-67-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="st">  select distinct au_fname, au_lname</span></span>
-<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="st">  from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="st">               join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb169-5"><a href="#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="st">               join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb169-6"><a href="#cb169-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where publishers.pub_name = 'Abatis Publishers' and</span></span>
-<span id="cb169-7"><a href="#cb169-7" aria-hidden="true" tabindex="-1"></a><span class="st">        (titles.type = 'biography' or titles.type = 'history')</span></span>
-<span id="cb169-8"><a href="#cb169-8" aria-hidden="true" tabindex="-1"></a><span class="st">  order by au_lname, au_fname</span></span>
-<span id="cb169-9"><a href="#cb169-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="st">  select distinct au_fname, au_lname</span></span>
+<span id="cb168-3"><a href="#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="st">  from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb168-4"><a href="#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="st">               join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb168-5"><a href="#cb168-5" aria-hidden="true" tabindex="-1"></a><span class="st">               join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb168-6"><a href="#cb168-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where publishers.pub_name = 'Abatis Publishers' and</span></span>
+<span id="cb168-7"><a href="#cb168-7" aria-hidden="true" tabindex="-1"></a><span class="st">        (titles.type = 'biography' or titles.type = 'history')</span></span>
+<span id="cb168-8"><a href="#cb168-8" aria-hidden="true" tabindex="-1"></a><span class="st">  order by au_lname, au_fname</span></span>
+<span id="cb168-9"><a href="#cb168-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -4122,15 +4119,15 @@ Click for answer
 <div id="callout-68" class="callout-68-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="st">  select distinct au_fname, au_lname</span></span>
-<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a><span class="st">  from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="st">               join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a><span class="st">               join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb171-6"><a href="#cb171-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where publishers.pub_name = 'Abatis Publishers' and</span></span>
-<span id="cb171-7"><a href="#cb171-7" aria-hidden="true" tabindex="-1"></a><span class="st">        titles.type = 'psychology'</span></span>
-<span id="cb171-8"><a href="#cb171-8" aria-hidden="true" tabindex="-1"></a><span class="st">  order by au_lname, au_fname</span></span>
-<span id="cb171-9"><a href="#cb171-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb170-2"><a href="#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="st">  select distinct au_fname, au_lname</span></span>
+<span id="cb170-3"><a href="#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="st">  from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb170-4"><a href="#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="st">               join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb170-5"><a href="#cb170-5" aria-hidden="true" tabindex="-1"></a><span class="st">               join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb170-6"><a href="#cb170-6" aria-hidden="true" tabindex="-1"></a><span class="st">  where publishers.pub_name = 'Abatis Publishers' and</span></span>
+<span id="cb170-7"><a href="#cb170-7" aria-hidden="true" tabindex="-1"></a><span class="st">        titles.type = 'psychology'</span></span>
+<span id="cb170-8"><a href="#cb170-8" aria-hidden="true" tabindex="-1"></a><span class="st">  order by au_lname, au_fname</span></span>
+<span id="cb170-9"><a href="#cb170-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -4164,34 +4161,34 @@ Click for answer
 <div id="callout-69" class="callout-69-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
-<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="st">  select hist_bio_authors.au_fname || ' ' || hist_bio_authors.au_lname </span></span>
-<span id="cb173-3"><a href="#cb173-3" aria-hidden="true" tabindex="-1"></a><span class="st">             as 'history/biography author', </span></span>
-<span id="cb173-4"><a href="#cb173-4" aria-hidden="true" tabindex="-1"></a><span class="st">         psych_authors.au_fname || ' ' || psych_authors.au_lname</span></span>
-<span id="cb173-5"><a href="#cb173-5" aria-hidden="true" tabindex="-1"></a><span class="st">             as 'psychology author' </span></span>
-<span id="cb173-6"><a href="#cb173-6" aria-hidden="true" tabindex="-1"></a><span class="st">  from </span></span>
-<span id="cb173-7"><a href="#cb173-7" aria-hidden="true" tabindex="-1"></a><span class="st">      ( -- this is the query from part (a)</span></span>
-<span id="cb173-8"><a href="#cb173-8" aria-hidden="true" tabindex="-1"></a><span class="st">        select distinct au_fname, au_lname</span></span>
-<span id="cb173-9"><a href="#cb173-9" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb173-10"><a href="#cb173-10" aria-hidden="true" tabindex="-1"></a><span class="st">                       join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb173-11"><a href="#cb173-11" aria-hidden="true" tabindex="-1"></a><span class="st">                       join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb173-12"><a href="#cb173-12" aria-hidden="true" tabindex="-1"></a><span class="st">          where publishers.pub_name = 'Abatis Publishers' and</span></span>
-<span id="cb173-13"><a href="#cb173-13" aria-hidden="true" tabindex="-1"></a><span class="st">                (titles.type = 'biography' or titles.type = 'history')</span></span>
-<span id="cb173-14"><a href="#cb173-14" aria-hidden="true" tabindex="-1"></a><span class="st">          order by au_lname, au_fname</span></span>
-<span id="cb173-15"><a href="#cb173-15" aria-hidden="true" tabindex="-1"></a><span class="st">        ) as hist_bio_authors</span></span>
-<span id="cb173-16"><a href="#cb173-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-17"><a href="#cb173-17" aria-hidden="true" tabindex="-1"></a><span class="st">      cross join</span></span>
-<span id="cb173-18"><a href="#cb173-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-19"><a href="#cb173-19" aria-hidden="true" tabindex="-1"></a><span class="st">      ( -- this is the query from part (b)</span></span>
-<span id="cb173-20"><a href="#cb173-20" aria-hidden="true" tabindex="-1"></a><span class="st">          select distinct au_fname, au_lname</span></span>
-<span id="cb173-21"><a href="#cb173-21" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
-<span id="cb173-22"><a href="#cb173-22" aria-hidden="true" tabindex="-1"></a><span class="st">                       join titles on title_authors.title_id = titles.title_id</span></span>
-<span id="cb173-23"><a href="#cb173-23" aria-hidden="true" tabindex="-1"></a><span class="st">                     join publishers on titles.pub_id = publishers.pub_id</span></span>
-<span id="cb173-24"><a href="#cb173-24" aria-hidden="true" tabindex="-1"></a><span class="st">          where publishers.pub_name = 'Abatis Publishers' and</span></span>
-<span id="cb173-25"><a href="#cb173-25" aria-hidden="true" tabindex="-1"></a><span class="st">              titles.type = 'psychology'</span></span>
-<span id="cb173-26"><a href="#cb173-26" aria-hidden="true" tabindex="-1"></a><span class="st">        order by au_lname, au_fname</span></span>
-<span id="cb173-27"><a href="#cb173-27" aria-hidden="true" tabindex="-1"></a><span class="st">      ) as psych_authors</span></span>
-<span id="cb173-28"><a href="#cb173-28" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqldf</span>(<span class="st">"</span></span>
+<span id="cb172-2"><a href="#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="st">  select hist_bio_authors.au_fname || ' ' || hist_bio_authors.au_lname </span></span>
+<span id="cb172-3"><a href="#cb172-3" aria-hidden="true" tabindex="-1"></a><span class="st">             as 'history/biography author', </span></span>
+<span id="cb172-4"><a href="#cb172-4" aria-hidden="true" tabindex="-1"></a><span class="st">         psych_authors.au_fname || ' ' || psych_authors.au_lname</span></span>
+<span id="cb172-5"><a href="#cb172-5" aria-hidden="true" tabindex="-1"></a><span class="st">             as 'psychology author' </span></span>
+<span id="cb172-6"><a href="#cb172-6" aria-hidden="true" tabindex="-1"></a><span class="st">  from </span></span>
+<span id="cb172-7"><a href="#cb172-7" aria-hidden="true" tabindex="-1"></a><span class="st">      ( -- this is the query from part (a)</span></span>
+<span id="cb172-8"><a href="#cb172-8" aria-hidden="true" tabindex="-1"></a><span class="st">        select distinct au_fname, au_lname</span></span>
+<span id="cb172-9"><a href="#cb172-9" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb172-10"><a href="#cb172-10" aria-hidden="true" tabindex="-1"></a><span class="st">                       join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb172-11"><a href="#cb172-11" aria-hidden="true" tabindex="-1"></a><span class="st">                       join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb172-12"><a href="#cb172-12" aria-hidden="true" tabindex="-1"></a><span class="st">          where publishers.pub_name = 'Abatis Publishers' and</span></span>
+<span id="cb172-13"><a href="#cb172-13" aria-hidden="true" tabindex="-1"></a><span class="st">                (titles.type = 'biography' or titles.type = 'history')</span></span>
+<span id="cb172-14"><a href="#cb172-14" aria-hidden="true" tabindex="-1"></a><span class="st">          order by au_lname, au_fname</span></span>
+<span id="cb172-15"><a href="#cb172-15" aria-hidden="true" tabindex="-1"></a><span class="st">        ) as hist_bio_authors</span></span>
+<span id="cb172-16"><a href="#cb172-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb172-17"><a href="#cb172-17" aria-hidden="true" tabindex="-1"></a><span class="st">      cross join</span></span>
+<span id="cb172-18"><a href="#cb172-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb172-19"><a href="#cb172-19" aria-hidden="true" tabindex="-1"></a><span class="st">      ( -- this is the query from part (b)</span></span>
+<span id="cb172-20"><a href="#cb172-20" aria-hidden="true" tabindex="-1"></a><span class="st">          select distinct au_fname, au_lname</span></span>
+<span id="cb172-21"><a href="#cb172-21" aria-hidden="true" tabindex="-1"></a><span class="st">          from authors join title_authors on authors.au_id = title_authors.au_id</span></span>
+<span id="cb172-22"><a href="#cb172-22" aria-hidden="true" tabindex="-1"></a><span class="st">                       join titles on title_authors.title_id = titles.title_id</span></span>
+<span id="cb172-23"><a href="#cb172-23" aria-hidden="true" tabindex="-1"></a><span class="st">                     join publishers on titles.pub_id = publishers.pub_id</span></span>
+<span id="cb172-24"><a href="#cb172-24" aria-hidden="true" tabindex="-1"></a><span class="st">          where publishers.pub_name = 'Abatis Publishers' and</span></span>
+<span id="cb172-25"><a href="#cb172-25" aria-hidden="true" tabindex="-1"></a><span class="st">              titles.type = 'psychology'</span></span>
+<span id="cb172-26"><a href="#cb172-26" aria-hidden="true" tabindex="-1"></a><span class="st">        order by au_lname, au_fname</span></span>
+<span id="cb172-27"><a href="#cb172-27" aria-hidden="true" tabindex="-1"></a><span class="st">      ) as psych_authors</span></span>
+<span id="cb172-28"><a href="#cb172-28" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
