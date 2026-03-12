@@ -2885,7 +2885,7 @@ stuff = c("1234",  # This should NOT match since it doesn't contain letters or p
 <h2 data-number="23.23" class="anchored" data-anchor-id="word-boundries-b"><span class="header-section-number">23.23</span> WORD BOUNDRIES: <code>\b</code></h2>
 <p><code>\b</code> matches a “word boundary” (remember in R use <code>\\b</code>)</p>
 <p>You can use this before a pattern, e.g.&nbsp;<code>\bSOME_PATTERN</code> (or in R code use double backslash: <code>\\bSOME_PATTERN</code>) to mean that the pattern must match at the beginning of a word that is in the text - see examples below.</p>
-<p><em> (This is similar to but NOT the same as <code>^SOME_PATTERN</code> <code>^SOME_PATTERN</code> means that the the pattern must match at the beginning of the entire character value.) </em></p>
+<p><em> Compare this with <code>^SOME_PATTERN</code> which means, match the pattern that appears at the beginning of the text. <code>^SOME_PATTERN</code> means that the the pattern must match at the beginning of the entire character value.) </em></p>
 <p>You can also use <code>SOME_PATTERN\b</code> to mean that the pattern must come at the end of a word - see examples below.</p>
 <p>Note that a “word boundary” is not a particular character such as a space or comma, but rather is a position in the text.</p>
 <p>NOTE - a “word” may include letters, digits or underscores (see the discussion of the <code>\w</code> and <code>\W</code> metacharacters above.)</p>
