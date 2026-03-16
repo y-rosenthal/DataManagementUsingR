@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>14&nbsp; 14.  Intro to Regular Expressions (regex) – Data Management With R (latest version)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./0200200-b-introToRegularExpressions-v036.html" rel="next">
+<link href="./0000055-workingWithFiles.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dcbfc57d77cecfb36a223989b6e6cd2b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<script src="yrstuff-v001.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="yrStyles-main-v001.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0200200-a-introToRegularExpressions-v036.html">Regular Expressions</a></li><li class="breadcrumb-item"><a href="./0200200-a-introToRegularExpressions-v036.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Intro to Regular Expressions (regex)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Management With R (latest version)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><yrchapternumber></yrchapternumber> Intro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Some computer basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro00100-operatingSystems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title"><yrchapternumber>1. </yrchapternumber> What is an "operating system"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro00120-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title"><yrchapternumber>2. </yrchapternumber> Working with files</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to Bash</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000006-bash-externalResources-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><yrchapternumber>3. </yrchapternumber> Intro to Bash - external resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000011-WhatIsACli-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><yrchapternumber>4. </yrchapternumber> Command Line Interfaces (CLI)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000013-HowToRunTheBashShellCli-v011.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><yrchapternumber>5. </yrchapternumber> How to run the Bash Shell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000025-introToBash-v007.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><yrchapternumber>6. </yrchapternumber> Working with the Bash Shell.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to R packages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to R packages</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to Quarto</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Intro to Quarto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to tidyverse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> What is the "tidyverse"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> tibbles and tribbles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> stringr tutorial</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working with files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Working with files</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Expressions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-a-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Intro to Regular Expressions (regex)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-b-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> ^Anchors$, the dot, and [character classes]</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-c-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Escaping meta-characters and regex dialects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-d-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> (a) word boundaries `\b` (b) PATTERN1|PATTERN2 (c) paste0 to build long patterns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-e-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> Quantifiers and gsub with patterns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-f-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> Backreferences (\\1, \\2, ...)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-g-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> Greedy vs non-greedy quantifiers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-h-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> The complete list of quantifiers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-i-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> Challenges and more practice</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Practice with Regular Expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regex-0200300-practice-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Practice - Searching and Cleaning Data (with regex in R)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Intro to dplyr</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0500100-a-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> dplyr - getting and viewing the data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0500100-b-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> dplyr verbs - select, filter, etc.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Relational databases and SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> Get the data for the SQL lessons</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Intro to SQL Select ***(assumes some knowledge of dplyr)***</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Intro to Relational Databases and SQL ***(no dplyr required)***</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0915-workingWithSqliteDatabasesInR-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Working with SQLite databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0935-dbNormalization-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Database Normalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Database Questions (and Answers)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Into to Coding With AI</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> AI in Everyday Use</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Coding with AI - an overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> Using AI to code a Chrome Extensions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">JSON data and APIs</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>44. </yrchapternumber> Intro to JSON data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>45. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>46. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000093-jsonParsingPractice-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>48. </yrchapternumber> JSON Parsing Practice in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment-api-0000100-weatherDataApi-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><yrchapternumber>49. </yrchapternumber> assignment - weather API</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">Web Scraping</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000205-introToXml-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title"><yrchapternumber>50. </yrchapternumber> Intro to XML</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000220-parsingXmUsingR-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title"><yrchapternumber>51. </yrchapternumber> Parsing XML using R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title"><yrchapternumber>52. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000325-introToHtmlAndCss-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title"><yrchapternumber>53. </yrchapternumber> Introduction to HTML and CSS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title"><yrchapternumber>54. </yrchapternumber> Web Scraping with R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000130-WebscrapingJavascriptSites-v004.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title"><yrchapternumber>55. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title"><yrchapternumber>56. </yrchapternumber> CSS Selector Questions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">Git and Github</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title"><yrchapternumber>57. </yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">visualizations with ggplot2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title"><yrchapternumber>58. </yrchapternumber> Intro to ggplot2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title"><yrchapternumber>59. </yrchapternumber> Topics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title"><yrchapternumber>60. </yrchapternumber> Bibliography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title"><yrchapternumber>61. </yrchapternumber> Where to find datasets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title"><yrchapternumber>62. </yrchapternumber> Where to find APIs</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title"><yrchapternumber>63. </yrchapternumber> Additional topics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#intro-to-regular-expressions-also-known-as-regex" id="toc-intro-to-regular-expressions-also-known-as-regex" class="nav-link active" data-scroll-target="#intro-to-regular-expressions-also-known-as-regex"><span class="header-section-number">14.1</span> Intro to Regular Expressions (Also Known As “regex”)</a></li>
+  <li><a href="#some-resources-for-learning-regular-expressions" id="toc-some-resources-for-learning-regular-expressions" class="nav-link" data-scroll-target="#some-resources-for-learning-regular-expressions"><span class="header-section-number">14.2</span> Some resources for learning regular expressions</a></li>
+  <li><a href="#data-for-examples" id="toc-data-for-examples" class="nav-link" data-scroll-target="#data-for-examples"><span class="header-section-number">14.3</span> Data for examples</a>
+  <ul class="collapse">
+  <li><a href="#fruit-vector" id="toc-fruit-vector" class="nav-link" data-scroll-target="#fruit-vector"><span class="header-section-number">14.3.1</span> fruit vector</a></li>
+  <li><a href="#addresses-vector" id="toc-addresses-vector" class="nav-link" data-scroll-target="#addresses-vector"><span class="header-section-number">14.3.2</span> addresses vector</a></li>
+  <li><a href="#famousquotes-dataframe" id="toc-famousquotes-dataframe" class="nav-link" data-scroll-target="#famousquotes-dataframe"><span class="header-section-number">14.3.3</span> famousQuotes dataframe</a></li>
+  </ul></li>
+  <li><a href="#the-stringr-package" id="toc-the-stringr-package" class="nav-link" data-scroll-target="#the-stringr-package"><span class="header-section-number">14.4</span> The stringr package</a>
+  <ul class="collapse">
+  <li><a href="#stringrwords-vector" id="toc-stringrwords-vector" class="nav-link" data-scroll-target="#stringrwords-vector"><span class="header-section-number">14.4.1</span> stringr::words vector</a></li>
+  </ul></li>
+  <li><a href="#grep-function" id="toc-grep-function" class="nav-link" data-scroll-target="#grep-function"><span class="header-section-number">14.5</span> grep function</a></li>
+  <li><a href="#grep-and-grepl" id="toc-grep-and-grepl" class="nav-link" data-scroll-target="#grep-and-grepl"><span class="header-section-number">14.6</span> grep and grepl</a></li>
+  <li><a href="#summary-3-ways-to-use-grep-or-grepl" id="toc-summary-3-ways-to-use-grep-or-grepl" class="nav-link" data-scroll-target="#summary-3-ways-to-use-grep-or-grepl"><span class="header-section-number">14.7</span> Summary: 3 ways to use grep or grepl</a></li>
+  <li><a href="#spaces-are-not-ignored." id="toc-spaces-are-not-ignored." class="nav-link" data-scroll-target="#spaces-are-not-ignored."><span class="header-section-number">14.8</span> Spaces are NOT ignored.</a></li>
+  <li><a href="#regex-patterns-do-not-understand-numbers" id="toc-regex-patterns-do-not-understand-numbers" class="nav-link" data-scroll-target="#regex-patterns-do-not-understand-numbers"><span class="header-section-number">14.9</span> regex patterns do NOT understand “numbers”</a></li>
+  <li><a href="#case-sensitivity" id="toc-case-sensitivity" class="nav-link" data-scroll-target="#case-sensitivity"><span class="header-section-number">14.10</span> case sensitivity</a>
+  <ul class="collapse">
+  <li><a href="#a-case-insensitive-searches---use-ignore.case-argument" id="toc-a-case-insensitive-searches---use-ignore.case-argument" class="nav-link" data-scroll-target="#a-case-insensitive-searches---use-ignore.case-argument"><span class="header-section-number">14.10.1</span> (a) case INsensitive searches - use ignore.case argument</a></li>
+  <li><a href="#b-case-insensitive-searches---character-classes---e.g.-aa" id="toc-b-case-insensitive-searches---character-classes---e.g.-aa" class="nav-link" data-scroll-target="#b-case-insensitive-searches---character-classes---e.g.-aa"><span class="header-section-number">14.10.2</span> (b) case INsensitive searches - character classes - e.g.&nbsp;[aA]</a></li>
+  <li><a href="#c-case-insensitive-searches---use-toupper-and-tolower" id="toc-c-case-insensitive-searches---use-toupper-and-tolower" class="nav-link" data-scroll-target="#c-case-insensitive-searches---use-toupper-and-tolower"><span class="header-section-number">14.10.3</span> (c) case INsensitive searches - use toupper() and tolower()</a></li>
+  </ul></li>
+  <li><a href="#str_view-from-the-stringr-package" id="toc-str_view-from-the-stringr-package" class="nav-link" data-scroll-target="#str_view-from-the-stringr-package"><span class="header-section-number">14.11</span> str_view() from the stringr package</a></li>
+  <li><a href="#sub-and-gsub-functions" id="toc-sub-and-gsub-functions" class="nav-link" data-scroll-target="#sub-and-gsub-functions"><span class="header-section-number">14.12</span> sub and gsub functions</a></li>
+  <li><a href="#strsplit-function" id="toc-strsplit-function" class="nav-link" data-scroll-target="#strsplit-function"><span class="header-section-number">14.13</span> strsplit function</a></li>
+  <li><a href="#other-functions-regmatches-regexec-regexpr-gregexpr" id="toc-other-functions-regmatches-regexec-regexpr-gregexpr" class="nav-link" data-scroll-target="#other-functions-regmatches-regexec-regexpr-gregexpr"><span class="header-section-number">14.14</span> Other functions: regmatches, regexec, regexpr, gregexpr</a></li>
+  <li><a href="#stringr-functions" id="toc-stringr-functions" class="nav-link" data-scroll-target="#stringr-functions"><span class="header-section-number">14.15</span> stringr functions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0200200-a-introToRegularExpressions-v036.html">Regular Expressions</a></li><li class="breadcrumb-item"><a href="./0200200-a-introToRegularExpressions-v036.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Intro to Regular Expressions (regex)</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Intro to Regular Expressions (regex)</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="intro-to-regular-expressions-also-known-as-regex" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="intro-to-regular-expressions-also-known-as-regex"><span class="header-section-number">14.1</span> Intro to Regular Expressions (Also Known As “regex”)</h2>
+<p>Regular expressions (AKA “regex”) are patterns that are used to identify specific types of data. They can be used to search through and slice and dice character (i.e.&nbsp;textual) data in a variety of ways. The best way to understand is just to dive right in, which we will do below.</p>
+<p>Before we get started it’s important to note that regular expressions are not specic to R. Rather regular expressions are a concept that are available to use in most programming languages (e.g.&nbsp;Python, Java, etc.) as well as in many text editors and in other technical environments (e.g.&nbsp;Bash). There are slightly different versions of regular expression syntax found in different environments. We will be focusing mainly on how to use regular expressions in R. However, this knowledge carries over directly to using regex in other languages and technical environments.</p>
+</section>
+<section id="some-resources-for-learning-regular-expressions" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="some-resources-for-learning-regular-expressions"><span class="header-section-number">14.2</span> Some resources for learning regular expressions</h2>
+<p>The following is one of the many online tutorials.</p>
+<ul>
+<li><a href="https://ryanstutorials.net/regular-expressions-tutorial/" class="uri">https://ryanstutorials.net/regular-expressions-tutorial/</a></li>
+</ul>
+<p>The following R help pages are relevant to regular expressions. However, they are hard to understand without a little intro first. I recommend that you go through the material in this book first or in other tutorials. Then you can refer to the help pages when necessary.</p>
+<p><strong>Relevant R help pages</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>?regex     </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>?grep      </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>?strsplit  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>R’s stringr package also includes several functions that can be used with regex. For now though, we will focus mainly on the “Base R” regex functions. Once you understand those, you will be very prepared to understand functions in the stringr package that utilize regular expressions.</p>
+</section>
+<section id="data-for-examples" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="data-for-examples"><span class="header-section-number">14.3</span> Data for examples</h2>
+<p>Before we start, let’s define some data to be used with examples in this file. <em>(NOTE: I made up N. American apple and S. Korean Fig so that I can use</em> *them in some examples.)</p>
+<section id="fruit-vector" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="fruit-vector"><span class="header-section-number">14.3.1</span> fruit vector</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fruit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "apple"             "N. American apple" "S. Korean Fig"    
+ [4] "fig"               "star fruit"        "pear"             
+ [7] "prickly pear"      "Beurre Hardy pear" "cherry"           
+[10] "black cherry"      "peach"             "plum"             
+[13] "kumquat"           "banana"            "blueberry"        
+[16] "strawberry"        "honeydew"          "strawberries"     
+[19] "yumberry"         </code></pre>
+</div>
+</div>
+</section>
+<section id="addresses-vector" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="addresses-vector"><span class="header-section-number">14.3.2</span> addresses vector</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>addresses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "12345 Sesame Street"               "One Micro$oft Way"                
+ [3] "3 Olive St."                       "Two 1st Ave."                     
+ [5] "5678 Park Place"                   "Forty Five 2nd Street"            
+ [7] "Ninety Nine Cone St. apartment 7"  "9 Main St. apt. 623"              
+ [9] "Five Google Drive"                 "4\\2 Rechov Yafo"                 
+[11] "Fifteen Watchamacallit Boulevard"  "Nineteen Watchamacallit Boulevard"
+[13] "One Main Street Apt 12b"           "Two Main Street Apt 123c"         
+[15] "Three Main Street Apt 12343"       "City Hall Lockport, NY"           </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show each address, one per line</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(addresses, <span class="at">sep=</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>12345 Sesame Street
+One Micro$oft Way
+3 Olive St.
+Two 1st Ave.
+5678 Park Place
+Forty Five 2nd Street
+Ninety Nine Cone St. apartment 7
+9 Main St. apt. 623
+Five Google Drive
+4\2 Rechov Yafo
+Fifteen Watchamacallit Boulevard
+Nineteen Watchamacallit Boulevard
+One Main Street Apt 12b
+Two Main Street Apt 123c
+Three Main Street Apt 12343
+City Hall Lockport, NY</code></pre>
+</div>
+</div>
+</section>
+<section id="famousquotes-dataframe" class="level3" data-number="14.3.3">
+<h3 data-number="14.3.3" class="anchored" data-anchor-id="famousquotes-dataframe"><span class="header-section-number">14.3.3</span> famousQuotes dataframe</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>famousQuotesDf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Year                              Speaker
+1   -47                        Julius Caesar
+2  -399                             Socrates
+3  -399                             Socrates
+4  1597                        Francis Bacon
+5  1603                  William Shakespeare
+6  1637                       René Descartes
+7  1759                             Voltaire
+8  1775                        Patrick Henry
+9  1789                     Marie Antoinette
+10 1843                            Karl Marx
+11 1848                            Karl Marx
+12 1858                      Abraham Lincoln
+13 1863                      Abraham Lincoln
+14 1887                           Lord Acton
+15 1901                   Theodore Roosevelt
+16 1929 Sherlock Holmes (Arthur Conan Doyle)
+17 1929                      Albert Einstein
+18 1933                Franklin D. Roosevelt
+19 1940                    Winston Churchill
+20 1940                    Eleanor Roosevelt
+21 1941                    Winston Churchill
+22 1942                    Douglas MacArthur
+23 1945                      Harry S. Truman
+24 1947                       Mahatma Gandhi
+25 1949                        George Orwell
+26 1951                         Albert Camus
+27 1961                      John F. Kennedy
+28 1963               Martin Luther King Jr.
+29 1964                         Muhammad Ali
+30 1964                     Marshall McLuhan
+31 1968               Martin Luther King Jr.
+32 1969                       Neil Armstrong
+33 1970                           Irina Dunn
+34 1980                          John Lennon
+35 1980                    Margaret Thatcher
+36 1987                        Ronald Reagan
+37 1988                    George H. W. Bush
+38 2008                         Barack Obama
+                                                                                                                       Quote
+1                                                                                                 I came, I saw, I conquered
+2                                                                                                 I know that I know nothing
+3                                                                                    The unexamined life is not worth living
+4                                                                                                         Knowledge is power
+5                                                                                   To be or not to be, that is the question
+6                                                                                                    I think, therefore I am
+7                                          I disapprove of what you say, but I will defend to the death your right to say it
+8                                                                                          Give me liberty, or give me death
+9                                                                                                          Let them eat cake
+10                                                                                       Religion is the opium of the people
+11                                                                                              Workers of the world, unite!
+12                                                                               A house divided against itself cannot stand
+13                                                                   Government of the people, by the people, for the people
+14                                                            Power tends to corrupt, and absolute power corrupts absolutely
+15                                                                                        Speak softly and carry a big stick
+16                                                                                                Elementary, my dear Watson
+17                                                                              Imagination is more important than knowledge
+18                                                                             The only thing we have to fear is fear itself
+19                                                                                             We shall fight on the beaches
+20                                                     The future belongs to those who believe in the beauty of their dreams
+21                                                                                               Never, never, never give up
+22                                                                                                            I shall return
+23                                                                                                       The buck stops here
+24                                                                                Be the change you wish to see in the world
+25                                                                   War is peace. Freedom is slavery. Ignorance is strength
+26 The only way to deal with an unfree world is to become so absolutely free that your very existence is an act of rebellion
+27                                            Ask not what your country can do for you, ask what you can do for your country
+28                                                                                                            I have a dream
+29                                                                                  Float like a butterfly, sting like a bee
+30                                                                                                 The medium is the message
+31                                                                                              I've been to the mountaintop
+32                                                                 That's one small step for man, one giant leap for mankind
+33                                                                           A woman needs a man like a fish needs a bicycle
+34                                                                 Life is what happens while you're busy making other plans
+35                                                                                                   There is no alternative
+36                                                                                        Mr. Gorbachev, tear down this wall
+37                                                                                                Read my lips: no new taxes
+38                                                                                                                Yes we can</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="the-stringr-package" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="the-stringr-package"><span class="header-section-number">14.4</span> The stringr package</h2>
+<section id="stringrwords-vector" class="level3" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="stringrwords-vector"><span class="header-section-number">14.4.1</span> stringr::words vector</h3>
+<p>The stringr package includes some data that we will use in the examples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> - most of the examples in this file were created using the data above.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The stringr package also contains some data that can be used to experiment</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># with these functions. </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------.</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span>words</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "a"           "able"        "about"       "absolute"    "accept"     
+  [6] "account"     "achieve"     "across"      "act"         "active"     
+ [11] "actual"      "add"         "address"     "admit"       "advertise"  
+ [16] "affect"      "afford"      "after"       "afternoon"   "again"      
+ [21] "against"     "age"         "agent"       "ago"         "agree"      
+ [26] "air"         "all"         "allow"       "almost"      "along"      
+ [31] "already"     "alright"     "also"        "although"    "always"     
+ [36] "america"     "amount"      "and"         "another"     "answer"     
+ [41] "any"         "apart"       "apparent"    "appear"      "apply"      
+ [46] "appoint"     "approach"    "appropriate" "area"        "argue"      
+ [51] "arm"         "around"      "arrange"     "art"         "as"         
+ [56] "ask"         "associate"   "assume"      "at"          "attend"     
+ [61] "authority"   "available"   "aware"       "away"        "awful"      
+ [66] "baby"        "back"        "bad"         "bag"         "balance"    
+ [71] "ball"        "bank"        "bar"         "base"        "basis"      
+ [76] "be"          "bear"        "beat"        "beauty"      "because"    
+ [81] "become"      "bed"         "before"      "begin"       "behind"     
+ [86] "believe"     "benefit"     "best"        "bet"         "between"    
+ [91] "big"         "bill"        "birth"       "bit"         "black"      
+ [96] "bloke"       "blood"       "blow"        "blue"        "board"      
+[101] "boat"        "body"        "book"        "both"        "bother"     
+[106] "bottle"      "bottom"      "box"         "boy"         "break"      
+[111] "brief"       "brilliant"   "bring"       "britain"     "brother"    
+[116] "budget"      "build"       "bus"         "business"    "busy"       
+[121] "but"         "buy"         "by"          "cake"        "call"       
+[126] "can"         "car"         "card"        "care"        "carry"      
+[131] "case"        "cat"         "catch"       "cause"       "cent"       
+[136] "centre"      "certain"     "chair"       "chairman"    "chance"     
+[141] "change"      "chap"        "character"   "charge"      "cheap"      
+[146] "check"       "child"       "choice"      "choose"      "Christ"     
+[151] "Christmas"   "church"      "city"        "claim"       "class"      
+[156] "clean"       "clear"       "client"      "clock"       "close"      
+[161] "closes"      "clothe"      "club"        "coffee"      "cold"       
+[166] "colleague"   "collect"     "college"     "colour"      "come"       
+[171] "comment"     "commit"      "committee"   "common"      "community"  
+[176] "company"     "compare"     "complete"    "compute"     "concern"    
+[181] "condition"   "confer"      "consider"    "consult"     "contact"    
+[186] "continue"    "contract"    "control"     "converse"    "cook"       
+[191] "copy"        "corner"      "correct"     "cost"        "could"      
+[196] "council"     "count"       "country"     "county"      "couple"     
+[201] "course"      "court"       "cover"       "create"      "cross"      
+[206] "cup"         "current"     "cut"         "dad"         "danger"     
+[211] "date"        "day"         "dead"        "deal"        "dear"       
+[216] "debate"      "decide"      "decision"    "deep"        "definite"   
+[221] "degree"      "department"  "depend"      "describe"    "design"     
+[226] "detail"      "develop"     "die"         "difference"  "difficult"  
+[231] "dinner"      "direct"      "discuss"     "district"    "divide"     
+[236] "do"          "doctor"      "document"    "dog"         "door"       
+[241] "double"      "doubt"       "down"        "draw"        "dress"      
+[246] "drink"       "drive"       "drop"        "dry"         "due"        
+[251] "during"      "each"        "early"       "east"        "easy"       
+[256] "eat"         "economy"     "educate"     "effect"      "egg"        
+[261] "eight"       "either"      "elect"       "electric"    "eleven"     
+[266] "else"        "employ"      "encourage"   "end"         "engine"     
+[271] "english"     "enjoy"       "enough"      "enter"       "environment"
+[276] "equal"       "especial"    "europe"      "even"        "evening"    
+[281] "ever"        "every"       "evidence"    "exact"       "example"    
+[286] "except"      "excuse"      "exercise"    "exist"       "expect"     
+[291] "expense"     "experience"  "explain"     "express"     "extra"      
+[296] "eye"         "face"        "fact"        "fair"        "fall"       
+[301] "family"      "far"         "farm"        "fast"        "father"     
+[306] "favour"      "feed"        "feel"        "few"         "field"      
+[311] "fight"       "figure"      "file"        "fill"        "film"       
+[316] "final"       "finance"     "find"        "fine"        "finish"     
+[321] "fire"        "first"       "fish"        "fit"         "five"       
+[326] "flat"        "floor"       "fly"         "follow"      "food"       
+[331] "foot"        "for"         "force"       "forget"      "form"       
+[336] "fortune"     "forward"     "four"        "france"      "free"       
+[341] "friday"      "friend"      "from"        "front"       "full"       
+[346] "fun"         "function"    "fund"        "further"     "future"     
+[351] "game"        "garden"      "gas"         "general"     "germany"    
+[356] "get"         "girl"        "give"        "glass"       "go"         
+[361] "god"         "good"        "goodbye"     "govern"      "grand"      
+[366] "grant"       "great"       "green"       "ground"      "group"      
+[371] "grow"        "guess"       "guy"         "hair"        "half"       
+[376] "hall"        "hand"        "hang"        "happen"      "happy"      
+[381] "hard"        "hate"        "have"        "he"          "head"       
+[386] "health"      "hear"        "heart"       "heat"        "heavy"      
+[391] "hell"        "help"        "here"        "high"        "history"    
+[396] "hit"         "hold"        "holiday"     "home"        "honest"     
+[401] "hope"        "horse"       "hospital"    "hot"         "hour"       
+[406] "house"       "how"         "however"     "hullo"       "hundred"    
+[411] "husband"     "idea"        "identify"    "if"          "imagine"    
+[416] "important"   "improve"     "in"          "include"     "income"     
+[421] "increase"    "indeed"      "individual"  "industry"    "inform"     
+[426] "inside"      "instead"     "insure"      "interest"    "into"       
+[431] "introduce"   "invest"      "involve"     "issue"       "it"         
+[436] "item"        "jesus"       "job"         "join"        "judge"      
+[441] "jump"        "just"        "keep"        "key"         "kid"        
+[446] "kill"        "kind"        "king"        "kitchen"     "knock"      
+[451] "know"        "labour"      "lad"         "lady"        "land"       
+[456] "language"    "large"       "last"        "late"        "laugh"      
+[461] "law"         "lay"         "lead"        "learn"       "leave"      
+[466] "left"        "leg"         "less"        "let"         "letter"     
+[471] "level"       "lie"         "life"        "light"       "like"       
+[476] "likely"      "limit"       "line"        "link"        "list"       
+[481] "listen"      "little"      "live"        "load"        "local"      
+[486] "lock"        "london"      "long"        "look"        "lord"       
+[491] "lose"        "lot"         "love"        "low"         "luck"       
+[496] "lunch"       "machine"     "main"        "major"       "make"       
+[501] "man"         "manage"      "many"        "mark"        "market"     
+[506] "marry"       "match"       "matter"      "may"         "maybe"      
+[511] "mean"        "meaning"     "measure"     "meet"        "member"     
+[516] "mention"     "middle"      "might"       "mile"        "milk"       
+[521] "million"     "mind"        "minister"    "minus"       "minute"     
+[526] "miss"        "mister"      "moment"      "monday"      "money"      
+[531] "month"       "more"        "morning"     "most"        "mother"     
+[536] "motion"      "move"        "mrs"         "much"        "music"      
+[541] "must"        "name"        "nation"      "nature"      "near"       
+[546] "necessary"   "need"        "never"       "new"         "news"       
+[551] "next"        "nice"        "night"       "nine"        "no"         
+[556] "non"         "none"        "normal"      "north"       "not"        
+[561] "note"        "notice"      "now"         "number"      "obvious"    
+[566] "occasion"    "odd"         "of"          "off"         "offer"      
+[571] "office"      "often"       "okay"        "old"         "on"         
+[576] "once"        "one"         "only"        "open"        "operate"    
+[581] "opportunity" "oppose"      "or"          "order"       "organize"   
+[586] "original"    "other"       "otherwise"   "ought"       "out"        
+[591] "over"        "own"         "pack"        "page"        "paint"      
+[596] "pair"        "paper"       "paragraph"   "pardon"      "parent"     
+[601] "park"        "part"        "particular"  "party"       "pass"       
+[606] "past"        "pay"         "pence"       "pension"     "people"     
+[611] "per"         "percent"     "perfect"     "perhaps"     "period"     
+[616] "person"      "photograph"  "pick"        "picture"     "piece"      
+[621] "place"       "plan"        "play"        "please"      "plus"       
+[626] "point"       "police"      "policy"      "politic"     "poor"       
+[631] "position"    "positive"    "possible"    "post"        "pound"      
+[636] "power"       "practise"    "prepare"     "present"     "press"      
+[641] "pressure"    "presume"     "pretty"      "previous"    "price"      
+[646] "print"       "private"     "probable"    "problem"     "proceed"    
+[651] "process"     "produce"     "product"     "programme"   "project"    
+[656] "proper"      "propose"     "protect"     "provide"     "public"     
+[661] "pull"        "purpose"     "push"        "put"         "quality"    
+[666] "quarter"     "question"    "quick"       "quid"        "quiet"      
+[671] "quite"       "radio"       "rail"        "raise"       "range"      
+[676] "rate"        "rather"      "read"        "ready"       "real"       
+[681] "realise"     "really"      "reason"      "receive"     "recent"     
+[686] "reckon"      "recognize"   "recommend"   "record"      "red"        
+[691] "reduce"      "refer"       "regard"      "region"      "relation"   
+[696] "remember"    "report"      "represent"   "require"     "research"   
+[701] "resource"    "respect"     "responsible" "rest"        "result"     
+[706] "return"      "rid"         "right"       "ring"        "rise"       
+[711] "road"        "role"        "roll"        "room"        "round"      
+[716] "rule"        "run"         "safe"        "sale"        "same"       
+[721] "saturday"    "save"        "say"         "scheme"      "school"     
+[726] "science"     "score"       "scotland"    "seat"        "second"     
+[731] "secretary"   "section"     "secure"      "see"         "seem"       
+[736] "self"        "sell"        "send"        "sense"       "separate"   
+[741] "serious"     "serve"       "service"     "set"         "settle"     
+[746] "seven"       "sex"         "shall"       "share"       "she"        
+[751] "sheet"       "shoe"        "shoot"       "shop"        "short"      
+[756] "should"      "show"        "shut"        "sick"        "side"       
+[761] "sign"        "similar"     "simple"      "since"       "sing"       
+[766] "single"      "sir"         "sister"      "sit"         "site"       
+[771] "situate"     "six"         "size"        "sleep"       "slight"     
+[776] "slow"        "small"       "smoke"       "so"          "social"     
+[781] "society"     "some"        "son"         "soon"        "sorry"      
+[786] "sort"        "sound"       "south"       "space"       "speak"      
+[791] "special"     "specific"    "speed"       "spell"       "spend"      
+[796] "square"      "staff"       "stage"       "stairs"      "stand"      
+[801] "standard"    "start"       "state"       "station"     "stay"       
+[806] "step"        "stick"       "still"       "stop"        "story"      
+[811] "straight"    "strategy"    "street"      "strike"      "strong"     
+[816] "structure"   "student"     "study"       "stuff"       "stupid"     
+[821] "subject"     "succeed"     "such"        "sudden"      "suggest"    
+[826] "suit"        "summer"      "sun"         "sunday"      "supply"     
+[831] "support"     "suppose"     "sure"        "surprise"    "switch"     
+[836] "system"      "table"       "take"        "talk"        "tape"       
+[841] "tax"         "tea"         "teach"       "team"        "telephone"  
+[846] "television"  "tell"        "ten"         "tend"        "term"       
+[851] "terrible"    "test"        "than"        "thank"       "the"        
+[856] "then"        "there"       "therefore"   "they"        "thing"      
+[861] "think"       "thirteen"    "thirty"      "this"        "thou"       
+[866] "though"      "thousand"    "three"       "through"     "throw"      
+[871] "thursday"    "tie"         "time"        "to"          "today"      
+[876] "together"    "tomorrow"    "tonight"     "too"         "top"        
+[881] "total"       "touch"       "toward"      "town"        "trade"      
+[886] "traffic"     "train"       "transport"   "travel"      "treat"      
+[891] "tree"        "trouble"     "true"        "trust"       "try"        
+[896] "tuesday"     "turn"        "twelve"      "twenty"      "two"        
+[901] "type"        "under"       "understand"  "union"       "unit"       
+[906] "unite"       "university"  "unless"      "until"       "up"         
+[911] "upon"        "use"         "usual"       "value"       "various"    
+[916] "very"        "video"       "view"        "village"     "visit"      
+[921] "vote"        "wage"        "wait"        "walk"        "wall"       
+[926] "want"        "war"         "warm"        "wash"        "waste"      
+[931] "watch"       "water"       "way"         "we"          "wear"       
+[936] "wednesday"   "wee"         "week"        "weigh"       "welcome"    
+[941] "well"        "west"        "what"        "when"        "where"      
+[946] "whether"     "which"       "while"       "white"       "who"        
+[951] "whole"       "why"         "wide"        "wife"        "will"       
+[956] "win"         "wind"        "window"      "wish"        "with"       
+[961] "within"      "without"     "woman"       "wonder"      "wood"       
+[966] "word"        "work"        "world"       "worry"       "worse"      
+[971] "worth"       "would"       "write"       "wrong"       "year"       
+[976] "yes"         "yesterday"   "yet"         "you"         "young"      </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(stringr<span class="sc">::</span>words, <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "a"           "able"        "about"       "absolute"    "accept"     
+  [6] "account"     "achieve"     "across"      "act"         "active"     
+ [11] "actual"      "add"         "address"     "admit"       "advertise"  
+ [16] "affect"      "afford"      "after"       "afternoon"   "again"      
+ [21] "against"     "age"         "agent"       "ago"         "agree"      
+ [26] "air"         "all"         "allow"       "almost"      "along"      
+ [31] "already"     "alright"     "also"        "although"    "always"     
+ [36] "america"     "amount"      "and"         "another"     "answer"     
+ [41] "any"         "apart"       "apparent"    "appear"      "apply"      
+ [46] "appoint"     "approach"    "appropriate" "area"        "argue"      
+ [51] "arm"         "around"      "arrange"     "art"         "as"         
+ [56] "ask"         "associate"   "assume"      "at"          "attend"     
+ [61] "authority"   "available"   "aware"       "away"        "awful"      
+ [66] "baby"        "back"        "bad"         "bag"         "balance"    
+ [71] "ball"        "bank"        "bar"         "base"        "basis"      
+ [76] "be"          "bear"        "beat"        "beauty"      "because"    
+ [81] "become"      "bed"         "before"      "begin"       "behind"     
+ [86] "believe"     "benefit"     "best"        "bet"         "between"    
+ [91] "big"         "bill"        "birth"       "bit"         "black"      
+ [96] "bloke"       "blood"       "blow"        "blue"        "board"      </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="grep-function" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="grep-function"><span class="header-section-number">14.5</span> grep function</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show all words that</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># "start with a p, end with a y (with anything in the middle)"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p.*y$"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "party"  "pay"    "play"   "policy" "pretty"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Starts with a p, ends with a y, nothing in the middle.</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Only matches "py". </span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># There are no words that match.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^py$"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># match any word that start with p, ends with y and has a single</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># character between them</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p.y$"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "pay"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># match any word that start with p, ends with y and</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># has exactly two characters between them.</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p..y$"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "play"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># match any word that start with p, ends with y and</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># has exactly four characters between them.</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p....y$"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "policy" "pretty"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># match any sequence of characters between the p and the y</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p.*y$"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "party"  "pay"    "play"   "policy" "pretty"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># starts with a p</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "pack"       "page"       "paint"      "pair"       "paper"     
+ [6] "paragraph"  "pardon"     "parent"     "park"       "part"      
+[11] "particular" "party"      "pass"       "past"       "pay"       
+[16] "pence"      "pension"    "people"     "per"        "percent"   
+[21] "perfect"    "perhaps"    "period"     "person"     "photograph"
+[26] "pick"       "picture"    "piece"      "place"      "plan"      
+[31] "play"       "please"     "plus"       "point"      "police"    
+[36] "policy"     "politic"    "poor"       "position"   "positive"  
+[41] "possible"   "post"       "pound"      "power"      "practise"  
+[46] "prepare"    "present"    "press"      "pressure"   "presume"   
+[51] "pretty"     "previous"   "price"      "print"      "private"   
+[56] "probable"   "problem"    "proceed"    "process"    "produce"   
+[61] "product"    "programme"  "project"    "proper"     "propose"   
+[66] "protect"    "provide"    "public"     "pull"       "purpose"   
+[71] "push"       "put"       </code></pre>
+</div>
+</div>
+</section>
+<section id="grep-and-grepl" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="grep-and-grepl"><span class="header-section-number">14.6</span> grep and grepl</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># When value=FALSE grep returns the positions in the vector of </span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># values that matched</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p.*y$"</span>, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "party"  "pay"    "play"   "policy" "pretty"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p.*y$"</span>, <span class="at">value=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 604 607 623 628 643</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default is value=FALSE</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(stringr<span class="sc">::</span>words, <span class="at">pattern=</span><span class="st">"^p.*y$"</span>, <span class="at">value=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 604 607 623 628 643</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@ grep and grepl</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@ grep stands for "Globally search for a Regular Expression and Print the result"</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#@</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#@ Grep will search through the entries in a character vector and display those</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">#@ entries that match a specified pattern (see examples below). These patterns</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co">#@ are known as regular expressions or "regex".</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co">#@</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co">#@ The history of grep started with a a command that was used on the Unix operating</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co">#@ system. It has been adapted for use with many programming environments. R has</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="co">#@ its own version.</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="co"># grep ####</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="co"># grep returns character values or the indexes (i.e. position numbers) </span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all fruit whose name contains the letter "h"</span></span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="at">pattern=</span><span class="st">"h"</span>, <span class="at">x=</span>fruit, <span class="at">value=</span><span class="cn">TRUE</span>)   <span class="co"># value=TRUE, show the acutal values that match the pattern </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "cherry"       "black cherry" "peach"        "honeydew"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="at">pattern=</span><span class="st">"h"</span>, <span class="at">x=</span>fruit, <span class="at">value=</span><span class="cn">FALSE</span>)  <span class="co"># value=FALSE, show the index (ie. position) of the values that match </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  9 10 11 17</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># grepl ####</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># grepl returns logical values (i.e. TRUE/FALSE vectors)</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(<span class="at">pattern=</span><span class="st">"h"</span>, <span class="at">x=</span>fruit)    <span class="co"># find which values include an "h"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE
+[13] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="summary-3-ways-to-use-grep-or-grepl" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="summary-3-ways-to-use-grep-or-grepl"><span class="header-section-number">14.7</span> Summary: 3 ways to use grep or grepl</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - grep ( regexPattern , value=TRUE)  # returns the actual values that match  </span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - grep ( regexPattern , value=FALSE) # returns the index numbers of the values that match  </span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - grepl ( regexPattern )              # returns a logical vector that indicate which values match  </span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For now, let's focus on grep(... , value=TRUE) as it is easier to understand the results. </span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The pattern is searched for in the entire entry ####</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The pattern is considered "matched" if it appears anywhere in the data value.</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For example:   grep("h", fruit)</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="co"># returns all fruit that contain an "h", no matter whether the h is at the </span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="co"># beginning, end or middle of the word.</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="co"># You can change this behavior with the ^ and $ metacharacters (see below)</span></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="spaces-are-not-ignored." class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="spaces-are-not-ignored."><span class="header-section-number">14.8</span> Spaces are NOT ignored.</h2>
+<p>Spaces count as part of the pattern. They are NOT ignored.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fruits that contain a space</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="at">pattern=</span><span class="st">" "</span>, <span class="at">x=</span>fruit, <span class="at">value=</span><span class="cn">TRUE</span>) <span class="co"># all fruit that contain a space</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "N. American apple" "S. Korean Fig"     "star fruit"       
+[4] "prickly pear"      "Beurre Hardy pear" "black cherry"     </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># search for "k "  (i.e. k followed by a space)</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"k "</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>) <span class="co"># "black cherry"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "black cherry"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># search for "k"  (i.e. without a space - JUST a "k")</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"k"</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>) <span class="co"># "prickly pear"  "black cherry"  "kumquat"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "prickly pear" "black cherry" "kumquat"     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># search for "ck" </span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"ck"</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>) <span class="co"># "prickly pear"  "black cherry"  "kumquat"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "prickly pear" "black cherry"</code></pre>
+</div>
+</div>
+</section>
+<section id="regex-patterns-do-not-understand-numbers" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="regex-patterns-do-not-understand-numbers"><span class="header-section-number">14.9</span> regex patterns do NOT understand “numbers”</h2>
+<p>Digits are NOT treated as numbers. They are treated the same as any other character. Therefore grep(“12”, SOME_VECTOR) will match any value that contains a 1 followed by a 2, including “123” and “34321234”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>addresses <span class="co"># show all the addresses</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "12345 Sesame Street"               "One Micro$oft Way"                
+ [3] "3 Olive St."                       "Two 1st Ave."                     
+ [5] "5678 Park Place"                   "Forty Five 2nd Street"            
+ [7] "Ninety Nine Cone St. apartment 7"  "9 Main St. apt. 623"              
+ [9] "Five Google Drive"                 "4\\2 Rechov Yafo"                 
+[11] "Fifteen Watchamacallit Boulevard"  "Nineteen Watchamacallit Boulevard"
+[13] "One Main Street Apt 12b"           "Two Main Street Apt 123c"         
+[15] "Three Main Street Apt 12343"       "City Hall Lockport, NY"           </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"23"</span>, addresses, <span class="at">value=</span><span class="cn">TRUE</span>)  <span class="co"># matches anything that contains 23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "12345 Sesame Street"         "9 Main St. apt. 623"        
+[3] "Two Main Street Apt 123c"    "Three Main Street Apt 12343"</code></pre>
+</div>
+</div>
+</section>
+<section id="case-sensitivity" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="case-sensitivity"><span class="header-section-number">14.10</span> case sensitivity</h2>
+<p>By default, R’s version of grep is case sensitive.</p>
+<p>There are a few different approaches for changing the default behavior to instead search case-INsensitively.</p>
+<section id="a-case-insensitive-searches---use-ignore.case-argument" class="level3" data-number="14.10.1">
+<h3 data-number="14.10.1" class="anchored" data-anchor-id="a-case-insensitive-searches---use-ignore.case-argument"><span class="header-section-number">14.10.1</span> (a) case INsensitive searches - use ignore.case argument</h3>
+<p>The first way - use ignore.case = TRUE. See the code below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"H"</span>,fruit, <span class="at">value=</span><span class="cn">TRUE</span>)  <span class="co"># contains a capital "H"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Beurre Hardy pear"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"h"</span>,fruit, <span class="at">value=</span><span class="cn">TRUE</span>)  <span class="co"># contains a lowercase "h"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "cherry"       "black cherry" "peach"        "honeydew"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"h"</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>, <span class="at">ignore.case=</span><span class="cn">TRUE</span>) <span class="co"># contains AnY h</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Beurre Hardy pear" "cherry"            "black cherry"     
+[4] "peach"             "honeydew"         </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"H"</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>, <span class="at">ignore.case=</span><span class="cn">TRUE</span>) <span class="co"># same thing</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Beurre Hardy pear" "cherry"            "black cherry"     
+[4] "peach"             "honeydew"         </code></pre>
+</div>
+</div>
+</section>
+<section id="b-case-insensitive-searches---character-classes---e.g.-aa" class="level3" data-number="14.10.2">
+<h3 data-number="14.10.2" class="anchored" data-anchor-id="b-case-insensitive-searches---character-classes---e.g.-aa"><span class="header-section-number">14.10.2</span> (b) case INsensitive searches - character classes - e.g.&nbsp;[aA]</h3>
+<p>Another way to search for for both CAPITAL and lowercase characters, e.g.&nbsp;[Hh] For example, [hH] indicates that h or H is valid to be matched. We will describe the exact meaning of the [square brackets] in a lot more detail below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"[hH]"</span>, fruit, <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Beurre Hardy pear" "cherry"            "black cherry"     
+[4] "peach"             "honeydew"         </code></pre>
+</div>
+</div>
+</section>
+<section id="c-case-insensitive-searches---use-toupper-and-tolower" class="level3" data-number="14.10.3">
+<h3 data-number="14.10.3" class="anchored" data-anchor-id="c-case-insensitive-searches---use-toupper-and-tolower"><span class="header-section-number">14.10.3</span> (c) case INsensitive searches - use toupper() and tolower()</h3>
+<p>another way using R’s toupper or tolower functions</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>msg <span class="ot">=</span> <span class="st">"She said 'Hello' to Joe."</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>msg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "She said 'Hello' to Joe."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">toupper</span>(msg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "SHE SAID 'HELLO' TO JOE."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tolower</span>(msg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "she said 'hello' to joe."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"h"</span>, <span class="fu">tolower</span>(fruit), <span class="at">value=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "beurre hardy pear" "cherry"            "black cherry"     
+[4] "peach"             "honeydew"         </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="str_view-from-the-stringr-package" class="level2" data-number="14.11">
+<h2 data-number="14.11" class="anchored" data-anchor-id="str_view-from-the-stringr-package"><span class="header-section-number">14.11</span> str_view() from the stringr package</h2>
+<p>The str_view function from the stringr package can be very helpful when you’re trying to understand a regular expression. str_view shows exactly what parts of a string match the pattern. See the example below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># str_view is part of the stringr package</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>greetings <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"hi there"</span>, <span class="st">"yo dude"</span>, <span class="st">"shalom"</span>, <span class="st">"bon jour"</span>)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(greetings, <span class="at">sep=</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hi there
+yo dude
+shalom
+bon jour</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># match the letter h in each greeting</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(greetings, <span class="st">"h"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] │ &lt;h&gt;i t&lt;h&gt;ere
+[3] │ s&lt;h&gt;alom</code></pre>
+</div>
+</div>
+</section>
+<section id="sub-and-gsub-functions" class="level2" data-number="14.12">
+<h2 data-number="14.12" class="anchored" data-anchor-id="sub-and-gsub-functions"><span class="header-section-number">14.12</span> sub and gsub functions</h2>
+<p>sub and gsub functions are used to “substitute” the text that was matched by a regular expression with other text.</p>
+<p>The difference between sub() and gsub() is that in a single character value, sub() function only substitutes the first part of the character value that matched the regex. By contrast, the gsub() function replaces EVERY part of the character value that matched the regex. (the “g” in “gsub” stands for “global”). See the examples below.</p>
+<p>IMPORTANT - both sub and gsub return the ENTIRE vector with only the values matched the regex being changed. This is different from the grep and grepl functions that returned only those entries in the vector that matched the regular expression.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@ sub and gsub functions ####</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co">#@ sub (SOME_REGEX_PATTERN, REPLACMENT, SOME_VECTOR)</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">#@    sub returns a new vector. The return value is the same as SOME_VECTOR</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">#@    except that the FIRST match of the pattern in each entry of SOME_VECTOR</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">#@    is replaced with REPLACEMENT - see the examples below.</span></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co">#@</span></span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="co">#@ gsub (SOME_REGEX_PATTERN, REPLACMENT, SOME_VECTOR)</span></span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co">#@    same as sub but ALL matches of the pattern are replaced (not just the</span></span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="co">#@    first in each entry of the the vector - see the exmaples below</span></span>
+<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a><span class="co">#@</span></span>
+<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a><span class="co">#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co"># replace the first letter "e" that appears in any fruit with the letter "X"</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER</span></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sub</span>(<span class="at">pattern=</span><span class="st">"e"</span>, <span class="at">replacement=</span><span class="st">"X"</span>, <span class="at">x=</span>fruit)  <span class="co"># "applX"    "N. AmXrican apple"     etc</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "applX"             "N. AmXrican apple" "S. KorXan Fig"    
+ [4] "fig"               "star fruit"        "pXar"             
+ [7] "prickly pXar"      "BXurre Hardy pear" "chXrry"           
+[10] "black chXrry"      "pXach"             "plum"             
+[13] "kumquat"           "banana"            "bluXberry"        
+[16] "strawbXrry"        "honXydew"          "strawbXrries"     
+[19] "yumbXrry"         </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co"># replace ALL of the "e"s that appears in any fruit with the letter "x"</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER</span></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="at">pattern=</span><span class="st">"e"</span>, <span class="at">replacement=</span><span class="st">"X"</span>, fruit)   <span class="co"># "applX"    "N. AmXrican applX"     etc</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "applX"             "N. AmXrican applX" "S. KorXan Fig"    
+ [4] "fig"               "star fruit"        "pXar"             
+ [7] "prickly pXar"      "BXurrX Hardy pXar" "chXrry"           
+[10] "black chXrry"      "pXach"             "plum"             
+[13] "kumquat"           "banana"            "bluXbXrry"        
+[16] "strawbXrry"        "honXydXw"          "strawbXrriXs"     
+[19] "yumbXrry"         </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="co"># remove all spaces from the addresses</span></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER</span></span>
+<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="at">pattern=</span><span class="st">" "</span>, <span class="at">replacement=</span><span class="st">""</span>, addresses)   <span class="co"># "12345SesameStreet"   "OneMicro$oftWay"   etc.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "12345SesameStreet"               "OneMicro$oftWay"                
+ [3] "3OliveSt."                       "Two1stAve."                     
+ [5] "5678ParkPlace"                   "FortyFive2ndStreet"             
+ [7] "NinetyNineConeSt.apartment7"     "9MainSt.apt.623"                
+ [9] "FiveGoogleDrive"                 "4\\2RechovYafo"                 
+[11] "FifteenWatchamacallitBoulevard"  "NineteenWatchamacallitBoulevard"
+[13] "OneMainStreetApt12b"             "TwoMainStreetApt123c"           
+[15] "ThreeMainStreetApt12343"         "CityHallLockport,NY"            </code></pre>
+</div>
+</div>
+<p>We will revisit sub and gsub later with more complex examples …</p>
+</section>
+<section id="strsplit-function" class="level2" data-number="14.13">
+<h2 data-number="14.13" class="anchored" data-anchor-id="strsplit-function"><span class="header-section-number">14.13</span> strsplit function</h2>
+<p><code>strsplit()</code> is used to split a string based on a “delimeter” that appears between the different values. This “delimeter” can be a regular expression. We’ll come back to strsplit later, but let’s introduce it here.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>sentences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "He said hi. She said bye. We went to the park."
+[2] "I like ice cream! Do you? Sue likes pizza."    </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------.</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION - </span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use strsplit to split the values in the sentences vector by </span></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="co"># splitting based on spaces. Assign the result to the varible "sentenceWords".</span></span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to get the 3rd "word" from the 1st entry in the sentences </span></span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co"># vector.</span></span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------.</span></span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER</span></span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a>sentenceWords <span class="ot">=</span> <span class="fu">strsplit</span>(sentences, <span class="at">split=</span><span class="st">" "</span>)</span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a>sentenceWords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+ [1] "He"    "said"  "hi."   "She"   "said"  "bye."  "We"    "went"  "to"   
+[10] "the"   "park."
+
+[[2]]
+[1] "I"      "like"   "ice"    "cream!" "Do"     "you?"   "Sue"    "likes" 
+[9] "pizza."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice that the result is a LIST:</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sentenceWords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 2
+ $ : chr [1:11] "He" "said" "hi." "She" ...
+ $ : chr [1:9] "I" "like" "ice" "cream!" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the 3rd word in the 1st sentence</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>sentenceWords[[<span class="dv">1</span>]][<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hi."</code></pre>
+</div>
+</div>
+<section id="practice" class="level4">
+<h4 class="anchored" data-anchor-id="practice">— practice —</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------.</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION - split each entry in the sentences variable into individual </span></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sententces. </span></span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">WARNING</span><span class="co"> - the value of the split argument is interpreted as a</span></span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a><span class="co"># regular expression pattern. Be careful.</span></span>
+<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------------------.</span></span>
+<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER</span></span>
+<span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-11"><a href="#cb92-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 1st attempt - doesn't work. </span></span>
+<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a><span class="fu">strsplit</span>(sentences, <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+ [1] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+[26] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+[[2]]
+ [1] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+[26] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This doesn't work since the 2nd argument is a regular expression.</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The following will split based on periods.</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>sentences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "He said hi. She said bye. We went to the park."
+[2] "I like ice cream! Do you? Sue likes pizza."    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strsplit</span>(sentences, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "He said hi"           " She said bye"        " We went to the park"
+
+[[2]]
+[1] "I like ice cream! Do you? Sue likes pizza"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a "regular expression" to instead split on any of a period, </span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="co"># question mark, or exclamation point.</span></span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>sentences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "He said hi. She said bye. We went to the park."
+[2] "I like ice cream! Do you? Sue likes pizza."    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">strsplit</span>(sentences, <span class="st">"[.?!]"</span>)  <span class="co"># split on any one of .?!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "He said hi"           " She said bye"        " We went to the park"
+
+[[2]]
+[1] "I like ice cream" " Do you"          " Sue likes pizza"</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="other-functions-regmatches-regexec-regexpr-gregexpr" class="level2" data-number="14.14">
+<h2 data-number="14.14" class="anchored" data-anchor-id="other-functions-regmatches-regexec-regexpr-gregexpr"><span class="header-section-number">14.14</span> Other functions: regmatches, regexec, regexpr, gregexpr</h2>
+<p>The following are other function in Base R that use regex. These are a little more advanced. It’s probably better to try researching these functions after first understanding the material presented in this section.</p>
+<p>You can search online or see the R documentation for more info about these functions.</p>
+<ul>
+<li>regmatches</li>
+<li>regexec</li>
+<li>regexpr</li>
+<li>gregexpr</li>
+</ul>
+</section>
+<section id="stringr-functions" class="level2" data-number="14.15">
+<h2 data-number="14.15" class="anchored" data-anchor-id="stringr-functions"><span class="header-section-number">14.15</span> stringr functions</h2>
+<p>The stringr package includes many functions for use with character vectors. One example is str_length, which is very similar to the nchar() function in Base R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The str_length function is part of the stringr package.</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To use it you must install stringr (or install tidyverse, which is a </span></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="co"># collection of packages one of which is stringr)</span></span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(<span class="fu">c</span>(<span class="st">"abc"</span>, <span class="st">"hello"</span>, <span class="st">"I like ice cream!"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  3  5 17</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function is very similar to the</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="co"># nchar function that is built into base R.</span></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(<span class="fu">c</span>(<span class="st">"abc"</span>, <span class="st">"hello"</span>, <span class="st">"I like ice cream!"</span>))  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  3  5 17</code></pre>
+</div>
+</div>
+<p>The stringr package also includes numerous functions that make use of regular expressions. The following is a table of the stringr functions and the Base R functions that can be used to accomplish similar things.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 26%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>stringr</th>
+<th>Base R</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>str_detect()</code></td>
+<td><code>grepl()</code></td>
+<td>Returns TRUE/FALSE if pattern is found</td>
+</tr>
+<tr class="even">
+<td><code>str_extract(), str_extract_all()</code></td>
+<td><code>regmatches()</code></td>
+<td>Extract matching patterns</td>
+</tr>
+<tr class="odd">
+<td><code>str_match(), str_match_all()</code></td>
+<td><code>regexec(), regmatches()</code></td>
+<td>Extract matched groups</td>
+</tr>
+<tr class="even">
+<td><code>str_replace(), str_replace_all()</code></td>
+<td><code>sub(), gsub()</code></td>
+<td>Replace matched patterns</td>
+</tr>
+<tr class="odd">
+<td><code>str_split()</code></td>
+<td><code>strsplit()</code></td>
+<td>Split string on pattern</td>
+</tr>
+<tr class="even">
+<td><code>str_subset()</code></td>
+<td><code>grep(value = TRUE)</code></td>
+<td>Keep strings matching pattern</td>
+</tr>
+<tr class="odd">
+<td><code>str_locate(), str_locate_all()</code></td>
+<td><code>regexpr(), gregexpr()</code></td>
+<td>Find positions of matches</td>
+</tr>
+<tr class="even">
+<td><code>str_count()</code></td>
+<td><code>lengths(regmatches())</code></td>
+<td>Count pattern occurrences</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./0000055-workingWithFiles.html" class="pagination-link" aria-label="<yrChapterNumber>13. </yrChapterNumber> Working with files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Working with files</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./0200200-b-introToRegularExpressions-v036.html" class="pagination-link" aria-label="<yrChapterNumber>15. </yrChapterNumber> ^Anchors$, the dot, and [character classes]">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> ^Anchors$, the dot, and [character classes]</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>
+const titles = document.querySelectorAll('.title');
+
+titles.forEach(title => {
+  if (title.textContent.trim().startsWith('Appendix')) {
+    const chapterNumber = title.querySelector('yrChapterNumber');
+    if (chapterNumber) {
+      chapterNumber.classList.add('yrAppendixChapterNumber');
+    }
+  }
+});
+</script>
+
+
+
+
+</body></html>
