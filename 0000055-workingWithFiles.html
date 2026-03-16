@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16&nbsp; 16.  Working with files – Data Management With R (latest version)</title>
+<title>13&nbsp; 13.  Working with files – Data Management With R (latest version)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./0000075-whatIsJsonData.html" rel="next">
+<link href="./0200200-a-introToRegularExpressions-v036.html" rel="next">
 <link href="./0400200-stringr-tutorials-v003.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -122,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Working with files</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Working with files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Into to Coding With AI</span></a>
+ <span class="menu-text">Intro to R packages</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -222,20 +222,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> AI in Everyday Use</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Coding with AI - an overview</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> Using AI to code a Chrome Extensions</span></span></a>
+  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><yrchapternumber>7. </yrchapternumber> Intro to R packages</span></span></a>
   </div>
 </li>
       </ul>
@@ -243,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to R packages</span></a>
+ <span class="menu-text">Intro to Quarto</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -251,8 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000022-InstallingRPackages-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> Intro to R packages</span></span></a>
+  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><yrchapternumber>8. </yrchapternumber> Intro to Quarto</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to Quarto</span></a>
+ <span class="menu-text">Intro to tidyverse</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -268,8 +256,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000017-introToQuarto-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> Intro to Quarto</span></span></a>
+  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><yrchapternumber>9. </yrchapternumber> What is the "tidyverse"</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><yrchapternumber>10. </yrchapternumber> tibbles and tribbles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><yrchapternumber>11. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> stringr tutorial</span></span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to tidyverse</span></a>
+ <span class="menu-text">Working with files</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -285,26 +291,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0400050-whatIsTidyverse-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> What is the "tidyverse"</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0400050-tibbles-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> tibbles and tribbles</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0400100-usingPipes-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Using pipes, i.e. %&gt;% and |&gt;</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0400200-stringr-tutorials-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> stringr tutorial</span></span></a>
+  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Working with files</span></span></a>
   </div>
 </li>
       </ul>
@@ -312,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
- <span class="menu-text">Working with files</span></a>
+ <span class="menu-text">Regular Expressions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -320,8 +308,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000055-workingWithFiles.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Working with files</span></span></a>
+  <a href="./0200200-a-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Intro to Regular Expressions (regex)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-b-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> ^Anchors$, the dot, and [character classes]</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-c-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Escaping meta-characters and regex dialects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-d-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> (a) word boundaries `\b` (b) PATTERN1|PATTERN2 (c) paste0 to build long patterns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-e-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> Quantifiers and gsub with patterns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-f-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> Backreferences (\\1, \\2, ...)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-g-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> Greedy vs non-greedy quantifiers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-h-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> The complete list of quantifiers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0200200-i-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> Challenges and more practice</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> Practice with Regular Expressions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regex-0200300-practice-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Practice - Searching and Cleaning Data (with regex in R)</span></span></a>
   </div>
 </li>
       </ul>
@@ -329,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
- <span class="menu-text">JSON data and APIs</span></a>
+ <span class="menu-text">Intro to dplyr</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -337,38 +385,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> Intro to JSON data</span></span></a>
+  <a href="./0500100-a-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> dplyr - getting and viewing the data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><yrchapternumber>18. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><yrchapternumber>19. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><yrchapternumber>20. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./0000093-jsonParsingPractice-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><yrchapternumber>21. </yrchapternumber> JSON Parsing Practice in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./assignment-api-0000100-weatherDataApi-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><yrchapternumber>22. </yrchapternumber> assignment - weather API</span></span></a>
+  <a href="./0500100-b-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> dplyr verbs - select, filter, etc.</span></span></a>
   </div>
 </li>
       </ul>
@@ -376,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Expressions</span></a>
+ <span class="menu-text">Relational databases and SQL</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -384,20 +408,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0200200-a-introToRegularExpressions-v036.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><yrchapternumber>23. </yrchapternumber> regular expressions (regex)</span></span></a>
+  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./000260-PracticeWithRegulaExpressions-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><yrchapternumber>24. </yrchapternumber> Practice with Regular Expressions</span></span></a>
+  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> Get the data for the SQL lessons</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0990100-cleaningData-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><yrchapternumber>25. </yrchapternumber> "Cleaning" data</span></span></a>
+  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber> Intro to SQL Select ***(assumes some knowledge of dplyr)***</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Intro to Relational Databases and SQL ***(no dplyr required)***</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Inner Joins.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> aggregate functions, group by, having</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> SQL "window" functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0915-workingWithSqliteDatabasesInR-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> Working with SQLite databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Working directly with databases in R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql0935-dbNormalization-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Database Normalization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Database Questions (and Answers)</span></span></a>
   </div>
 </li>
       </ul>
@@ -405,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to dplyr</span></a>
+ <span class="menu-text">Into to Coding With AI</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -413,14 +503,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-a-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><yrchapternumber>26. </yrchapternumber> dplyr - getting and viewing the data</span></span></a>
+  <a href="./ai-000100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> AI in Everyday Use</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500100-b-tdyvrsDplyr-v005.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><yrchapternumber>27. </yrchapternumber> dplyr verbs - select, filter, etc.</span></span></a>
+  <a href="./aiCoding00100-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Coding with AI - an overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro00130-chromeExtensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> Using AI to code a Chrome Extensions</span></span></a>
   </div>
 </li>
       </ul>
@@ -428,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
- <span class="menu-text">Relational databases and SQL</span></a>
+ <span class="menu-text">JSON data and APIs</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -436,86 +532,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0014-theBooksDatabase-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><yrchapternumber>28. </yrchapternumber> Get the data - "books database" and other tables</span></span></a>
+  <a href="./0000075-whatIsJsonData.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>44. </yrchapternumber> Intro to JSON data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0006-introToDatabases-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><yrchapternumber>29. </yrchapternumber>  "databases" and "database management systems"</span></span></a>
+  <a href="./0000080-editingAndValidatingJsonFiles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>45. </yrchapternumber> Creating, editing and validating JSON files</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0500400-sqlSelectIntro-v003.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><yrchapternumber>30. </yrchapternumber> Intro to SQL Select ***(assumes some knowledge of dplyr)***</span></span></a>
+  <a href="./0000085-jsonDataTypes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>46. </yrchapternumber> DATA TYPES IN JSON</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0010-introToSql-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><yrchapternumber>31. </yrchapternumber> Intro to Relational Databases and SQL ***(no dplyr required)***</span></span></a>
+  <a href="./0000090-usingJsonInR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Using JSON in R with jsonlite package</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0035-workingWithMultipleTables-v012.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><yrchapternumber>32. </yrchapternumber> Inner Joins.</span></span></a>
+  <a href="./0000093-jsonParsingPractice-v001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>48. </yrchapternumber> JSON Parsing Practice in R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sql0030-sqlFunctions_aggregateFunctions_groupBy_having-v019.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><yrchapternumber>33. </yrchapternumber> aggregate functions, group by, having</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0040-crossJoin-leftJoin-subquery-selfJoins-v023.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><yrchapternumber>34. </yrchapternumber> more joins (cross/left/right/full), subqueries, set operations, case, self joins</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0050-commonTableExpressions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><yrchapternumber>35. </yrchapternumber> Common Table Expressions (CTE)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0200-otherSqlCommands-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><yrchapternumber>36. </yrchapternumber> other commands: update/delete, create/drop/insert</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0900-sqlWindowFunctions-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><yrchapternumber>37. </yrchapternumber> SQL "window" functions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0915-workingWithSqliteDatabasesInR-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><yrchapternumber>38. </yrchapternumber> Working with SQLite databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0950-workingWithDatabasesInR-v010.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><yrchapternumber>39. </yrchapternumber> Working directly with databases in R</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql0935-dbNormalization-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><yrchapternumber>40. </yrchapternumber> Database Normalization</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sql3000-sqlQuestions-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><yrchapternumber>41. </yrchapternumber> Database Questions (and Answers)</span></span></a>
+  <a href="./assignment-api-0000100-weatherDataApi-v002.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><yrchapternumber>49. </yrchapternumber> assignment - weather API</span></span></a>
   </div>
 </li>
       </ul>
@@ -532,43 +580,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000205-introToXml-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><yrchapternumber>42. </yrchapternumber> Intro to XML</span></span></a>
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title"><yrchapternumber>50. </yrchapternumber> Intro to XML</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000220-parsingXmUsingR-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><yrchapternumber>43. </yrchapternumber> Parsing XML using R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title"><yrchapternumber>51. </yrchapternumber> Parsing XML using R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000300-internetArchitecture-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><yrchapternumber>44. </yrchapternumber> How a webpage gets to your browser</span></span></a>
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title"><yrchapternumber>52. </yrchapternumber> How a webpage gets to your browser</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000325-introToHtmlAndCss-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><yrchapternumber>45. </yrchapternumber> Introduction to HTML and CSS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title"><yrchapternumber>53. </yrchapternumber> Introduction to HTML and CSS</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000400-webscrapingContinued-015.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><yrchapternumber>46. </yrchapternumber> Web Scraping with R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title"><yrchapternumber>54. </yrchapternumber> Web Scraping with R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000130-WebscrapingJavascriptSites-v004.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><yrchapternumber>47. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title"><yrchapternumber>55. </yrchapternumber> Scraping Dynamic (JavaScript) Websites</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./web-000420-practiceWithWebScraping-v001-ANSWERS-v002.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><yrchapternumber>48. </yrchapternumber> CSS Selector Questions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title"><yrchapternumber>56. </yrchapternumber> CSS Selector Questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -585,7 +633,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./github-000700-markdownGithubVsQuarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><yrchapternumber>49. </yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title"><yrchapternumber>57. </yrchapternumber> GitHub Markdown vs. Quarto (.qmd) Comparison</span></span></a>
   </div>
 </li>
       </ul>
@@ -602,7 +650,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050050-tdyvrsGgplot2-v0001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title"><yrchapternumber>50. </yrchapternumber> Intro to ggplot2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title"><yrchapternumber>58. </yrchapternumber> Intro to ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -619,31 +667,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000100-topics-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title"><yrchapternumber>51. </yrchapternumber> Topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title"><yrchapternumber>59. </yrchapternumber> Topics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000200-bibliography-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title"><yrchapternumber>52. </yrchapternumber> Bibliography</span></span></a>
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title"><yrchapternumber>60. </yrchapternumber> Bibliography</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000300-whereToFindDatasets-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title"><yrchapternumber>53. </yrchapternumber> Where to find datasets</span></span></a>
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title"><yrchapternumber>61. </yrchapternumber> Where to find datasets</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0000310-whereToFindApis-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title"><yrchapternumber>54. </yrchapternumber> Where to find APIs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title"><yrchapternumber>62. </yrchapternumber> Where to find APIs</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./0999000-toDo-v001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title"><yrchapternumber>55. </yrchapternumber> Additional topics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title"><yrchapternumber>63. </yrchapternumber> Additional topics</span></span></a>
   </div>
 </li>
       </ul>
@@ -658,63 +706,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#download-files-to-work-with." id="toc-download-files-to-work-with." class="nav-link active" data-scroll-target="#download-files-to-work-with."><span class="header-section-number">16.1</span> Download files to work with.</a></li>
-  <li><a href="#a-directory-means-the-same-thing-as-a-folder" id="toc-a-directory-means-the-same-thing-as-a-folder" class="nav-link" data-scroll-target="#a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">16.2</span> A “directory” means the same thing as a “folder”</a></li>
-  <li><a href="#obvious-stuff-folders-and-files" id="toc-obvious-stuff-folders-and-files" class="nav-link" data-scroll-target="#obvious-stuff-folders-and-files"><span class="header-section-number">16.3</span> Obvious stuff … folders and files</a></li>
-  <li><a href="#the-root-folder-i.e." id="toc-the-root-folder-i.e." class="nav-link" data-scroll-target="#the-root-folder-i.e."><span class="header-section-number">16.4</span> The “root” folder, i.e.&nbsp;/</a>
+  <li><a href="#download-files-to-work-with." id="toc-download-files-to-work-with." class="nav-link active" data-scroll-target="#download-files-to-work-with."><span class="header-section-number">13.1</span> Download files to work with.</a></li>
+  <li><a href="#a-directory-means-the-same-thing-as-a-folder" id="toc-a-directory-means-the-same-thing-as-a-folder" class="nav-link" data-scroll-target="#a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">13.2</span> A “directory” means the same thing as a “folder”</a></li>
+  <li><a href="#obvious-stuff-folders-and-files" id="toc-obvious-stuff-folders-and-files" class="nav-link" data-scroll-target="#obvious-stuff-folders-and-files"><span class="header-section-number">13.3</span> Obvious stuff … folders and files</a></li>
+  <li><a href="#the-root-folder-i.e." id="toc-the-root-folder-i.e." class="nav-link" data-scroll-target="#the-root-folder-i.e."><span class="header-section-number">13.4</span> The “root” folder, i.e.&nbsp;/</a>
   <ul class="collapse">
-  <li><a href="#yr-full-path" id="toc-yr-full-path" class="nav-link" data-scroll-target="#yr-full-path"><span class="header-section-number">16.4.1</span> full path</a></li>
-  <li><a href="#two-different-files-with-the-same-names" id="toc-two-different-files-with-the-same-names" class="nav-link" data-scroll-target="#two-different-files-with-the-same-names"><span class="header-section-number">16.4.2</span> two different files with the same names</a></li>
+  <li><a href="#yr-full-path" id="toc-yr-full-path" class="nav-link" data-scroll-target="#yr-full-path"><span class="header-section-number">13.4.1</span> full path</a></li>
+  <li><a href="#two-different-files-with-the-same-names" id="toc-two-different-files-with-the-same-names" class="nav-link" data-scroll-target="#two-different-files-with-the-same-names"><span class="header-section-number">13.4.2</span> two different files with the same names</a></li>
   </ul></li>
-  <li><a href="#relative-paths-vs-full-paths" id="toc-relative-paths-vs-full-paths" class="nav-link" data-scroll-target="#relative-paths-vs-full-paths"><span class="header-section-number">16.5</span> “relative paths” vs “full paths”</a>
+  <li><a href="#relative-paths-vs-full-paths" id="toc-relative-paths-vs-full-paths" class="nav-link" data-scroll-target="#relative-paths-vs-full-paths"><span class="header-section-number">13.5</span> “relative paths” vs “full paths”</a>
   <ul class="collapse">
-  <li><a href="#mac-and-linux-style-paths-vs-windows-style-paths" id="toc-mac-and-linux-style-paths-vs-windows-style-paths" class="nav-link" data-scroll-target="#mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">16.5.1</span> Mac and Linux style paths VS Windows style paths</a></li>
-  <li><a href="#homejoe-maclinux-vs-usersjoe-win" id="toc-homejoe-maclinux-vs-usersjoe-win" class="nav-link" data-scroll-target="#homejoe-maclinux-vs-usersjoe-win"><span class="header-section-number">16.5.2</span> /home/joe (Mac,Linux) vs /Users/joe (Win)</a></li>
-  <li><a href="#windows-drive-letters" id="toc-windows-drive-letters" class="nav-link" data-scroll-target="#windows-drive-letters"><span class="header-section-number">16.5.3</span> Windows drive letters</a></li>
+  <li><a href="#mac-and-linux-style-paths-vs-windows-style-paths" id="toc-mac-and-linux-style-paths-vs-windows-style-paths" class="nav-link" data-scroll-target="#mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">13.5.1</span> Mac and Linux style paths VS Windows style paths</a></li>
+  <li><a href="#homejoe-maclinux-vs-usersjoe-win" id="toc-homejoe-maclinux-vs-usersjoe-win" class="nav-link" data-scroll-target="#homejoe-maclinux-vs-usersjoe-win"><span class="header-section-number">13.5.2</span> /home/joe (Mac,Linux) vs /Users/joe (Win)</a></li>
+  <li><a href="#windows-drive-letters" id="toc-windows-drive-letters" class="nav-link" data-scroll-target="#windows-drive-letters"><span class="header-section-number">13.5.3</span> Windows drive letters</a></li>
   </ul></li>
-  <li><a href="#dir-some_folder-same-as-list.files-some_folder" id="toc-dir-some_folder-same-as-list.files-some_folder" class="nav-link" data-scroll-target="#dir-some_folder-same-as-list.files-some_folder"><span class="header-section-number">16.6</span> dir( SOME_FOLDER ) # same as list.files( SOME_FOLDER )</a></li>
-  <li><a href="#the-working-directory-getwd-setwd-dir" id="toc-the-working-directory-getwd-setwd-dir" class="nav-link" data-scroll-target="#the-working-directory-getwd-setwd-dir"><span class="header-section-number">16.7</span> The “working directory”, getwd(), setwd(), dir()</a>
+  <li><a href="#dir-some_folder-same-as-list.files-some_folder" id="toc-dir-some_folder-same-as-list.files-some_folder" class="nav-link" data-scroll-target="#dir-some_folder-same-as-list.files-some_folder"><span class="header-section-number">13.6</span> dir( SOME_FOLDER ) # same as list.files( SOME_FOLDER )</a></li>
+  <li><a href="#the-working-directory-getwd-setwd-dir" id="toc-the-working-directory-getwd-setwd-dir" class="nav-link" data-scroll-target="#the-working-directory-getwd-setwd-dir"><span class="header-section-number">13.7</span> The “working directory”, getwd(), setwd(), dir()</a>
   <ul class="collapse">
-  <li><a href="#specifying-a-pattern-to-dir" id="toc-specifying-a-pattern-to-dir" class="nav-link" data-scroll-target="#specifying-a-pattern-to-dir"><span class="header-section-number">16.7.1</span> Specifying a pattern to dir</a></li>
-  <li><a href="#summary---different-ways-of-using-dir-function" id="toc-summary---different-ways-of-using-dir-function" class="nav-link" data-scroll-target="#summary---different-ways-of-using-dir-function"><span class="header-section-number">16.7.2</span> Summary - different ways of using dir function:</a></li>
-  <li><a href="#other-r-functions-also-use-the-working-directory" id="toc-other-r-functions-also-use-the-working-directory" class="nav-link" data-scroll-target="#other-r-functions-also-use-the-working-directory"><span class="header-section-number">16.7.3</span> Other R functions also use the “working directory”</a></li>
+  <li><a href="#specifying-a-pattern-to-dir" id="toc-specifying-a-pattern-to-dir" class="nav-link" data-scroll-target="#specifying-a-pattern-to-dir"><span class="header-section-number">13.7.1</span> Specifying a pattern to dir</a></li>
+  <li><a href="#summary---different-ways-of-using-dir-function" id="toc-summary---different-ways-of-using-dir-function" class="nav-link" data-scroll-target="#summary---different-ways-of-using-dir-function"><span class="header-section-number">13.7.2</span> Summary - different ways of using dir function:</a></li>
+  <li><a href="#other-r-functions-also-use-the-working-directory" id="toc-other-r-functions-also-use-the-working-directory" class="nav-link" data-scroll-target="#other-r-functions-also-use-the-working-directory"><span class="header-section-number">13.7.3</span> Other R functions also use the “working directory”</a></li>
   </ul></li>
-  <li><a href="#finding-a-full-path-to-a-specific-file" id="toc-finding-a-full-path-to-a-specific-file" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-specific-file"><span class="header-section-number">16.8</span> Finding a full path to a specific file</a>
+  <li><a href="#finding-a-full-path-to-a-specific-file" id="toc-finding-a-full-path-to-a-specific-file" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-specific-file"><span class="header-section-number">13.8</span> Finding a full path to a specific file</a>
   <ul class="collapse">
-  <li><a href="#using-file-explorer-win-or-finder-mac" id="toc-using-file-explorer-win-or-finder-mac" class="nav-link" data-scroll-target="#using-file-explorer-win-or-finder-mac"><span class="header-section-number">16.8.1</span> Using “File Explorer” (win) or “Finder” (mac)</a></li>
-  <li><a href="#using-the-file.choose-or-choose.files-r-functions" id="toc-using-the-file.choose-or-choose.files-r-functions" class="nav-link" data-scroll-target="#using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">16.8.2</span> Using the file.choose() or choose.files() R functions</a></li>
-  <li><a href="#finding-a-full-path-to-a-special-folder" id="toc-finding-a-full-path-to-a-special-folder" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-special-folder"><span class="header-section-number">16.8.3</span> Finding a full path to a “Special folder”</a></li>
+  <li><a href="#using-file-explorer-win-or-finder-mac" id="toc-using-file-explorer-win-or-finder-mac" class="nav-link" data-scroll-target="#using-file-explorer-win-or-finder-mac"><span class="header-section-number">13.8.1</span> Using “File Explorer” (win) or “Finder” (mac)</a></li>
+  <li><a href="#using-the-file.choose-or-choose.files-r-functions" id="toc-using-the-file.choose-or-choose.files-r-functions" class="nav-link" data-scroll-target="#using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">13.8.2</span> Using the file.choose() or choose.files() R functions</a></li>
+  <li><a href="#finding-a-full-path-to-a-special-folder" id="toc-finding-a-full-path-to-a-special-folder" class="nav-link" data-scroll-target="#finding-a-full-path-to-a-special-folder"><span class="header-section-number">13.8.3</span> Finding a full path to a “Special folder”</a></li>
   </ul></li>
-  <li><a href="#functions-to-read-and-write-files-in-base-r" id="toc-functions-to-read-and-write-files-in-base-r" class="nav-link" data-scroll-target="#functions-to-read-and-write-files-in-base-r"><span class="header-section-number">16.9</span> functions to read and write files in “Base R”</a>
+  <li><a href="#functions-to-read-and-write-files-in-base-r" id="toc-functions-to-read-and-write-files-in-base-r" class="nav-link" data-scroll-target="#functions-to-read-and-write-files-in-base-r"><span class="header-section-number">13.9</span> functions to read and write files in “Base R”</a>
   <ul class="collapse">
-  <li><a href="#readlines-writelines" id="toc-readlines-writelines" class="nav-link" data-scroll-target="#readlines-writelines"><span class="header-section-number">16.9.1</span> readLines, writeLines</a></li>
-  <li><a href="#read.csv-write.csv" id="toc-read.csv-write.csv" class="nav-link" data-scroll-target="#read.csv-write.csv"><span class="header-section-number">16.9.2</span> read.csv, write.csv</a></li>
-  <li><a href="#read.fwf" id="toc-read.fwf" class="nav-link" data-scroll-target="#read.fwf"><span class="header-section-number">16.9.3</span> read.fwf</a></li>
+  <li><a href="#readlines-writelines" id="toc-readlines-writelines" class="nav-link" data-scroll-target="#readlines-writelines"><span class="header-section-number">13.9.1</span> readLines, writeLines</a></li>
+  <li><a href="#read.csv-write.csv" id="toc-read.csv-write.csv" class="nav-link" data-scroll-target="#read.csv-write.csv"><span class="header-section-number">13.9.2</span> read.csv, write.csv</a></li>
+  <li><a href="#read.fwf" id="toc-read.fwf" class="nav-link" data-scroll-target="#read.fwf"><span class="header-section-number">13.9.3</span> read.fwf</a></li>
   </ul></li>
-  <li><a href="#fs-package-a-non-core-part-of-the-tidyverse" id="toc-fs-package-a-non-core-part-of-the-tidyverse" class="nav-link" data-scroll-target="#fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">16.10</span> fs package (a non-core part of “the tidyverse”)</a>
+  <li><a href="#fs-package-a-non-core-part-of-the-tidyverse" id="toc-fs-package-a-non-core-part-of-the-tidyverse" class="nav-link" data-scroll-target="#fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">13.10</span> fs package (a non-core part of “the tidyverse”)</a>
   <ul class="collapse">
-  <li><a href="#dir_ls-function" id="toc-dir_ls-function" class="nav-link" data-scroll-target="#dir_ls-function"><span class="header-section-number">16.10.1</span> dir_ls() function</a></li>
-  <li><a href="#dir_tree" id="toc-dir_tree" class="nav-link" data-scroll-target="#dir_tree"><span class="header-section-number">16.10.2</span> dir_tree</a></li>
-  <li><a href="#other-functions-in-the-fs-package" id="toc-other-functions-in-the-fs-package" class="nav-link" data-scroll-target="#other-functions-in-the-fs-package"><span class="header-section-number">16.10.3</span> Other functions in the fs package</a></li>
+  <li><a href="#dir_ls-function" id="toc-dir_ls-function" class="nav-link" data-scroll-target="#dir_ls-function"><span class="header-section-number">13.10.1</span> dir_ls() function</a></li>
+  <li><a href="#dir_tree" id="toc-dir_tree" class="nav-link" data-scroll-target="#dir_tree"><span class="header-section-number">13.10.2</span> dir_tree</a></li>
+  <li><a href="#other-functions-in-the-fs-package" id="toc-other-functions-in-the-fs-package" class="nav-link" data-scroll-target="#other-functions-in-the-fs-package"><span class="header-section-number">13.10.3</span> Other functions in the fs package</a></li>
   </ul></li>
-  <li><a href="#readlines-and-writelines-to-readwrite-lines-of-text-files" id="toc-readlines-and-writelines-to-readwrite-lines-of-text-files" class="nav-link" data-scroll-target="#readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">16.11</span> readLines() and writeLines() to read/write lines of text files</a></li>
-  <li><a href="#read_csv-and-write_csv" id="toc-read_csv-and-write_csv" class="nav-link" data-scroll-target="#read_csv-and-write_csv"><span class="header-section-number">16.12</span> read_csv and write_csv</a></li>
-  <li><a href="#readwrite-excel-files" id="toc-readwrite-excel-files" class="nav-link" data-scroll-target="#readwrite-excel-files"><span class="header-section-number">16.13</span> Read/Write Excel files</a></li>
-  <li><a href="#reading-fixed-width-field-files" id="toc-reading-fixed-width-field-files" class="nav-link" data-scroll-target="#reading-fixed-width-field-files"><span class="header-section-number">16.14</span> Reading fixed width field files</a></li>
-  <li><a href="#capture-output-of-r-commands" id="toc-capture-output-of-r-commands" class="nav-link" data-scroll-target="#capture-output-of-r-commands"><span class="header-section-number">16.15</span> Capture output of R commands</a>
+  <li><a href="#readlines-and-writelines-to-readwrite-lines-of-text-files" id="toc-readlines-and-writelines-to-readwrite-lines-of-text-files" class="nav-link" data-scroll-target="#readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">13.11</span> readLines() and writeLines() to read/write lines of text files</a></li>
+  <li><a href="#read_csv-and-write_csv" id="toc-read_csv-and-write_csv" class="nav-link" data-scroll-target="#read_csv-and-write_csv"><span class="header-section-number">13.12</span> read_csv and write_csv</a></li>
+  <li><a href="#readwrite-excel-files" id="toc-readwrite-excel-files" class="nav-link" data-scroll-target="#readwrite-excel-files"><span class="header-section-number">13.13</span> Read/Write Excel files</a></li>
+  <li><a href="#reading-fixed-width-field-files" id="toc-reading-fixed-width-field-files" class="nav-link" data-scroll-target="#reading-fixed-width-field-files"><span class="header-section-number">13.14</span> Reading fixed width field files</a></li>
+  <li><a href="#capture-output-of-r-commands" id="toc-capture-output-of-r-commands" class="nav-link" data-scroll-target="#capture-output-of-r-commands"><span class="header-section-number">13.15</span> Capture output of R commands</a>
   <ul class="collapse">
-  <li><a href="#capture.outputsomecommand-filesomefile.txt" id="toc-capture.outputsomecommand-filesomefile.txt" class="nav-link" data-scroll-target="#capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">16.15.1</span> capture.output(someCommand, file=“someFile.txt”)</a></li>
+  <li><a href="#capture.outputsomecommand-filesomefile.txt" id="toc-capture.outputsomecommand-filesomefile.txt" class="nav-link" data-scroll-target="#capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">13.15.1</span> capture.output(someCommand, file=“someFile.txt”)</a></li>
   </ul></li>
-  <li><a href="#sinksomefile-sink" id="toc-sinksomefile-sink" class="nav-link" data-scroll-target="#sinksomefile-sink"><span class="header-section-number">16.16</span> sink(“someFile”), sink()</a></li>
+  <li><a href="#sinksomefile-sink" id="toc-sinksomefile-sink" class="nav-link" data-scroll-target="#sinksomefile-sink"><span class="header-section-number">13.16</span> sink(“someFile”), sink()</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Working with files</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html">Working with files</a></li><li class="breadcrumb-item"><a href="./0000055-workingWithFiles.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Working with files</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><yrchapternumber>16. </yrchapternumber> Working with files</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><yrchapternumber>13. </yrchapternumber> Working with files</span></h1>
 </div>
 
 
@@ -731,27 +779,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="download-files-to-work-with." class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="download-files-to-work-with."><span class="header-section-number">16.1</span> Download files to work with.</h2>
+<section id="download-files-to-work-with." class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="download-files-to-work-with."><span class="header-section-number">13.1</span> Download files to work with.</h2>
 <p>Use this link to <a href="myFiles.zip">download a set of files in a ZIP file</a> for use with these lessons.</p>
 </section>
-<section id="a-directory-means-the-same-thing-as-a-folder" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">16.2</span> A “directory” means the same thing as a “folder”</h2>
+<section id="a-directory-means-the-same-thing-as-a-folder" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="a-directory-means-the-same-thing-as-a-folder"><span class="header-section-number">13.2</span> A “directory” means the same thing as a “folder”</h2>
 <p>The terms “directory” and “folder” mean exactly the same thing - they’re just two different words for places where we store files on a computer. The word “directory” came first, used in early computer systems in the 1960s. It comes from the word’s original meaning of an organized listing or index, like a phone directory. In the 1980s, when computers started using visual interfaces with icons, Apple introduced the word “folder” because it was more intuitive for regular users - it referenced something familiar that people used to organize paper documents. Today, both terms are used interchangeably, with “folder” being more common in everyday use and “directory” often preferred in technical contexts.</p>
 </section>
-<section id="obvious-stuff-folders-and-files" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="obvious-stuff-folders-and-files"><span class="header-section-number">16.3</span> Obvious stuff … folders and files</h2>
+<section id="obvious-stuff-folders-and-files" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="obvious-stuff-folders-and-files"><span class="header-section-number">13.3</span> Obvious stuff … folders and files</h2>
 <p>As I’m sure you know</p>
 <ul>
 <li><p>files on a computer are stored in folders.</p></li>
 <li><p>Those folders can be in other (higher level) folders, etc.</p></li>
 </ul>
 </section>
-<section id="the-root-folder-i.e." class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="the-root-folder-i.e."><span class="header-section-number">16.4</span> The “root” folder, i.e.&nbsp;/</h2>
+<section id="the-root-folder-i.e." class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="the-root-folder-i.e."><span class="header-section-number">13.4</span> The “root” folder, i.e.&nbsp;/</h2>
 <p>Most folders are contained in other “higher level” folders. The “top” level folder on a computer is known as the “root” folder and is referred to as just “/”. The root folder (i.e.&nbsp;/) is not contained in any other folder.</p>
-<section id="yr-full-path" class="level3" data-number="16.4.1">
-<h3 data-number="16.4.1" class="anchored" data-anchor-id="yr-full-path"><span class="header-section-number">16.4.1</span> full path</h3>
+<section id="yr-full-path" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="yr-full-path"><span class="header-section-number">13.4.1</span> full path</h3>
 <p>A full path of a file (or folder) specifies the EXACT location of the file (or folder) on a computer, i.e.&nbsp;<em>exactly</em> which folder contains the file (or folder).</p>
 <p>(see below for an exmaple)</p>
 <p>A full path always starts with a slash, i.e.&nbsp;/</p>
@@ -775,8 +823,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="two-different-files-with-the-same-names" class="level3" data-number="16.4.2">
-<h3 data-number="16.4.2" class="anchored" data-anchor-id="two-different-files-with-the-same-names"><span class="header-section-number">16.4.2</span> two different files with the same names</h3>
+<section id="two-different-files-with-the-same-names" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="two-different-files-with-the-same-names"><span class="header-section-number">13.4.2</span> two different files with the same names</h3>
 <p>Just like two people named Sarah Johnson can live at different addresses (one in Chicago, one in New York), you can have two files with the same name in different directories (i.e.&nbsp;folders).</p>
 <p>For example, the following are the “full paths” for two different files with the same name, “budget.xlsx”. The full path helps you tell the two files apart by showing exactly where each file is located.</p>
 <ul>
@@ -800,15 +848,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="relative-paths-vs-full-paths" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="relative-paths-vs-full-paths"><span class="header-section-number">16.5</span> “relative paths” vs “full paths”</h2>
+<section id="relative-paths-vs-full-paths" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="relative-paths-vs-full-paths"><span class="header-section-number">13.5</span> “relative paths” vs “full paths”</h2>
 <p>Another way to describe which folder a file is in is to use what’s known as a “relative path”. We will describe “relative paths” in detail later. For now, we will stick to use “full paths” as described above. However, one thing should be made absolutely clear now:</p>
 <p>Difference between a “full path” and a “relative path”</p>
 <p><strong><em>A “full path” always starts with a “/”.</em></strong></p>
 <p>IMPORTANT: MAKE SURE THAT YOU KNOW THIS …</p>
 <p>Later, we will study another type of file path called a <strong><em>relative path</em></strong>. A realtive path is simiilar to a “full path” but a relative path does NOT start with a “/”. We’ll learn more about relative paths later and how they differ from full paths.</p>
-<section id="mac-and-linux-style-paths-vs-windows-style-paths" class="level3" data-number="16.5.1">
-<h3 data-number="16.5.1" class="anchored" data-anchor-id="mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">16.5.1</span> Mac and Linux style paths VS Windows style paths</h3>
+<section id="mac-and-linux-style-paths-vs-windows-style-paths" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="mac-and-linux-style-paths-vs-windows-style-paths"><span class="header-section-number">13.5.1</span> Mac and Linux style paths VS Windows style paths</h3>
 <p>Mac and Linux systems use forward slashes (/) as path separators - i.e.&nbsp; see the paths above, eg. /home/Joe/work/budget.xlsx</p>
 <p>Windows traditionally uses backslashes (\) as separators, like this:</p>
 <p>\\home\\Joe\\work\\budget.xlsx</p>
@@ -816,14 +864,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>However, since backslashes have a special meaning in R if you need to use Windows-style paths in R, you must use double backslashes (\), e.g.</p>
 <pre><code>dir_tree("\\home\\Joe\\work")</code></pre>
 </section>
-<section id="homejoe-maclinux-vs-usersjoe-win" class="level3" data-number="16.5.2">
-<h3 data-number="16.5.2" class="anchored" data-anchor-id="homejoe-maclinux-vs-usersjoe-win"><span class="header-section-number">16.5.2</span> /home/joe (Mac,Linux) vs /Users/joe (Win)</h3>
+<section id="homejoe-maclinux-vs-usersjoe-win" class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="homejoe-maclinux-vs-usersjoe-win"><span class="header-section-number">13.5.2</span> /home/joe (Mac,Linux) vs /Users/joe (Win)</h3>
 <p>On Mac, Windows and Linux, a user’s has a special folder known as their “home directory” or “User folder” that contains all of their files and folders.</p>
 <p>On Mac and Linux the “home directory” is usually named <code>/home/USER_NAME</code> (e.g.&nbsp;<code>/home/joe</code>)</p>
 <p>On Windows, the User folder is usually named <code>/Users/USER_NAME</code> (e.g.&nbsp;<code>/Users/joe</code>)</p>
 </section>
-<section id="windows-drive-letters" class="level3" data-number="16.5.3">
-<h3 data-number="16.5.3" class="anchored" data-anchor-id="windows-drive-letters"><span class="header-section-number">16.5.3</span> Windows drive letters</h3>
+<section id="windows-drive-letters" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="windows-drive-letters"><span class="header-section-number">13.5.3</span> Windows drive letters</h3>
 <p>Windows systems use letters (like C:, D:) at the start of paths to represent different drives or storage devices. The C: drive is typically your main hard drive where Windows is installed. Other letters might be additional hard drives, USB drives, or network drives.</p>
 <p>For example:</p>
 <pre><code>C:\Users\username\Documents\file.txt (your main hard drive)
@@ -832,8 +880,8 @@ E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
 <p>Mac and Linux systems don’t use drive letters. Instead, all hard drives are “mounted” as folders within the single root directory (/). For example, a USB drive might appear at /media/username/USB_DRIVE/. When working in R on Windows, you may need to include the drive letter at the start of full paths, like: “C:/Users/username/Documents/file.txt” (using forward slashes) or <code>"C:\Users\username\Documents\file.txt"</code> (using double backslashes)</p>
 </section>
 </section>
-<section id="dir-some_folder-same-as-list.files-some_folder" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="dir-some_folder-same-as-list.files-some_folder"><span class="header-section-number">16.6</span> dir( SOME_FOLDER ) # same as list.files( SOME_FOLDER )</h2>
+<section id="dir-some_folder-same-as-list.files-some_folder" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="dir-some_folder-same-as-list.files-some_folder"><span class="header-section-number">13.6</span> dir( SOME_FOLDER ) # same as list.files( SOME_FOLDER )</h2>
 <p>The dir() function displays the names of all files and folders in a particular directory (remember - “directory” and “folder” mean the same thing).</p>
 <p>dir() does exactly the same thing as list.files() - they’re just two names for the same function. Some people prefer dir() because it’s shorter to type. See ?dir</p>
 <p>For example the following shows the contents of a folder located at the specified full path.</p>
@@ -855,8 +903,8 @@ E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
 </div>
 </div>
 </section>
-<section id="the-working-directory-getwd-setwd-dir" class="level2" data-number="16.7">
-<h2 data-number="16.7" class="anchored" data-anchor-id="the-working-directory-getwd-setwd-dir"><span class="header-section-number">16.7</span> The “working directory”, getwd(), setwd(), dir()</h2>
+<section id="the-working-directory-getwd-setwd-dir" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="the-working-directory-getwd-setwd-dir"><span class="header-section-number">13.7</span> The “working directory”, getwd(), setwd(), dir()</h2>
 <p>R maintains a “working directory” - i.e.&nbsp;a default directory - that is used when you don’t otherwise specify a path. For example, if you call dir() without a path, the listing shows the files in the “working directory” (see the example below).</p>
 <p>The getwd() function returns the full path of the “working directory”.</p>
 <div class="cell">
@@ -898,12 +946,12 @@ E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
 <pre><code>[1] "bashShellScripts" "mixOfFiles"       "personal"        </code></pre>
 </div>
 </div>
-<section id="specifying-a-pattern-to-dir" class="level3" data-number="16.7.1">
-<h3 data-number="16.7.1" class="anchored" data-anchor-id="specifying-a-pattern-to-dir"><span class="header-section-number">16.7.1</span> Specifying a pattern to dir</h3>
+<section id="specifying-a-pattern-to-dir" class="level3" data-number="13.7.1">
+<h3 data-number="13.7.1" class="anchored" data-anchor-id="specifying-a-pattern-to-dir"><span class="header-section-number">13.7.1</span> Specifying a pattern to dir</h3>
 <p>Later we will learn more about “regular expressions”.</p>
 </section>
-<section id="summary---different-ways-of-using-dir-function" class="level3" data-number="16.7.2">
-<h3 data-number="16.7.2" class="anchored" data-anchor-id="summary---different-ways-of-using-dir-function"><span class="header-section-number">16.7.2</span> Summary - different ways of using dir function:</h3>
+<section id="summary---different-ways-of-using-dir-function" class="level3" data-number="13.7.2">
+<h3 data-number="13.7.2" class="anchored" data-anchor-id="summary---different-ways-of-using-dir-function"><span class="header-section-number">13.7.2</span> Summary - different ways of using dir function:</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set the working directory</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/home/yitz/Downloads/myFiles"</span>)</span>
@@ -939,8 +987,8 @@ E:\Photos\vacation.jpg (could be a USB drive)</code></pre>
 </div>
 </div>
 </section>
-<section id="other-r-functions-also-use-the-working-directory" class="level3" data-number="16.7.3">
-<h3 data-number="16.7.3" class="anchored" data-anchor-id="other-r-functions-also-use-the-working-directory"><span class="header-section-number">16.7.3</span> Other R functions also use the “working directory”</h3>
+<section id="other-r-functions-also-use-the-working-directory" class="level3" data-number="13.7.3">
+<h3 data-number="13.7.3" class="anchored" data-anchor-id="other-r-functions-also-use-the-working-directory"><span class="header-section-number">13.7.3</span> Other R functions also use the “working directory”</h3>
 <p>There are many R functions that work with files or folders. dir() is just one exmple. Some other examples are read.csv(), write.csv(), readLines(), writeLines(), read.fwf(), etc as well as most of the functions in the “fs” package.</p>
 <p>Most (if not all) of these functions allow you to leave out the path information when you call the function. If you don’t specify the path then R uses the “working directory” as the path.</p>
 <!-- YR DUPLICATE ???
@@ -979,43 +1027,43 @@ If you give it an invalid path, it will give you an error message.
 -->
 </section>
 </section>
-<section id="finding-a-full-path-to-a-specific-file" class="level2" data-number="16.8">
-<h2 data-number="16.8" class="anchored" data-anchor-id="finding-a-full-path-to-a-specific-file"><span class="header-section-number">16.8</span> Finding a full path to a specific file</h2>
+<section id="finding-a-full-path-to-a-specific-file" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="finding-a-full-path-to-a-specific-file"><span class="header-section-number">13.8</span> Finding a full path to a specific file</h2>
 <p>You can do this with the built in Windows or Mac tools or by using R functions.</p>
-<section id="using-file-explorer-win-or-finder-mac" class="level3" data-number="16.8.1">
-<h3 data-number="16.8.1" class="anchored" data-anchor-id="using-file-explorer-win-or-finder-mac"><span class="header-section-number">16.8.1</span> Using “File Explorer” (win) or “Finder” (mac)</h3>
+<section id="using-file-explorer-win-or-finder-mac" class="level3" data-number="13.8.1">
+<h3 data-number="13.8.1" class="anchored" data-anchor-id="using-file-explorer-win-or-finder-mac"><span class="header-section-number">13.8.1</span> Using “File Explorer” (win) or “Finder” (mac)</h3>
 <p>To find the full path for a file, navigate to it using the “Finder” app on Mac or the “File Explorer” app on Windows. Each of these tools have a way to show you the full path to the file. These features keep changing with different releases of each operating system. Therefore you should search online for how to find the full path of a file using your specific operating system version. The following are some videos that <em>might</em> work for your operating system. If they don’t please search online for specific instructions for your operating system.</p>
 <ul>
 <li><p>Windows 10 - <a href="https://www.youtube.com/watch?v=QZUpzuQ0X5I" class="uri">https://www.youtube.com/watch?v=QZUpzuQ0X5I</a></p></li>
 <li><p>Mac - <a href="https://www.youtube.com/watch?v=Z70-MqAd8oU" class="uri">https://www.youtube.com/watch?v=Z70-MqAd8oU</a></p></li>
 </ul>
 </section>
-<section id="using-the-file.choose-or-choose.files-r-functions" class="level3" data-number="16.8.2">
-<h3 data-number="16.8.2" class="anchored" data-anchor-id="using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">16.8.2</span> Using the file.choose() or choose.files() R functions</h3>
+<section id="using-the-file.choose-or-choose.files-r-functions" class="level3" data-number="13.8.2">
+<h3 data-number="13.8.2" class="anchored" data-anchor-id="using-the-file.choose-or-choose.files-r-functions"><span class="header-section-number">13.8.2</span> Using the file.choose() or choose.files() R functions</h3>
 <p>See the R documentation for <code>?file.choose</code> and <code>?choose.files</code>.</p>
 <p>These commands open up a window that allows you to choose a file (or files). When you finally select the file (or files) the full path is returned to R.</p>
 <p><strong>IMPORTANT</strong>* - The window that opens in response to calling file.choose() or choose.files() can sometimes open up “in back of” RStudio or other programs. This seems to be a bug. If you don’t see the window for choosing the files try minimizing the RStudio window (and possibly other windows) and see if there is a file chooser window in back of RStudio (or other programs).</p>
 </section>
-<section id="finding-a-full-path-to-a-special-folder" class="level3" data-number="16.8.3">
-<h3 data-number="16.8.3" class="anchored" data-anchor-id="finding-a-full-path-to-a-special-folder"><span class="header-section-number">16.8.3</span> Finding a full path to a “Special folder”</h3>
+<section id="finding-a-full-path-to-a-special-folder" class="level3" data-number="13.8.3">
+<h3 data-number="13.8.3" class="anchored" data-anchor-id="finding-a-full-path-to-a-special-folder"><span class="header-section-number">13.8.3</span> Finding a full path to a “Special folder”</h3>
 <p>To find the full path for a file, navigate to it using the “Finder” app on Mac or the “File Explorer” app on Windows. Each of these tools have a way to show you the full path to the file.</p>
 </section>
 </section>
-<section id="functions-to-read-and-write-files-in-base-r" class="level2" data-number="16.9">
-<h2 data-number="16.9" class="anchored" data-anchor-id="functions-to-read-and-write-files-in-base-r"><span class="header-section-number">16.9</span> functions to read and write files in “Base R”</h2>
+<section id="functions-to-read-and-write-files-in-base-r" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="functions-to-read-and-write-files-in-base-r"><span class="header-section-number">13.9</span> functions to read and write files in “Base R”</h2>
 <p>R has numerous functions that allow reading files and writing to files (i.e.&nbsp;creating or modifying files). The following are built into R “out of the box” (i.e.&nbsp;the “base R”).</p>
 <p>For help with these functions see the R documentation (i.e.&nbsp;?functionName)</p>
-<section id="readlines-writelines" class="level3" data-number="16.9.1">
-<h3 data-number="16.9.1" class="anchored" data-anchor-id="readlines-writelines"><span class="header-section-number">16.9.1</span> readLines, writeLines</h3>
+<section id="readlines-writelines" class="level3" data-number="13.9.1">
+<h3 data-number="13.9.1" class="anchored" data-anchor-id="readlines-writelines"><span class="header-section-number">13.9.1</span> readLines, writeLines</h3>
 <p>These functions read and write lines of a file into/out-of a character vector.</p>
 </section>
-<section id="read.csv-write.csv" class="level3" data-number="16.9.2">
-<h3 data-number="16.9.2" class="anchored" data-anchor-id="read.csv-write.csv"><span class="header-section-number">16.9.2</span> read.csv, write.csv</h3>
+<section id="read.csv-write.csv" class="level3" data-number="13.9.2">
+<h3 data-number="13.9.2" class="anchored" data-anchor-id="read.csv-write.csv"><span class="header-section-number">13.9.2</span> read.csv, write.csv</h3>
 <p>read.csv: reads a .csv file into R as a data.frame</p>
 <p>write.csv: write a dataframe to a csv file</p>
 </section>
-<section id="read.fwf" class="level3" data-number="16.9.3">
-<h3 data-number="16.9.3" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">16.9.3</span> read.fwf</h3>
+<section id="read.fwf" class="level3" data-number="13.9.3">
+<h3 data-number="13.9.3" class="anchored" data-anchor-id="read.fwf"><span class="header-section-number">13.9.3</span> read.fwf</h3>
 <p>read a “fixed width file” into a data.frame. A “fixed width file” is different from a CSV file. A CSV file separates the data with commas. A “fixed width file” places each column of data in a “fixed width”. See the example below. Each column of info is typed into a specific number of spaces. If a data value is shorter than the width of the field for it’s column then the rest of the info in the column is filled in with spaces. Note that you need to use a monospace font in your editor to view this type of information in the way it was intended.</p>
 <p>Example: notice how each piece of data is padded with spaces if it doesn’t take up the entire space for the column.</p>
 <pre><code>student        year       test1  test2   
@@ -1025,12 +1073,12 @@ bartholemeu    sophomore  77     65
 ike            senior     82     81</code></pre>
 </section>
 </section>
-<section id="fs-package-a-non-core-part-of-the-tidyverse" class="level2" data-number="16.10">
-<h2 data-number="16.10" class="anchored" data-anchor-id="fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">16.10</span> fs package (a non-core part of “the tidyverse”)</h2>
+<section id="fs-package-a-non-core-part-of-the-tidyverse" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="fs-package-a-non-core-part-of-the-tidyverse"><span class="header-section-number">13.10</span> fs package (a non-core part of “the tidyverse”)</h2>
 <p>The fs package provides modern file system operations in R. It makes working with files and folders more consistent across operating systems (Windows, Mac, Linux) and safer than base R functions. Think of it as a toolkit for handling files - copying, moving, creating directories, checking paths, and viewing directory structures. All functions start with clear prefixes like file_ or dir_ which makes them easy to remember and use.</p>
 <p>Install the “fs” package with: install.packages(“fs”)</p>
-<section id="dir_ls-function" class="level3" data-number="16.10.1">
-<h3 data-number="16.10.1" class="anchored" data-anchor-id="dir_ls-function"><span class="header-section-number">16.10.1</span> dir_ls() function</h3>
+<section id="dir_ls-function" class="level3" data-number="13.10.1">
+<h3 data-number="13.10.1" class="anchored" data-anchor-id="dir_ls-function"><span class="header-section-number">13.10.1</span> dir_ls() function</h3>
 <p>This works similarly to the dir() funciton in Base R. However, dir_ls() allows you to get much more information about each file, e.g.</p>
 <ul>
 <li>size of the file</li>
@@ -1040,8 +1088,8 @@ ike            senior     82     81</code></pre>
 </ul>
 <p>See the R documentation (i.e.&nbsp;?fs::dir_ls after you’ve already installed the fs package with install.packages(“fs”).</p>
 </section>
-<section id="dir_tree" class="level3" data-number="16.10.2">
-<h3 data-number="16.10.2" class="anchored" data-anchor-id="dir_tree"><span class="header-section-number">16.10.2</span> dir_tree</h3>
+<section id="dir_tree" class="level3" data-number="13.10.2">
+<h3 data-number="13.10.2" class="anchored" data-anchor-id="dir_tree"><span class="header-section-number">13.10.2</span> dir_tree</h3>
 <p>dir_tree() from the fs package displays a directory structure in a visual tree format, similar to how you might see folders indented in a file explorer. It shows the hierarchy of files and folders using lines and indentation. For example, if you run:</p>
 <pre><code>fs::dir_tree("my_project")</code></pre>
 <p>It might show something like:</p>
@@ -1055,8 +1103,8 @@ ike            senior     82     81</code></pre>
 └── README.md</code></pre>
 <p>This makes it easy to visualize how your files and folders are organized. The vertical and horizontal lines show how everything connects, and each level of folders is indented further to the right.</p>
 </section>
-<section id="other-functions-in-the-fs-package" class="level3" data-number="16.10.3">
-<h3 data-number="16.10.3" class="anchored" data-anchor-id="other-functions-in-the-fs-package"><span class="header-section-number">16.10.3</span> Other functions in the fs package</h3>
+<section id="other-functions-in-the-fs-package" class="level3" data-number="13.10.3">
+<h3 data-number="13.10.3" class="anchored" data-anchor-id="other-functions-in-the-fs-package"><span class="header-section-number">13.10.3</span> Other functions in the fs package</h3>
 <p>The fs package provides modern, user-friendly functions for working with files. Here are some commonly used ones:</p>
 <p>fs::dir_ls() - Lists directory contents (similar to dir() and list.files())</p>
 <p>fs::dir_create() - Creates directories, can create multiple levels at once</p>
@@ -1119,12 +1167,12 @@ data/raw/myfile.csv
 -->
 </section>
 </section>
-<section id="readlines-and-writelines-to-readwrite-lines-of-text-files" class="level2" data-number="16.11">
-<h2 data-number="16.11" class="anchored" data-anchor-id="readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">16.11</span> readLines() and writeLines() to read/write lines of text files</h2>
+<section id="readlines-and-writelines-to-readwrite-lines-of-text-files" class="level2" data-number="13.11">
+<h2 data-number="13.11" class="anchored" data-anchor-id="readlines-and-writelines-to-readwrite-lines-of-text-files"><span class="header-section-number">13.11</span> readLines() and writeLines() to read/write lines of text files</h2>
 <p>These are built into <code>Base R</code>. see the R documentation</p>
 </section>
-<section id="read_csv-and-write_csv" class="level2" data-number="16.12">
-<h2 data-number="16.12" class="anchored" data-anchor-id="read_csv-and-write_csv"><span class="header-section-number">16.12</span> read_csv and write_csv</h2>
+<section id="read_csv-and-write_csv" class="level2" data-number="13.12">
+<h2 data-number="13.12" class="anchored" data-anchor-id="read_csv-and-write_csv"><span class="header-section-number">13.12</span> read_csv and write_csv</h2>
 <p>read_csv() and write_csv() from the readr package are the standard functions for working with CSV files in modern R: read_csv() loads a CSV file into R as a data frame:</p>
 <pre><code>data &lt;- read_csv("myfile.csv")</code></pre>
 <p>write_csv() saves a data frame to a CSV file:</p>
@@ -1132,8 +1180,8 @@ data/raw/myfile.csv
 <p>These functions are faster and have better defaults than the older read.csv() and write.csv() functions from base R. They automatically handle common issues like string encoding and they don’t add row numbers to your output files.</p>
 <p>You’ll need the readr package installed and loaded to use them: library(readr) (though readr is automatically loaded if you use the tidyverse).</p>
 </section>
-<section id="readwrite-excel-files" class="level2" data-number="16.13">
-<h2 data-number="16.13" class="anchored" data-anchor-id="readwrite-excel-files"><span class="header-section-number">16.13</span> Read/Write Excel files</h2>
+<section id="readwrite-excel-files" class="level2" data-number="13.13">
+<h2 data-number="13.13" class="anchored" data-anchor-id="readwrite-excel-files"><span class="header-section-number">13.13</span> Read/Write Excel files</h2>
 <p>To work with Excel files in R, you’ll need either the readxl package (for reading) or the writexl package (for writing): Reading Excel files:</p>
 <pre><code>library(readxl)
 data &lt;- read_excel("myfile.xlsx")
@@ -1145,8 +1193,8 @@ data &lt;- read_excel("myfile.xlsx", sheet = "Sheet2")</code></pre>
 write_xlsx(data, "output.xlsx")</code></pre>
 <p>Note that readxl comes with the tidyverse, but writexl needs to be installed separately. These functions work with both newer .xlsx and older .xls files.</p>
 </section>
-<section id="reading-fixed-width-field-files" class="level2" data-number="16.14">
-<h2 data-number="16.14" class="anchored" data-anchor-id="reading-fixed-width-field-files"><span class="header-section-number">16.14</span> Reading fixed width field files</h2>
+<section id="reading-fixed-width-field-files" class="level2" data-number="13.14">
+<h2 data-number="13.14" class="anchored" data-anchor-id="reading-fixed-width-field-files"><span class="header-section-number">13.14</span> Reading fixed width field files</h2>
 <p>Use read_fwf() from the readr package (part of tidyverse) to read fixed-width files where each column takes up a specific number of characters. You specify the width of each field:</p>
 <pre><code>library(readr)
 
@@ -1186,10 +1234,10 @@ employees &lt;- read_fwf("employees.txt",
 # 2 98765  Mary Johnson       456 Oak Ave        
 # 3 54321  Bob Wilson         789 Pine Rd</code></pre>
 </section>
-<section id="capture-output-of-r-commands" class="level2" data-number="16.15">
-<h2 data-number="16.15" class="anchored" data-anchor-id="capture-output-of-r-commands"><span class="header-section-number">16.15</span> Capture output of R commands</h2>
-<section id="capture.outputsomecommand-filesomefile.txt" class="level3" data-number="16.15.1">
-<h3 data-number="16.15.1" class="anchored" data-anchor-id="capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">16.15.1</span> capture.output(someCommand, file=“someFile.txt”)</h3>
+<section id="capture-output-of-r-commands" class="level2" data-number="13.15">
+<h2 data-number="13.15" class="anchored" data-anchor-id="capture-output-of-r-commands"><span class="header-section-number">13.15</span> Capture output of R commands</h2>
+<section id="capture.outputsomecommand-filesomefile.txt" class="level3" data-number="13.15.1">
+<h3 data-number="13.15.1" class="anchored" data-anchor-id="capture.outputsomecommand-filesomefile.txt"><span class="header-section-number">13.15.1</span> capture.output(someCommand, file=“someFile.txt”)</h3>
 <p>To save or “capture” the output from an R command, you can use the capture.output() function. It lets you store text output in a file or in a character vector:</p>
 <pre><code># Save to a file:
 capture.output(summary(mydata), file = "output.txt")
@@ -1198,8 +1246,8 @@ capture.output(summary(mydata), file = "output.txt")
 my_output &lt;- capture.output(summary(mydata))</code></pre>
 </section>
 </section>
-<section id="sinksomefile-sink" class="level2" data-number="16.16">
-<h2 data-number="16.16" class="anchored" data-anchor-id="sinksomefile-sink"><span class="header-section-number">16.16</span> sink(“someFile”), sink()</h2>
+<section id="sinksomefile-sink" class="level2" data-number="13.16">
+<h2 data-number="13.16" class="anchored" data-anchor-id="sinksomefile-sink"><span class="header-section-number">13.16</span> sink(“someFile”), sink()</h2>
 <p>The sink() function is another option - it redirects all output to a file until you turn it off:</p>
 <pre><code>sink("output.txt")
 print(summary(mydata))
@@ -1615,13 +1663,13 @@ sink()  # turns off the redirection</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./0400200-stringr-tutorials-v003.html" class="pagination-link" aria-label="<yrChapterNumber>15. </yrChapterNumber> stringr tutorial">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><yrchapternumber>15. </yrchapternumber> stringr tutorial</span></span>
+      <a href="./0400200-stringr-tutorials-v003.html" class="pagination-link" aria-label="<yrChapterNumber>12. </yrChapterNumber> stringr tutorial">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><yrchapternumber>12. </yrchapternumber> stringr tutorial</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./0000075-whatIsJsonData.html" class="pagination-link" aria-label="<yrChapterNumber>17. </yrChapterNumber> Intro to JSON data">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><yrchapternumber>17. </yrchapternumber> Intro to JSON data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./0200200-a-introToRegularExpressions-v036.html" class="pagination-link" aria-label="<yrChapterNumber>14. </yrChapterNumber> Intro to Regular Expressions (regex)">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><yrchapternumber>14. </yrchapternumber> Intro to Regular Expressions (regex)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
