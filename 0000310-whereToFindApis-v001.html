@@ -749,7 +749,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="64"><span class="header-section-number">64</span> How to use APIs</h1>
 <p>See this video <a href="https://www.youtube.com/watch?v=8tilyqp4bZY" class="uri">https://www.youtube.com/watch?v=8tilyqp4bZY</a></p>
 <p>You can use the curl command line tool to get info from the APIs too.</p>
-<p><strong><em>Note that the following was compiled circa March 2026.</em></strong></p>
+<p><strong><em>Note that the following was compiled circa April 2026.</em></strong></p>
 <p>There is a incredible amount of data that can be accessed online by using an API. Some APIs are free to use but many will require some form of payment. Unfortunately, every API has its own set of rules and regulations. You must read the documentation for each API to understand what type of data is available through the API, how to use the API and how much it may cost.</p>
 <p>In the past it was possible to go to “API Directory” website and “API Hubs” to find APIs. For example, see the following.</p>
 <ul>
@@ -793,23 +793,15 @@ logical.return = TRUE, : there is no package called 'rvest'</code></pre>
 (as 'lib' is unspecified)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>also installing the dependencies 'curl', 'httr', 'xml2'</code></pre>
+<pre><code>Warning: unable to access index for repository https://cloud.r-project.org/src/contrib:
+  cannot open URL 'https://cloud.r-project.org/src/contrib/PACKAGES'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in install.packages("rvest"): installation of package 'curl' had
-non-zero exit status</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in install.packages("rvest"): installation of package 'xml2' had
-non-zero exit status</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in install.packages("rvest"): installation of package 'httr' had
-non-zero exit status</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in install.packages("rvest"): installation of package 'rvest' had
-non-zero exit status</code></pre>
+<pre><code>Warning: package 'rvest' is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: rvest</code></pre>
@@ -818,29 +810,29 @@ non-zero exit status</code></pre>
 <pre><code>Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
 logical.return = TRUE, : there is no package called 'rvest'</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://cran.r-project.org/web/packages/available_packages_by_name.html"</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">read_html</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">=</span> <span class="st">"https://cran.r-project.org/web/packages/available_packages_by_name.html"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>page <span class="ot">=</span> <span class="fu">read_html</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in read_html(url): could not find function "read_html"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">=</span> <span class="fu">html_elements</span>(page, <span class="st">"table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">=</span> <span class="fu">html_elements</span>(page, <span class="st">"table"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in html_elements(page, "table"): could not find function "html_elements"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">html_table</span>(tables[[<span class="dv">1</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">as.data.frame</span>(<span class="fu">html_table</span>(tables[[<span class="dv">1</span>]]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in html_table(tables[[1]]): could not find function "html_table"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pkgs) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"package"</span>, <span class="st">"description"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pkgs) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"package"</span>, <span class="st">"description"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: object 'pkgs' not found</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">=</span> <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"package"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">|</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"description"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">=</span> <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"package"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>) <span class="sc">|</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">grepl</span>(<span class="st">"API"</span>, pkgs[,<span class="st">"description"</span>], <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: object 'pkgs' not found</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>numberOfApiPackages <span class="ot">=</span> <span class="fu">sum</span>(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>numberOfApiPackages <span class="ot">=</span> <span class="fu">sum</span>(rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: object 'rows' not found</code></pre>
 </div>
