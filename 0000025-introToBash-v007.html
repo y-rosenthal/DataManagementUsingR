@@ -686,12 +686,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#removing-files" id="toc-removing-files" class="nav-link" data-scroll-target="#removing-files"><span class="header-section-number">6.3</span> Removing files</a></li>
   <li><a href="#creating-files-using-and" id="toc-creating-files-using-and" class="nav-link" data-scroll-target="#creating-files-using-and"><span class="header-section-number">6.4</span> creating files using &gt; and &gt;&gt;</a></li>
   <li><a href="#working-with-bash-variables" id="toc-working-with-bash-variables" class="nav-link" data-scroll-target="#working-with-bash-variables"><span class="header-section-number">6.5</span> Working with BASH variables</a></li>
-  <li><a href="#material-that-is-not-on-the-midterm" id="toc-material-that-is-not-on-the-midterm" class="nav-link" data-scroll-target="#material-that-is-not-on-the-midterm"><span class="header-section-number">6.6</span> Material that is NOT on the midterm</a>
+  <li><a href="#some-more-commands" id="toc-some-more-commands" class="nav-link" data-scroll-target="#some-more-commands"><span class="header-section-number">6.6</span> Some more commands</a></li>
+  <li><a href="#additional-commands-that-can-also-be-used-as-filters-in-a-pipeline" id="toc-additional-commands-that-can-also-be-used-as-filters-in-a-pipeline" class="nav-link" data-scroll-target="#additional-commands-that-can-also-be-used-as-filters-in-a-pipeline"><span class="header-section-number">6.7</span> Additional commands that can also be used as filters in a pipeline</a></li>
+  <li><a href="#material-that-is-not-on-the-midterm" id="toc-material-that-is-not-on-the-midterm" class="nav-link" data-scroll-target="#material-that-is-not-on-the-midterm"><span class="header-section-number">6.8</span> Material that is NOT on the midterm</a>
   <ul class="collapse">
-  <li><a href="#working-with-tar-files" id="toc-working-with-tar-files" class="nav-link" data-scroll-target="#working-with-tar-files"><span class="header-section-number">6.6.1</span> Working with “tar” files</a></li>
-  <li><a href="#some-more-commands---search-online-for-info-about-these" id="toc-some-more-commands---search-online-for-info-about-these" class="nav-link" data-scroll-target="#some-more-commands---search-online-for-info-about-these"><span class="header-section-number">6.6.2</span> SOME MORE COMMANDS - search online for info about these</a></li>
+  <li><a href="#working-with-tar-files" id="toc-working-with-tar-files" class="nav-link" data-scroll-target="#working-with-tar-files"><span class="header-section-number">6.8.1</span> Working with “tar” files</a></li>
+  <li><a href="#some-more-commands---search-online-for-info-about-these" id="toc-some-more-commands---search-online-for-info-about-these" class="nav-link" data-scroll-target="#some-more-commands---search-online-for-info-about-these"><span class="header-section-number">6.8.2</span> SOME MORE COMMANDS - search online for info about these</a></li>
   </ul></li>
-  <li><a href="#launch-vscode-from-bash-on-windows" id="toc-launch-vscode-from-bash-on-windows" class="nav-link" data-scroll-target="#launch-vscode-from-bash-on-windows"><span class="header-section-number">6.7</span> Launch VSCode from Bash (on Windows)</a></li>
+  <li><a href="#launch-vscode-from-bash-on-windows" id="toc-launch-vscode-from-bash-on-windows" class="nav-link" data-scroll-target="#launch-vscode-from-bash-on-windows"><span class="header-section-number">6.9</span> Launch VSCode from Bash (on Windows)</a></li>
   </ul>
 </nav>
     </div>
@@ -796,40 +798,58 @@ ONCE YOU’VE REMOVED A FILE/FOLDER YOU CANNOT GET IT BACK!</p>
 <li><p>echo $VARIABLE - show the value of a specific variable</p>
 <p>For an example see see <a href="0000013-HowToRunTheBashShellCli-v011.html#sec-bashPrompt" class="quarto-xref"><span>Section 5.2</span></a> for info about the PS1 variable</p></li>
 </ul>
+</section>
+<section id="some-more-commands" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="some-more-commands"><span class="header-section-number">6.6</span> Some more commands</h2>
+<ul>
+<li><p>touch SOME_FILE - update the timestamp of the file OR create the file if it didn’t exist</p></li>
+<li><p>chmod PERMISSIONS FILE_OR_DIR_NAMES - change the permissions of a files or directories</p></li>
+</ul>
+</section>
+<section id="additional-commands-that-can-also-be-used-as-filters-in-a-pipeline" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="additional-commands-that-can-also-be-used-as-filters-in-a-pipeline"><span class="header-section-number">6.7</span> Additional commands that can also be used as filters in a pipeline</h2>
+<p>Many of the commands in Bash can be used either directly on files or as “filters” in a pipeline. For example see wc command below.</p>
+<ul>
+<li><p>grep REGEX_PATTERN SOME_FILES - display lines from the files that match the REGEX_PATTERN</p></li>
+<li><p>SOME_COMMAND | grep REGEX_PATTERN - display only lines of output from SOME_COMMAND that match the REGEX_PATTERN</p></li>
+<li><p>wc SOME_FILE - count words, lines, sybols in a file</p></li>
+<li><p>wc -l SOME_FILE - -l option shows just the number of lines</p></li>
+<li><p>SOME_COMMAND | wc - count words, lines, symbols in the output of a command</p></li>
+<li><p>head SOME_FILE - show first few lines of a file</p></li>
+<li><p>SOME_COMMAND | head - show first few lines of output from SOME_COMMAND</p></li>
+<li><p>tail SOME_FILE - show last few lines of a file</p></li>
+<li><p>SOME_COMMAND | tail - show last few lines of output from SOME_COMMAND</p></li>
+<li><p>sort SOME_FILE - display the lines in the file in sorted order</p></li>
+<li><p>SOME_COMMAND | sort - sort the output of the command</p></li>
+<li><p>uniq SOME_FILE - display the unique lines of the file (file must be sorted first)</p></li>
+<li><p>SOME_COMMAND | uniq - display the unique lines of output (consecutive, duplicate lines are removed from output)</p></li>
+</ul>
 <hr>
 </section>
-<section id="material-that-is-not-on-the-midterm" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="material-that-is-not-on-the-midterm"><span class="header-section-number">6.6</span> Material that is NOT on the midterm</h2>
-<section id="working-with-tar-files" class="level3" data-number="6.6.1">
-<h3 data-number="6.6.1" class="anchored" data-anchor-id="working-with-tar-files"><span class="header-section-number">6.6.1</span> Working with “tar” files</h3>
+<section id="material-that-is-not-on-the-midterm" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="material-that-is-not-on-the-midterm"><span class="header-section-number">6.8</span> Material that is NOT on the midterm</h2>
+<section id="working-with-tar-files" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="working-with-tar-files"><span class="header-section-number">6.8.1</span> Working with “tar” files</h3>
 <p>“tar” files are similar to zip files but tar files are not “compressed”. “tar” files are popular mostly on Linux computers while “zip” files are popular on all computer platforms.</p>
 <ul>
 <li>tar - create or extract a tar archive</li>
 </ul>
 </section>
-<section id="some-more-commands---search-online-for-info-about-these" class="level3" data-number="6.6.2">
-<h3 data-number="6.6.2" class="anchored" data-anchor-id="some-more-commands---search-online-for-info-about-these"><span class="header-section-number">6.6.2</span> SOME MORE COMMANDS - search online for info about these</h3>
+<section id="some-more-commands---search-online-for-info-about-these" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="some-more-commands---search-online-for-info-about-these"><span class="header-section-number">6.8.2</span> SOME MORE COMMANDS - search online for info about these</h3>
 <ul>
-<li><p>wc - count words, lines, symbols in a file</p></li>
-<li><p>head - show first few lines of a file</p></li>
-<li><p>tail - show last few lines of a file</p></li>
-<li><p>sort</p></li>
-<li><p>uniq</p></li>
 <li><p>cut</p></li>
 <li><p>paste</p></li>
 <li><p>curl - download files from the Internet</p></li>
-<li><p>touch SOME_FILE - update the timestamp of the file OR create the file if it didn’t exist</p></li>
 <li><p>less (or “more” depending on your system) - display the contents of a file one page at a time</p></li>
-<li><p>grep - search for a specific string of text in a file or multiple files</p></li>
 <li><p>find - search for files and directories in a file system</p></li>
-<li><p>chmod - change the permissions of a file or directory</p></li>
 <li><p>chown - change the ownership of a file or directory</p></li>
 <li><p>history - display a list of previously executed commands</p></li>
 </ul>
 </section>
 </section>
-<section id="launch-vscode-from-bash-on-windows" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="launch-vscode-from-bash-on-windows"><span class="header-section-number">6.7</span> Launch VSCode from Bash (on Windows)</h2>
+<section id="launch-vscode-from-bash-on-windows" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="launch-vscode-from-bash-on-windows"><span class="header-section-number">6.9</span> Launch VSCode from Bash (on Windows)</h2>
 <p>VSCode is a popular text editor. To launch VSCode directly from Bash on Windows, you can use the following commands directly from Bash. While VSCode is also popular on Mac, unfortunately the following commands do now work on Macs.</p>
 <ul>
 <li><p>code - launch the VSCode text editor program (if you’ve installed it)</p></li>
